@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'jdav_sv'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_jdavsv_domain_model_event">Event</label>
+			<label index="tx_jdavsv_domain_model_event.titel">Titel</label>
+			<label index="tx_jdavsv_domain_model_event.subtitle">Subtitle</label>
+			<label index="tx_jdavsv_domain_model_event.description">Description</label>
+			<label index="tx_jdavsv_domain_model_event.date_start">Date Start</label>
+			<label index="tx_jdavsv_domain_model_event.date_end">Date End</label>
+			<label index="tx_jdavsv_domain_model_event.duration">Duration</label>
+			<label index="tx_jdavsv_domain_model_event.place">Place</label>
+			<label index="tx_jdavsv_domain_model_event.travelling">Travelling</label>
+			<label index="tx_jdavsv_domain_model_event.accreditation_number">Accreditation Number</label>
+			<label index="tx_jdavsv_domain_model_event.requirements">Requirements</label>
+			<label index="tx_jdavsv_domain_model_event.contents">Contents</label>
+			<label index="tx_jdavsv_domain_model_event.education_objective">Education Objective</label>
+			<label index="tx_jdavsv_domain_model_event.first_teamer">First Teamer</label>
+			<label index="tx_jdavsv_domain_model_event.second_teamer">Second Teamer</label>
+			<label index="tx_jdavsv_domain_model_event.trainee">Trainee</label>
+			<label index="tx_jdavsv_domain_model_event.kitchen_group">Kitchen Group</label>
+			<label index="tx_jdavsv_domain_model_event.price">Price</label>
+			<label index="tx_jdavsv_domain_model_event.max_registrations">Max Registrations</label>
+			<label index="tx_jdavsv_domain_model_event.min_registrations">Min Registrations</label>
+			<label index="tx_jdavsv_domain_model_event.att_teamer_ratio">Att Teamer Ratio</label>
+			<label index="tx_jdavsv_domain_model_event.announcement">Announcement</label>
+			<label index="tx_jdavsv_domain_model_event.tour_report_required">Tour Report Required</label>
+			<label index="tx_jdavsv_domain_model_event.registration_deadline">Registration Deadline</label>
+			<label index="tx_jdavsv_domain_model_event.accomodation">Accomodation</label>
+			<label index="tx_jdavsv_domain_model_event.catering">Catering</label>
+			<label index="tx_jdavsv_domain_model_event.state">State</label>
+			<label index="tx_jdavsv_domain_model_event.registrations">Registrations</label>
+			<label index="tx_jdavsv_domain_model_event.category">Category</label>
+			<label index="tx_jdavsv_domain_model_event.fee">Fee</label>
+			<label index="tx_jdavsv_domain_model_registration">Registration</label>
+			<label index="tx_jdavsv_domain_model_category">Category</label>
+			<label index="tx_jdavsv_domain_model_eventstate">Event State</label>
+			<label index="tx_jdavsv_domain_model_eventcategoryregistrationstate">Event Category Registration State</label>
+			<label index="tx_jdavsv_domain_model_registrationstate">Registration State</label>
+			<label index="tx_jdavsv_domain_model_accommodation">Accommodation</label>
+			<label index="tx_jdavsv_domain_model_catering">Catering</label>
+			<label index="tx_jdavsv_domain_model_eventfee">Event Fee</label>
+		</languageKey>
+	</data>
+</T3locallang>

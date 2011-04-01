@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the JDAV Schulungsverwaltung extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_jdavsv_domain_model_event">Event</label>
+			<label index="tx_jdavsv_domain_model_event.titel">Event's title</label>
+			<label index="tx_jdavsv_domain_model_event.subtitle">Event's subtitle</label>
+			<label index="tx_jdavsv_domain_model_event.description">Event's description</label>
+			<label index="tx_jdavsv_domain_model_event.date_start">When does event start</label>
+			<label index="tx_jdavsv_domain_model_event.date_end">When does event end</label>
+			<label index="tx_jdavsv_domain_model_event.duration">Length of event (in days)</label>
+			<label index="tx_jdavsv_domain_model_event.place">Where does event take place</label>
+			<label index="tx_jdavsv_domain_model_event.travelling">How is the place reached where event takes place</label>
+			<label index="tx_jdavsv_domain_model_event.accreditation_number">Internal identifier for event</label>
+			<label index="tx_jdavsv_domain_model_event.requirements">Requirements to be fullfilled for attending event</label>
+			<label index="tx_jdavsv_domain_model_event.contents">Contents of event</label>
+			<label index="tx_jdavsv_domain_model_event.education_objective">What is to be learned during event</label>
+			<label index="tx_jdavsv_domain_model_event.first_teamer">First teamer for event</label>
+			<label index="tx_jdavsv_domain_model_event.second_teamer">Second teamer for event</label>
+			<label index="tx_jdavsv_domain_model_event.trainee">Hospitant for event</label>
+			<label index="tx_jdavsv_domain_model_event.kitchen_group">Kitchen group for event</label>
+			<label index="tx_jdavsv_domain_model_event.price">Price of event</label>
+			<label index="tx_jdavsv_domain_model_event.max_registrations">Maximum number of registrations</label>
+			<label index="tx_jdavsv_domain_model_event.min_registrations">Minimum number of registrations</label>
+			<label index="tx_jdavsv_domain_model_event.att_teamer_ratio">Ration of teamers / attendee</label>
+			<label index="tx_jdavsv_domain_model_event.announcement">Text for announcing the event</label>
+			<label index="tx_jdavsv_domain_model_event.tour_report_required">Is it required to send a tour report for attending</label>
+			<label index="tx_jdavsv_domain_model_event.registration_deadline">Last date for registration</label>
+			<label index="tx_jdavsv_domain_model_event.accomodation">Accommodation for event (Huette / Haus...)</label>
+			<label index="tx_jdavsv_domain_model_event.catering">Selbstverpflegung / Halb- / Vollpension</label>
+			<label index="tx_jdavsv_domain_model_event.state">State the event is in</label>
+			<label index="tx_jdavsv_domain_model_event.registrations">registrations</label>
+			<label index="tx_jdavsv_domain_model_event.category">category</label>
+			<label index="tx_jdavsv_domain_model_event.fee">fee</label>
+			<label index="tx_jdavsv_domain_model_registration">Registration</label>
+			<label index="tx_jdavsv_domain_model_category">Category</label>
+			<label index="tx_jdavsv_domain_model_eventstate">EventState</label>
+			<label index="tx_jdavsv_domain_model_eventcategoryregistrationstate">EventCategoryRegistrationState</label>
+			<label index="tx_jdavsv_domain_model_registrationstate">RegistrationState</label>
+			<label index="tx_jdavsv_domain_model_accommodation">Accommodation</label>
+			<label index="tx_jdavsv_domain_model_catering">Catering</label>
+			<label index="tx_jdavsv_domain_model_eventfee">EventFee</label>
+		</languageKey>
+	</data>
+</T3locallang>

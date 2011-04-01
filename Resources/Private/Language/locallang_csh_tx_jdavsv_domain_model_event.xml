@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Context Sensitive Help (CSH) for table tx_jdavsv_domain_model_event</description>
+        <type>CSH</type>
+        <csh_table>tx_jdavsv_domain_model_event</csh_table>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+			<label index="titel.description">Event's title</label>
+			<label index="subtitle.description">Event's subtitle</label>
+			<label index="description.description">Event's description</label>
+			<label index="date_start.description">When does event start</label>
+			<label index="date_end.description">When does event end</label>
+			<label index="duration.description">Length of event (in days)</label>
+			<label index="place.description">Where does event take place</label>
+			<label index="travelling.description">How is the place reached where event takes place</label>
+			<label index="accreditation_number.description">Internal identifier for event</label>
+			<label index="requirements.description">Requirements to be fullfilled for attending event</label>
+			<label index="contents.description">Contents of event</label>
+			<label index="education_objective.description">What is to be learned during event</label>
+			<label index="first_teamer.description">First teamer for event</label>
+			<label index="second_teamer.description">Second teamer for event</label>
+			<label index="trainee.description">Hospitant for event</label>
+			<label index="kitchen_group.description">Kitchen group for event</label>
+			<label index="price.description">Price of event</label>
+			<label index="max_registrations.description">Maximum number of registrations</label>
+			<label index="min_registrations.description">Minimum number of registrations</label>
+			<label index="att_teamer_ratio.description">Ration of teamers / attendee</label>
+			<label index="announcement.description">Text for announcing the event</label>
+			<label index="tour_report_required.description">Is it required to send a tour report for attending</label>
+			<label index="registration_deadline.description">Last date for registration</label>
+			<label index="accomodation.description">Accommodation for event (Huette / Haus...)</label>
+			<label index="catering.description">Selbstverpflegung / Halb- / Vollpension</label>
+			<label index="state.description">State the event is in</label>
+			<label index="registrations.description">registrations</label>
+			<label index="category.description">category</label>
+			<label index="fee.description">fee</label>
+		</languageKey>
+    </data>
+</T3locallang>

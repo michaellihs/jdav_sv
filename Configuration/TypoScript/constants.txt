@@ -1,0 +1,14 @@
+plugin.tx_jdavsv {
+	view {
+		# cat=plugin.tx_jdavsv/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:jdav_sv/Resources/Private/Templates/
+		# cat=plugin.tx_jdavsv/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:jdav_sv/Resources/Private/Partials/
+		# cat=plugin.tx_jdavsv/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:jdav_sv/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_jdavsv//a; type=int+; label=Default storage PID
+		storagePid = 
+	}
+}
