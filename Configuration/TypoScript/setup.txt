@@ -1,3 +1,21 @@
+#############################################
+# JDAV Baden-WŸrttemberg Schulungsverwaltung
+# 
+# Basis-TypoScript Konfiguration
+# 
+# @author Michael Knoll <mimi@kaktusteam.de>
+#############################################
+
+## Inclusion of external TS resources from other extensions
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_extlist/Configuration/TypoScript/setup.txt">
+
+
+
+## Inclusion of external TS resources, included with extension
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/PublicEvents.ts">
+
+
+
 plugin.tx_jdavsv {
 	view {
 		templateRootPath = {$plugin.tx_jdavsv.view.templateRootPath}
@@ -8,6 +26,8 @@ plugin.tx_jdavsv {
 		storagePid = {$plugin.tx_jdavsv.persistence.storagePid}
 	}
 }
+
+
 
 plugin.tx_jdavsv._CSS_DEFAULT_STYLE (
 	input.f3-form-error {

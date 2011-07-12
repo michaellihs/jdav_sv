@@ -15,7 +15,7 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 
 
 
-t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'JDAV Schulungsverwaltung');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', '[jdav_sv] JDAV Schulungsverwaltung');
 
 
 

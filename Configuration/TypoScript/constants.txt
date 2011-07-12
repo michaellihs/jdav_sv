@@ -9,6 +9,6 @@ plugin.tx_jdavsv {
 	}
 	persistence {
 		# cat=plugin.tx_jdavsv//a; type=int+; label=Default storage PID
-		storagePid = 
+		storagePid = 28
 	}
 }
