@@ -7,6 +7,8 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
+			<label index="name.description">name</label>
+			<label index="tx_jdavsv_order.description">order</label>
 		</languageKey>
     </data>
 </T3locallang>

@@ -34,5 +34,123 @@
 
 class Tx_JdavSv_Domain_Model_EventCategoryRegistrationState extends Tx_Extbase_DomainObject_AbstractEntity {
 
+	/**
+	 * category
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Category> $category
+	 */
+	protected $category;
+
+	/**
+	 * state
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_RegistrationState> $state
+	 */
+	protected $state;
+
+	/**
+	 * The constructor.
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		//Do not remove the next line: It would break the functionality
+		$this->initStorageObjects();
+	}
+
+	/**
+	 * Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
+	 *
+	 * @return void
+	 */
+	protected function initStorageObjects() {
+		/**
+		* Do not modify this method!
+		* It will be rewritten on each save in the kickstarter
+		* You may modify the constructor of this class instead
+		*/
+		$this->category = new Tx_Extbase_Persistence_ObjectStorage();
+		
+		$this->state = new Tx_Extbase_Persistence_ObjectStorage();
+	}
+
+	/**
+	 * Setter for category
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Category> $category category
+	 * @return void
+	 */
+	public function setCategory(Tx_Extbase_Persistence_ObjectStorage $category) {
+		$this->category = $category;
+	}
+
+	/**
+	 * Getter for category
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Category> category
+	 */
+	public function getCategory() {
+		return $this->category;
+	}
+
+	/**
+	 * Adds a Category
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Category the Category to be added
+	 * @return void
+	 */
+	public function addCategory(Tx_JdavSv_Domain_Model_Category $category) {
+		$this->category->attach($category);
+	}
+
+	/**
+	 * Removes a Category
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Category the Category to be removed
+	 * @return void
+	 */
+	public function removeCategory(Tx_JdavSv_Domain_Model_Category $categoryToRemove) {
+		$this->category->detach($categoryToRemove);
+	}
+
+	/**
+	 * Setter for state
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_RegistrationState> $state state
+	 * @return void
+	 */
+	public function setState(Tx_Extbase_Persistence_ObjectStorage $state) {
+		$this->state = $state;
+	}
+
+	/**
+	 * Getter for state
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_RegistrationState> state
+	 */
+	public function getState() {
+		return $this->state;
+	}
+
+	/**
+	 * Adds a RegistrationState
+	 *
+	 * @param Tx_JdavSv_Domain_Model_RegistrationState the RegistrationState to be added
+	 * @return void
+	 */
+	public function addState(Tx_JdavSv_Domain_Model_RegistrationState $state) {
+		$this->state->attach($state);
+	}
+
+	/**
+	 * Removes a RegistrationState
+	 *
+	 * @param Tx_JdavSv_Domain_Model_RegistrationState the RegistrationState to be removed
+	 * @return void
+	 */
+	public function removeState(Tx_JdavSv_Domain_Model_RegistrationState $stateToRemove) {
+		$this->state->detach($stateToRemove);
+	}
+
 }
 ?>

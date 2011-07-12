@@ -32,7 +32,68 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 
-class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractValueObject {
+
+	/**
+	 * Name of event category
+	 *
+	 * @var string $name
+	 */
+	protected $name;
+
+	/**
+	 * Is a tour report required for registration
+	 *
+	 * @var boolean $tourReportRequired
+	 */
+	protected $tourReportRequired;
+
+	/**
+	 * Setter for name
+	 *
+	 * @param string $name Name of event category
+	 * @return void
+	 */
+	public function setName($name) {
+		$this->name = $name;
+	}
+
+	/**
+	 * Getter for name
+	 *
+	 * @return string Name of event category
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * Setter for tourReportRequired
+	 *
+	 * @param boolean $tourReportRequired Is a tour report required for registration
+	 * @return void
+	 */
+	public function setTourReportRequired($tourReportRequired) {
+		$this->tourReportRequired = $tourReportRequired;
+	}
+
+	/**
+	 * Getter for tourReportRequired
+	 *
+	 * @return boolean Is a tour report required for registration
+	 */
+	public function getTourReportRequired() {
+		return $this->tourReportRequired;
+	}
+
+	/**
+	 * Returns the state of tourReportRequired
+	 *
+	 * @return boolean the state of tourReportRequired
+	 */
+	public function isTourReportRequired() {
+		return $this->getTourReportRequired();
+	}
 
 }
 ?>

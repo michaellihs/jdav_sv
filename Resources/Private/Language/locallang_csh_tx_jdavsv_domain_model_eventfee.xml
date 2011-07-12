@@ -7,6 +7,8 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
+			<label index="name.description">name</label>
+			<label index="price_per_day.description">pricePerDay</label>
 		</languageKey>
     </data>
 </T3locallang>

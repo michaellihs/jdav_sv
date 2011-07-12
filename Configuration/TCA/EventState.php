@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_eventstate'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_eventstate']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> '',
+		'showRecordFieldList'	=> 'name,tx_jdavsv_order',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> ''),
+		'1' => array('showitem'	=> 'name,tx_jdavsv_order'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -60,6 +60,24 @@ $TCA['tx_jdavsv_domain_model_eventstate'] = array(
 			'config'	=> array(
 				'type'	=> 'check',
 			)
+		),
+		'name' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventstate.name',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'tx_jdavsv_order' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventstate.tx_jdavsv_order',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
 		),
 		'event' => array(
 			'config' => array(

@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_registrationstate'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_registrationstate']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> '',
+		'showRecordFieldList'	=> 'name,is_required,is_external,is_internal,prerequisites',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> ''),
+		'1' => array('showitem'	=> 'name,is_required,is_external,is_internal,prerequisites'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -60,6 +60,66 @@ $TCA['tx_jdavsv_domain_model_registrationstate'] = array(
 			'config'	=> array(
 				'type'	=> 'check',
 			)
+		),
+		'name' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registrationstate.name',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'is_required' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registrationstate.is_required',
+			'config'	=> array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
+		'is_external' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registrationstate.is_external',
+			'config'	=> array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
+		'is_internal' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registrationstate.is_internal',
+			'config'	=> array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
+		'prerequisites' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registrationstate.prerequisites',
+			'config'	=> array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jdavsv_domain_model_registrationstatetransitionprerequisites',
+				'foreign_field' => 'registrationstate',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapse' => 0,
+					'newRecordLinkPosition' => 'bottom',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
+		),
+		'registration' => array(
+			'config' => array(
+				'type'	=> 'passthrough',
+			),
+		),
+		'eventcategoryregistrationstate' => array(
+			'config' => array(
+				'type'	=> 'passthrough',
+			),
 		),
 	),
 );

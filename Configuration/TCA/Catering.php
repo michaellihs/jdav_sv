@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_catering'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_catering']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> '',
+		'showRecordFieldList'	=> 'name',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> ''),
+		'1' => array('showitem'	=> 'name'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -60,6 +60,15 @@ $TCA['tx_jdavsv_domain_model_catering'] = array(
 			'config'	=> array(
 				'type'	=> 'check',
 			)
+		),
+		'name' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_catering.name',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
 		),
 		'event' => array(
 			'config' => array(

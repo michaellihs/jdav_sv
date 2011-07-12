@@ -50,11 +50,121 @@ class Tx_JdavSv_Domain_Model_EventCategoryRegistrationStateTest extends Tx_Extba
 		unset($this->fixture);
 	}
 	
+	
 	/**
 	 * @test
 	 */
-	public function dummyTestToNotLeaveThisFileEmpty() {
-		$this->markTestIncomplete();
+	public function getCategoryReturnsInitialValueForObjectStorageContainingTx_JdavSv_Domain_Model_Category() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getCategory()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setCategoryForObjectStorageContainingTx_JdavSv_Domain_Model_CategorySetsCategory() { 
+		$category = new Tx_JdavSv_Domain_Model_Category();
+		$objectStorageHoldingExactlyOneCategory = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneCategory->attach($category);
+		$this->fixture->setCategory($objectStorageHoldingExactlyOneCategory);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneCategory,
+			$this->fixture->getCategory()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addCategoryToObjectStorageHoldingCategory() {
+		$category = new Tx_JdavSv_Domain_Model_Category();
+		$objectStorageHoldingExactlyOneCategory = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneCategory->attach($category);
+		$this->fixture->addCategory($category);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneCategory,
+			$this->fixture->getCategory()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeCategoryFromObjectStorageHoldingCategory() {
+		$category = new Tx_JdavSv_Domain_Model_Category();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($category);
+		$localObjectStorage->detach($category);
+		$this->fixture->addCategory($category);
+		$this->fixture->removeCategory($category);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getCategory()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getStateReturnsInitialValueForObjectStorageContainingTx_JdavSv_Domain_Model_RegistrationState() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getState()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setStateForObjectStorageContainingTx_JdavSv_Domain_Model_RegistrationStateSetsState() { 
+		$state = new Tx_JdavSv_Domain_Model_RegistrationState();
+		$objectStorageHoldingExactlyOneState = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneState->attach($state);
+		$this->fixture->setState($objectStorageHoldingExactlyOneState);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneState,
+			$this->fixture->getState()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addStateToObjectStorageHoldingState() {
+		$state = new Tx_JdavSv_Domain_Model_RegistrationState();
+		$objectStorageHoldingExactlyOneState = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneState->attach($state);
+		$this->fixture->addState($state);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneState,
+			$this->fixture->getState()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeStateFromObjectStorageHoldingState() {
+		$state = new Tx_JdavSv_Domain_Model_RegistrationState();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($state);
+		$localObjectStorage->detach($state);
+		$this->fixture->addState($state);
+		$this->fixture->removeState($state);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getState()
+		);
 	}
 	
 }

@@ -50,11 +50,44 @@ class Tx_JdavSv_Domain_Model_EventFeeTest extends Tx_Extbase_Tests_Unit_BaseTest
 		unset($this->fixture);
 	}
 	
+	
 	/**
 	 * @test
 	 */
-	public function dummyTestToNotLeaveThisFileEmpty() {
-		$this->markTestIncomplete();
+	public function getNameReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setNameForStringSetsName() { 
+		$this->fixture->setName('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getName()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getPricePerDayReturnsInitialValueForFloat() { 
+		$this->assertSame(
+			0.0,
+			$this->fixture->getPricePerDay()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setPricePerDayForFloatSetsPricePerDay() { 
+		$this->fixture->setPricePerDay(3.14159265);
+
+		$this->assertSame(
+			3.14159265,
+			$this->fixture->getPricePerDay()
+		);
 	}
 	
 }

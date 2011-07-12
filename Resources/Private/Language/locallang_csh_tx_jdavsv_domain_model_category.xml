@@ -7,6 +7,8 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
+			<label index="name.description">Name of event category</label>
+			<label index="tour_report_required.description">Is a tour report required for registration</label>
 		</languageKey>
     </data>
 </T3locallang>

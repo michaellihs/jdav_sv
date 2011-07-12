@@ -50,11 +50,39 @@ class Tx_JdavSv_Domain_Model_EventStateTest extends Tx_Extbase_Tests_Unit_BaseTe
 		unset($this->fixture);
 	}
 	
+	
 	/**
 	 * @test
 	 */
-	public function dummyTestToNotLeaveThisFileEmpty() {
-		$this->markTestIncomplete();
+	public function getNameReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setNameForStringSetsName() { 
+		$this->fixture->setName('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getName()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getOrderReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setOrderForStringSetsOrder() { 
+		$this->fixture->setOrder('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getOrder()
+		);
 	}
 	
 }

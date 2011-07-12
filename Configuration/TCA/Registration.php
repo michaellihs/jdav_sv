@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_registration'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_registration']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> '',
+		'showRecordFieldList'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> ''),
+		'1' => array('showitem'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -60,6 +60,115 @@ $TCA['tx_jdavsv_domain_model_registration'] = array(
 			'config'	=> array(
 				'type'	=> 'check',
 			)
+		),
+		'date' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.date',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 12,
+				'max' => 20,
+				'eval' => 'datetime',
+				'checkbox' => 1,
+				'default' => time()
+			),
+		),
+		'attendee' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.attendee',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			),
+		),
+		'reserved_until' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.reserved_until',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 12,
+				'max' => 20,
+				'eval' => 'datetime',
+				'checkbox' => 1,
+				'default' => time()
+			),
+		),
+		'waiting_list' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.waiting_list',
+			'config'	=> array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
+		'registration_order' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.registration_order',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			),
+		),
+		'vegetarian' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.vegetarian',
+			'config'	=> array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
+		'state' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.state',
+			'config'	=> array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jdavsv_domain_model_registrationstate',
+				'foreign_field' => 'registration',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapse' => 0,
+					'newRecordLinkPosition' => 'bottom',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
+		),
+		'payment_method' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.payment_method',
+			'config'	=> array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jdavsv_domain_model_paymentmethods',
+				'foreign_field' => 'registration',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapse' => 0,
+					'newRecordLinkPosition' => 'bottom',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
+		),
+		'event' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.event',
+			'config'	=> array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jdavsv_domain_model_event',
+				'foreign_field' => 'registration',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapse' => 0,
+					'newRecordLinkPosition' => 'bottom',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
 		),
 	),
 );

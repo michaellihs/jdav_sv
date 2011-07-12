@@ -1,0 +1,81 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+
+If you modify this template, do not forget to change the overwrite settings 
+in /Configuration/Kickstarter/settings.yaml:
+	Resources:
+		Private: 
+			Templates:
+				List.html		keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
+
+<f:section name="main">
+<h1>Listing for Event</h1>
+
+<f:flashMessages />
+
+<table  class="tx_jdavsv" >
+	<tr>
+		<th><f:translate key="tx_jdavsv_domain_model_event.titel" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.subtitle" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.description" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.date_start" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.date_end" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.duration" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.place" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.travelling" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.accreditation_number" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.requirements" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.contents" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.education_objective" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.first_teamer" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.second_teamer" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.trainee" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.kitchen_group" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.price" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.max_registrations" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.min_registrations" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.att_teamer_ratio" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.announcement" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.tour_report_required" /></th>
+		<th><f:translate key="tx_jdavsv_domain_model_event.registration_deadline" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{events}" as="event">
+		<tr>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.titel}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.subtitle}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.description}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.dateStart -> f:format.date()}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.dateEnd -> f:format.date()}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.duration}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.place}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.travelling}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.accreditationNumber}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.requirements}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.contents}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.educationObjective}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.firstTeamer}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.secondTeamer}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.trainee}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.kitchenGroup}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.price}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.maxRegistrations}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.minRegistrations}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.attTeamerRatio}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.announcement}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.tourReportRequired}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{event : event}"> {event.registrationDeadline -> f:format.date()}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{event : event}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{event : event}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Event</f:link.action>
+</f:section>

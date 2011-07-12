@@ -217,11 +217,11 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $state;
 
 	/**
-	 * registrations
+	 * fee
 	 *
-	 * @var Tx_JdavSv_Domain_Model_Registration $registrations
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> $fee
 	 */
-	protected $registrations;
+	protected $fee;
 
 	/**
 	 * category
@@ -231,11 +231,11 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $category;
 
 	/**
-	 * fee
+	 * registrations
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> $fee
+	 * @var Tx_JdavSv_Domain_Model_Registration $registrations
 	 */
-	protected $fee;
+	protected $registrations;
 
 	/**
 	 * The constructor.
@@ -264,9 +264,9 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		
 		$this->state = new Tx_Extbase_Persistence_ObjectStorage();
 		
-		$this->category = new Tx_Extbase_Persistence_ObjectStorage();
-		
 		$this->fee = new Tx_Extbase_Persistence_ObjectStorage();
+		
+		$this->category = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -833,22 +833,42 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 	/**
-	 * Setter for registrations
+	 * Setter for fee
 	 *
-	 * @param Tx_JdavSv_Domain_Model_Registration $registrations registrations
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> $fee fee
 	 * @return void
 	 */
-	public function setRegistrations(Tx_JdavSv_Domain_Model_Registration $registrations) {
-		$this->registrations = $registrations;
+	public function setFee(Tx_Extbase_Persistence_ObjectStorage $fee) {
+		$this->fee = $fee;
 	}
 
 	/**
-	 * Getter for registrations
+	 * Getter for fee
 	 *
-	 * @return Tx_JdavSv_Domain_Model_Registration registrations
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> fee
 	 */
-	public function getRegistrations() {
-		return $this->registrations;
+	public function getFee() {
+		return $this->fee;
+	}
+
+	/**
+	 * Adds a EventFee
+	 *
+	 * @param Tx_JdavSv_Domain_Model_EventFee the EventFee to be added
+	 * @return void
+	 */
+	public function addFee(Tx_JdavSv_Domain_Model_EventFee $fee) {
+		$this->fee->attach($fee);
+	}
+
+	/**
+	 * Removes a EventFee
+	 *
+	 * @param Tx_JdavSv_Domain_Model_EventFee the EventFee to be removed
+	 * @return void
+	 */
+	public function removeFee(Tx_JdavSv_Domain_Model_EventFee $feeToRemove) {
+		$this->fee->detach($feeToRemove);
 	}
 
 	/**
@@ -891,42 +911,22 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 	/**
-	 * Setter for fee
+	 * Setter for registrations
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> $fee fee
+	 * @param Tx_JdavSv_Domain_Model_Registration $registrations registrations
 	 * @return void
 	 */
-	public function setFee(Tx_Extbase_Persistence_ObjectStorage $fee) {
-		$this->fee = $fee;
+	public function setRegistrations(Tx_JdavSv_Domain_Model_Registration $registrations) {
+		$this->registrations = $registrations;
 	}
 
 	/**
-	 * Getter for fee
+	 * Getter for registrations
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> fee
+	 * @return Tx_JdavSv_Domain_Model_Registration registrations
 	 */
-	public function getFee() {
-		return $this->fee;
-	}
-
-	/**
-	 * Adds a EventFee
-	 *
-	 * @param Tx_JdavSv_Domain_Model_EventFee the EventFee to be added
-	 * @return void
-	 */
-	public function addFee(Tx_JdavSv_Domain_Model_EventFee $fee) {
-		$this->fee->attach($fee);
-	}
-
-	/**
-	 * Removes a EventFee
-	 *
-	 * @param Tx_JdavSv_Domain_Model_EventFee the EventFee to be removed
-	 * @return void
-	 */
-	public function removeFee(Tx_JdavSv_Domain_Model_EventFee $feeToRemove) {
-		$this->fee->detach($feeToRemove);
+	public function getRegistrations() {
+		return $this->registrations;
 	}
 
 }

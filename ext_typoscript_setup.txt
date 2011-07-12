@@ -1,0 +1,14 @@
+plugin.tx_jdavsv {
+	persistence {
+		classes {
+			Tx_JdavSv_Domain_Model_EventState {
+				mapping {
+					columns {
+						tx_jdavsv_order.mapOnProperty = order
+					
+					}
+				}
+			}
+		}
+	}
+}

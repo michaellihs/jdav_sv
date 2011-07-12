@@ -50,11 +50,287 @@ class Tx_JdavSv_Domain_Model_RegistrationTest extends Tx_Extbase_Tests_Unit_Base
 		unset($this->fixture);
 	}
 	
+	
 	/**
 	 * @test
 	 */
-	public function dummyTestToNotLeaveThisFileEmpty() {
-		$this->markTestIncomplete();
+	public function getDateReturnsInitialValueForDateTime() { }
+
+	/**
+	 * @test
+	 */
+	public function setDateForDateTimeSetsDate() { }
+	
+	/**
+	 * @test
+	 */
+	public function getAttendeeReturnsInitialValueForInteger() { 
+		$this->assertSame(
+			0,
+			$this->fixture->getAttendee()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setAttendeeForIntegerSetsAttendee() { 
+		$this->fixture->setAttendee(12);
+
+		$this->assertSame(
+			12,
+			$this->fixture->getAttendee()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getReservedUntilReturnsInitialValueForDateTime() { }
+
+	/**
+	 * @test
+	 */
+	public function setReservedUntilForDateTimeSetsReservedUntil() { }
+	
+	/**
+	 * @test
+	 */
+	public function getWaitingListReturnsInitialValueForBoolean() { 
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getWaitingList()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setWaitingListForBooleanSetsWaitingList() { 
+		$this->fixture->setWaitingList(TRUE);
+
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getWaitingList()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getRegistrationOrderReturnsInitialValueForInteger() { 
+		$this->assertSame(
+			0,
+			$this->fixture->getRegistrationOrder()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setRegistrationOrderForIntegerSetsRegistrationOrder() { 
+		$this->fixture->setRegistrationOrder(12);
+
+		$this->assertSame(
+			12,
+			$this->fixture->getRegistrationOrder()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getVegetarianReturnsInitialValueForBoolean() { 
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getVegetarian()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setVegetarianForBooleanSetsVegetarian() { 
+		$this->fixture->setVegetarian(TRUE);
+
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getVegetarian()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getStateReturnsInitialValueForObjectStorageContainingTx_JdavSv_Domain_Model_RegistrationState() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getState()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setStateForObjectStorageContainingTx_JdavSv_Domain_Model_RegistrationStateSetsState() { 
+		$state = new Tx_JdavSv_Domain_Model_RegistrationState();
+		$objectStorageHoldingExactlyOneState = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneState->attach($state);
+		$this->fixture->setState($objectStorageHoldingExactlyOneState);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneState,
+			$this->fixture->getState()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addStateToObjectStorageHoldingState() {
+		$state = new Tx_JdavSv_Domain_Model_RegistrationState();
+		$objectStorageHoldingExactlyOneState = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneState->attach($state);
+		$this->fixture->addState($state);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneState,
+			$this->fixture->getState()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeStateFromObjectStorageHoldingState() {
+		$state = new Tx_JdavSv_Domain_Model_RegistrationState();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($state);
+		$localObjectStorage->detach($state);
+		$this->fixture->addState($state);
+		$this->fixture->removeState($state);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getState()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getPaymentMethodReturnsInitialValueForObjectStorageContainingTx_JdavSv_Domain_Model_PaymentMethods() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getPaymentMethod()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setPaymentMethodForObjectStorageContainingTx_JdavSv_Domain_Model_PaymentMethodsSetsPaymentMethod() { 
+		$paymentMethod = new Tx_JdavSv_Domain_Model_PaymentMethods();
+		$objectStorageHoldingExactlyOnePaymentMethod = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOnePaymentMethod->attach($paymentMethod);
+		$this->fixture->setPaymentMethod($objectStorageHoldingExactlyOnePaymentMethod);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOnePaymentMethod,
+			$this->fixture->getPaymentMethod()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addPaymentMethodToObjectStorageHoldingPaymentMethod() {
+		$paymentMethod = new Tx_JdavSv_Domain_Model_PaymentMethods();
+		$objectStorageHoldingExactlyOnePaymentMethod = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOnePaymentMethod->attach($paymentMethod);
+		$this->fixture->addPaymentMethod($paymentMethod);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOnePaymentMethod,
+			$this->fixture->getPaymentMethod()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removePaymentMethodFromObjectStorageHoldingPaymentMethod() {
+		$paymentMethod = new Tx_JdavSv_Domain_Model_PaymentMethods();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($paymentMethod);
+		$localObjectStorage->detach($paymentMethod);
+		$this->fixture->addPaymentMethod($paymentMethod);
+		$this->fixture->removePaymentMethod($paymentMethod);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getPaymentMethod()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getEventReturnsInitialValueForObjectStorageContainingTx_JdavSv_Domain_Model_Event() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getEvent()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setEventForObjectStorageContainingTx_JdavSv_Domain_Model_EventSetsEvent() { 
+		$event = new Tx_JdavSv_Domain_Model_Event();
+		$objectStorageHoldingExactlyOneEvent = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneEvent->attach($event);
+		$this->fixture->setEvent($objectStorageHoldingExactlyOneEvent);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneEvent,
+			$this->fixture->getEvent()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addEventToObjectStorageHoldingEvent() {
+		$event = new Tx_JdavSv_Domain_Model_Event();
+		$objectStorageHoldingExactlyOneEvent = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneEvent->attach($event);
+		$this->fixture->addEvent($event);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneEvent,
+			$this->fixture->getEvent()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeEventFromObjectStorageHoldingEvent() {
+		$event = new Tx_JdavSv_Domain_Model_Event();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($event);
+		$localObjectStorage->detach($event);
+		$this->fixture->addEvent($event);
+		$this->fixture->removeEvent($event);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getEvent()
+		);
 	}
 	
 }

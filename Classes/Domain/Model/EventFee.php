@@ -32,7 +32,59 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 
-class Tx_JdavSv_Domain_Model_EventFee extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_JdavSv_Domain_Model_EventFee extends Tx_Extbase_DomainObject_AbstractValueObject {
+
+	/**
+	 * name
+	 *
+	 * @var string $name
+	 */
+	protected $name;
+
+	/**
+	 * pricePerDay
+	 *
+	 * @var float $pricePerDay
+	 */
+	protected $pricePerDay;
+
+	/**
+	 * Setter for name
+	 *
+	 * @param string $name name
+	 * @return void
+	 */
+	public function setName($name) {
+		$this->name = $name;
+	}
+
+	/**
+	 * Getter for name
+	 *
+	 * @return string name
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * Setter for pricePerDay
+	 *
+	 * @param float $pricePerDay pricePerDay
+	 * @return void
+	 */
+	public function setPricePerDay($pricePerDay) {
+		$this->pricePerDay = $pricePerDay;
+	}
+
+	/**
+	 * Getter for pricePerDay
+	 *
+	 * @return float pricePerDay
+	 */
+	public function getPricePerDay() {
+		return $this->pricePerDay;
+	}
 
 }
 ?>

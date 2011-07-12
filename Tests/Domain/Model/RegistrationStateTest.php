@@ -50,11 +50,146 @@ class Tx_JdavSv_Domain_Model_RegistrationStateTest extends Tx_Extbase_Tests_Unit
 		unset($this->fixture);
 	}
 	
+	
 	/**
 	 * @test
 	 */
-	public function dummyTestToNotLeaveThisFileEmpty() {
-		$this->markTestIncomplete();
+	public function getNameReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setNameForStringSetsName() { 
+		$this->fixture->setName('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getName()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getIsRequiredReturnsInitialValueForBoolean() { 
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsRequired()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setIsRequiredForBooleanSetsIsRequired() { 
+		$this->fixture->setIsRequired(TRUE);
+
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsRequired()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getIsExternalReturnsInitialValueForBoolean() { 
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsExternal()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setIsExternalForBooleanSetsIsExternal() { 
+		$this->fixture->setIsExternal(TRUE);
+
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsExternal()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getIsInternalReturnsInitialValueForBoolean() { 
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsInternal()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setIsInternalForBooleanSetsIsInternal() { 
+		$this->fixture->setIsInternal(TRUE);
+
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsInternal()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getPrerequisitesReturnsInitialValueForObjectStorageContainingTx_JdavSv_Domain_Model_RegistrationStateTransitionPrerequisites() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getPrerequisites()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setPrerequisitesForObjectStorageContainingTx_JdavSv_Domain_Model_RegistrationStateTransitionPrerequisitesSetsPrerequisites() { 
+		$prerequisite = new Tx_JdavSv_Domain_Model_RegistrationStateTransitionPrerequisites();
+		$objectStorageHoldingExactlyOnePrerequisites = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOnePrerequisites->attach($prerequisite);
+		$this->fixture->setPrerequisites($objectStorageHoldingExactlyOnePrerequisites);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOnePrerequisites,
+			$this->fixture->getPrerequisites()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addPrerequisiteToObjectStorageHoldingPrerequisites() {
+		$prerequisite = new Tx_JdavSv_Domain_Model_RegistrationStateTransitionPrerequisites();
+		$objectStorageHoldingExactlyOnePrerequisite = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOnePrerequisite->attach($prerequisite);
+		$this->fixture->addPrerequisite($prerequisite);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOnePrerequisite,
+			$this->fixture->getPrerequisites()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removePrerequisiteFromObjectStorageHoldingPrerequisites() {
+		$prerequisite = new Tx_JdavSv_Domain_Model_RegistrationStateTransitionPrerequisites();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($prerequisite);
+		$localObjectStorage->detach($prerequisite);
+		$this->fixture->addPrerequisite($prerequisite);
+		$this->fixture->removePrerequisite($prerequisite);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getPrerequisites()
+		);
 	}
 	
 }

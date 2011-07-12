@@ -7,6 +7,15 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
+			<label index="date.description">When was registration made</label>
+			<label index="attendee.description">Person that made registration</label>
+			<label index="reserved_until.description">If Registration is reservation only, this is the time, reservation ends</label>
+			<label index="waiting_list.description">Registration is for waiting list only</label>
+			<label index="registration_order.description">Sorting of registration compared to other registrations</label>
+			<label index="vegetarian.description">Is attendee a vegetarian</label>
+			<label index="state.description">State that registration is in</label>
+			<label index="payment_method.description">How is the registration payed?</label>
+			<label index="event.description">Event, registration belongs to</label>
 		</languageKey>
     </data>
 </T3locallang>

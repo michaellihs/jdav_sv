@@ -7,6 +7,11 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
+			<label index="name.description">Name of accomodation</label>
+			<label index="address.description">address of accommodation</label>
+			<label index="url.description">URL of website for accomodation</label>
+			<label index="email.description">E-Mail address for accomodation</label>
+			<label index="telephone.description">Telephone number of accomodation</label>
 		</languageKey>
     </data>
 </T3locallang>

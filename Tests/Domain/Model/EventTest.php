@@ -643,12 +643,60 @@ class Tx_JdavSv_Domain_Model_EventTest extends Tx_Extbase_Tests_Unit_BaseTestCas
 	/**
 	 * @test
 	 */
-	public function getRegistrationsReturnsInitialValueForTx_JdavSv_Domain_Model_Registration() { }
+	public function getFeeReturnsInitialValueForObjectStorageContainingTx_JdavSv_Domain_Model_EventFee() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getFee()
+		);
+	}
 
 	/**
 	 * @test
 	 */
-	public function setRegistrationsForTx_JdavSv_Domain_Model_RegistrationSetsRegistrations() { }
+	public function setFeeForObjectStorageContainingTx_JdavSv_Domain_Model_EventFeeSetsFee() { 
+		$fee = new Tx_JdavSv_Domain_Model_EventFee();
+		$objectStorageHoldingExactlyOneFee = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneFee->attach($fee);
+		$this->fixture->setFee($objectStorageHoldingExactlyOneFee);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneFee,
+			$this->fixture->getFee()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addFeeToObjectStorageHoldingFee() {
+		$fee = new Tx_JdavSv_Domain_Model_EventFee();
+		$objectStorageHoldingExactlyOneFee = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneFee->attach($fee);
+		$this->fixture->addFee($fee);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneFee,
+			$this->fixture->getFee()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeFeeFromObjectStorageHoldingFee() {
+		$fee = new Tx_JdavSv_Domain_Model_EventFee();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($fee);
+		$localObjectStorage->detach($fee);
+		$this->fixture->addFee($fee);
+		$this->fixture->removeFee($fee);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getFee()
+		);
+	}
 	
 	/**
 	 * @test
@@ -711,60 +759,12 @@ class Tx_JdavSv_Domain_Model_EventTest extends Tx_Extbase_Tests_Unit_BaseTestCas
 	/**
 	 * @test
 	 */
-	public function getFeeReturnsInitialValueForObjectStorageContainingTx_JdavSv_Domain_Model_EventFee() { 
-		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->assertEquals(
-			$newObjectStorage,
-			$this->fixture->getFee()
-		);
-	}
+	public function getRegistrationsReturnsInitialValueForTx_JdavSv_Domain_Model_Registration() { }
 
 	/**
 	 * @test
 	 */
-	public function setFeeForObjectStorageContainingTx_JdavSv_Domain_Model_EventFeeSetsFee() { 
-		$fee = new Tx_JdavSv_Domain_Model_EventFee();
-		$objectStorageHoldingExactlyOneFee = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneFee->attach($fee);
-		$this->fixture->setFee($objectStorageHoldingExactlyOneFee);
-
-		$this->assertSame(
-			$objectStorageHoldingExactlyOneFee,
-			$this->fixture->getFee()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function addFeeToObjectStorageHoldingFee() {
-		$fee = new Tx_JdavSv_Domain_Model_EventFee();
-		$objectStorageHoldingExactlyOneFee = new Tx_Extbase_Persistence_ObjectStorage();
-		$objectStorageHoldingExactlyOneFee->attach($fee);
-		$this->fixture->addFee($fee);
-
-		$this->assertEquals(
-			$objectStorageHoldingExactlyOneFee,
-			$this->fixture->getFee()
-		);
-	}
-
-	/**
-	 * @test
-	 */
-	public function removeFeeFromObjectStorageHoldingFee() {
-		$fee = new Tx_JdavSv_Domain_Model_EventFee();
-		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
-		$localObjectStorage->attach($fee);
-		$localObjectStorage->detach($fee);
-		$this->fixture->addFee($fee);
-		$this->fixture->removeFee($fee);
-
-		$this->assertEquals(
-			$localObjectStorage,
-			$this->fixture->getFee()
-		);
-	}
+	public function setRegistrationsForTx_JdavSv_Domain_Model_RegistrationSetsRegistrations() { }
 	
 }
 ?>

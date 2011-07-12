@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_category'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_category']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> '',
+		'showRecordFieldList'	=> 'name,tour_report_required',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> ''),
+		'1' => array('showitem'	=> 'name,tour_report_required'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -61,7 +61,29 @@ $TCA['tx_jdavsv_domain_model_category'] = array(
 				'type'	=> 'check',
 			)
 		),
+		'name' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_category.name',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'tour_report_required' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_category.tour_report_required',
+			'config'	=> array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
 		'event' => array(
+			'config' => array(
+				'type'	=> 'passthrough',
+			),
+		),
+		'eventcategoryregistrationstate' => array(
 			'config' => array(
 				'type'	=> 'passthrough',
 			),

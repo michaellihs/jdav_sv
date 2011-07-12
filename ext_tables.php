@@ -48,7 +48,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_registration');
 $TCA['tx_jdavsv_domain_model_registration'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration',
-		'label' 			=> 'uid',
+		'label' 			=> 'date',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,
@@ -71,7 +71,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_category');
 $TCA['tx_jdavsv_domain_model_category'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_category',
-		'label' 			=> 'uid',
+		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,
@@ -94,7 +94,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_eventstate');
 $TCA['tx_jdavsv_domain_model_eventstate'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventstate',
-		'label' 			=> 'uid',
+		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,
@@ -117,7 +117,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_eventcategoryreg
 $TCA['tx_jdavsv_domain_model_eventcategoryregistrationstate'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventcategoryregistrationstate',
-		'label' 			=> 'uid',
+		'label' 			=> 'category',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,
@@ -140,7 +140,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_registrationstat
 $TCA['tx_jdavsv_domain_model_registrationstate'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registrationstate',
-		'label' 			=> 'uid',
+		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,
@@ -163,7 +163,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_accommodation');
 $TCA['tx_jdavsv_domain_model_accommodation'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_accommodation',
-		'label' 			=> 'uid',
+		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,
@@ -186,7 +186,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_catering');
 $TCA['tx_jdavsv_domain_model_catering'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_catering',
-		'label' 			=> 'uid',
+		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,
@@ -209,7 +209,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_eventfee');
 $TCA['tx_jdavsv_domain_model_eventfee'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventfee',
-		'label' 			=> 'uid',
+		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,
@@ -224,6 +224,52 @@ $TCA['tx_jdavsv_domain_model_eventfee'] = array (
 			),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/EventFee.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_jdavsv_domain_model_eventfee.gif'
+	)
+);
+
+t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_paymentmethods', 'EXT:jdav_sv/Resources/Private/Language/locallang_csh_tx_jdavsv_domain_model_paymentmethods.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_paymentmethods');
+$TCA['tx_jdavsv_domain_model_paymentmethods'] = array (
+	'ctrl' => array (
+		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_paymentmethods',
+		'label' 			=> 'uid',
+		'tstamp' 			=> 'tstamp',
+		'crdate' 			=> 'crdate',
+		'versioningWS' 		=> 2,
+		'versioning_followPages'	=> TRUE,
+		'origUid' 			=> 't3_origuid',
+		'languageField' 	=> 'sys_language_uid',
+		'transOrigPointerField' 	=> 'l18n_parent',
+		'transOrigDiffSourceField' 	=> 'l18n_diffsource',
+		'delete' 			=> 'deleted',
+		'enablecolumns' 	=> array(
+			'disabled' => 'hidden'
+			),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/PaymentMethods.php',
+		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_jdavsv_domain_model_paymentmethods.gif'
+	)
+);
+
+t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_registrationstatetransitionprerequisites', 'EXT:jdav_sv/Resources/Private/Language/locallang_csh_tx_jdavsv_domain_model_registrationstatetransitionprerequisites.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_registrationstatetransitionprerequisites');
+$TCA['tx_jdavsv_domain_model_registrationstatetransitionprerequisites'] = array (
+	'ctrl' => array (
+		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registrationstatetransitionprerequisites',
+		'label' 			=> 'name',
+		'tstamp' 			=> 'tstamp',
+		'crdate' 			=> 'crdate',
+		'versioningWS' 		=> 2,
+		'versioning_followPages'	=> TRUE,
+		'origUid' 			=> 't3_origuid',
+		'languageField' 	=> 'sys_language_uid',
+		'transOrigPointerField' 	=> 'l18n_parent',
+		'transOrigDiffSourceField' 	=> 'l18n_diffsource',
+		'delete' 			=> 'deleted',
+		'enablecolumns' 	=> array(
+			'disabled' => 'hidden'
+			),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/RegistrationStateTransitionPrerequisites.php',
+		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_jdavsv_domain_model_registrationstatetransitionprerequisites.gif'
 	)
 );
 

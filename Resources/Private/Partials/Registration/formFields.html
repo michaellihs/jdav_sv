@@ -1,0 +1,24 @@
+<label for="date">
+	<f:translate key="tx_jdavsv_domain_model_registration.date" />
+</label><br />
+	<f:form.textbox property="date"  value="{registration.date->f:format.date()}"  /><br />
+<label for="attendee">
+	<f:translate key="tx_jdavsv_domain_model_registration.attendee" />
+</label><br />
+	<f:form.textbox property="attendee" /><br />
+<label for="reservedUntil">
+	<f:translate key="tx_jdavsv_domain_model_registration.reserved_until" />
+</label><br />
+	<f:form.textbox property="reservedUntil"  value="{registration.reservedUntil->f:format.date()}"  /><br />
+<label for="waitingList">
+	<f:translate key="tx_jdavsv_domain_model_registration.waiting_list" />
+</label><br />
+	<f:form.textbox property="waitingList" /><br />
+<label for="registrationOrder">
+	<f:translate key="tx_jdavsv_domain_model_registration.registration_order" />
+</label><br />
+	<f:form.textbox property="registrationOrder" /><br />
+<label for="vegetarian">
+	<f:translate key="tx_jdavsv_domain_model_registration.vegetarian" />
+</label><br />
+	<f:form.textbox property="vegetarian" /><br />

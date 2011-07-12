@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_eventcategoryregistrationstate'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_eventcategoryregistrationstate']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> '',
+		'showRecordFieldList'	=> 'category,state',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> ''),
+		'1' => array('showitem'	=> 'category,state'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -60,6 +60,40 @@ $TCA['tx_jdavsv_domain_model_eventcategoryregistrationstate'] = array(
 			'config'	=> array(
 				'type'	=> 'check',
 			)
+		),
+		'category' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventcategoryregistrationstate.category',
+			'config'	=> array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jdavsv_domain_model_category',
+				'foreign_field' => 'eventcategoryregistrationstate',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapse' => 0,
+					'newRecordLinkPosition' => 'bottom',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
+		),
+		'state' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventcategoryregistrationstate.state',
+			'config'	=> array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jdavsv_domain_model_registrationstate',
+				'foreign_field' => 'eventcategoryregistrationstate',
+				'maxitems'      => 9999,
+				'appearance' => array(
+					'collapse' => 0,
+					'newRecordLinkPosition' => 'bottom',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				),
+			),
 		),
 	),
 );

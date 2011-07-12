@@ -7,6 +7,11 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
+			<label index="name.description">name</label>
+			<label index="is_required.description">isRequired</label>
+			<label index="is_external.description">Attendee has to meet requirements of state</label>
+			<label index="is_internal.description">Internal state of registration</label>
+			<label index="prerequisites.description">prerequisites</label>
 		</languageKey>
     </data>
 </T3locallang>

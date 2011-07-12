@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'titel,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accomodation,catering,state,registrations,category,fee',
+		'showRecordFieldList'	=> 'titel,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accomodation,catering,state,fee,category,registrations',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'titel,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accomodation,catering,state,registrations,category,fee'),
+		'1' => array('showitem'	=> 'titel,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accomodation,catering,state,fee,category,registrations'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -334,14 +334,14 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 				),
 			),
 		),
-		'registrations' => array(
+		'fee' => array(
 			'exclude'	=> 0,
-			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.registrations',
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.fee',
 			'config'	=> array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_jdavsv_domain_model_registration',
-				'minitems' => 0,
-				'maxitems' => 1,
+				'foreign_table' => 'tx_jdavsv_domain_model_eventfee',
+				'foreign_field' => 'event',
+				'maxitems'      => 9999,
 				'appearance' => array(
 					'collapse' => 0,
 					'newRecordLinkPosition' => 'bottom',
@@ -368,14 +368,14 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 				),
 			),
 		),
-		'fee' => array(
+		'registrations' => array(
 			'exclude'	=> 0,
-			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.fee',
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.registrations',
 			'config'	=> array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_jdavsv_domain_model_eventfee',
-				'foreign_field' => 'event',
-				'maxitems'      => 9999,
+				'foreign_table' => 'tx_jdavsv_domain_model_registration',
+				'minitems' => 0,
+				'maxitems' => 1,
 				'appearance' => array(
 					'collapse' => 0,
 					'newRecordLinkPosition' => 'bottom',
@@ -383,6 +383,11 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 					'showPossibleLocalizationRecords' => 1,
 					'showAllLocalizationLink' => 1
 				),
+			),
+		),
+		'registration' => array(
+			'config' => array(
+				'type'	=> 'passthrough',
 			),
 		),
 	),

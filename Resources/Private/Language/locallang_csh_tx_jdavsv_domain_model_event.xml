@@ -33,9 +33,9 @@
 			<label index="accomodation.description">Accommodation for event (Huette / Haus...)</label>
 			<label index="catering.description">Selbstverpflegung / Halb- / Vollpension</label>
 			<label index="state.description">State the event is in</label>
-			<label index="registrations.description">registrations</label>
-			<label index="category.description">category</label>
 			<label index="fee.description">fee</label>
+			<label index="category.description">category</label>
+			<label index="registrations.description">registrations</label>
 		</languageKey>
     </data>
 </T3locallang>

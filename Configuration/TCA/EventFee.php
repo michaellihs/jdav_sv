@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_eventfee'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_eventfee']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> '',
+		'showRecordFieldList'	=> 'name,price_per_day',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> ''),
+		'1' => array('showitem'	=> 'name,price_per_day'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -60,6 +60,24 @@ $TCA['tx_jdavsv_domain_model_eventfee'] = array(
 			'config'	=> array(
 				'type'	=> 'check',
 			)
+		),
+		'name' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventfee.name',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'price_per_day' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventfee.price_per_day',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'double2'
+			),
 		),
 		'event' => array(
 			'config' => array(
