@@ -226,14 +226,14 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * category
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Category> $category
+	 * @var Tx_JdavSv_Domain_Model_Category $category
 	 */
 	protected $category;
 
 	/**
 	 * registrations
 	 *
-	 * @var Tx_JdavSv_Domain_Model_Registration $registrations
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration> $registrations
 	 */
 	protected $registrations;
 
@@ -266,7 +266,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		
 		$this->fee = new Tx_Extbase_Persistence_ObjectStorage();
 		
-		$this->category = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->registrations = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -872,61 +872,79 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 	/**
-	 * Setter for category
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Category> $category category
-	 * @return void
-	 */
-	public function setCategory(Tx_Extbase_Persistence_ObjectStorage $category) {
-		$this->category = $category;
-	}
-
-	/**
 	 * Getter for category
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Category> category
+	 * @return Tx_JdavSv_Domain_Model_Category category
 	 */
 	public function getCategory() {
 		return $this->category;
 	}
-
+	
 	/**
-	 * Adds a Category
+	 * Setter for category
 	 *
-	 * @param Tx_JdavSv_Domain_Model_Category the Category to be added
-	 * @return void
+	 * @param Tx_JdavSv_Domain_Model_Category $category
 	 */
-	public function addCategory(Tx_JdavSv_Domain_Model_Category $category) {
-		$this->category->attach($category);
-	}
-
-	/**
-	 * Removes a Category
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Category the Category to be removed
-	 * @return void
-	 */
-	public function removeCategory(Tx_JdavSv_Domain_Model_Category $categoryToRemove) {
-		$this->category->detach($categoryToRemove);
+	public function setCategory(Tx_JdavSv_Domain_Model_Category $category) {
+		$this->category = $category;
 	}
 
 	/**
 	 * Setter for registrations
 	 *
-	 * @param Tx_JdavSv_Domain_Model_Registration $registrations registrations
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration> $registrations registrations
 	 * @return void
 	 */
-	public function setRegistrations(Tx_JdavSv_Domain_Model_Registration $registrations) {
+	public function setRegistrations(Tx_Extbase_Persistence_ObjectStorage $registrations) {
 		$this->registrations = $registrations;
 	}
 
 	/**
 	 * Getter for registrations
 	 *
-	 * @return Tx_JdavSv_Domain_Model_Registration registrations
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration> registrations
 	 */
 	public function getRegistrations() {
 		return $this->registrations;
+	}
+	
+	/**
+	 * Adds registration for this event
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	public function addRegistration(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$this->registrations->add($registration);
+	}
+	
+	/**
+	 * Removes registration from this event
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	public function removeRegistration(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$this->registrations->remove($registration);
+	}
+	
+	/**
+	 * Returns 'traffic-lights' for event's registration status
+	 *
+	 * @return string
+	 */
+	public function getLights() {
+		if ($this->maxRegistrations - $this->getRegistrationsCount() < -2) return '#FFB6C1';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 2) return '#FFDAB9';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 5) return '#FAFAD2';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() > 5) return '#7FFFD4';
+	}
+	
+	/**
+	 * Returns number of registrations for this event
+	 *
+	 * @return int
+	 */
+	public function getRegistrationsCount() {
+		return $this->registrations->count();
 	}
 
 }

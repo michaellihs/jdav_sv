@@ -48,6 +48,7 @@
 			<label index="tx_jdavsv_domain_model_registration.event">Event</label>
 			<label index="tx_jdavsv_domain_model_category">Category</label>
 			<label index="tx_jdavsv_domain_model_category.name">Name</label>
+			<label index="tx_jdavsv_domain_model_category.shortcut">Shortcut</label>
 			<label index="tx_jdavsv_domain_model_category.tour_report_required">Tour Report Required</label>
 			<label index="tx_jdavsv_domain_model_eventstate">Event State</label>
 			<label index="tx_jdavsv_domain_model_eventstate.name">Name</label>

@@ -57,9 +57,10 @@ class Tx_JdavSv_Controller_EventController extends Tx_Extbase_MVC_Controller_Act
 	 * @return string The rendered list view
 	 */
 	public function listAction() {
-		$events = $this->eventRepository->findAll();
-		
-		$this->view->assign('events', $events);
+		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+		    $this->settings['listConfig']['publicEvents'], 'publicEvents');
+		    
+		$this->view->assign('listData', $extlistContext->getListData());
 	}
 	
 		

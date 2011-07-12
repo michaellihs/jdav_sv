@@ -355,10 +355,33 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 			'exclude'	=> 0,
 			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.category',
 			'config'	=> array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_jdavsv_domain_model_category',
-				'foreign_field' => 'event',
-				'maxitems'      => 9999,
+		        'minitems' => 0,
+				'maxitems'      => 1,
+                'wizards' => array(
+                    '_PADDING' => 1,
+                    '_VERTICAL' => 0,
+                    'edit' => array(
+                        'type' => 'popup',
+                        'title' => 'Edit',
+                        'script' => 'wizard_edit.php',
+                        'icon' => 'edit2.gif',
+                        'popup_onlyOpenIfSelected' => 1,
+                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        ),
+                    'add' => Array(
+                        'type' => 'script',
+                        'title' => 'Create new',
+                        'icon' => 'add.gif',
+                        'params' => array(
+                            'table'=>'tx_jdavsv_domain_model_category',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                            ),
+                        'script' => 'wizard_add.php',
+                    ),
+                ),
 				'appearance' => array(
 					'collapse' => 0,
 					'newRecordLinkPosition' => 'bottom',
@@ -375,7 +398,7 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_jdavsv_domain_model_registration',
 				'minitems' => 0,
-				'maxitems' => 1,
+				'maxitems' => 9999,
 				'appearance' => array(
 					'collapse' => 0,
 					'newRecordLinkPosition' => 'bottom',

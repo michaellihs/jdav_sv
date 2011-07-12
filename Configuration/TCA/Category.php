@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_category'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_category']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'name,tour_report_required',
+		'showRecordFieldList'	=> 'name,shortcut,tour_report_required',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'name,tour_report_required'),
+		'1' => array('showitem'	=> 'name,shortcut,tour_report_required'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -70,6 +70,15 @@ $TCA['tx_jdavsv_domain_model_category'] = array(
 				'eval' => 'trim'
 			),
 		),
+        'shortcut' => array(
+            'exclude'   => 0,
+            'label'     => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_category.shortcut',
+            'config'    => array(
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ),
+        ),
 		'tour_report_required' => array(
 			'exclude'	=> 0,
 			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_category.tour_report_required',

@@ -1,19 +1,19 @@
 #############################################
-# JDAV Baden-Württemberg Schulungsverwaltung
+# JDAV Baden-W√ºrttemberg Schulungsverwaltung
 # 
-# TypoScript Konfiguration für pt_extlist
+# TypoScript Konfiguration f√ºr pt_extlist
 # Darstellung von Schulungen im Frontend
 # 
 # @author Michael Knoll <mimi@kaktusteam.de>
 #############################################
 
 
-plugin.tx_ptextlist.settings.listConfig.publicEvents {
+plugin.tx_jdavsv.settings.listConfig.publicEvents {
 
     backendConfig < plugin.tx_ptextlist.prototype.backend.extbase
     backendConfig {
         repositoryClassName = Tx_JdavSv_Domain_Repository_EventRepository
-        sorting = dateStart
+        sorting = titel
     }
     
     
@@ -87,3 +87,8 @@ plugin.tx_ptextlist.settings.listConfig.publicEvents {
     }
 
 }
+
+
+
+# We copy list config above into pt_extlist namespace
+plugin.tx_ptextlist.settings.listConfig.publicEvents < plugin.tx_jdavsv.settings.listConfig.publicEvents

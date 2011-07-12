@@ -47,6 +47,13 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 	 * @var boolean $tourReportRequired
 	 */
 	protected $tourReportRequired;
+	
+	/**
+	 * Holds a shortcut for a category
+	 *
+	 * @var string
+	 */
+	protected $shortcut;
 
 	/**
 	 * Setter for name
@@ -93,6 +100,24 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 	 */
 	public function isTourReportRequired() {
 		return $this->getTourReportRequired();
+	}
+	
+	/**
+	 * Returns shortcut for this category
+	 *
+	 * @return string
+	 */
+	public function getShortcut() {
+		return $this->shortcut;
+	}
+	
+	/**
+	 * Setter for shortcut
+	 *
+	 * @param string $shortcut
+	 */
+	public function setShortcut($shortcut) {
+		$this->shortcut = $shortcut;
 	}
 
 }

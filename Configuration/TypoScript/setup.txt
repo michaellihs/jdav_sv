@@ -1,5 +1,5 @@
 #############################################
-# JDAV Baden-WŸrttemberg Schulungsverwaltung
+# JDAV Baden-WÃ¼rttemberg Schulungsverwaltung
 # 
 # Basis-TypoScript Konfiguration
 # 
@@ -33,18 +33,5 @@ plugin.tx_jdavsv._CSS_DEFAULT_STYLE (
 	input.f3-form-error {
 		background-color:#FF9F9F;
 		border: 1px #FF0000 solid;
-	}
-
-	.tx-jdavsv-pi1 table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-jdavsv-pi1 table th {
-		font-weight:bold;
-	}
-
-	.tx-jdavsv-pi1 table td {
-		vertical-align:top;
 	}
 )
