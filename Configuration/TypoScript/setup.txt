@@ -13,18 +13,22 @@
 
 ## Inclusion of external TS resources, included with extension
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/PublicEvents.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Extbase/Persistence.ts">
 
 
 
 plugin.tx_jdavsv {
+
 	view {
 		templateRootPath = {$plugin.tx_jdavsv.view.templateRootPath}
 		partialRootPath = {$plugin.tx_jdavsv.view.partialRootPath}
 		layoutRootPath = {$plugin.tx_jdavsv.view.layoutRootPath}
 	}
+
 	persistence {
 		storagePid = {$plugin.tx_jdavsv.persistence.storagePid}
 	}
+	
 }
 
 

@@ -12,7 +12,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Category' => 'list, show, new, create, edit, update, delete',
 	),
 	array(
-		'Event' => 'create, update, delete',
+		'Event' => 'list, create, update, delete',
 		'Registration' => 'register,create, update, delete',
 		'Category' => 'create, update, delete',
 	)

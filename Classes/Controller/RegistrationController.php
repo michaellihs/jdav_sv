@@ -46,8 +46,8 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 * @return void
 	 */
 	protected function initializeAction() {
-		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
 		parent::initializeAction();
+		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
 	}
 	
 	
@@ -147,6 +147,11 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 * @return string Rendered HTML source
 	 */
 	public function registerAction(Tx_JdavSv_Domain_Model_Event $event) {
+		if (is_null($this->feUser)) {
+			$this->flashMessages->add('Für die Anmeldung zu einer Schulung muss man eingeloggt sein!');
+			$this->forward('list', 'Event');
+		}
+		$this->view->assign('feUser', $this->feUser);
 		$this->view->assign('event', $event);
 	}
 	

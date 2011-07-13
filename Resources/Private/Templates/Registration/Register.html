@@ -15,7 +15,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <h1>Anmeldung zur Veranstaltung: {event.title}</h1>
 
 <f:flashMessages />
-<f:render partial="Registration/properties" arguments="{registration:registration}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="create">New Registration</f:link.action>
+
+Ihr Benutzername: {feUser.name} <br><br>
+
+<f:link.action controller="Event" action="list">Zur&uuml;ck zur Liste der Schulungen</f:link.action><br />
 </f:section>
