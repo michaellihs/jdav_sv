@@ -31,7 +31,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 
-class Tx_JdavSv_Controller_CategoryController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_AbstractController {
 	
 	/**
 	 * categoryRepository

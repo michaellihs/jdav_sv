@@ -31,7 +31,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 
-class Tx_JdavSv_Controller_RegistrationController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_AbstractController {
 	
 	/**
 	 * registrationRepository
@@ -47,6 +47,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_Extbase_MVC_Control
 	 */
 	protected function initializeAction() {
 		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
+		parent::initializeAction();
 	}
 	
 	
@@ -137,6 +138,18 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_Extbase_MVC_Control
 		$this->redirect('list');
 	}
 	
-
+	
+	
+	/**
+	 * Registers logged in user to given event
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @return string Rendered HTML source
+	 */
+	public function registerAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$this->view->assign('event', $event);
+	}
+	
 }
+
 ?>
