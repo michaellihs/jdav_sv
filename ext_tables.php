@@ -25,7 +25,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_event');
 $TCA['tx_jdavsv_domain_model_event'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event',
-		'label' 			=> 'titel',
+		'label' 			=> 'title',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'versioningWS' 		=> 2,

@@ -13,7 +13,7 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
     backendConfig < plugin.tx_ptextlist.prototype.backend.extbase
     backendConfig {
         repositoryClassName = Tx_JdavSv_Domain_Repository_EventRepository
-        sorting = titel
+        sorting = title
     }
     
     
@@ -37,7 +37,7 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
         
         title {
             table = __self__
-            field = titel
+            field = title
         }
         
         category {

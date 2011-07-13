@@ -7,7 +7,7 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
-			<label index="titel.description">Event's title</label>
+			<label index="title.description">Event's title</label>
 			<label index="subtitle.description">Event's subtitle</label>
 			<label index="description.description">Event's description</label>
 			<label index="date_start.description">When does event start</label>

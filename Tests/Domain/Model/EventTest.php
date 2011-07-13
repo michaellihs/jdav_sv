@@ -54,17 +54,17 @@ class Tx_JdavSv_Domain_Model_EventTest extends Tx_Extbase_Tests_Unit_BaseTestCas
 	/**
 	 * @test
 	 */
-	public function getTitelReturnsInitialValueForString() { }
+	public function getTitleReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setTitelForStringSetsTitel() { 
+	public function setTitleForStringSetsTitle() { 
 		$this->fixture->setTitel('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getTitel()
+			$this->fixture->getTitle()
 		);
 	}
 	

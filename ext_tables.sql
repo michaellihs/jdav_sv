@@ -4,7 +4,7 @@ CREATE TABLE tx_jdavsv_domain_model_event (
 	
 	registration int(11) unsigned DEFAULT '0' NOT NULL,
 	
-	titel varchar(255) DEFAULT '' NOT NULL,
+	title varchar(255) DEFAULT '' NOT NULL,
 	subtitle varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	date_start int(11) DEFAULT '0' NOT NULL,

@@ -37,9 +37,9 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Event's title
 	 *
-	 * @var string $titel
+	 * @var string $title
 	 */
-	protected $titel;
+	protected $title;
 
 	/**
 	 * Event's subtitle
@@ -270,22 +270,22 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 	/**
-	 * Setter for titel
+	 * Setter for title
 	 *
-	 * @param string $titel Event's title
+	 * @param string $title Event's title
 	 * @return void
 	 */
-	public function setTitel($titel) {
-		$this->titel = $titel;
+	public function setTitle($title) {
+		$this->title = $title;
 	}
 
 	/**
-	 * Getter for titel
+	 * Getter for title
 	 *
 	 * @return string Event's title
 	 */
-	public function getTitel() {
-		return $this->titel;
+	public function getTitle() {
+		return $this->title;
 	}
 
 	/**

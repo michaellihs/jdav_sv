@@ -7,7 +7,7 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tx_jdavsv_domain_model_event">Event</label>
-			<label index="tx_jdavsv_domain_model_event.titel">Titel</label>
+			<label index="tx_jdavsv_domain_model_event.title">Title</label>
 			<label index="tx_jdavsv_domain_model_event.subtitle">Subtitle</label>
 			<label index="tx_jdavsv_domain_model_event.description">Description</label>
 			<label index="tx_jdavsv_domain_model_event.date_start">Date Start</label>

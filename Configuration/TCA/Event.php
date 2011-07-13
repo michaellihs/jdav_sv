@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'titel,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accomodation,catering,state,fee,category,registrations',
+		'showRecordFieldList'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accomodation,catering,state,fee,category,registrations',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'titel,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accomodation,catering,state,fee,category,registrations'),
+		'1' => array('showitem'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accomodation,catering,state,fee,category,registrations'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -61,9 +61,9 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 				'type'	=> 'check',
 			)
 		),
-		'titel' => array(
+		'title' => array(
 			'exclude'	=> 0,
-			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.titel',
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.title',
 			'config'	=> array(
 				'type' => 'input',
 				'size' => 30,
