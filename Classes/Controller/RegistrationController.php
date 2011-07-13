@@ -26,9 +26,7 @@
 /**
  * Controller for the Registration object
  *
- * @version $Id$
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * @author Michael Knoll <mimi@kaktusteam.de>
  */
 
 class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_AbstractController {
@@ -39,6 +37,17 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
 	 */
 	protected $registrationRepository;
+	
+	
+	
+	/**
+	 * Holds an instance of registration manager
+	 *
+	 * @var Tx_JdavSv_Domain_RegistrationManager
+	 */
+	protected $registrationManager;
+	
+	
 
 	/**
 	 * Initializes the current action
@@ -48,6 +57,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	protected function initializeAction() {
 		parent::initializeAction();
 		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
+		$this->registrationManager = Tx_JdavSv_Domain_RegistrationManager::getInstance();
 	}
 	
 	
@@ -63,6 +73,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 		$this->view->assign('registrations', $registrations);
 	}
 	
+	
 		
 	/**
 	 * Displays a single Registration
@@ -73,6 +84,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	public function showAction(Tx_JdavSv_Domain_Model_Registration $registration) {
 		$this->view->assign('registration', $registration);
 	}
+	
 	
 		
 	/**
@@ -85,6 +97,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	public function newAction(Tx_JdavSv_Domain_Model_Registration $newRegistration = NULL) {
 		$this->view->assign('newRegistration', $newRegistration);
 	}
+	
 	
 		
 	/**
@@ -125,8 +138,9 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 		$this->redirect('list');
 	}
 	
-		
-			/**
+
+	
+	/**
 	 * Deletes an existing Registration
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Registration $registration the Registration to be deleted
@@ -147,12 +161,54 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 * @return string Rendered HTML source
 	 */
 	public function registerAction(Tx_JdavSv_Domain_Model_Event $event) {
-		if (is_null($this->feUser)) {
-			$this->flashMessages->add('Für die Anmeldung zu einer Schulung muss man eingeloggt sein!');
-			$this->forward('list', 'Event');
-		}
+		$this->checkForLoggedInFesUserAndRedirect();
+		$this->checkForRegistrationAndRedirectIfAlreadyRegistered($event);
 		$this->view->assign('feUser', $this->feUser);
 		$this->view->assign('event', $event);
+	}
+	
+	
+	
+	/**
+	 * Confirms a registration for logged in user at given event
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @return string Rendered HTML source
+	 */
+	public function confirmRegistrationAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$this->checkForLoggedInFesUserAndRedirect();
+        $this->checkForRegistrationAndRedirectIfAlreadyRegistered($event);
+        $this->registrationManager->registerUserForEvent($this->feUser, $event);
+        $this->view->assign('feUser', $this->feUser);
+        $this->view->assign('event', $event);
+	}
+	
+	
+	
+	/**
+	 * Checks, whether there is a logged in user and redirects if not.
+	 *
+	 */
+	protected function checkForLoggedInFesUserAndRedirect() {
+	    if (is_null($this->feUser)) {
+            $this->flashMessages->add('Für die Anmeldung zu einer Schulung muss man eingeloggt sein!');
+            $this->forward('list', 'Event');
+        }
+	}
+	
+	
+	
+	/**
+	 * Checks, whether logged in user is already registered for given event.
+	 * Redirects, if user is already registered.
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 */
+	protected function checkForRegistrationAndRedirectIfAlreadyRegistered(Tx_JdavSv_Domain_Model_Event $event) {
+	    if ($this->registrationManager->isUserRegisteredForEvent($this->feUser, $event)) {
+            $this->flashMessages->add('Anmeldung zur Schulung ist bereits erfolgt!');
+            $this->forward('list', 'Event');
+        }
 	}
 	
 }

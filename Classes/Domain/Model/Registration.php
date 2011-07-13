@@ -44,7 +44,7 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Person that made registration
 	 *
-	 * @var integer $attendee
+	 * @var Tx_Extbase_Domain_Model_FrontendUser $attendee
 	 */
 	protected $attendee;
 
@@ -93,7 +93,7 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Event, registration belongs to
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Event> $event
+	 * @var Tx_JdavSv_Domain_Model_Event $event
 	 */
 	protected $event;
 
@@ -260,118 +260,58 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Setter for state
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_RegistrationState> $state State that registration is in
+	 * @param Tx_JdavSv_Domain_Model_RegistrationState $state State that registration is in
 	 * @return void
 	 */
-	public function setState(Tx_Extbase_Persistence_ObjectStorage $state) {
+	public function setState(Tx_JdavSv_Domain_Model_RegistrationState $state) {
 		$this->state = $state;
 	}
 
 	/**
 	 * Getter for state
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_RegistrationState> State that registration is in
+	 * @return Tx_JdavSv_Domain_Model_RegistrationState State that registration is in
 	 */
 	public function getState() {
 		return $this->state;
 	}
 
 	/**
-	 * Adds a RegistrationState
-	 *
-	 * @param Tx_JdavSv_Domain_Model_RegistrationState the RegistrationState to be added
-	 * @return void
-	 */
-	public function addState(Tx_JdavSv_Domain_Model_RegistrationState $state) {
-		$this->state->attach($state);
-	}
-
-	/**
-	 * Removes a RegistrationState
-	 *
-	 * @param Tx_JdavSv_Domain_Model_RegistrationState the RegistrationState to be removed
-	 * @return void
-	 */
-	public function removeState(Tx_JdavSv_Domain_Model_RegistrationState $stateToRemove) {
-		$this->state->detach($stateToRemove);
-	}
-
-	/**
 	 * Setter for paymentMethod
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_PaymentMethods> $paymentMethod How is the registration payed?
+	 * @param Tx_JdavSv_Domain_Model_PaymentMethods $paymentMethod How is the registration payed?
 	 * @return void
 	 */
-	public function setPaymentMethod(Tx_Extbase_Persistence_ObjectStorage $paymentMethod) {
+	public function setPaymentMethod(Tx_JdavSv_Domain_Model_PaymentMethods $paymentMethod) {
 		$this->paymentMethod = $paymentMethod;
 	}
 
 	/**
 	 * Getter for paymentMethod
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_PaymentMethods> How is the registration payed?
+	 * @return Tx_JdavSv_Domain_Model_PaymentMethods How is the registration payed?
 	 */
 	public function getPaymentMethod() {
 		return $this->paymentMethod;
 	}
 
 	/**
-	 * Adds a PaymentMethods
-	 *
-	 * @param Tx_JdavSv_Domain_Model_PaymentMethods the PaymentMethods to be added
-	 * @return void
-	 */
-	public function addPaymentMethod(Tx_JdavSv_Domain_Model_PaymentMethods $paymentMethod) {
-		$this->paymentMethod->attach($paymentMethod);
-	}
-
-	/**
-	 * Removes a PaymentMethods
-	 *
-	 * @param Tx_JdavSv_Domain_Model_PaymentMethods the PaymentMethods to be removed
-	 * @return void
-	 */
-	public function removePaymentMethod(Tx_JdavSv_Domain_Model_PaymentMethods $paymentMethodToRemove) {
-		$this->paymentMethod->detach($paymentMethodToRemove);
-	}
-
-	/**
 	 * Setter for event
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Event> $event Event, registration belongs to
+	 * @param Tx_JdavSv_Domain_Model_Event $event Event, registration belongs to
 	 * @return void
 	 */
-	public function setEvent(Tx_Extbase_Persistence_ObjectStorage $event) {
+	public function setEvent(Tx_JdavSv_Domain_Model_Event $event) {
 		$this->event = $event;
 	}
 
 	/**
 	 * Getter for event
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Event> Event, registration belongs to
+	 * @return Tx_JdavSv_Domain_Model_Event Event, registration belongs to
 	 */
 	public function getEvent() {
 		return $this->event;
-	}
-
-	/**
-	 * Adds a Event
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Event the Event to be added
-	 * @return void
-	 */
-	public function addEvent(Tx_JdavSv_Domain_Model_Event $event) {
-		$this->event->attach($event);
-	}
-
-	/**
-	 * Removes a Event
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Event the Event to be removed
-	 * @return void
-	 */
-	public function removeEvent(Tx_JdavSv_Domain_Model_Event $eventToRemove) {
-		$this->event->detach($eventToRemove);
 	}
 
 }

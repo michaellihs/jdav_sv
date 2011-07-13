@@ -34,5 +34,18 @@
  
 class Tx_JdavSv_Domain_Repository_RegistrationRepository extends Tx_Extbase_Persistence_Repository {
 
+	/**
+	 * Returns registrations for a given event and feUser
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @param Tx_Extbase_Domain_Model_FrontendUser $feUser
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
+	 */
+	public function getRegistrationsByEventAndFeUser(Tx_JdavSv_Domain_Model_Event $event, Tx_Extbase_Domain_Model_FrontendUser $feUser) {
+		$query = $this->createQuery();
+		$query->matching($query->logicalAnd($query->equals('event', $event), $query->equals('attendee', $feUser)));
+		return $query->execute();
+	}
+	
 }
 ?>
