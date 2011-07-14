@@ -25,7 +25,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		    </td>
 			<td>{row.event.value.dateStart -> f:format.date()}<br>
 			{row.event.value.dateEnd -> f:format.date()}</td>
-			<td>{row.event.value.title}<br>
+			<td>{row.event.value.title} ({row.event.value.registrationsCount} / {row.event.value.maxRegistrations})<br>
 			<f:link.action controller="Event" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action></td>
 			<td><f:link.action controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action></td>
 		</tr>

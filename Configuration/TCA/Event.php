@@ -397,6 +397,7 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 			'config'	=> array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_jdavsv_domain_model_registration',
+		        'foreign_field' => 'event',
 				'minitems' => 0,
 				'maxitems' => 9999,
 				'appearance' => array(
@@ -406,11 +407,6 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 					'showPossibleLocalizationRecords' => 1,
 					'showAllLocalizationLink' => 1
 				),
-			),
-		),
-		'registration' => array(
-			'config' => array(
-				'type'	=> 'passthrough',
 			),
 		),
 	),

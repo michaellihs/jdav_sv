@@ -1,0 +1,18 @@
+<h2>Liste der Anmeldungen</h2>
+
+<f:if condition="{registrations}">
+<f:then>
+<table>
+    <f:for each="{registrations}" as="registration">
+    <tr>
+        <td>{registration.attendee.name}</td>
+        <td>{registration.date -> f:format.date()}</td>
+        <td>{registration.state.name}</td>
+    </tr>
+    </f:for>
+</table>
+</f:then>
+<f:else>
+    Es gibt keine Anmeldungen fŸr diese Veranstaltung.<br><br>
+</f:else>
+</f:if>

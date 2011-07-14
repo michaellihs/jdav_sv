@@ -925,6 +925,15 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function removeRegistration(Tx_JdavSv_Domain_Model_Registration $registration) {
 		$this->registrations->remove($registration);
 	}
+
+	/**
+	 * Returns number of registrations for this event
+	 *
+	 * @return int Number of registrations for this event
+	 */
+	public function getRegistrationsCount() {
+        return $this->registrations->count();
+	}
 	
 	/**
 	 * Returns 'traffic-lights' for event's registration status
@@ -937,15 +946,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 5) return '#FAFAD2';
 		if ($this->maxRegistrations - $this->getRegistrationsCount() > 5) return '#7FFFD4';
 	}
-	
-	/**
-	 * Returns number of registrations for this event
-	 *
-	 * @return int
-	 */
-	public function getRegistrationsCount() {
-		return $this->registrations->count();
-	}
 
 }
+
 ?>

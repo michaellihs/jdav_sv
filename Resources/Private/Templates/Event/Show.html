@@ -16,6 +16,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 <f:render partial="Event/properties" arguments="{event:event}" />
+
+<f:render partial="Registration/list" arguments="{event:event, registrations:event.registrations}" />
+
 <f:link.action action="list">Back to list</f:link.action><br />
 <f:link.action action="create">New Event</f:link.action>
 </f:section>
