@@ -32,9 +32,12 @@
 			<label index="tx_jdavsv_domain_model_event.registration_deadline">Registration Deadline</label>
 			<label index="tx_jdavsv_domain_model_event.accomodation">Accomodation</label>
 			<label index="tx_jdavsv_domain_model_event.catering">Catering</label>
-			<label index="tx_jdavsv_domain_model_event.state">State</label>
 			<label index="tx_jdavsv_domain_model_event.fee">Fee</label>
 			<label index="tx_jdavsv_domain_model_event.category">Category</label>
+			<label index="tx_jdavsv_domain_model_event.is_proposal">Proposal</label>
+			<label index="tx_jdavsv_domain_model_event.teamer_input_finished">Teamer has finished his input</label>
+			<label index="tx_jdavsv_domain_model_event.is_proofread">Event has been proofread</label>
+			<label index="tx_jdavsv_domain_model_event.is_accepted">Event has been accepted by administrator</label>
 			<label index="tx_jdavsv_domain_model_event.registrations">Registrations</label>
 			<label index="tx_jdavsv_domain_model_registration">Registration</label>
 			<label index="tx_jdavsv_domain_model_registration.date">Date</label>

@@ -170,6 +170,22 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	
 	
 	/**
+	 * Unregisters logged in user from given event
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @return string Rendered HTML source
+	 */
+	public function unregisterAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$this->checkForLoggedInFesUserAndRedirect();
+		$this->checkForRegistrationAndRedirectIfNotAlreadyRegistered($event);
+		$this->registrationManager->unregisterUserForEvent($this->feUser, $event);
+		$this->flashMessages->add('Deine Anmeldung wurde storniert!');
+		$this->forward('list', 'Event');
+	}
+	
+	
+	
+	/**
 	 * Confirms a registration for logged in user at given event
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event
@@ -191,8 +207,8 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 */
 	protected function checkForLoggedInFesUserAndRedirect() {
 	    if (is_null($this->feUser)) {
-            $this->flashMessages->add('Für die Anmeldung zu einer Schulung muss man eingeloggt sein!');
-            $this->forward('list', 'Event');
+            $this->flashMessages->add('Für die An- oder Abmeldung zu einer Schulung muss man eingeloggt sein!');
+            $this->redirect('list', 'Event');
         }
 	}
 	
@@ -209,6 +225,21 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
             $this->flashMessages->add('Anmeldung zur Schulung ist bereits erfolgt!');
             $this->forward('list', 'Event');
         }
+	}
+	
+	
+	
+	/**
+	 * Checks whether currently logged in user is NOT registered for a given event.
+	 * Redirects, if user is not yet registered.
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 */
+	protected function checkForRegistrationAndRedirectIfNotAlreadyRegistered(Tx_JdavSv_Domain_Model_Event $event) {
+		if (!$this->registrationManager->isUserRegisteredForEvent($this->feUser, $event)) {
+			$this->flashMessages->add('Du kannst dich nicht von einer Schulung abmelden, zu der du nicht angemeldet warst!');
+			$this->forward('list', 'Event');
+		}
 	}
 	
 }

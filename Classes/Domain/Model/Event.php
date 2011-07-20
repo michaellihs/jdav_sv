@@ -210,13 +210,6 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $catering;
 
 	/**
-	 * State the event is in
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventState> $state
-	 */
-	protected $state;
-
-	/**
 	 * fee
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> $fee
@@ -236,6 +229,34 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration> $registrations
 	 */
 	protected $registrations;
+
+	/**
+	 * If set to true, event is a proposal only (do not show in events list, no registration possible)
+	 *
+	 * @var boolean
+	 */
+	protected $isProposal;
+	
+	/**
+	 * If set to true, teamer has finished inputting his data for the event
+	 *
+	 * @var boolean
+	 */
+	protected $teamerInputFinished;
+	
+	/**
+	 * If set to true, event has had proofreading
+	 *
+	 * @var boolean
+	 */
+	protected $isProofread;
+
+	/**
+	 * If set to true, event is accepted and registrations can be made
+	 *
+	 * @var boolean
+	 */
+	protected $isAccepted;
 
 	/**
 	 * The constructor.
@@ -794,45 +815,6 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 	/**
-	 * Setter for state
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventState> $state State the event is in
-	 * @return void
-	 */
-	public function setState(Tx_Extbase_Persistence_ObjectStorage $state) {
-		$this->state = $state;
-	}
-
-	/**
-	 * Getter for state
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventState> State the event is in
-	 */
-	public function getState() {
-		return $this->state;
-	}
-
-	/**
-	 * Adds a EventState
-	 *
-	 * @param Tx_JdavSv_Domain_Model_EventState the EventState to be added
-	 * @return void
-	 */
-	public function addState(Tx_JdavSv_Domain_Model_EventState $state) {
-		$this->state->attach($state);
-	}
-
-	/**
-	 * Removes a EventState
-	 *
-	 * @param Tx_JdavSv_Domain_Model_EventState the EventState to be removed
-	 * @return void
-	 */
-	public function removeState(Tx_JdavSv_Domain_Model_EventState $stateToRemove) {
-		$this->state->detach($stateToRemove);
-	}
-
-	/**
 	 * Setter for fee
 	 *
 	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> $fee fee
@@ -946,6 +928,72 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 5) return '#FAFAD2';
 		if ($this->maxRegistrations - $this->getRegistrationsCount() > 5) return '#7FFFD4';
 	}
+	
+	/**
+	 * @return boolean
+	 */
+	public function getIsAccepted() {
+		return $this->isAccepted;
+	}
+	
+	/**
+	 * @param boolean $isAccepted
+	 */
+	public function setIsAccepted($isAccepted) {
+		$this->isAccepted = $isAccepted;
+	}
+	
+	/**
+	 * Returns true, if event is accepted
+	 *
+	 * @return boolean
+	 */
+	public function isAccepted() {
+		return $this->isAccepted;
+	}
+	
+	/**
+	 * @return boolean
+	 */
+	public function getIsProofread() {
+		return $this->isProofread;
+	}
+	
+	/**
+	 * @param boolean $isProofread
+	 */
+	public function setIsProofread($isProofread) {
+		$this->isProofread = $isProofread;
+	}
+	
+	/**
+	 * @return boolean
+	 */
+	public function getIsProposal() {
+		return $this->isProposal;
+	}
+	
+	/**
+	 * @param boolean $isProposal
+	 */
+	public function setIsProposal($isProposal) {
+		$this->isProposal = $isProposal;
+	}
+	
+	/**
+	 * @return boolean
+	 */
+	public function getTeamerInputFinished() {
+		return $this->teamerInputFinished;
+	}
+	
+	/**
+	 * @param boolean $teamerInputFinished
+	 */
+	public function setTeamerInputFinished($teamerInputFinished) {
+		$this->teamerInputFinished = $teamerInputFinished;
+	}
+
 
 }
 

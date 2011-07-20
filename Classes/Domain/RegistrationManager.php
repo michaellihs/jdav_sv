@@ -133,6 +133,33 @@ class Tx_JdavSv_Domain_RegistrationManager {
 		return $registration;
 	}
 	
+	
+	
+	/**
+	 * Removes a registration from an event.
+	 * 
+	 * TODO there should be a field 'cancelled' on Registration object, which we should use, if a user cancels his registration.
+	 *
+	 * @param Tx_Extbase_Domain_Model_FrontendUser $feUser
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 */
+	public function unregisterUserForEvent(Tx_Extbase_Domain_Model_FrontendUser $feUser, Tx_JdavSv_Domain_Model_Event $event) {
+		$query = $this->registrationRepository->createQuery();
+		$query->matching(
+		    $query->logicalAnd(
+		        $query->equals('attendee', $feUser),
+		        $query->equals('event', $event)
+		    )
+		);
+		$registrations = $query->execute();
+		if ($registrations->count() == 1) {
+		    $this->registrationRepository->remove($registrations->getFirst());
+		    t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager')->persistAll();
+		} elseif ($registrations->count() > 1) {
+			throw new Exception('We have more than one registration of a single user for an event. This should never happen!');
+		}
+	}
+	
 }
 
 ?>

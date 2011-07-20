@@ -32,8 +32,11 @@
 			<label index="tx_jdavsv_domain_model_event.registration_deadline">Last date for registration</label>
 			<label index="tx_jdavsv_domain_model_event.accomodation">Accommodation for event (Huette / Haus...)</label>
 			<label index="tx_jdavsv_domain_model_event.catering">Selbstverpflegung / Halb- / Vollpension</label>
-			<label index="tx_jdavsv_domain_model_event.state">State the event is in</label>
 			<label index="tx_jdavsv_domain_model_event.fee">fee</label>
+			<label index="tx_jdavsv_domain_model_event.isProposal">Is proposal</label>
+			<label index="tx_jdavsv_domain_model_event.teamerInputFinished">Teamer input finished</label>
+			<label index="tx_jdavsv_domain_model_event.isProofread">Event has been proofread</label>
+			<label index="tx_jdavsv_domain_model_event.isAccepted">Event is accepted</label>
 			<label index="tx_jdavsv_domain_model_event.category">category</label>
 			<label index="tx_jdavsv_domain_model_event.registrations">registrations</label>
 			<label index="tx_jdavsv_domain_model_registration">Registration</label>

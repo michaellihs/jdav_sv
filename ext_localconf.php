@@ -8,13 +8,13 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Pi1',
 	array(
 		'Event' => 'list, show, new, create, edit, update, delete',
-		'Registration' => 'register,list, show, new, create, edit, update, delete, confirmRegistration',
+		'Registration' => 'register,unregister,list, show, new, create, edit, update, delete, confirmRegistration',
 		'Category' => 'list, show, new, create, edit, update, delete',
 	),
 	array(
-		'Event' => 'list, create, update, delete',
-		'Registration' => 'register,create, update, delete, confirmRegistration',
-		'Category' => 'create, update, delete',
+		'Event' => 'list, show, new, create, edit, update, delete',
+		'Registration' => 'register,unregister,list,show, new, create, edit, update, delete, confirmRegistration',
+		'Category' => 'list, show, new, create, edit, update, delete',
 	)
 );
 

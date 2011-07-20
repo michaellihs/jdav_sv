@@ -90,3 +90,22 @@
 	<f:translate key="tx_jdavsv_domain_model_event.registration_deadline" />
 </label><br />
 	<f:form.textbox property="registrationDeadline"  value="{event.registrationDeadline->f:format.date()}"  /><br />
+	
+	
+	
+<label for="isProposal">
+    <f:translate key="tx_jdavsv_domain_model_event.isProposal" />
+</label><br />
+    <f:form.checkbox property="isProposal" checked="{event.isProposal}" value="1" /><br />
+<label for="teamerInputFinished">
+    <f:translate key="tx_jdavsv_domain_model_event.teamerInputFinished" />
+</label><br />
+    <f:form.checkbox property="teamerInputFinished" checked="{event.teamerInputFinished}" value="1"  /><br />
+<label for="isProofread">
+    <f:translate key="tx_jdavsv_domain_model_event.isProofread" />
+</label><br />
+    <f:form.checkbox property="isProofread" checked="{event.isProofread}" value="1"  /><br />
+<label for="isAccepted">
+    <f:translate key="tx_jdavsv_domain_model_event.isAccepted" />
+</label><br />
+    <f:form.checkbox property="isAccepted" checked="{event.isAccepted}" value="1"  /><br />
