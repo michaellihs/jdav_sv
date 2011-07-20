@@ -111,7 +111,8 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	 * @return string The rendered view
 	 */
 	public function attendeeRegistrationsListAction(Tx_JdavSv_Domain_Model_Event $event) {
-		
+		$registrations = $this->registrationRepository->getAcceptedRegistrationsByEvent($event);
+		$this->view->assign('registrations', $registrations);
 	}
 	
 	

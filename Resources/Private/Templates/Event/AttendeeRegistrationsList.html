@@ -13,7 +13,7 @@ in /Configuration/Kickstarter/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
 
 <f:section name="main">
-<h1>Teamer-Teilnehmerliste</h1>
+<h1>Teilnehmerliste</h1>
 
 <f:flashMessages />
 
@@ -30,7 +30,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
         <th>Telefon (Festnetz):</th>
         <th>Handy</th>
         <th>email:</th>
-        <th>Geburtsdatum:</th>
     </tr>
 	<f:for each="{registrations}" as="registration">
 		<tr>
@@ -43,7 +42,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		    <td></td>
 		    <td></td>
 		    <td>{registration.attendee.email}</td>
-		    <td></td>
 		</tr>
 	</f:for>
 </table>
