@@ -44,6 +44,7 @@
 			<label index="tx_jdavsv_domain_model_registration.attendee">Person that made registration</label>
 			<label index="tx_jdavsv_domain_model_registration.reserved_until">If Registration is reservation only, this is the time, reservation ends</label>
 			<label index="tx_jdavsv_domain_model_registration.waiting_list">Registration is for waiting list only</label>
+			<label index="tx_jdavsv_domain_model_registration.is_accepted">Registration is approved and accepted</label>
 			<label index="tx_jdavsv_domain_model_registration.registration_order">Sorting of registration compared to other registrations</label>
 			<label index="tx_jdavsv_domain_model_registration.vegetarian">Is attendee a vegetarian</label>
 			<label index="tx_jdavsv_domain_model_registration.state">State that registration is in</label>

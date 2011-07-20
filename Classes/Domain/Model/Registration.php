@@ -96,6 +96,13 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 * @var Tx_JdavSv_Domain_Model_Event $event
 	 */
 	protected $event;
+	
+	/**
+	 * Set to true, if registration is approved and accepted
+	 *
+	 * @var boolean
+	 */
+	protected $isAccepted;
 
 	/**
 	 * The constructor.
@@ -312,6 +319,28 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getEvent() {
 		return $this->event;
+	}
+	
+	/**
+	 * Getter for isAccepted property.
+	 * 
+	 * Returns true, if registration has been approved and is accepted
+	 * 
+	 * @return boolean
+	 */
+	public function getIsAccepted() {
+		return $this->isAccepted;
+	}
+	
+	/**
+	 * Setter for isAccepted property.
+	 * 
+	 * Set this property to true, if registration has been approved and is accepted.
+	 * 
+	 * @param boolean $isAccepted
+	 */
+	public function setIsAccepted($isAccepted) {
+		$this->isAccepted = $isAccepted;
 	}
 
 }

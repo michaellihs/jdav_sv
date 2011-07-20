@@ -111,6 +111,14 @@ $TCA['tx_jdavsv_domain_model_registration'] = array(
 				'default' => 0
 			),
 		),
+        'is_accepted' => array(
+            'exclude'   => 0,
+            'label'     => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.is_accepted',
+            'config'    => array(
+                'type' => 'check',
+                'default' => 0
+            ),
+        ),
 		'registration_order' => array(
 			'exclude'	=> 0,
 			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.registration_order',

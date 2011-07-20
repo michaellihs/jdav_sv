@@ -47,5 +47,24 @@ class Tx_JdavSv_Domain_Repository_RegistrationRepository extends Tx_Extbase_Pers
 		return $query->execute();
 	}
 	
+	
+	
+	/**
+	 * Returns accepted registrations for a given event 
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
+	 */
+	public function getAcceptedRegistrationsByEvent(Tx_JdavSv_Domain_Model_Event $event) {
+		$query = $this->createQuery();
+		$query->matching(
+		    $query->logicalAnd(
+		        $query->equals('event', $event),
+		        $query->equals('isAccepted', 1)
+		    )
+		);
+		return $query->execute();
+	}
+	
 }
 ?>

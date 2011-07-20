@@ -39,6 +39,17 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	 * @var Tx_JdavSv_Domain_Repository_EventRepository
 	 */
 	protected $eventRepository;
+	
+	
+	
+	/**
+     * registrationRepository
+     * 
+     * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
+     */
+	protected $registrationRepository;
+	
+	
 
 	/**
 	 * Initializes the current action
@@ -47,6 +58,7 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	 */
 	protected function initializeAction() {
 		$this->eventRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_EventRepository');
+		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
 	}
 	
 	
@@ -73,6 +85,35 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	public function showAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 	}
+	
+	
+	
+	/**
+	 * Displays a registrations list for teamers
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @return string The rendered view
+	 */
+	public function teamerRegistrationsListAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$registrations = $this->registrationRepository->getAcceptedRegistrationsByEvent($event);
+		$waitingListRegistrations = $this->registrationRepository->getWaitingListRegistrationsByEvent($event);
+		
+		$this->view->assign('registrations', $registrations);
+		$this->view->assign('waitingListRegistrations', $waitingListRegistrations);
+	}
+	
+	
+	
+	/**
+	 * Displays a registrations list for attendees
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @return string The rendered view
+	 */
+	public function attendeeRegistrationsListAction(Tx_JdavSv_Domain_Model_Event $event) {
+		
+	}
+	
 	
 		
 	/**

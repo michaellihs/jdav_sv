@@ -13,7 +13,7 @@
 <label for="waitingList">
 	<f:translate key="tx_jdavsv_domain_model_registration.waiting_list" />
 </label><br />
-	<f:form.textbox property="waitingList" /><br />
+	<f:form.checkbox property="waitingList" value="1" checked="{registration.waitingList}"/><br />
 <label for="registrationOrder">
 	<f:translate key="tx_jdavsv_domain_model_registration.registration_order" />
 </label><br />
@@ -21,4 +21,8 @@
 <label for="vegetarian">
 	<f:translate key="tx_jdavsv_domain_model_registration.vegetarian" />
 </label><br />
-	<f:form.textbox property="vegetarian" /><br />
+	<f:form.checkbox property="vegetarian" value="1" checked="{registration.vegetarian}" /><br />
+<label for="isAccepted">
+    <f:translate key="tx_jdavsv_domain_model_registration.is_accepted" />
+</label><br />
+    <f:form.checkbox property="isAccepted" value="1" checked="{registration.isAccepted}" /><br />

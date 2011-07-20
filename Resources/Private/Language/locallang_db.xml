@@ -44,6 +44,7 @@
 			<label index="tx_jdavsv_domain_model_registration.attendee">Attendee</label>
 			<label index="tx_jdavsv_domain_model_registration.reserved_until">Reserved Until</label>
 			<label index="tx_jdavsv_domain_model_registration.waiting_list">Waiting List</label>
+			<label index="tx_jdavsv_domain_model_registration.is_accepted">Registration is accepted</label>
 			<label index="tx_jdavsv_domain_model_registration.registration_order">Registration Order</label>
 			<label index="tx_jdavsv_domain_model_registration.vegetarian">Vegetarian</label>
 			<label index="tx_jdavsv_domain_model_registration.state">State</label>
