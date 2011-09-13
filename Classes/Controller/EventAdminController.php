@@ -24,11 +24,11 @@
 ***************************************************************/
 
 /**
- * Controller for the Event object
+ * Controller for administration of Events
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_AbstractController {
+class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_AbstractController {
 	
 	/**
 	 * eventRepository
@@ -87,6 +87,22 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	
 	
 	/**
+	 * Displays a registrations list for teamers
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @return string The rendered view
+	 */
+	public function teamerRegistrationsListAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$registrations = $this->registrationRepository->getAcceptedRegistrationsByEvent($event);
+		$waitingListRegistrations = $this->registrationRepository->getWaitingListRegistrationsByEvent($event);
+		
+		$this->view->assign('registrations', $registrations);
+		$this->view->assign('waitingListRegistrations', $waitingListRegistrations);
+	}
+	
+	
+	
+	/**
 	 * Displays a registrations list for attendees
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event
@@ -95,6 +111,71 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	public function attendeeRegistrationsListAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$registrations = $this->registrationRepository->getAcceptedRegistrationsByEvent($event);
 		$this->view->assign('registrations', $registrations);
+	}
+	
+	
+		
+	/**
+	 * Creates a new Event and forwards to the list action.
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $newEvent a fresh Event object which has not yet been added to the repository
+	 * @return string An HTML form for creating a new Event
+	 * @dontvalidate $newEvent
+	 */
+	public function newAction(Tx_JdavSv_Domain_Model_Event $newEvent = NULL) {
+		$this->view->assign('newEvent', $newEvent);
+	}
+	
+		
+	/**
+	 * Creates a new Event and forwards to the list action.
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $newEvent a fresh Event object which has not yet been added to the repository
+	 * @return void
+	 */
+	public function createAction(Tx_JdavSv_Domain_Model_Event $newEvent) {
+		$this->eventRepository->add($newEvent);
+		$this->flashMessageContainer->add('Your new Event was created.');
+		
+		$this->redirect('list');
+	}
+	
+		
+	
+	/**
+	 * Updates an existing Event and forwards to the index action afterwards.
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event the Event to display
+	 * @return string A form to edit a Event 
+	 */
+	public function editAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$this->view->assign('event', $event);
+	}
+	
+		
+
+	/**
+	 * Updates an existing Event and forwards to the list action afterwards.
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event the Event to display
+	 */
+	public function updateAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$this->eventRepository->update($event);
+		$this->flashMessageContainer->add('Your Event was updated.');
+		$this->redirect('list');
+	}
+	
+		
+			/**
+	 * Deletes an existing Event
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event the Event to be deleted
+	 * @return void
+	 */
+	public function deleteAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$this->eventRepository->remove($event);
+		$this->flashMessageContainer->add('Your Event was removed.');
+		$this->redirect('list');
 	}
 
 }

@@ -1,0 +1,54 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+
+If you modify this template, do not forget to change the overwrite settings 
+in /Configuration/Kickstarter/settings.yaml:
+	Resources:
+		Private: 
+			Templates:
+				List.html		keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
+
+<f:section name="main">
+<h1>Teilnehmerliste</h1>
+
+<f:flashMessages />
+
+<f:if condition="{registrations}">
+<f:then>
+<table  class="tx_jdavsv" >
+    <tr>
+        <th>Name:</th>
+        <th>Vorname:</th>
+        <th>Sektion:</th>
+        <th>Straße:</th>
+        <th>PLZ:</th>
+        <th>Stadt:</th>
+        <th>Telefon (Festnetz):</th>
+        <th>Handy</th>
+        <th>email:</th>
+    </tr>
+	<f:for each="{registrations}" as="registration">
+		<tr>
+		    <td>{registration.attendee.username}</td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td>{registration.attendee.email}</td>
+		</tr>
+	</f:for>
+</table>
+</f:then>
+<f:else>
+Es liegen keine Anmeldungen für diese Schulung vor!
+</f:else>
+</f:if>
+
+</f:section>

@@ -1,0 +1,40 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+
+If you modify this template, do not forget to change the overwrite settings 
+in /Configuration/Kickstarter/settings.yaml:
+	Resources:
+		Private: 
+			Templates:
+				List.html		keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
+
+<f:section name="main">
+<h1>Schulungsverwaltung</h1>
+
+<f:flashMessages />
+
+<f:render partial="Admin/menu" />
+
+<table  class="tx_jdavsv" >
+	<f:for each="{listData}" as="row">
+		<tr style="background-color:{row.event.value.lights}">
+		    <td><div class="tx-jdavsv-eventslist-categoryshortcut" style="z-index: -1; font-size: 30px; color: gray">{row.event.value.category.shortcut}</div>
+		      {row.event.value.accreditationNumber}
+		    </td>
+			<td>{row.event.value.dateStart -> f:format.date()}<br>
+			{row.event.value.dateEnd -> f:format.date()}</td>
+			<td>{row.event.value.title} ({row.event.value.registrationsCount} / {row.event.value.maxRegistrations})<br>
+			<f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action>&nbsp;
+			<f:link.action controller="EventAdmin" action="edit" arguments="{event: row.event.value.uid}">Bearbeiten</f:link.action>
+			<f:link.action controller="EventAdmin" action="teamerRegistrationsList" arguments="{event: row.event.value.uid}">Teamer TN-Liste</f:link.action>&nbsp;
+			<f:link.action controller="EventAdmin" action="attendeeRegistrationsList" arguments="{event: row.event.value.uid}">TN-Liste</f:link.action>&nbsp;</td>
+			<td>Neue Anmeldung hinzufügen</td>
+		</tr>
+	</f:for>
+</table>
+
+</f:section>
