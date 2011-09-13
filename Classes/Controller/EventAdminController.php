@@ -70,6 +70,8 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		    $this->settings['listConfig']['publicEvents'], 'publicEvents');
 		    
 		$this->view->assign('listData', $extlistContext->getListData());
+        $this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
+        $this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
 	}
 
 

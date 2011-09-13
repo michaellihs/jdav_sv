@@ -28,36 +28,43 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
         dateStart {
             table = __self__
             field = dateStart
+            isSortable = 1
         }
         
         dateEnd {
             table = __self__
-            field = dateEnd 
+            field = dateEnd
+            isSortable = 1
         }
         
         title {
             table = __self__
             field = title
+            isSortable = 1
         }
         
         category {
             table = __self__
             field = category
+            isSortable = 0
         }
         
         accreditationNumber {
             table = __self__
             field = accreditationNumber
+            isSortable = 1
         }
         
         price {
             table = __self__
             field = price
+            isSortable = 1
         }
         
         maxRegistrations {
             table = __self__
             field = maxRegistrations
+            isSortable = 1
         }
     
     }
@@ -67,21 +74,45 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
     columns {
     
         10 {
-            fieldIdentifier = dateStart
-            columnIdentifier = dateStart
-            label = Beginn
+            fieldIdentifier = accreditationNumber
+            columnIdentifier = accreditationNumber
+            label = Akk-Nr
+            sorting = accreditationNumber
         }
         
         20 {
-            fieldIdentifier = dateEnd
+            fieldIdentifier = dateEnd, dateStart
             columnIdentifier = dateEnd
             label = Ende
+            sortingFields {
+                10 {
+                    field = dateEnd
+                    label = Veranstaltungsende
+                    direction = asc
+                    forceDirection = 0
+                }
+
+                20 {
+                    field = dateStart
+                    label = Veranstaltungsbeginn
+                    direction = asc
+                    forceDirection = 0
+                }
+            }
         }
         
         30 {
             fieldIdentifier = title
             columnIdentifier = title
             label = Titel
+            sorting = title
+        }
+
+        40 {
+            fieldIdentifier = event
+            columnIdentifier = event
+            label =
+            isSortable = 0
         }
     
     }

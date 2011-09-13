@@ -29,7 +29,7 @@
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
 
-class Tx_JdavSv_Controller_AbstractController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_AbstractActionController {
 
 	/**
 	 * Holds currently logged in feUser (if there is one)

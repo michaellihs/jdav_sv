@@ -20,7 +20,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:render partial="Admin/menu" />
 
 <table  class="tx_jdavsv" >
-	<f:for each="{listData}" as="row">
+    <tr style="background-color:#aaa">
+        <f:render partial="EXT:pt_extlist/Resources/Private/Partials/List/ListHeader.html" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
+    </tr>
+    <f:for each="{listData}" as="row">
 		<tr style="background-color:{row.event.value.lights}">
 		    <td><div class="tx-jdavsv-eventslist-categoryshortcut" style="z-index: -1; font-size: 30px; color: gray">{row.event.value.category.shortcut}</div>
 		      {row.event.value.accreditationNumber}
