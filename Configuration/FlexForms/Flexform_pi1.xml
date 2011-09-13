@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<T3DataStructure>
+  <sheets>
+  
+    <!--##########################-->
+    <!-- Tab for general settings -->
+    <!--##########################-->
+    <sDefault>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>General Options</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+
+          <switchableControllerActions>
+            <TCEforms>
+              <label>Plugin-Typ</label>
+              <config>
+                <type>select</type>
+                <items type="array">
+                  <numIndex index="1" type="array">
+                    <numIndex index="0">Anmeldung Frontend</numIndex>
+                    <numIndex index="1">Event->list;Event->show;Event->attendeeRegistrationsList;Registration->register;Registration->unregister;Registration->confirmRegistration</numIndex>
+                  </numIndex>
+                  <numIndex index="2" type="array">
+                    <numIndex index="0">Verwaltung Frontend</numIndex>
+                    <numIndex index="1">Event->adminList;Event->show;Event->edit;Event->update;Event->delete;Event->create;Event->new;Event->attendeeRegistrationsList;Event->teamerRegistrationsList</numIndex>
+                  </numIndex>
+                </items>
+              </config>
+            </TCEforms>
+          </switchableControllerActions>
+
+
+        </el>
+      </ROOT>
+    </sDefault>
+
+  </sheets>
+</T3DataStructure>

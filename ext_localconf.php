@@ -7,12 +7,12 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
 	'Pi1',
 	array(
-		'Event' => 'list, teamerRegistrationsList,attendeeRegistrationsList, show, new, create, edit, update, delete',
+		'Event' => 'list, adminList, teamerRegistrationsList,attendeeRegistrationsList, show, new, create, edit, update, delete',
 		'Registration' => 'register,unregister,list, show, new, create, edit, update, delete, confirmRegistration',
 		'Category' => 'list, show, new, create, edit, update, delete',
 	),
 	array(
-		'Event' => 'list, teamerRegistrationsList,attendeeRegistrationsList,show, new, create, edit, update, delete',
+		'Event' => 'list, adminList, teamerRegistrationsList,attendeeRegistrationsList,show, new, create, edit, update, delete',
 		'Registration' => 'register,unregister,list,show, new, create, edit, update, delete, confirmRegistration',
 		'Category' => 'list, show, new, create, edit, update, delete',
 	)

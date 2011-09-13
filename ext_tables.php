@@ -1,25 +1,35 @@
 <?php
 if (!defined ('TYPO3_MODE')) die ('Access denied.');
 
-
+// Register Extbase plugin
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
 	'Pi1',
-	'pi1'
+	'JDAV-Schulungsverwaltung'
 );
 
-//$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi_flexform';
-//t3lib_extMgm::addPiFlexFormValue($_EXTKEY . '_pi1', 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_pi1.xml');
+
+
+// Register plugin as page content
+$extensionName = t3lib_div::underscoredToUpperCamelCase($_EXTKEY);
+$pluginSignature = strtolower($extensionName) . '_pi1';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature]='layout,select_key,pages';
 
 
 
-
-
+// Register static TypoScript template for this extension
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', '[jdav_sv] JDAV Schulungsverwaltung');
 
 
 
+// Register FlexForm
+t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/Flexform_pi1.xml');
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY . '_pi1'] = 'pi_flexform';
 
+
+
+/* TCA definitions */
 t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_event', 'EXT:jdav_sv/Resources/Private/Language/locallang_csh_tx_jdavsv_domain_model_event.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_event');
 $TCA['tx_jdavsv_domain_model_event'] = array (

@@ -26,11 +26,8 @@
 /**
  * Controller for the Event object
  *
- * @version $Id$
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * @author Michael Knoll <mimi@kaktusteam.de>
  */
-
 class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_AbstractController {
 	
 	/**
@@ -74,7 +71,22 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 		    
 		$this->view->assign('listData', $extlistContext->getListData());
 	}
-	
+
+
+
+    /**
+     * Displays list for administration
+     *
+     * @return string The rendered list view
+     */
+    public function adminListAction() {
+        $extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+		    $this->settings['listConfig']['publicEvents'], 'publicEvents');
+
+		$this->view->assign('listData', $extlistContext->getListData());
+    }
+
+
 		
 	/**
 	 * Displays a single Event
