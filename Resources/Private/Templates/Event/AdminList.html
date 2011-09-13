@@ -17,6 +17,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
+<f:render partial="Admin/menu" />
+
 <table  class="tx_jdavsv" >
 	<f:for each="{listData}" as="row">
 		<tr style="background-color:{row.event.value.lights}">
@@ -30,8 +32,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<f:link.action controller="Event" action="edit" arguments="{event: row.event.value.uid}">Bearbeiten</f:link.action>
 			<f:link.action controller="Event" action="teamerRegistrationsList" arguments="{event: row.event.value.uid}">Teamer TN-Liste</f:link.action>&nbsp;
 			<f:link.action controller="Event" action="attendeeRegistrationsList" arguments="{event: row.event.value.uid}">TN-Liste</f:link.action>&nbsp;</td>
-			<td><f:link.action controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action><br/>
-			<f:link.action controller="Registration" action="unregister" arguments="{event: row.event.value}">Abmelden</f:link.action></td>
+			<td>Neue Anmeldung hinzufügen</td>
 		</tr>
 	</f:for>
 </table>
