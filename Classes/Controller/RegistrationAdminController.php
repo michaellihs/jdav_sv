@@ -68,9 +68,10 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 * @return string The rendered list view
 	 */
 	public function listAction() {
-		$registrations = $this->registrationRepository->findAll();
-		
-		$this->view->assign('registrations', $registrations);
+		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+		    $this->settings['listConfig']['registrationsAdmin'], 'registrationsAdmin');
+
+		$this->view->assign('listData', $extlistContext->getListData());
 	}
 	
 	

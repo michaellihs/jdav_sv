@@ -95,6 +95,9 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 * @dontvalidate $newRegistration
 	 */
 	public function newAction(Tx_JdavSv_Domain_Model_Registration $newRegistration = NULL) {
+
+
+
 		$this->view->assign('newRegistration', $newRegistration);
 	}
 	
