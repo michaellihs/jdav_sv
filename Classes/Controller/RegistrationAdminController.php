@@ -109,7 +109,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	public function createAction(Tx_JdavSv_Domain_Model_Registration $newRegistration) {
 		$this->registrationRepository->add($newRegistration);
-		$this->flashMessageContainer->add('Your new Registration was created.');
+		$this->flashMessageContainer->add('Die Anmeldung wurde erfolgreich angelegt.');
 		
 		$this->redirect('list');
 	}
@@ -135,7 +135,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	public function updateAction(Tx_JdavSv_Domain_Model_Registration $registration) {
 		$this->registrationRepository->update($registration);
-		$this->flashMessageContainer->add('Your Registration was updated.');
+		$this->flashMessageContainer->add('Die Anmeldung wurde gespeichert.');
 		$this->redirect('list');
 	}
 	
@@ -149,7 +149,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	public function deleteAction(Tx_JdavSv_Domain_Model_Registration $registration) {
 		$this->registrationRepository->remove($registration);
-		$this->flashMessageContainer->add('Your Registration was removed.');
+		$this->flashMessageContainer->add('Die Anmeldung wurde gelöscht!');
 		$this->redirect('list');
 	}
 	

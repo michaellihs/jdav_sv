@@ -6,9 +6,9 @@
         <td>{registration.attendee.name}</td>
         <td>{registration.date -> f:format.date()}</td>
         <td>{registration.state.name}</td>
-        <td><f:link.action controller="Registration" action="show" arguments="{registration: registration}">Details</f:link.action></td>
-        <td><f:link.action controller="Registration" action="edit" arguments="{registration: registration}">Bearbeiten</f:link.action></td>
-        <td><f:link.action controller="Registration" action="delete" arguments="{registration: registration}">Löschen</f:link.action></td>
+        <td><f:link.action controller="RegistrationAdmin" action="show" arguments="{registration: registration}">Details</f:link.action></td>
+        <td><f:link.action controller="RegistrationAdmin" action="edit" arguments="{registration: registration}">Bearbeiten</f:link.action></td>
+        <td><f:link.action controller="RegistrationAdmin" action="delete" arguments="{registration: registration}">Löschen</f:link.action></td>
     </tr>
     </f:for>
 </table>
