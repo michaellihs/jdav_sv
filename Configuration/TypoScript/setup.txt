@@ -35,6 +35,20 @@ plugin.tx_jdavsv {
 	persistence {
 		storagePid = {$plugin.tx_jdavsv.persistence.storagePid}
 	}
+
+
+	settings {
+
+	    pids {
+
+	        administration {
+	            registrationsListParticipantsPid = {$plugin.tx_jdavsv.settings.pids.administration.registrationsListParticipantsPid}
+	            registrationsListTeamerPid = {$plugin.tx_jdavsv.settings.pids.administration.registrationsListTeamerPid}
+	        }
+
+	    }
+
+	}
 	
 }
 

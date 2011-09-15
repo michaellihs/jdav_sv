@@ -33,8 +33,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<td>{row.event.value.title} ({row.event.value.registrationsCount} / {row.event.value.maxRegistrations})<br>
 			<f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action>&nbsp;
 			<f:link.action controller="EventAdmin" action="edit" arguments="{event: row.event.value.uid}">Bearbeiten</f:link.action>
-			<f:link.action controller="EventAdmin" action="teamerRegistrationsList" arguments="{event: row.event.value.uid}">Teamer TN-Liste</f:link.action>&nbsp;
-			<f:link.action controller="EventAdmin" action="attendeeRegistrationsList" arguments="{event: row.event.value.uid}">TN-Liste</f:link.action>&nbsp;</td>
+			<f:link.action pageUid="{settings.pids.administration.registrationsListTeamerPid}">Teamer TN-Liste</f:link.action>&nbsp;
+            <f:link.action pageUid="{settings.pids.administration.registrationsListParticipantsPid}">TN-Liste</f:link.action>&nbsp;
 			<td>Neue Anmeldung hinzufügen</td>
 		</tr>
 	</f:for>

@@ -11,4 +11,14 @@ plugin.tx_jdavsv {
 		# cat=plugin.tx_jdavsv//a; type=int+; label=Default storage PID
 		storagePid = 28
 	}
+	settings {
+	    pids {
+	        administration {
+	            # cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der TN Liste für Teilnehmer liegt
+	            registrationsListParticipantsPid =
+	            # cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der TN Liste für Teamer lieg
+	            registrationsListTeamerPid =
+	        }
+	    }
+	}
 }
