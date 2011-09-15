@@ -10,7 +10,7 @@
 
 plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
 
-    itemsPerPage = 0
+    pager.itemsPerPage = 0
 
     backendConfig < plugin.tx_ptextlist.prototype.backend.typo3
     backendConfig {
@@ -27,9 +27,19 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
             LEFT JOIN fe_users ON registration.attendee = fe_users.uid
         )
 
+        baseWhereClause (
+            registration.deleted <> 1
+        )
+
     }
 
     fields {
+        event_uid {
+            table = event
+            field = uid
+            isSortable = 0
+        }
+
         first_name {
             table = fe_users
             field = first_name
@@ -66,7 +76,7 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
             isSortable = 0
         }
 
-        dateOfBirth {
+        date_of_birth {
             special = '###TODO###'
             # TODO Geburtsdatum muss als Feld zu fe_users hinzugefügt werden
         }
@@ -122,7 +132,7 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
 
         50 {
             label = Geburtsdatum
-            fieldIdentifier = dateOfBirth
+            fieldIdentifier = date_of_birth
             columnIdentifier = dateOfBirthColumn
             isSortable = 0
         }
@@ -138,6 +148,18 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
     filters {
 
         filterbox1 {
+
+            filterConfigs {
+
+                10 {
+                    filterClassName = Tx_JdavSv_Extlist_Filters_RegistrationsByEventFilter
+                    partialPath = noPartialToBeSetHere
+                    filterIdentifier = registrationsByEventFilter
+                    label = nothinToLabelHere
+                    fieldIdentifier = event_uid
+                }
+
+            }
 
         }
 

@@ -66,12 +66,26 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * @return string The rendered list view
 	 */
 	public function listAction() {
-		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+		$extlistContextForEventAdminList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
 		    $this->settings['listConfig']['publicEvents'], 'publicEvents');
+
+        $extlistContextForRegistrationsTeamerList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+            $this->settings['listConfig']['registrationsTeamer'],
+            'registrationsTeamer'
+        );
+        $registrationsByEventFilterForTeamerList = $extlistContextForRegistrationsTeamerList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
+
+        $extlistContextForRegistrationsParticipantsList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+            $this->settings['listConfig']['registrationsParticipants'],
+            'registrationsParticipants'
+        );
+        $registrationsByEventFilterForParticipantsList = $extlistContextForRegistrationsParticipantsList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
 		    
-		$this->view->assign('listData', $extlistContext->getListData());
-        $this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
-        $this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
+		$this->view->assign('listData', $extlistContextForEventAdminList->getListData());
+        $this->view->assign('listCaptions', $extlistContextForEventAdminList->getRendererChain()->renderCaptions($extlistContextForEventAdminList->getList()->getListHeader()));
+        $this->view->assign('listHeader', $extlistContextForEventAdminList->getList()->getListHeader());
+        $this->view->assign('registrationsByEventFilterForTeamerList', $registrationsByEventFilterForTeamerList);
+        $this->view->assign('registrationsByEventFilterForParticipantsList', $registrationsByEventFilterForParticipantsList);
 	}
 
 

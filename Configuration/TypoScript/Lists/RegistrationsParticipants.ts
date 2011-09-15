@@ -10,7 +10,7 @@
 
 plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
 
-    itemsPerPage = 0
+    pager.itemsPerPage = 0
 
     backendConfig < plugin.tx_ptextlist.prototype.backend.typo3
     backendConfig {
@@ -27,9 +27,20 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
             LEFT JOIN fe_users ON registration.attendee = fe_users.uid
         )
 
+        baseWhereClause (
+            registration.deleted <> 1
+        )
+
     }
 
     fields {
+
+        event_uid {
+            table = event
+            field = uid
+            isSortable = 0
+        }
+
         first_name {
             table = fe_users
             field = first_name
@@ -108,6 +119,18 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
     filters {
 
         filterbox1 {
+
+            filterConfigs {
+
+                10 {
+                    filterClassName = Tx_JdavSv_Extlist_Filters_RegistrationsByEventFilter
+                    partialPath = noPartialToBeSetHere
+                    filterIdentifier = registrationsByEventFilter
+                    label = nothinToLabelHere
+                    fieldIdentifier = event_uid
+                }
+
+            }
 
         }
 
