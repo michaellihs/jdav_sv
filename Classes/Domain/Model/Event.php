@@ -280,13 +280,9 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		* You may modify the constructor of this class instead
 		*/
 		$this->accomodation = new Tx_Extbase_Persistence_ObjectStorage();
-		
 		$this->catering = new Tx_Extbase_Persistence_ObjectStorage();
-		
 		$this->state = new Tx_Extbase_Persistence_ObjectStorage();
-		
 		$this->fee = new Tx_Extbase_Persistence_ObjectStorage();
-		
 		$this->registrations = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
@@ -994,7 +990,25 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->teamerInputFinished = $teamerInputFinished;
 	}
 
+    /**
+     * Getter for registrations that are currently NOT on waiting list for this event
+     * 
+     * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
+     */
+    public function getNonWaitingListRegistrations() {
+        $registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository'); /* @var $registrationRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
+        return $registrationRepository->getNonWaitingListRegistrationsByEvent($this);
+    }
+
+    /**
+     * Getter for registrations that are currently on waiting list for this event
+     *
+     * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
+     */
+    public function getWaitingListRegistrations() {
+        $registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository'); /* @var $registrationRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
+        return $registrationRepository->getWaitingListRegistrationsByEvent($this);
+    }
 
 }
-
 ?>

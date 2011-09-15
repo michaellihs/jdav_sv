@@ -1,24 +1,24 @@
 <f:layout name="Default" />
 
-This Template is responsible for displaying a single view for a domain object
-
-If you modify this template, do not forget to change the overwrite settings 
-in /Configuration/Kickstarter/settings.yaml:
-	Resources:
-		Private: 
-			Templates:
-				Show.html		keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
 
 <f:section name="main">
-<h1>Single View for Event</h1>
+<h1>Veranstaltungsdetails</h1>
 
 <f:flashMessages />
+
+<f:render partial="Admin/menu" />
+
 <f:render partial="Event/properties" arguments="{event:event}" />
 
-<f:render partial="Registration/list" arguments="{event:event, registrations:event.registrations}" />
+<f:link.action action="edit">Veranstaltung bearbeiten</f:link.action><br />
+    
+<h2>Anmeldungen</h2>
+<f:render partial="Registration/list" arguments="{event:event, registrations:event.nonWaitingListRegistrations}" />
 
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="create">New Event</f:link.action>
+<h2>Warteliste</h2>
+<f:render partial="Registration/list" arguments="{event:event, registrations:event.waitingListRegistrations}" />
+
+<br/>
+<f:link.action action="list">Zurück zur Veranstaltungsübersicht</f:link.action><br />
+
 </f:section>

@@ -82,9 +82,29 @@ class Tx_JdavSv_Domain_Repository_RegistrationRepository extends Tx_Extbase_Pers
 		        $query->equals('waitingList', 1)
 		    )
 		);
-		return $query->execute;
+		$result = $query->execute();
+		return $result;
 	}
+
+
+
+    /**
+     * Returns non-waitinglist registrations for given event
+     * 
+     * @param Tx_JdavSv_Domain_Model_Event $event
+     * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
+     */
+    public function getNonWaitingListRegistrationsByEvent(Tx_JdavSv_Domain_Model_Event $event) {
+        $query = $this->createQuery();
+		$query->matching(
+		    $query->logicalAnd(
+		        $query->equals('event', $event),
+		        $query->equals('waitingList', 0)
+		    )
+		);
+        $result = $query->execute();
+		return $result;
+    }
 	
 }
-
 ?>
