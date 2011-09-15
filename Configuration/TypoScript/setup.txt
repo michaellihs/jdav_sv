@@ -11,10 +11,16 @@
 
 
 
-## Inclusion of external TS resources, included with extension
+## Inclusion of external TS resources from Extbase
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Extbase/Persistence.ts">
+
+
+
+## Inclusion of pt_extlist list configurations
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/PublicEvents.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsAdmin.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Extbase/Persistence.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsTeamer.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsParticipants.ts">
 
 
 
