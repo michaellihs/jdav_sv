@@ -19,7 +19,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:render partial="formErrors" />
 
 <f:form method="post" action="create"  name="newRegistration" object="{newRegistration}">
-<f:render partial="Registration/formFields" />
+<f:render partial="Registration/formFields" arguments="{event: event}" />
 	<f:form.submit value="Create new" />
 </f:form>
 </f:section>

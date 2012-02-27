@@ -39,7 +39,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<f:link.action controller="EventAdmin" action="edit" arguments="{event: row.event.value.uid}">Bearbeiten</f:link.action>
 			<f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForTeamerList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListTeamerPid}">Teamer TN-Liste</f:link.action>&nbsp;
             <f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForParticipantsList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListParticipantsPid}">TN-Liste</f:link.action>&nbsp;
-			<td>Neue Anmeldung hinzufügen</td>
+			<td><f:link.action controller="RegistrationAdmin" action="new" arguments="{event: row.event.value.uid}">Neue Anmeldung hinzufügen</f:link.action></td>
 		</tr>
 	</f:for>
 </table>

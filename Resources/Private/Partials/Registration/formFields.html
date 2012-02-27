@@ -1,27 +1,45 @@
+<label for="event">
+    <f:translate key="tx_jdavsv_domain_model_registration.event" />
+</label><br/>
+<f:if condition="{event}">
+    <f:then>
+        <f:form.textbox property="event"  value="{event.uid}"  /><br />
+    </f:then>
+    <f:else>
+        <f:form.textbox property="event"  value="{registration.event}"  /><br />
+    </f:else>
+</f:if>
+        
 <label for="date">
 	<f:translate key="tx_jdavsv_domain_model_registration.date" />
 </label><br />
 	<f:form.textbox property="date"  value="{registration.date->f:format.date()}"  /><br />
+
 <label for="attendee">
 	<f:translate key="tx_jdavsv_domain_model_registration.attendee" />
 </label><br />
 	<f:form.textbox property="attendee" /><br />
+
 <label for="reservedUntil">
 	<f:translate key="tx_jdavsv_domain_model_registration.reserved_until" />
 </label><br />
 	<f:form.textbox property="reservedUntil"  value="{registration.reservedUntil->f:format.date()}"  /><br />
+
 <label for="waitingList">
 	<f:translate key="tx_jdavsv_domain_model_registration.waiting_list" />
 </label><br />
 	<f:form.checkbox property="waitingList" value="1" checked="{registration.waitingList}"/><br />
+
 <label for="registrationOrder">
 	<f:translate key="tx_jdavsv_domain_model_registration.registration_order" />
 </label><br />
 	<f:form.textbox property="registrationOrder" /><br />
+
 <label for="vegetarian">
 	<f:translate key="tx_jdavsv_domain_model_registration.vegetarian" />
 </label><br />
 	<f:form.checkbox property="vegetarian" value="1" checked="{registration.vegetarian}" /><br />
+
 <label for="isAccepted">
     <f:translate key="tx_jdavsv_domain_model_registration.is_accepted" />
 </label><br />
