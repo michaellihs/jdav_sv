@@ -2,46 +2,38 @@
 
 <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
-
-
-If you modify this template, do not forget to change the overwrite settings 
-in /Configuration/Kickstarter/settings.yaml:
-	Resources:
-		Private: 
-			Templates:
-				List.html		keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
 
 <f:section name="main">
-<h1>Schulungsverwaltung</h1>
-
-<f:flashMessages />
-
-<f:render partial="Admin/menu" />
-
-<f:link.action action="create">Neue Veranstaltung anlegen</f:link.action>
-
-<table  class="tx_jdavsv" >
+<h1>Veranstaltungen</h1>
+<br />
+<table  class="table table-striped" >
     <tr style="background-color:#aaa">
-        <f:render partial="EXT:pt_extlist/Resources/Private/Partials/List/ListHeader.html" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
+        <f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
     </tr>
     <f:for each="{listData}" as="row">
-		<tr style="background-color:{row.event.value.lights}">
-		    <td><div class="tx-jdavsv-eventslist-categoryshortcut" style="z-index: -1; font-size: 30px; color: gray">{row.event.value.category.shortcut}</div>
-		      {row.event.value.accreditationNumber}
+		<tr>
+		    <td>
+                <strong>{row.event.value.category.shortcut}-{row.event.value.accreditationNumber}</strong>
 		    </td>
-			<td>{row.event.value.dateStart -> f:format.date()}<br>
-			{row.event.value.dateEnd -> f:format.date()}</td>
-			<td>{row.event.value.title} ({row.event.value.registrationsCount} / {row.event.value.maxRegistrations})<br>
-			<f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action>&nbsp;
-			<f:link.action controller="EventAdmin" action="edit" arguments="{event: row.event.value.uid}">Bearbeiten</f:link.action>
-			<f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForTeamerList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListTeamerPid}">Teamer TN-Liste</f:link.action>&nbsp;
-            <f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForParticipantsList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListParticipantsPid}">TN-Liste</f:link.action>&nbsp;
-			<td><f:link.action controller="RegistrationAdmin" action="new" arguments="{event: row.event.value.uid}">Neue Anmeldung hinzufügen</f:link.action></td>
+			<td>{row.event.value.dateStart -> f:format.date(format: 'd.m.Y')}<br>
+			{row.event.value.dateEnd -> f:format.date(format: 'd.m.Y')}</td>
+			<td>
+                <strong>{row.event.value.title}</strong> <p class="pull-right" style="font-size: 0.8em">{row.event.value.registrationsCount} / {row.event.value.maxRegistrations}</p><br>
+                <f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action>&nbsp;
+                <f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForTeamerList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListTeamerPid}">Teamer TN-Liste</f:link.action>&nbsp;
+                <f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForParticipantsList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListParticipantsPid}">TN-Liste</f:link.action>&nbsp;
+            </td>
+			<td>
+                <p class="pull-right">
+                    <f:link.action class="btn btn-primary" controller="EventAdmin" action="edit" arguments="{event: row.event.value.uid}"><i class="icon-pencil icon-white"></i> Bearbeiten</f:link.action>
+                    <f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="new" arguments="{event: row.event.value.uid}"><i class="icon-plus icon-white"></i> Neue Anmeldung</f:link.action>
+                    <a href="#" class="btn btn-danger"><i class="icon-trash icon-white"></i> Löschen</a>
+                </p>
+            </td>
 		</tr>
 	</f:for>
 </table>
+
+<f:link.action class="btn btn-primary" action="create">Neue Veranstaltung anlegen</f:link.action>
 
 </f:section>
