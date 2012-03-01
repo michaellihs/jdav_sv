@@ -21,7 +21,7 @@
 <div class="control-group">
     <label class="control-label" for="accreditationNumber">Art - Buchungsnummer</label>
     <div class="controls">
-        <f:form.select class="input-small" property="category" options="{ga: 'GA', fb: 'FB', am: 'AM', sonstige: 'Sonstige'}"/> - <f:form.textfield class="input-small" property="accreditationNumber" />
+        <f:form.select class="input-normal" property="category" options="{categories}" optionValueField="uid" optionLabelField="name" value="{event.category}"/> - <f:form.textfield class="input-small" property="accreditationNumber" />
     </div>
 </div>
 
@@ -45,7 +45,7 @@
 <div class="control-group">
 	<label class="control-label" for="place">Veranstaltungsort</label>
 	<div class="controls">
-		<f:form.select class="span6" property="category" options="{1: 'Ebinger Haus - Donautal', 2: 'Uli Wieland Hütte - Blaubeuren', 3: 'Kletterhalle Karlsruhe', 3: 'JDAV Geschäftsstelle Stuttgart'}"/>
+		<f:form.select class="span6" property="accomodation" options="{1: 'Ebinger Haus - Donautal', 2: 'Uli Wieland Hütte - Blaubeuren', 3: 'Kletterhalle Karlsruhe', 3: 'JDAV Geschäftsstelle Stuttgart'}"/>
 	</div>
 </div>
 

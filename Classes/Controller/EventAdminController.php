@@ -45,6 +45,15 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
      * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
      */
 	protected $registrationRepository;
+
+
+
+	/**
+	 * categoryRepository
+	 *
+	 * @var Tx_JdavSv_Domain_Repository_CategoryRepository
+	 */
+	protected $categoryRepository;
 	
 	
 
@@ -56,6 +65,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	protected function initializeAction() {
 		$this->eventRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_EventRepository');
 		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
+		$this->categoryRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_CategoryRepository');
 	}
 	
 	
@@ -140,6 +150,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 */
 	public function newAction(Tx_JdavSv_Domain_Model_Event $newEvent = NULL) {
 		$this->view->assign('newEvent', $newEvent);
+		$this->view->assign('categories', $this->categoryRepository->findAll());
 	}
 	
 		
@@ -151,7 +162,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 */
 	public function createAction(Tx_JdavSv_Domain_Model_Event $newEvent) {
 		$this->eventRepository->add($newEvent);
-		$this->flashMessageContainer->add('Your new Event was created.');
+		$this->flashMessageContainer->add('Die Veranstaltung wurde angelegt.');
 		
 		$this->redirect('list');
 	}
@@ -166,6 +177,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 */
 	public function editAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
+		$this->view->assign('categories', $this->categoryRepository->findAll());
 	}
 	
 		
@@ -182,7 +194,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	}
 	
 		
-			/**
+	/**
 	 * Deletes an existing Event
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event the Event to be deleted
@@ -190,7 +202,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 */
 	public function deleteAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$this->eventRepository->remove($event);
-		$this->flashMessageContainer->add('Your Event was removed.');
+		$this->flashMessageContainer->add('Die Veranstaltung wurde gelöscht.');
 		$this->redirect('list');
 	}
 
