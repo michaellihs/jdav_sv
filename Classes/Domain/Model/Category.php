@@ -31,8 +31,7 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-
-class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * Name of event category
@@ -41,12 +40,16 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 	 */
 	protected $name;
 
+
+
 	/**
 	 * Is a tour report required for registration
 	 *
 	 * @var boolean $tourReportRequired
 	 */
 	protected $tourReportRequired;
+
+
 	
 	/**
 	 * Holds a shortcut for a category
@@ -54,6 +57,8 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 	 * @var string
 	 */
 	protected $shortcut;
+
+
 
 	/**
 	 * Setter for name
@@ -65,6 +70,8 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 		$this->name = $name;
 	}
 
+
+
 	/**
 	 * Getter for name
 	 *
@@ -73,6 +80,8 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 	public function getName() {
 		return $this->name;
 	}
+
+
 
 	/**
 	 * Setter for tourReportRequired
@@ -84,6 +93,8 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 		$this->tourReportRequired = $tourReportRequired;
 	}
 
+
+
 	/**
 	 * Getter for tourReportRequired
 	 *
@@ -93,6 +104,8 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 		return $this->tourReportRequired;
 	}
 
+
+
 	/**
 	 * Returns the state of tourReportRequired
 	 *
@@ -101,6 +114,8 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 	public function isTourReportRequired() {
 		return $this->getTourReportRequired();
 	}
+
+
 	
 	/**
 	 * Returns shortcut for this category
@@ -110,6 +125,8 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractVa
 	public function getShortcut() {
 		return $this->shortcut;
 	}
+
+
 	
 	/**
 	 * Setter for shortcut
