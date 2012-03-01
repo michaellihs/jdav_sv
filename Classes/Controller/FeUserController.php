@@ -43,11 +43,21 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 
 	/**
 	 * Action renders FeUser list
+	 *
+	 * @param bool $resetFilters If set to true, filters will be reset
 	 */
-	public function listAction() {
+	public function listAction($resetFilters = FALSE) {
 		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
 			$this->settings['listConfig']['feUsersAdmin'], 'feUsersAdmin'
 		);
+
+		// Reset filters
+		if ($resetFilters) {
+			$extlistContext->resetFilterboxCollection();
+		}
+
+		$this->view->assign('usernameFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('feUserFilters')->getFilterByFilterIdentifier('usernameFilter'));
+		$this->view->assign('emailFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('feUserFilters')->getFilterByFilterIdentifier('emailFilter'));
 		$this->view->assign('listData', $extlistContext->getListData());
 		$this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
 		$this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));

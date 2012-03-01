@@ -162,9 +162,39 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
     
     }
 
+
+
+    filters {
+
+		feUserFilters {
+
+			filterConfigs {
+
+				## Username filter
+				10 < plugin.tx_ptextlist.prototype.filter.string
+				10 {
+					filterIdentifier = usernameFilter
+					label = Name
+					fieldIdentifier = firstName, lastName
+				}
+
+				## Email filter
+				20 < plugin.tx_ptextlist.prototype.filter.string
+				20 {
+					filterIdentifier = emailFilter
+					label = E-Mail
+					fieldIdentifier = email
+				}
+
+			}
+
+		}
+
+	}
+
 }
 
 
 
 # We copy list config above into pt_extlist namespace
-plugin.tx_ptextlist.settings.listConfig.registrationsAdmin < plugin.tx_jdavsv.settings.listConfig.registrationsAdmin
+plugin.tx_ptextlist.settings.listConfig.feUsersAdmin < plugin.tx_jdavsv.settings.listConfig.feUsersAdmin
