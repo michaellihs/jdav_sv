@@ -12,14 +12,16 @@ in /Configuration/Kickstarter/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
 
 <f:section name="main">
-<h1>Veranstaltung bearbeiten</h1>
+<h1>Veranstaltung</h1>
+<f:form class="form-horizontal" method="post" action="update" name="event" object="{event}" >
 
-<f:form method="post" action="update" name="event" object="{event}" >
     <f:render partial="formErrors" />
     <br />
 
-    <f:render partial="Event/formFields" arguments="{event:event}" />
-    <br/><br/>
+    <fieldset>
+        <legend>Veranstaltung bearbeiten</legend>
+        <f:render partial="Event/formFields" arguments="{event:event}" />
+    </fieldset>
 
     <f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
     <a href="#" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</a>

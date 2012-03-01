@@ -1,105 +1,132 @@
-<label for="title">
-	Titel der Veranstaltung:
+<div class="control-group">
+    <label class="control-label" for="title">Titel der Veranstaltung</label>
+    <div class="controls"><f:form.textfield class="span9" property="title" /></div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="subtitle">Untertitel</label>
+    <div class="controls"><f:form.textfield class="span9" property="subtitle" /></div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="dateStart">Zeitraum</label>
+    <div class="controls">
+        von: <f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="dateStart"  value="{event.dateStart->f:format.date(format: 'd.m.Y')}"  />
+        bis: <f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="dateEnd"  value="{event.dateEnd->f:format.date(format: 'd.m.Y')}"  />
+        Dauer in Tage: <f:form.textfield additionalAttributes="{placeholder: 'Dauer in Tagen'}" class="input-mini" property="duration" />
+        <span class="help-block">Format für Datum: tt.mm.jjjj - Dauer in Tage mit Komma</span>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="accreditationNumber">Art - Buchungsnummer</label>
+    <div class="controls">
+        <f:form.select class="input-small" property="category" options="{ga: 'GA', fb: 'FB', am: 'AM', sonstige: 'Sonstige'}"/> - <f:form.textfield class="input-small" property="accreditationNumber" />
+    </div>
+</div>
+
+<div class="control-group">
+<label class="control-label"  for="firstTeamer">Teamer <br/> Co-Teamer <br/> Hospitant
 </label>
-	<f:form.textbox property="title" />
-<label for="subtitle">
-	Untertitel:
-</label>
-	<f:form.textbox property="subtitle" />
-<label for="description">
-	Beschreibung:
-</label>
-	<f:form.textarea property="description" cols="40" rows="15" />
-<label for="dateStart">
-	Start - Ende - Dauer der Veranstaltung:
-</label>
-	<f:form.textbox additionalAttributes="{placeholder: 'dd.mm.jjjj'}" class="input-small" property="dateStart"  value="{event.dateStart->f:format.date(format: 'd.m.Y')}"  /> -
-	<f:form.textbox additionalAttributes="{placeholder: 'dd.mm.jjjj'}" class="input-small" property="dateEnd"  value="{event.dateEnd->f:format.date(format: 'd.m.Y')}"  /> -
-    <f:form.textbox additionalAttributes="{placeholder: 'Dauer in Tagen'}" class="input-small" property="duration" />
-<label for="place">
-	<f:translate key="tx_jdavsv_domain_model_event.place" />
-</label>
-	<f:form.textarea property="place" cols="40" rows="15" />
-<label for="travelling">
-	<f:translate key="tx_jdavsv_domain_model_event.travelling" />
-</label>
-	<f:form.textarea property="travelling" cols="40" rows="15" />
-<label for="accreditationNumber">
-	<f:translate key="tx_jdavsv_domain_model_event.accreditation_number" />
-</label>
-	<f:form.textbox property="accreditationNumber" />
-<label for="requirements">
-	<f:translate key="tx_jdavsv_domain_model_event.requirements" />
-</label>
-	<f:form.textarea property="requirements" cols="40" rows="15" />
-<label for="contents">
-	<f:translate key="tx_jdavsv_domain_model_event.contents" />
-</label>
-	<f:form.textarea property="contents" cols="40" rows="15" />
-<label for="educationObjective">
-	<f:translate key="tx_jdavsv_domain_model_event.education_objective" />
-</label>
-	<f:form.textarea property="educationObjective" cols="40" rows="15" />
-<label for="firstTeamer">
-	<f:translate key="tx_jdavsv_domain_model_event.first_teamer" />
-</label>
-	<f:form.textbox property="firstTeamer" />
-<label for="secondTeamer">
-	<f:translate key="tx_jdavsv_domain_model_event.second_teamer" />
-</label>
-	<f:form.textbox property="secondTeamer" />
-<label for="trainee">
-	<f:translate key="tx_jdavsv_domain_model_event.trainee" />
-</label>
-	<f:form.textbox property="trainee" />
-<label for="kitchenGroup">
-	<f:translate key="tx_jdavsv_domain_model_event.kitchen_group" />
-</label>
-	<f:form.textbox property="kitchenGroup" />
-<label for="price">
-	<f:translate key="tx_jdavsv_domain_model_event.price" />
-</label>
-	<f:form.textbox property="price" />
-<label for="maxRegistrations">
-	<f:translate key="tx_jdavsv_domain_model_event.max_registrations" />
-</label>
-	<f:form.textbox property="maxRegistrations" />
-<label for="minRegistrations">
-	<f:translate key="tx_jdavsv_domain_model_event.min_registrations" />
-</label>
-	<f:form.textbox property="minRegistrations" />
-<label for="attTeamerRatio">
-	<f:translate key="tx_jdavsv_domain_model_event.att_teamer_ratio" />
-</label>
-	<f:form.textbox property="attTeamerRatio" />
-<label for="announcement">
-	<f:translate key="tx_jdavsv_domain_model_event.announcement" />
-</label>
-	<f:form.textarea property="announcement" cols="40" rows="15" />
-<label for="tourReportRequired">
-	<f:translate key="tx_jdavsv_domain_model_event.tour_report_required" />
-</label>
-	<f:form.checkbox property="tourReportRequired" value="1" checked="{event.tourReportRequired}"/>
-<label for="registrationDeadline">
-	<f:translate key="tx_jdavsv_domain_model_event.registration_deadline" />
-</label>
-	<f:form.textbox property="registrationDeadline"  value="{event.registrationDeadline->f:format.date()}"  />
-	
-	
-	
-<label for="isProposal">
-    <f:translate key="tx_jdavsv_domain_model_event.isProposal" />
-</label>
-    <f:form.checkbox property="isProposal" checked="{event.isProposal}" value="1" />
-<label for="teamerInputFinished">
-    <f:translate key="tx_jdavsv_domain_model_event.teamerInputFinished" />
-</label>
-    <f:form.checkbox property="teamerInputFinished" checked="{event.teamerInputFinished}" value="1"  />
-<label for="isProofread">
-    <f:translate key="tx_jdavsv_domain_model_event.isProofread" />
-</label>
-    <f:form.checkbox property="isProofread" checked="{event.isProofread}" value="1"  />
-<label for="isAccepted">
-    <f:translate key="tx_jdavsv_domain_model_event.isAccepted" />
-</label>
-    <f:form.checkbox property="isAccepted" checked="{event.isAccepted}" value="1"  />
+    <div class="controls">
+        <f:form.select  property="firstTeamer" options="{1: 'Knoll, Michael', 2: 'Röger, Claudia', 3: 'Hermann, Ralf', 4: 'Weidinger, Karl'}"/><br />
+        <f:form.select  property="secondTeamer" options="{1: 'Knoll, Michael', 2: 'Röger, Claudia', 3: 'Hermann, Ralf', 4: 'Weidinger, Karl'}"/> <br />
+        <f:form.select  property="trainee" options="{1: 'Knoll, Michael', 2: 'Röger, Claudia', 3: 'Hermann, Ralf', 4: 'Weidinger, Karl'}"/>
+    </div>
+</div>
+
+<div class="control-group">
+<label class="control-label"  for="kitchenGroup">Kochgruppe</label>
+    <div class="controls">
+        <f:form.select  property="kitchenGroup" options="{1: 'Knoll, Michael', 2: 'Röger, Claudia', 3: 'Hermann, Ralf', 4: 'Weidinger, Karl'}"/>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="description">Beschreibung</label>
+    <div class="controls"><f:form.textarea property="description" class="span9" cols="40" rows="15" /></div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="place">Veranstaltungsort</label>
+    <div class="controls">
+        <f:form.select class="span6" property="category" options="{1: 'Ebinger Haus - Donautal', 2: 'Uli Wieland Hütte - Blaubeuren', 3: 'Kletterhalle Karlsruhe', 3: 'JDAV Geschäftsstelle Stuttgart'}"/>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="travelling">Anreise</label>
+    <div class="controls"><f:form.textarea property="travelling" cols="40" rows="5" /></div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="requirements">Voraussetzungen</label>
+    <div class="controls"><f:form.textarea property="requirements" class="span9" cols="40" rows="15" /></div>
+</div>
+
+<div class="control-group">
+<label for="contents" class="control-label">Inhalte</label>
+    <div class="controls"><f:form.textarea class="span9" property="contents" cols="40" rows="15" /></div>
+</div>
+
+<div class="control-group">
+<label for="educationObjective" class="control-label">Ausbildungsziele</label>
+    <div class="controls"><f:form.textarea class="span9" property="educationObjective" cols="40" rows="15" /></div>
+</div>
+
+<div class="control-group">
+<label for="price" class="control-label">Preis</label>
+    <div class="controls"><f:form.textfield class="input-mini" property="price" /></div>
+</div>
+
+<div class="control-group">
+<label for="maxRegistrations" class="control-label">Maximale Teilnehmer</label>
+    <div class="controls"><f:form.textfield class="input-mini" property="maxRegistrations" /></div>
+</div>
+
+<div class="control-group">
+<label for="minRegistrations" class="control-label">Minimale Teilnehmer</label>
+    <div class="controls"><f:form.textfield class="input-mini" property="minRegistrations" /></div>
+</div>
+
+<div class="control-group">
+<label for="attTeamerRatio" class="control-label">Teamer-TN-Schlüssel</label>
+    <div class="controls"><f:form.textfield class="input-mini" property="attTeamerRatio" /></div>
+</div>
+
+<div class="control-group">
+<label for="announcement" class="control-label">Text für Ankündigung</label>
+    <div class="controls"><f:form.textarea class="span9" property="announcement" cols="40" rows="15" /></div>
+</div>
+
+<div class="control-group">
+<label for="tourReportRequired" class="control-label">Tourenbericht erforderlich</label>
+    <div class="controls"><f:form.checkbox property="tourReportRequired" value="1" checked="{event.tourReportRequired}"/></div>
+</div>
+
+<div class="control-group">
+<label for="registrationDeadline" class="control-label">Anmelde-Deadline</label>
+    <div class="controls"><f:form.textfield class="input-small" property="registrationDeadline"  value="{event.registrationDeadline->f:format.date(format: 'd.m.Y')}"  /></div>
+</div>
+
+<div class="control-group">
+<label for="isProposal" class="control-label">Status</label>
+    <div class="controls">
+		<label class="checkbox">
+			<f:form.checkbox property="isProposal" checked="{event.isProposal}" value="1" />
+			Ist Vorschlag
+		</label>
+		<label class="checkbox">
+			<f:form.checkbox property="teamerInputFinished" checked="{event.teamerInputFinished}" value="1"  />
+			Fertig eingegeben
+		</label>
+		<label class="checkbox">
+			<f:form.checkbox property="isProofread" checked="{event.isProofread}" value="1"  />
+			Korrekturgelesen
+		</label>
+		<label class="checkbox">
+			<f:form.checkbox property="isAccepted" checked="{event.isAccepted}" value="1"  />
+			Akzeptiert
+		</label>
+	</div>
+</div>
