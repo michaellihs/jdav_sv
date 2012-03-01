@@ -20,7 +20,11 @@
 				<strong>{row.registration.value.event.category.shortcut}-{row.registration.value.event.accreditationNumber} {row.registration.value.event.title}</strong><br>
 				<f:link.action controller="EventAdmin" action="show" arguments="{event: row.registration.value.event}">Details</f:link.action>
 			</td>
-			<td>{row.registration.value.attendee.name} (<a href="mailto:{row.registration.value.attendee.email}">{row.registration.value.attendee.email}</a>)</td>
+			<td>
+				{row.registration.value.attendee.name} (<a href="mailto:{row.registration.value.attendee.email}">{row.registration.value.attendee.email}</a>)<br/>
+				<f:link.action controller="FeUserAdmin" action="show" arguments="{feUser: row.registration.value.attendee}">Details</f:link.action>&nbsp;
+				<f:link.action controller="FeUserAdmin" action="edit" arguments="{feUser: row.registration.value.attendee}">Bearbeiten</f:link.action>
+			</td>
 			<td>
                 <f:link.action controller="RegistrationAdmin" action="edit" arguments="{registration: row.registration.value}" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Bearbeiten</f:link.action>
                 <f:link.action controller="RegistrationAdmin" action="delete" arguments="{registration: row.registration.value}" class="btn btn-danger"><i class="icon-trash icon-white"></i> Löschen</f:link.action><br/>

@@ -25,13 +25,9 @@
     <div class="span2">
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
-          <li class="nav-header">Jugendleiter</li>
-          <li><a href="#">Übersicht</a></li>
-          <li><a href="#">Jugendleiter anlegen</a></li>
-
-          <li class="nav-header">Teamer</li>
-          <li><a href="#">Übersicht</a></li>
-          <li><a href="#">Teamer anlegen</a></li>
+          <li class="nav-header">Benutzer</li>
+		  <li><f:link.action controller="FeUser" action="list">Übersicht</f:link.action></li>
+		  <li><f:link.action controller="FeUser" action="new">Benutzer anlegen</f:link.action></li>
 
           <li class="nav-header">Veranstaltungen</li>
           <li><f:link.action controller="EventAdmin" action="list">Übersicht</f:link.action></li>

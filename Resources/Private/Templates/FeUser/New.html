@@ -1,0 +1,18 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="main">
+	<h1>Benutzer</h1>
+	<br>
+	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+	<f:form method="post" action="create" class="form-horizontal" name="feUser" object="{feUser}">
+		<f:render partial="formErrors" />
+		<fieldset>
+			<legend>Neuen Benutzer anlegen</legend>
+			<f:render partial="FeUser/formFields" />
+		</fieldset>
+		<f:form.submit class="btn-primary btn" value="Benutzer speichern" />
+		<f:link.action controller="EventAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+	</f:form>
+</f:section>

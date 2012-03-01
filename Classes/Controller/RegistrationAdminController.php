@@ -92,7 +92,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	
 		
 	/**
-	 * Creates a new Registration and forwards to the list action.
+	 * Creates a new Registration
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Registration $newRegistration a fresh Registration object which has not yet been added to the repository
      * @param Tx_JdavSv_Domain_Model_Registration $event event for which registration should be made

@@ -1,0 +1,25 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default" />
+
+
+<f:section name="main">
+<h1>Benutzer</h1>
+
+<legend>Veranstaltungsdetails</legend>
+<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+
+<f:render partial="Event/properties" arguments="{event:event}" />
+
+<f:link.action action="edit">Veranstaltung bearbeiten</f:link.action><br />
+    
+<legend>Anmeldungen</legend>
+<f:render partial="Registration/list" arguments="{event:event, registrations:event.nonWaitingListRegistrations}" />
+
+<legend>Warteliste</legend>
+<f:render partial="Registration/list" arguments="{event:event, registrations:event.waitingListRegistrations}" />
+
+<br/>
+	<f:link.action controller="EventAdmin" action="list" class="btn btn-primary">Zurück zur Übersicht</f:link.action>
+
+</f:section>

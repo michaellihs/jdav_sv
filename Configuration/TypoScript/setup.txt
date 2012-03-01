@@ -17,6 +17,7 @@
 
 
 ## Inclusion of pt_extlist list configurations
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/FeUsersAdmin.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/PublicEvents.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsAdmin.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsTeamer.ts">
