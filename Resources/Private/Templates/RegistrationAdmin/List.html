@@ -1,43 +1,33 @@
+{namespace extlist=Tx_PtExtlist_ViewHelpers}
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
 <f:layout name="Default" />
-
-This Template is responsible for creating a table of domain objects.
-
-
-If you modify this template, do not forget to change the overwrite settings 
-in /Configuration/Kickstarter/settings.yaml:
-	Resources:
-		Private: 
-			Templates:
-				List.html		keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
-
 <f:section name="main">
-<h1>Anmeldungsverwaltung</h1>
+<h1>Anmeldungen</h1>
+<br/>
 
-<f:flashMessages />
-
-<f:render partial="Admin/menu" />
-
-<table  class="tx_jdavsv" >
+	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+<legend>Übersicht</legend>
+<table  class="table table-striped" >
+	<tr>
+		<f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
+		<th></th>
+	</tr>
 	<f:for each="{listData}" as="row">
-        <tr style="background-color:#aaa">
-            <th>Anmeldedatum:</th>
-            <th>Veranstaltung:</th>
-            <th>Teilnehmer (E-Mail):</th>
-            <th></th>
-        </tr>
-		<tr style="background-color:#ccc">
-            <td>{row.registration.value.date -> f:format.date()}</td>
-		    <td>{row.registration.value.event.category.shortcut}{row.registration.value.event.accreditationNumber} - {row.registration.value.event.title}</td>
-			<td>{row.registration.value.attendee.username} (<a href="mailto:{row.registration.value.attendee.email}">{row.registration.value.attendee.email}</a>)</td>
+		<tr>
+            <td>{row.registration.value.date -> f:format.date(format: 'd.m.Y')}</td>
+		    <td>
+				<strong>{row.registration.value.event.category.shortcut}-{row.registration.value.event.accreditationNumber} {row.registration.value.event.title}</strong><br>
+				<f:link.action controller="EventAdmin" action="show" arguments="{event: row.registration.value.event}">Details</f:link.action>
+			</td>
+			<td>{row.registration.value.attendee.name} (<a href="mailto:{row.registration.value.attendee.email}">{row.registration.value.attendee.email}</a>)</td>
 			<td>
-                <f:link.action controller="RegistrationAdmin" action="delete" arguments="{registration: row.registration.value}">Löschen</f:link.action><br/>
-                <f:link.action controller="RegistrationAdmin" action="edit" arguments="{registration: row.registration.value}">Bearbeiten</f:link.action>
+                <f:link.action controller="RegistrationAdmin" action="edit" arguments="{registration: row.registration.value}" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Bearbeiten</f:link.action>
+                <f:link.action controller="RegistrationAdmin" action="delete" arguments="{registration: row.registration.value}" class="btn btn-danger"><i class="icon-trash icon-white"></i> Löschen</f:link.action><br/>
             </td>
 		</tr>
 	</f:for>
 </table>
 
-<f:link.action controller="RegistrationAdmin" action="new">Neue Anmeldung</f:link.action>
+<f:link.action controller="RegistrationAdmin" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i>Neue Anmeldung</f:link.action>
 </f:section>

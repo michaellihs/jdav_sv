@@ -1,46 +1,48 @@
-<label for="event">
-    <f:translate key="tx_jdavsv_domain_model_registration.event" />
-</label><br/>
-<f:if condition="{event}">
-    <f:then>
-        <f:form.textbox property="event"  value="{event.uid}"  /><br />
-    </f:then>
-    <f:else>
-        <f:form.textbox property="event"  value="{registration.event}"  /><br />
-    </f:else>
-</f:if>
-        
-<label for="date">
-	<f:translate key="tx_jdavsv_domain_model_registration.date" />
-</label><br />
-	<f:form.textbox property="date"  value="{registration.date->f:format.date()}"  /><br />
+<!--<div class="control-group">
+    <label class="control-label" for="title">Titel der Veranstaltung</label>
+    <div class="controls"><f:form.textfield class="span9" property="title" /></div>
+</div>-->
 
-<label for="attendee">
-	<f:translate key="tx_jdavsv_domain_model_registration.attendee" />
-</label><br />
-	<f:form.textbox property="attendee" /><br />
+<div class="control-group">
+	<label class="control-label" for="event">Veranstaltung</label>
+	<div class="controls">
+		<f:if condition="{event}">
+			<f:then>
+				<f:form.select id="event" property="event" options="{events}" optionValueField="uid" optionLabelField="title" value="{registration.event}" />
+			</f:then>
+			<f:else>
+				<f:form.select id="event" property="event" options="{events}" optionValueField="uid" optionLabelField="title" value="{registration.event}" />
+			</f:else>
+		</f:if>
+	</div>
+</div>
 
-<label for="reservedUntil">
-	<f:translate key="tx_jdavsv_domain_model_registration.reserved_until" />
-</label><br />
-	<f:form.textbox property="reservedUntil"  value="{registration.reservedUntil->f:format.date()}"  /><br />
+<div class="control-group">
+<label class="control-label" for="date">Anmeldedatum</label>
+	<div class="controls"><f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="date"  value="{registration.date->f:format.date(format:'d.m.Y')}"  /></div>
+</div>
 
-<label for="waitingList">
-	<f:translate key="tx_jdavsv_domain_model_registration.waiting_list" />
-</label><br />
-	<f:form.checkbox property="waitingList" value="1" checked="{registration.waitingList}"/><br />
+<div class="control-group">
+<label class="control-label" for="attendee">Teilnehmer</label>
+	<div class="controls"><f:form.select id="attendee" property="attendee" options="{feUsers}" optionValueField="uid" optionLabelField="name" value="{registration.attendee}" /></div>
+</div>
 
-<label for="registrationOrder">
-	<f:translate key="tx_jdavsv_domain_model_registration.registration_order" />
-</label><br />
-	<f:form.textbox property="registrationOrder" /><br />
+<div class="control-group">
+<label class="control-label" for="reservedUntil">Reservierung gültig bis</label>
+	<div class="controls"><f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="reservedUntil"  value="{registration.reservedUntil->f:format.date(format:'d.m.Y')}"  /></div>
+</div>
 
-<label for="vegetarian">
-	<f:translate key="tx_jdavsv_domain_model_registration.vegetarian" />
-</label><br />
-	<f:form.checkbox property="vegetarian" value="1" checked="{registration.vegetarian}" /><br />
+<div class="control-group">
+<label class="control-label" for="waitingList">Warteliste</label>
+	<div class="controls"><f:form.checkbox property="waitingList" value="1" checked="{registration.waitingList}"/></div>
+</div>
 
-<label for="isAccepted">
-    <f:translate key="tx_jdavsv_domain_model_registration.is_accepted" />
-</label><br />
-    <f:form.checkbox property="isAccepted" value="1" checked="{registration.isAccepted}" /><br />
+<div class="control-group">
+<label class="control-label" for="vegetarian">Vegetarier</label>
+	<div class="controls"><f:form.checkbox property="vegetarian" value="1" checked="{registration.vegetarian}" /></div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="isAccepted">Anmeldung akzeptiert</label>
+	<div class="controls"><f:form.checkbox property="isAccepted" value="1" checked="{registration.isAccepted}" /></div>
+</div>

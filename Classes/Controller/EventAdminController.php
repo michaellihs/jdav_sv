@@ -177,7 +177,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 */
 	public function updateAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$this->eventRepository->update($event);
-		$this->flashMessageContainer->add('Your Event was updated.');
+		$this->flashMessageContainer->add('Die Veranstaltung wurde gespeichert.');
 		$this->redirect('list');
 	}
 	

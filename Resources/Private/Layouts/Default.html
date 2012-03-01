@@ -26,7 +26,7 @@
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
           <li class="nav-header">Jugendleiter</li>
-          <li class="active"><a href="#">Übersicht</a></li>
+          <li><a href="#">Übersicht</a></li>
           <li><a href="#">Jugendleiter anlegen</a></li>
 
           <li class="nav-header">Teamer</li>
@@ -34,8 +34,8 @@
           <li><a href="#">Teamer anlegen</a></li>
 
           <li class="nav-header">Veranstaltungen</li>
-          <li><a href="#">Übersicht</a></li>
-          <li><a href="#">Veranstaltung anlegen</a></li>
+          <li><f:link.action controller="EventAdmin" action="list">Übersicht</f:link.action></li>
+          <li><f:link.action controller="EventAdmin" action="new">Veranstaltung anlegen</f:link.action></li>
           <li><a href="#">Veranstaltungsorte</a></li>
           <li><a href="#">Veranstaltungsort hinzufügen</a></li>
 
@@ -44,14 +44,13 @@
           <li><a href="#">Kategorie anlegen</a></li>
 
           <li class="nav-header">Anmeldungen</li>
-          <li><a href="#">Übersicht</a></li>
-          <li><a href="#">Anmeldung anlegen</a></li>
+          <li><f:link.action controller="RegistrationAdmin" action="list">Übersicht</f:link.action></li>
+          <li><f:link.action controller="RegistrationAdmin" action="new">Anmeldung anlegen</f:link.action></li>
         </ul>
       </div><!--/.well -->
     </div><!--/span-->
     <div class="span1">&nbsp;</div>
     <div class="span9">
-      <f:flashMessages />
       <f:render section="main" />
     </div> <!--/span-->
 

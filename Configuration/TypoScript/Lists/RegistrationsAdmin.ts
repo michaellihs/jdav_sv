@@ -80,17 +80,23 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
     
     
     columns {
-    
+
         10 {
+            fieldIdentifier = date
+            columnIdentifier = date
+            label = Anmeldedatum
+        }
+
+        20 {
             fieldIdentifier = event
             columnIdentifier = event
             label = Veranstaltung
         }
 
-        20 {
-            fieldIdentifier = date
-            columnIdentifier = date
-            label = Anmeldedatum
+        30 {
+        	fieldIdentifier = attendee
+        	columnIdentifier = attendee
+        	label = Teilnehmer
         }
     
     }

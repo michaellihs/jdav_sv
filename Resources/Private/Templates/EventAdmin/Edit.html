@@ -1,31 +1,20 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
 <f:layout name="Default" />
-
-This template displays a EDIT form for the current domain object.
-
-If you modify this template, do not forget to change the overwrite settings 
-in /Configuration/Kickstarter/settings.yaml:
-	Resources:
-		Private: 
-			Templates:
-				Update.html		keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
-
 <f:section name="main">
-<h1>Veranstaltung</h1>
-<f:form class="form-horizontal" method="post" action="update" name="event" object="{event}" >
+	<h1>Veranstaltung</h1>
+	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+	<f:form class="form-horizontal" method="post" action="update" name="event" object="{event}" >
 
-    <f:render partial="formErrors" />
-    <br />
+		<f:render partial="formErrors" />
+		<br />
 
-    <fieldset>
-        <legend>Veranstaltung bearbeiten</legend>
-        <f:render partial="Event/formFields" arguments="{event:event}" />
-    </fieldset>
+		<fieldset>
+			<legend>Veranstaltung bearbeiten</legend>
+			<f:render partial="Event/formFields" arguments="{event:event}" />
+		</fieldset>
 
-    <f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
-    <a href="#" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</a>
-</f:form>
-
-
+		<f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
+		<f:link.action controller="EventAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+	</f:form>
 </f:section>

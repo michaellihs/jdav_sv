@@ -28,7 +28,6 @@
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-
 class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_AbstractActionController {
 
 	/**
@@ -37,8 +36,55 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 	 * @var Tx_Extbase_Domain_Model_FrontendUser
 	 */
 	protected $feUser;
+
+
+
+	/**
+	 * Holds array of fe_users
+	 *
+	 * @var array<Tx_Extbase_Domain_Model_FrontendUser>
+	 */
+	protected $feUsers;
+
+
+
+	/**
+	 * Holds fe_user repository
+	 *
+	 * @var Tx_JdavSv_Domain_Repository_FeUserRepository
+	 */
+	protected $feUserRepository;
+
+
+
+	/**
+	 * @var Tx_Extbase_Persistence_Manager
+	 */
+	protected $persistenceManager;
 	
-	
+
+
+	/**
+	 * Injects persistence manager
+	 *
+	 * @param Tx_Extbase_Persistence_Manager $persistenceManager
+	 */
+	public function injectPersistenceManager(Tx_Extbase_Persistence_Manager $persistenceManager) {
+		$this->persistenceManager = $persistenceManager;
+	}
+
+
+
+	/**
+	 * Injects fe_user repository
+	 *
+	 * @param Tx_JdavSv_Domain_Repository_FeUserRepository $feUserRepository
+	 */
+	public function injectFeUserRepository(Tx_JdavSv_Domain_Repository_FeUserRepository $feUserRepository) {
+		$this->feUserRepository = $feUserRepository;
+	}
+
+
 	
 	/**
 	 * Initializes the controller
@@ -57,9 +103,7 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 	protected function initializeFeUser() {
 	    $feUserUid = $GLOBALS['TSFE']->fe_user->user['uid'];
         if ($feUserUid > 0) {
-            // TODO put this into pt_extbase
-            $feUserRepository = t3lib_div::makeInstance('Tx_Extbase_Domain_Repository_FrontendUserRepository'); /* @var $feUserRepository Tx_Extbase_Domain_Repository_FrontendUserRepository */
-            $query = $feUserRepository->createQuery();
+            $query = $this->feUserRepository->createQuery();
             $query->getQuerySettings()->setRespectStoragePage(FALSE);
             $queryResult = $query->matching($query->equals('uid', $feUserUid))->execute();
             if (count($queryResult) > 0) {
@@ -71,5 +115,4 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 	}
 	
 }
-
 ?>

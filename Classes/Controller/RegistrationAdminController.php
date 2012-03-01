@@ -69,9 +69,12 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	public function listAction() {
 		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
-		    $this->settings['listConfig']['registrationsAdmin'], 'registrationsAdmin');
+			$this->settings['listConfig']['registrationsAdmin'], 'registrationsAdmin'
+		);
 
 		$this->view->assign('listData', $extlistContext->getListData());
+		$this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
+		$this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
 	}
 	
 	
@@ -99,6 +102,8 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	public function newAction(Tx_JdavSv_Domain_Model_Registration $newRegistration = NULL, Tx_JdavSv_Domain_Model_Registration $event = NULL) {
         $this->view->assign('event', $event);
 		$this->view->assign('newRegistration', $newRegistration);
+		$this->view->assign('events', $this->objectManager->get('Tx_JdavSv_Domain_Repository_EventRepository')->findAll());
+		$this->view->assign('feUsers', $this->feUserRepository->getAllFeUsers());
 	}
 	
 	
@@ -126,6 +131,8 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	public function editAction(Tx_JdavSv_Domain_Model_Registration $registration) {
 		$this->view->assign('registration', $registration);
+		$this->view->assign('feUsers', $this->feUserRepository->getAllFeUsers());
+		$this->view->assign('events', $this->objectManager->get('Tx_JdavSv_Domain_Repository_EventRepository')->findAll());
 	}
 	
 		

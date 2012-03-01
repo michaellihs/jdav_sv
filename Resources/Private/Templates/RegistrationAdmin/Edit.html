@@ -1,25 +1,26 @@
+{namespace extlist = Tx_PtExtlist_ViewHelpers}
+{namespace ptextbase = Tx_PtExtbase_ViewHelpers}
+
 <f:layout name="Default" />
 
-This template displays a EDIT form for the current domain object.
-
-If you modify this template, do not forget to change the overwrite settings 
-in /Configuration/Kickstarter/settings.yaml:
-	Resources:
-		Private: 
-			Templates:
-				Update.html		keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
-
 <f:section name="main">
-<h1>Edit Registration</h1>
+	<h1>Anmeldungen</h1>
+	<br/>
+	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
 
-<f:flashMessages />
+	<f:render partial="formErrors" />
 
-<f:render partial="formErrors" />
+	<f:form class="form-horizontal" method="post" action="update" name="registration" object="{registration}" >
 
-<f:form method="post" action="update" name="registration" object="{registration}" >
-<f:render partial="Registration/formFields" arguments="{registration:registration}" />
-	<f:form.submit value="Save" />
-</f:form>
+		<legend>Anmeldung bearbeiten</legend>
+		<f:render partial="formErrors" />
+		<br />
+
+		<fieldset>
+			<f:render partial="Registration/formFields" arguments="{registration:registration, feUsers: feUsers, events: events}" />
+			<f:form.submit class="btn-primary btn" value="Anmeldung Speichern" />
+			<f:link.action controller="RegistrationAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+		</fieldset>
+	</f:form>
+
 </f:section>
