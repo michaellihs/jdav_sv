@@ -29,19 +29,21 @@
 		  <li><f:link.action controller="FeUser" action="list">Übersicht</f:link.action></li>
 		  <li><f:link.action controller="FeUser" action="new">Benutzer anlegen</f:link.action></li>
 
+		  <li class="nav-header">Anmeldungen</li>
+		  <li><f:link.action controller="RegistrationAdmin" action="list">Übersicht</f:link.action></li>
+		  <li><f:link.action controller="RegistrationAdmin" action="new">Anmeldung anlegen</f:link.action></li>
+
           <li class="nav-header">Veranstaltungen</li>
           <li><f:link.action controller="EventAdmin" action="list">Übersicht</f:link.action></li>
           <li><f:link.action controller="EventAdmin" action="new">Veranstaltung anlegen</f:link.action></li>
-          <li><a href="#">Veranstaltungsorte</a></li>
-          <li><a href="#">Veranstaltungsort hinzufügen</a></li>
 
           <li class="nav-header">Veranstaltungs-kategorien</li>
-          <li><a href="#">Übersicht</a></li>
-          <li><a href="#">Kategorie anlegen</a></li>
+          <li><f:link.action controller="Category" action="list">Übersicht</f:link.action></li>
+          <li><f:link.action controller="Category" action="new">Kategorie anlegen</f:link.action></li>
 
-          <li class="nav-header">Anmeldungen</li>
-          <li><f:link.action controller="RegistrationAdmin" action="list">Übersicht</f:link.action></li>
-          <li><f:link.action controller="RegistrationAdmin" action="new">Anmeldung anlegen</f:link.action></li>
+			<li class="nav-header">Veranstaltungsorte</li>
+          <li><a href="#">Veranstaltungsorte</a></li>
+          <li><a href="#">Veranstaltungsort hinzufügen</a></li>
         </ul>
       </div><!--/.well -->
     </div><!--/span-->

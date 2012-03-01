@@ -46,7 +46,7 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	 * @return void
 	 */
 	protected function initializeAction() {
-		$this->categoryRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_CategoryRepository');
+		$this->categoryRepository = $this->objectManager->get('Tx_JdavSv_Domain_Repository_CategoryRepository');
 	}
 	
 	
@@ -57,20 +57,13 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	 * @return string The rendered list view
 	 */
 	public function listAction() {
-		$categories = $this->categoryRepository->findAll();
-		
-		$this->view->assign('categories', $categories);
-	}
-	
-		
-	/**
-	 * Displays a single Category
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Category $category the Category to display
-	 * @return string The rendered view
-	 */
-	public function showAction(Tx_JdavSv_Domain_Model_Category $category) {
-		$this->view->assign('category', $category);
+		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+				$this->settings['listConfig']['categoryAdmin'], 'categoryAdmin'
+			);
+
+			$this->view->assign('listData', $extlistContext->getListData());
+			$this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
+			$this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
 	}
 	
 		
@@ -94,7 +87,7 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	 */
 	public function createAction(Tx_JdavSv_Domain_Model_Category $newCategory) {
 		$this->categoryRepository->add($newCategory);
-		$this->flashMessageContainer->add('Your new Category was created.');
+		$this->flashMessageContainer->add('Die Kategorie wurde angelegt.');
 		
 		$this->redirect('list');
 	}
@@ -116,16 +109,17 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	/**
 	 * Updates an existing Category and forwards to the list action afterwards.
 	 *
-	 * @param Tx_JdavSv_Domain_Model_Category $category the Category to display
+	 * @param Tx_JdavSv_Domain_Model_Category $category Category to be updated
 	 */
 	public function updateAction(Tx_JdavSv_Domain_Model_Category $category) {
+		var_dump($category);
 		$this->categoryRepository->update($category);
-		$this->flashMessageContainer->add('Your Category was updated.');
+		$this->flashMessageContainer->add('Die Kategorie wurde gespeichert.');
 		$this->redirect('list');
 	}
 	
 		
-			/**
+	/**
 	 * Deletes an existing Category
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Category $category the Category to be deleted
@@ -133,10 +127,9 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	 */
 	public function deleteAction(Tx_JdavSv_Domain_Model_Category $category) {
 		$this->categoryRepository->remove($category);
-		$this->flashMessageContainer->add('Your Category was removed.');
+		$this->flashMessageContainer->add('Die Kategorie wurde gelöscht.');
 		$this->redirect('list');
 	}
-	
 
 }
 ?>
