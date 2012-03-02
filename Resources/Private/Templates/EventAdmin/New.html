@@ -10,7 +10,7 @@
 		<f:render partial="formErrors" />
 		<fieldset>
 			<legend>Neue Veranstaltung anlegen</legend>
-			<f:render partial="Event/formFields" arguments="{categories: categories}" />
+			<f:render partial="Event/formFields" arguments="{categories: categories, accommodations: accommodations}" />
 		</fieldset>
 		<f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
 		<f:link.action controller="EventAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>

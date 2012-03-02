@@ -54,6 +54,15 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * @var Tx_JdavSv_Domain_Repository_CategoryRepository
 	 */
 	protected $categoryRepository;
+
+
+
+	/**
+	 * accomodationRepository
+	 *
+	 * @var Tx_JdavSv_Domain_Repository_AccommodationRepository
+	 */
+	protected $accommodationRepository;
 	
 	
 
@@ -66,6 +75,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->eventRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_EventRepository');
 		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_CategoryRepository');
+		$this->accommodationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_AccommodationRepository');
 	}
 	
 	
@@ -151,6 +161,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	public function newAction(Tx_JdavSv_Domain_Model_Event $newEvent = NULL) {
 		$this->view->assign('newEvent', $newEvent);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
+		$this->view->assign('accommodations', $this->accommodationRepository->findAll());
 	}
 	
 		
@@ -178,6 +189,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	public function editAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
+		$this->view->assign('accommodations', $this->accommodationRepository->findAll());
 	}
 	
 		
