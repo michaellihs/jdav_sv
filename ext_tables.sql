@@ -390,3 +390,7 @@ CREATE TABLE tx_jdavsv_domain_model_registrationstatetransitionprerequisites (
 	PRIMARY KEY (uid),
 	KEY parent (pid)
 );
+
+CREATE TABLE fe_users (
+    tx_jdavsv_is_teamer tinyint(4) unsigned DEFAULT '0' NOT NULL
+);

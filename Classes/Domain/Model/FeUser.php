@@ -30,5 +30,28 @@
  */
 class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser {
 
+	/**
+	 * True, if user is teamer
+	 *
+	 * @var bool
+	 */
+	protected $isTeamer;
+
+	/**
+	 * @param boolean $isTeamer
+	 */
+	public function setIsTeamer($isTeamer) {
+		$this->isTeamer = $isTeamer;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsTeamer() {
+		return $this->isTeamer;
+	}
+
 }
 ?>

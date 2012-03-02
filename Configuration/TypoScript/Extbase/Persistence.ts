@@ -21,6 +21,7 @@ config.tx_extbase {
                     recordType >
                     columns {
                         lockToDomain.mapOnProperty = lockToDomain
+                        tx_jdavsv_is_teamer.mapOnProperty = isTeamer
                     }
                 }
             }

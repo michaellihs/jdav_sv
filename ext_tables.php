@@ -284,4 +284,18 @@ $TCA['tx_jdavsv_domain_model_registrationstatetransitionprerequisites'] = array 
 );
 
 
+
+t3lib_div::loadTCA('fe_users');
+$tempColumns = array(
+	'tx_jdavsv_is_teamer' => array(
+		'exclude' => 1,
+		'label'   => 'Ist Teamer',
+		'config' => array(
+			'type' => 'check',
+		)
+	)
+);
+t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns, 1);
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_teamer');
+
 ?>
