@@ -1,14 +1,39 @@
 <f:if condition="{registrations}">
 <f:then>
-<table>
+<table class="table table-striped">
+	<tr>
+		<th>
+			Teilnehmer
+		</th>
+		<th>
+			Anmeldedatum
+		</th>
+		<th>
+			Anmeldezustand
+		</th>
+		<th></th>
+	</tr>
     <f:for each="{registrations}" as="registration">
     <tr>
         <td>{registration.attendee.name}</td>
-        <td>{registration.date -> f:format.date()}</td>
+        <td>{registration.date -> f:format.date(format: 'd.m.Y')}</td>
         <td>{registration.state.name}</td>
-        <td><f:link.action controller="RegistrationAdmin" action="show" arguments="{registration: registration}">Details</f:link.action></td>
-        <td><f:link.action controller="RegistrationAdmin" action="edit" arguments="{registration: registration}">Bearbeiten</f:link.action></td>
-        <td><f:link.action controller="RegistrationAdmin" action="delete" arguments="{registration: registration}">Löschen</f:link.action></td>
+        <td>
+			<p class="pull-right">
+			<f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="edit" arguments="{registration: registration}">Bearbeiten</f:link.action>
+        	<f:link.action class="btn btn-danger" controller="RegistrationAdmin" action="delete" arguments="{registration: registration}">Löschen</f:link.action>
+			<f:if condition="{waitingList}">
+				<f:then>
+					<f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="moveUp" arguments="{registration: registration}"><i class="icon-white icon-arrow-up" /></i></f:link.action>
+					<f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="moveDown" arguments="{registration: registration}"><i class="icon-white icon-arrow-down" /></i></f:link.action>
+					<f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="moveToRegistrations" arguments="{registration: registration}"><i class="icon-white icon-share-alt" ></i> Zu Anmeldungen</f:link.action>
+				</f:then>
+				<f:else>
+					<f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="moveToWaitinglist" arguments="{registration: registration}"><i class="icon-white icon-share-alt" ></i> Auf Warteliste</f:link.action>
+				</f:else>
+			</f:if>
+			</p>
+		</td>
     </tr>
     </f:for>
 </table>

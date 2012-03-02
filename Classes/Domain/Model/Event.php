@@ -1,27 +1,27 @@
 <?php
 /***************************************************************
-*  Copyright notice
-*
-*  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
-*  	
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+ *  Copyright notice
+ *
+ *  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 
 
 /**
@@ -236,14 +236,14 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @var boolean
 	 */
 	protected $isProposal;
-	
+
 	/**
 	 * If set to true, teamer has finished inputting his data for the event
 	 *
 	 * @var boolean
 	 */
 	protected $teamerInputFinished;
-	
+
 	/**
 	 * If set to true, event has had proofreading
 	 *
@@ -258,6 +258,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $isAccepted;
 
+
+
 	/**
 	 * The constructor.
 	 *
@@ -268,6 +270,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->initStorageObjects();
 	}
 
+
+
 	/**
 	 * Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
 	 *
@@ -275,15 +279,17 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected function initStorageObjects() {
 		/**
-		* Do not modify this method!
-		* It will be rewritten on each save in the kickstarter
-		* You may modify the constructor of this class instead
-		*/
+		 * Do not modify this method!
+		 * It will be rewritten on each save in the kickstarter
+		 * You may modify the constructor of this class instead
+		 */
 		$this->catering = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->state = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->fee = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->registrations = new Tx_Extbase_Persistence_ObjectStorage();
 	}
+
+
 
 	/**
 	 * Setter for title
@@ -295,6 +301,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->title = $title;
 	}
 
+
+
 	/**
 	 * Getter for title
 	 *
@@ -303,6 +311,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getTitle() {
 		return $this->title;
 	}
+
+
 
 	/**
 	 * Setter for subtitle
@@ -314,6 +324,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->subtitle = $subtitle;
 	}
 
+
+
 	/**
 	 * Getter for subtitle
 	 *
@@ -322,6 +334,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getSubtitle() {
 		return $this->subtitle;
 	}
+
+
 
 	/**
 	 * Setter for description
@@ -333,6 +347,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->description = $description;
 	}
 
+
+
 	/**
 	 * Getter for description
 	 *
@@ -341,6 +357,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getDescription() {
 		return $this->description;
 	}
+
+
 
 	/**
 	 * Setter for dateStart
@@ -352,6 +370,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->dateStart = $dateStart;
 	}
 
+
+
 	/**
 	 * Getter for dateStart
 	 *
@@ -360,6 +380,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getDateStart() {
 		return $this->dateStart;
 	}
+
+
 
 	/**
 	 * Setter for dateEnd
@@ -371,6 +393,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->dateEnd = $dateEnd;
 	}
 
+
+
 	/**
 	 * Getter for dateEnd
 	 *
@@ -379,6 +403,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getDateEnd() {
 		return $this->dateEnd;
 	}
+
+
 
 	/**
 	 * Setter for duration
@@ -390,6 +416,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->duration = $duration;
 	}
 
+
+
 	/**
 	 * Getter for duration
 	 *
@@ -398,6 +426,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getDuration() {
 		return $this->duration;
 	}
+
+
 
 	/**
 	 * Setter for place
@@ -409,6 +439,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->place = $place;
 	}
 
+
+
 	/**
 	 * Getter for place
 	 *
@@ -417,6 +449,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getPlace() {
 		return $this->place;
 	}
+
+
 
 	/**
 	 * Setter for travelling
@@ -428,6 +462,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->travelling = $travelling;
 	}
 
+
+
 	/**
 	 * Getter for travelling
 	 *
@@ -436,6 +472,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getTravelling() {
 		return $this->travelling;
 	}
+
+
 
 	/**
 	 * Setter for accreditationNumber
@@ -447,6 +485,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->accreditationNumber = $accreditationNumber;
 	}
 
+
+
 	/**
 	 * Getter for accreditationNumber
 	 *
@@ -455,6 +495,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getAccreditationNumber() {
 		return $this->accreditationNumber;
 	}
+
+
 
 	/**
 	 * Setter for requirements
@@ -466,6 +508,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->requirements = $requirements;
 	}
 
+
+
 	/**
 	 * Getter for requirements
 	 *
@@ -474,6 +518,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getRequirements() {
 		return $this->requirements;
 	}
+
+
 
 	/**
 	 * Setter for contents
@@ -485,6 +531,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->contents = $contents;
 	}
 
+
+
 	/**
 	 * Getter for contents
 	 *
@@ -493,6 +541,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getContents() {
 		return $this->contents;
 	}
+
+
 
 	/**
 	 * Setter for educationObjective
@@ -504,6 +554,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->educationObjective = $educationObjective;
 	}
 
+
+
 	/**
 	 * Getter for educationObjective
 	 *
@@ -512,6 +564,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getEducationObjective() {
 		return $this->educationObjective;
 	}
+
+
 
 	/**
 	 * Setter for firstTeamer
@@ -523,6 +577,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->firstTeamer = $firstTeamer;
 	}
 
+
+
 	/**
 	 * Getter for firstTeamer
 	 *
@@ -531,6 +587,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getFirstTeamer() {
 		return $this->firstTeamer;
 	}
+
+
 
 	/**
 	 * Setter for secondTeamer
@@ -542,6 +600,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->secondTeamer = $secondTeamer;
 	}
 
+
+
 	/**
 	 * Getter for secondTeamer
 	 *
@@ -550,6 +610,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getSecondTeamer() {
 		return $this->secondTeamer;
 	}
+
+
 
 	/**
 	 * Setter for trainee
@@ -561,6 +623,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->trainee = $trainee;
 	}
 
+
+
 	/**
 	 * Getter for trainee
 	 *
@@ -569,6 +633,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getTrainee() {
 		return $this->trainee;
 	}
+
+
 
 	/**
 	 * Setter for kitchenGroup
@@ -580,6 +646,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->kitchenGroup = $kitchenGroup;
 	}
 
+
+
 	/**
 	 * Getter for kitchenGroup
 	 *
@@ -588,6 +656,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getKitchenGroup() {
 		return $this->kitchenGroup;
 	}
+
+
 
 	/**
 	 * Setter for price
@@ -599,6 +669,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->price = $price;
 	}
 
+
+
 	/**
 	 * Getter for price
 	 *
@@ -607,6 +679,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getPrice() {
 		return $this->price;
 	}
+
+
 
 	/**
 	 * Setter for maxRegistrations
@@ -618,6 +692,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->maxRegistrations = $maxRegistrations;
 	}
 
+
+
 	/**
 	 * Getter for maxRegistrations
 	 *
@@ -626,6 +702,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getMaxRegistrations() {
 		return $this->maxRegistrations;
 	}
+
+
 
 	/**
 	 * Setter for minRegistrations
@@ -637,6 +715,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->minRegistrations = $minRegistrations;
 	}
 
+
+
 	/**
 	 * Getter for minRegistrations
 	 *
@@ -645,6 +725,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getMinRegistrations() {
 		return $this->minRegistrations;
 	}
+
+
 
 	/**
 	 * Setter for attTeamerRatio
@@ -656,6 +738,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->attTeamerRatio = $attTeamerRatio;
 	}
 
+
+
 	/**
 	 * Getter for attTeamerRatio
 	 *
@@ -664,6 +748,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getAttTeamerRatio() {
 		return $this->attTeamerRatio;
 	}
+
+
 
 	/**
 	 * Setter for announcement
@@ -675,6 +761,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->announcement = $announcement;
 	}
 
+
+
 	/**
 	 * Getter for announcement
 	 *
@@ -683,6 +771,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getAnnouncement() {
 		return $this->announcement;
 	}
+
+
 
 	/**
 	 * Setter for tourReportRequired
@@ -694,6 +784,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->tourReportRequired = $tourReportRequired;
 	}
 
+
+
 	/**
 	 * Getter for tourReportRequired
 	 *
@@ -703,6 +795,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		return $this->tourReportRequired;
 	}
 
+
+
 	/**
 	 * Returns the state of tourReportRequired
 	 *
@@ -711,6 +805,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function isTourReportRequired() {
 		return $this->getTourReportRequired();
 	}
+
+
 
 	/**
 	 * Setter for registrationDeadline
@@ -722,6 +818,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->registrationDeadline = $registrationDeadline;
 	}
 
+
+
 	/**
 	 * Getter for registrationDeadline
 	 *
@@ -730,6 +828,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getRegistrationDeadline() {
 		return $this->registrationDeadline;
 	}
+
+
 
 	/**
 	 * Setter for accommodation
@@ -741,6 +841,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->accommodation = $accommodation;
 	}
 
+
+
 	/**
 	 * Getter for accommodation
 	 *
@@ -749,6 +851,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getAccommodation() {
 		return $this->accommodation;
 	}
+
+
 
 	/**
 	 * Setter for catering
@@ -760,6 +864,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->catering = $catering;
 	}
 
+
+
 	/**
 	 * Getter for catering
 	 *
@@ -768,6 +874,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getCatering() {
 		return $this->catering;
 	}
+
+
 
 	/**
 	 * Adds a Catering
@@ -779,6 +887,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->catering->attach($catering);
 	}
 
+
+
 	/**
 	 * Removes a Catering
 	 *
@@ -788,6 +898,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function removeCatering(Tx_JdavSv_Domain_Model_Catering $cateringToRemove) {
 		$this->catering->detach($cateringToRemove);
 	}
+
+
 
 	/**
 	 * Setter for fee
@@ -799,6 +911,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->fee = $fee;
 	}
 
+
+
 	/**
 	 * Getter for fee
 	 *
@@ -807,6 +921,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getFee() {
 		return $this->fee;
 	}
+
+
 
 	/**
 	 * Adds a EventFee
@@ -818,6 +934,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->fee->attach($fee);
 	}
 
+
+
 	/**
 	 * Removes a EventFee
 	 *
@@ -828,6 +946,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->fee->detach($feeToRemove);
 	}
 
+
+
 	/**
 	 * Getter for category
 	 *
@@ -836,7 +956,9 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getCategory() {
 		return $this->category;
 	}
-	
+
+
+
 	/**
 	 * Setter for category
 	 *
@@ -845,6 +967,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function setCategory(Tx_JdavSv_Domain_Model_Category $category) {
 		$this->category = $category;
 	}
+
+
 
 	/**
 	 * Setter for registrations
@@ -856,6 +980,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->registrations = $registrations;
 	}
 
+
+
 	/**
 	 * Getter for registrations
 	 *
@@ -864,7 +990,9 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function getRegistrations() {
 		return $this->registrations;
 	}
-	
+
+
+
 	/**
 	 * Adds registration for this event
 	 *
@@ -873,7 +1001,9 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function addRegistration(Tx_JdavSv_Domain_Model_Registration $registration) {
 		$this->registrations->add($registration);
 	}
-	
+
+
+
 	/**
 	 * Removes registration from this event
 	 *
@@ -883,15 +1013,19 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->registrations->remove($registration);
 	}
 
+
+
 	/**
 	 * Returns number of registrations for this event
 	 *
 	 * @return int Number of registrations for this event
 	 */
 	public function getRegistrationsCount() {
-        return $this->registrations->count();
+		return $this->registrations->count();
 	}
-	
+
+
+
 	/**
 	 * Returns 'traffic-lights' for event's registration status
 	 *
@@ -903,21 +1037,27 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 5) return '#FAFAD2';
 		if ($this->maxRegistrations - $this->getRegistrationsCount() > 5) return '#7FFFD4';
 	}
-	
+
+
+
 	/**
 	 * @return boolean
 	 */
 	public function getIsAccepted() {
 		return $this->isAccepted;
 	}
-	
+
+
+
 	/**
 	 * @param boolean $isAccepted
 	 */
 	public function setIsAccepted($isAccepted) {
 		$this->isAccepted = $isAccepted;
 	}
-	
+
+
+
 	/**
 	 * Returns true, if event is accepted
 	 *
@@ -926,42 +1066,54 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function isAccepted() {
 		return $this->isAccepted;
 	}
-	
+
+
+
 	/**
 	 * @return boolean
 	 */
 	public function getIsProofread() {
 		return $this->isProofread;
 	}
-	
+
+
+
 	/**
 	 * @param boolean $isProofread
 	 */
 	public function setIsProofread($isProofread) {
 		$this->isProofread = $isProofread;
 	}
-	
+
+
+
 	/**
 	 * @return boolean
 	 */
 	public function getIsProposal() {
 		return $this->isProposal;
 	}
-	
+
+
+
 	/**
 	 * @param boolean $isProposal
 	 */
 	public function setIsProposal($isProposal) {
 		$this->isProposal = $isProposal;
 	}
-	
+
+
+
 	/**
 	 * @return boolean
 	 */
 	public function getTeamerInputFinished() {
 		return $this->teamerInputFinished;
 	}
-	
+
+
+
 	/**
 	 * @param boolean $teamerInputFinished
 	 */
@@ -969,25 +1121,44 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		$this->teamerInputFinished = $teamerInputFinished;
 	}
 
-    /**
-     * Getter for registrations that are currently NOT on waiting list for this event
-     * 
-     * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
-     */
-    public function getNonWaitingListRegistrations() {
-        $registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository'); /* @var $registrationRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
-        return $registrationRepository->getNonWaitingListRegistrationsByEvent($this);
-    }
 
-    /**
-     * Getter for registrations that are currently on waiting list for this event
-     *
-     * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
-     */
-    public function getWaitingListRegistrations() {
-        $registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository'); /* @var $registrationRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
-        return $registrationRepository->getWaitingListRegistrationsByEvent($this);
-    }
+
+	/**
+	 * Getter for registrations that are currently NOT on waiting list for this event
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
+	 */
+	public function getNonWaitingListRegistrations() {
+		$registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
+		/* @var $registrationRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
+		return $registrationRepository->getNonWaitingListRegistrationsByEvent($this);
+	}
+
+
+
+	/**
+	 * Getter for registrations that are currently on waiting list for this event
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
+	 */
+	public function getWaitingListRegistrations() {
+		$registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
+		/* @var $registrationRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
+		return $registrationRepository->getWaitingListRegistrationsByEvent($this);
+	}
+
+
+
+	/**
+	 * Returns full name of event like
+	 *
+	 * FB0112 Grundausbildung im Sommer
+	 *
+	 * @return string
+	 */
+	public function getFullName() {
+		return $this->category->getShortcut() . $this->accreditationNumber . ' ' . $this->title;
+	}
 
 }
 ?>

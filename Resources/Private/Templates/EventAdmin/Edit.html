@@ -12,9 +12,11 @@
 		<fieldset>
 			<legend>Veranstaltung bearbeiten</legend>
 			<f:render partial="Event/formFields" arguments="{event:event, categories: categories, accommodations: accommodations, teamers: teamers, trainees: trainees, kitchenGroups: kitchenGroups}" />
+			<div class="form-actions">
+				<f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
+				<f:link.action controller="EventAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+			</div>
 		</fieldset>
 
-		<f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
-		<f:link.action controller="EventAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
 	</f:form>
 </f:section>

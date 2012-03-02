@@ -10,8 +10,10 @@
 	<f:render partial="formErrors" />
 		<fieldset>
 			<f:render partial="Registration/formFields" arguments="{event: event, feUsers: feUsers, events: events}" />
-			<f:form.submit class="btn btn-primary" value="Anmeldung speichern" />
-			<f:link.action controller="RegistrationAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+			<div class="form-actions">
+				<f:form.submit class="btn btn-primary" value="Anmeldung speichern" />
+				<f:link.action controller="RegistrationAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+			</div>
 		</fieldset>
 	</f:form>
 </f:section>

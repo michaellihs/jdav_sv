@@ -17,9 +17,11 @@
 <f:render partial="Registration/list" arguments="{event:event, registrations:event.nonWaitingListRegistrations}" />
 
 <legend>Warteliste</legend>
-<f:render partial="Registration/list" arguments="{event:event, registrations:event.waitingListRegistrations}" />
+<f:render partial="Registration/list" arguments="{waitingList: 1, event:event, registrations:event.waitingListRegistrations}" />
 
 <br/>
+<div class="form-actions">
 	<f:link.action controller="EventAdmin" action="list" class="btn btn-primary">Zurück zur Übersicht</f:link.action>
+</div>
 
 </f:section>

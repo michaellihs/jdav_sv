@@ -6,25 +6,25 @@
 <div class="control-group">
 	<label class="control-label" for="event">Veranstaltung</label>
 	<div class="controls">
-		<f:if condition="{event}">
+	<f:if condition="{event}">
 			<f:then>
-				<f:form.select id="event" property="event" options="{events}" optionValueField="uid" optionLabelField="title" value="{registration.event}" />
+				<f:form.select disabled="1" class="span8" id="event" property="event" options="{events}" optionValueField="uid" optionLabelField="fullName" value="{event}" />
 			</f:then>
 			<f:else>
-				<f:form.select id="event" property="event" options="{events}" optionValueField="uid" optionLabelField="title" value="{registration.event}" />
+				<f:form.select class="span8" id="event" property="event" options="{events}" optionValueField="uid" optionLabelField="fullName" value="{registration.event}" />
 			</f:else>
-		</f:if>
+	</f:if>
 	</div>
+</div>
+
+<div class="control-group">
+<label class="control-label" for="attendee">Teilnehmer</label>
+	<div class="controls"><f:form.select class="span8" id="attendee" property="attendee" options="{feUsers}" optionValueField="uid" optionLabelField="fullName" value="{registration.attendee}" /></div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="date">Anmeldedatum</label>
 	<div class="controls"><f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="date"  value="{registration.date->f:format.date(format:'d.m.Y')}"  /></div>
-</div>
-
-<div class="control-group">
-<label class="control-label" for="attendee">Teilnehmer</label>
-	<div class="controls"><f:form.select id="attendee" property="attendee" options="{feUsers}" optionValueField="uid" optionLabelField="name" value="{registration.attendee}" /></div>
 </div>
 
 <div class="control-group">

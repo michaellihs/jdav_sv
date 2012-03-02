@@ -95,12 +95,12 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 * Creates a new Registration
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Registration $newRegistration a fresh Registration object which has not yet been added to the repository
-     * @param Tx_JdavSv_Domain_Model_Registration $event event for which registration should be made
+     * @param Tx_JdavSv_Domain_Model_Event $event event for which registration should be made
 	 * @return string An HTML form for creating a new Registration
 	 * @dontvalidate $newRegistration
 	 */
-	public function newAction(Tx_JdavSv_Domain_Model_Registration $newRegistration = NULL, Tx_JdavSv_Domain_Model_Registration $event = NULL) {
-        $this->view->assign('event', $event);
+	public function newAction(Tx_JdavSv_Domain_Model_Registration $newRegistration = NULL, Tx_JdavSv_Domain_Model_Event $event = NULL) {
+		$this->view->assign('event', $event);
 		$this->view->assign('newRegistration', $newRegistration);
 		$this->view->assign('events', $this->objectManager->get('Tx_JdavSv_Domain_Repository_EventRepository')->findAll());
 		$this->view->assign('feUsers', $this->feUserRepository->getAllFeUsers());
@@ -189,7 +189,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 		$this->checkForLoggedInFesUserAndRedirect();
 		$this->checkForRegistrationAndRedirectIfNotAlreadyRegistered($event);
 		$this->registrationManager->unregisterUserForEvent($this->feUser, $event);
-		$this->flashMessages->add('Deine Anmeldung wurde storniert!');
+		$this->flashMessageContainer->add('Deine Anmeldung wurde storniert!');
 		$this->forward('list', 'Event');
 	}
 	
@@ -208,6 +208,32 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
         $this->view->assign('feUser', $this->feUser);
         $this->view->assign('event', $event);
 	}
+
+
+
+	/**
+	 * Moves registration from waiting list to registrations
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	public function moveToRegistrationsAction(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$registration->setWaitingList(false);
+		$this->registrationRepository->update($registration);
+		$this->redirect('show', 'EventAdmin', null, array('event' => $registration->getEvent()));
+	}
+
+
+
+	/**
+	 * Moves registration from waiting list to registrations
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	public function moveToWaitinglistAction(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$registration->setWaitingList(true);
+		$this->registrationRepository->update($registration);
+		$this->redirect('show', 'EventAdmin', null, array('event' => $registration->getEvent()));
+	}
 	
 	
 	
@@ -217,7 +243,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	protected function checkForLoggedInFesUserAndRedirect() {
 	    if (is_null($this->feUser)) {
-            $this->flashMessages->add('Für die An- oder Abmeldung zu einer Schulung muss man eingeloggt sein!');
+            $this->flashMessageContainer->add('Für die An- oder Abmeldung zu einer Schulung muss man eingeloggt sein!');
             $this->redirect('list', 'Event');
         }
 	}
@@ -232,7 +258,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	protected function checkForRegistrationAndRedirectIfAlreadyRegistered(Tx_JdavSv_Domain_Model_Event $event) {
 	    if ($this->registrationManager->isUserRegisteredForEvent($this->feUser, $event)) {
-            $this->flashMessages->add('Anmeldung zur Schulung ist bereits erfolgt!');
+            $this->flashMessageContainer->add('Anmeldung zur Schulung ist bereits erfolgt!');
             $this->forward('list', 'Event');
         }
 	}
@@ -247,7 +273,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	protected function checkForRegistrationAndRedirectIfNotAlreadyRegistered(Tx_JdavSv_Domain_Model_Event $event) {
 		if (!$this->registrationManager->isUserRegisteredForEvent($this->feUser, $event)) {
-			$this->flashMessages->add('Du kannst dich nicht von einer Schulung abmelden, zu der du nicht angemeldet warst!');
+			$this->flashMessageContainer->add('Du kannst dich nicht von einer Schulung abmelden, zu der du nicht angemeldet warst!');
 			$this->forward('list', 'Event');
 		}
 	}

@@ -18,8 +18,10 @@
 
 		<fieldset>
 			<f:render partial="Registration/formFields" arguments="{registration:registration, feUsers: feUsers, events: events}" />
-			<f:form.submit class="btn-primary btn" value="Anmeldung Speichern" />
-			<f:link.action controller="RegistrationAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+			<div class="form-actions">
+				<f:form.submit class="btn-primary btn" value="Anmeldung Speichern" />
+				<f:link.action controller="RegistrationAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+			</div>
 		</fieldset>
 	</f:form>
 

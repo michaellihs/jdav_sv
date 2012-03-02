@@ -1,23 +1,25 @@
 <table class="tx-jdavsv-pi1" >
 	<tr>
 		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.title" />
+			Name der Schulung
 		</td>
 		<td>
-			{event.title}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.subtitle" />
-		</td>
-		<td>
-			{event.subtitle}
+			<strong>{event.category.shortcut}{event.accreditationNumber} {event.title} - {event.subtitle}</strong>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.description" />
+			Teamer
+		</td>
+		<td>
+			{event.firstTeamer.firstName}<br>
+			{event.secondTeamer}<br>
+			{event.trainee}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Beschreibung
 		</td>
 		<td>
 			{event.description}
@@ -25,39 +27,31 @@
 	</tr>
 	<tr>
 		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.date_start" />
+			Zeitraum
 		</td>
 		<td>
-			{event.dateStart -> f:format.date()}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.date_end" />
-		</td>
-		<td>
-			{event.dateEnd -> f:format.date()}
+			{event.dateStart -> f:format.date(format: 'd.m.Y')} bis {event.dateEnd -> f:format.date(format: 'd.m.Y')}
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.duration" />
+			Dauer
 		</td>
 		<td>
-			{event.duration}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.place" />
-		</td>
-		<td>
-			{event.place}
+			{event.duration} Tage
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.travelling" />
+			Veranstaltungsort / Unterkunft
+		</td>
+		<td>
+			{event.accommodation.name}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Anreise
 		</td>
 		<td>
 			{event.travelling}
@@ -65,15 +59,7 @@
 	</tr>
 	<tr>
 		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.accreditation_number" />
-		</td>
-		<td>
-			{event.accreditationNumber}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.requirements" />
+			Voraussetzungen
 		</td>
 		<td>
 			{event.requirements}
@@ -81,7 +67,7 @@
 	</tr>
 	<tr>
 		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.contents" />
+			Schulungsinhalte
 		</td>
 		<td>
 			{event.contents}
@@ -89,34 +75,10 @@
 	</tr>
 	<tr>
 		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.education_objective" />
+			Ausbildungsziele
 		</td>
 		<td>
 			{event.educationObjective}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.first_teamer" />
-		</td>
-		<td>
-			{event.firstTeamer}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.second_teamer" />
-		</td>
-		<td>
-			{event.secondTeamer}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.trainee" />
-		</td>
-		<td>
-			{event.trainee}
 		</td>
 	</tr>
 	<tr>
@@ -180,7 +142,7 @@
 			<f:translate key="tx_jdavsv_domain_model_event.registration_deadline" />
 		</td>
 		<td>
-			{event.registrationDeadline -> f:format.date()}
+			{event.registrationDeadline -> f:format.date(format: 'd.m.Y')}
 		</td>
 	</tr>
 </table>
