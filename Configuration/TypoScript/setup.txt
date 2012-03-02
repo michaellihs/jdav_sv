@@ -20,6 +20,7 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/FeUsersAdmin.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/PublicEvents.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/CategoryAdmin.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/AccommodationAdmin.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsAdmin.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsTeamer.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsParticipants.ts">

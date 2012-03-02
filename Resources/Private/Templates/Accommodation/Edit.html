@@ -1,0 +1,19 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default" />
+<f:section name="main">
+	<h1>Unterkünfte</h1>
+	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+	<f:form class="form-horizontal" method="post" action="update" name="accommodation" object="{accommodation}" >
+		<f:render partial="formErrors" />
+		<br />
+
+		<fieldset>
+			<legend>Unterkunft bearbeiten</legend>
+			<f:render partial="Accommodation/formFields" arguments="{accommodation: accommodation}" />
+		</fieldset>
+
+		<f:form.submit class="btn-primary btn" value="Unterkunft Speichern" />
+		<f:link.action controller="Accommodation" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+	</f:form>
+</f:section>

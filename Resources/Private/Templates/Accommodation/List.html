@@ -1,0 +1,47 @@
+{namespace extlist=Tx_PtExtlist_ViewHelpers}
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default" />
+
+
+<f:section name="main">
+
+<h1>Unterkünfte</h1>
+<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+<br />
+<legend>Übersicht</legend>
+<table  class="table table-striped" >
+    <tr>
+        <f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
+		<th></th>
+    </tr>
+    <f:for each="{listData}" as="row">
+		<tr>
+		    <td>
+                <strong>{row.name}</strong>
+		    </td>
+			<td>
+				{row.email}
+			</td>
+			<td>
+				{row.url}
+			</td>
+			<td>
+				{row.address}
+			</td>
+			<td>
+				{row.telephone}
+			</td>
+            <td>
+				<p class="pull-right">
+                    <f:link.action class="btn btn-primary" controller="Accommodation" action="edit" arguments="{accommodation: row.accommodation.value.uid}"><i class="icon-pencil icon-white"></i> Bearbeiten</f:link.action>
+                    <f:link.action class="btn btn-danger" controller="Accommodation" action="delete" arguments="{accommodation: row.accommodation.value.uid}"><i class="icon-trash icon-white"></i> Löschen</f:link.action>
+                </p>
+            </td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i> Neue Unterkunft anlegen</f:link.action>
+
+</f:section>

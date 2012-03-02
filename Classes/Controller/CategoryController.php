@@ -112,7 +112,6 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	 * @param Tx_JdavSv_Domain_Model_Category $category Category to be updated
 	 */
 	public function updateAction(Tx_JdavSv_Domain_Model_Category $category) {
-		var_dump($category);
 		$this->categoryRepository->update($category);
 		$this->flashMessageContainer->add('Die Kategorie wurde gespeichert.');
 		$this->redirect('list');

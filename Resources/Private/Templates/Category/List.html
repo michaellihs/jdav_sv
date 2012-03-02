@@ -20,7 +20,9 @@
 		    <td>
                 <strong>{row.shortcut}</strong>
 		    </td>
-			<td>{row.name}
+			<td>
+				{row.name}
+			</td>
 			<td>
                 <p class="pull-right">
                     <f:link.action class="btn btn-primary" controller="Category" action="edit" arguments="{category: row.category.value.uid}"><i class="icon-pencil icon-white"></i> Bearbeiten</f:link.action>

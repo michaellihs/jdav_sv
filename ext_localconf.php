@@ -13,6 +13,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
         'RegistrationAdmin' => 'list,new, create, edit, update, delete',
 		'Category' => 'list, new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete',
+		'Accommodation' => 'list, new, create, edit, update, delete',
 	),
 	array(
 		'Event' => 'list, attendeeRegistrationsList, show',
@@ -21,6 +22,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
         'RegistrationAdmin' => 'list,new, create, edit, update, delete',
 		'Category' => 'list, new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete',
+		'Accommodation' => 'list, new, create, edit, update, delete',
 	)
 );
 
