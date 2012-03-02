@@ -135,5 +135,16 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 		return $this->isAdmin;
 	}
 
+
+
+	/**
+	 * Returns full name as 'lastName, firstName'
+	 *
+	 * @return string
+	 */
+	public function getFullName() {
+		return $this->lastName . ', ' . $this->firstName;
+	}
+
 }
 ?>

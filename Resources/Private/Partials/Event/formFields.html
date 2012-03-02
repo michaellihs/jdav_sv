@@ -1,3 +1,5 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
 <div class="control-group">
     <label class="control-label" for="title">Titel der Veranstaltung</label>
     <div class="controls"><f:form.textfield class="span9" property="title" /></div>
@@ -29,23 +31,23 @@
 <label class="control-label"  for="firstTeamer">Teamer <br/> Co-Teamer <br/> Hospitant
 </label>
     <div class="controls">
-        <f:form.select  property="firstTeamer" options="{1: 'Knoll, Michael', 2: 'Röger, Claudia', 3: 'Hermann, Ralf', 4: 'Weidinger, Karl'}"/><br />
-        <f:form.select  property="secondTeamer" options="{1: 'Knoll, Michael', 2: 'Röger, Claudia', 3: 'Hermann, Ralf', 4: 'Weidinger, Karl'}"/> <br />
-        <f:form.select  property="trainee" options="{1: 'Knoll, Michael', 2: 'Röger, Claudia', 3: 'Hermann, Ralf', 4: 'Weidinger, Karl'}"/>
+        <ptextbase:form.select  property="firstTeamer" options="{teamers}" optionLabelField="fullName" optionValueField="uid" emptyOption="Bitte auswählen..." /><br />
+		<ptextbase:form.select  property="secondTeamer" options="{teamers}" optionLabelField="fullName" optionValueField="uid" emptyOption="Bitte auswählen..." /> <br />
+		<ptextbase:form.select  property="trainee" options="{trainees}" optionLabelField="fullName" optionValueField="uid" emptyOption="Bitte auswählen..." />
     </div>
 </div>
 
 <div class="control-group">
 <label class="control-label"  for="kitchenGroup">Kochgruppe</label>
     <div class="controls">
-        <f:form.select  property="kitchenGroup" options="{1: 'Knoll, Michael', 2: 'Röger, Claudia', 3: 'Hermann, Ralf', 4: 'Weidinger, Karl'}"/>
+		<ptextbase:form.select  property="kitchenGroup" options="{kitchenGroups}" optionLabelField="fullName" optionValueField="uid" emptyOption="Bitte auswählen..." />
     </div>
 </div>
 
 <div class="control-group">
 	<label class="control-label" for="place">Veranstaltungsort</label>
 	<div class="controls">
-		<f:form.select class="span6" property="accommodation" options="{accommodations}" optionLabelField="name" optionValueField="uid" />
+		<ptextbase:form.select class="span6" property="accommodation" options="{accommodations}" optionLabelField="name" optionValueField="uid" emptyOption="Bitte auswählen..." />
 	</div>
 </div>
 

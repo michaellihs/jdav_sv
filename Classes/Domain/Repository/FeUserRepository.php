@@ -44,5 +44,38 @@ class Tx_JdavSv_Domain_Repository_FeUserRepository extends Tx_Extbase_Domain_Rep
 		return $this->findAll();
 	}
 
+
+
+	/**
+	 * Returns all fe_users that are teamers
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 */
+	public function getAllTeamers() {
+		return $this->findByIsTeamer(1);
+	}
+
+
+
+	/**
+	 * Returns all fe_users that are trainees
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 */
+	public function getAllTrainees() {
+		return $this->findByIsTrainee(1);
+	}
+
+
+
+	/**
+	 * Returns all fe_users that are kitchen group interested
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 */
+	public function getAllKitchenGroups() {
+		return $this->findByIsKitchenGroup(1);
+	}
+
 }
 ?>

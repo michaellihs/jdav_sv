@@ -162,6 +162,9 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->view->assign('newEvent', $newEvent);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('accommodations', $this->accommodationRepository->findAll());
+		$this->view->assign('teamers', $this->feUserRepository->getAllTeamers());
+		$this->view->assign('trainees', $this->feUserRepository->getAllTrainees());
+		$this->view->assign('kitchenGroups', $this->feUserRepository->getAllKitchenGroups());
 	}
 	
 		
@@ -190,6 +193,9 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->view->assign('event', $event);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('accommodations', $this->accommodationRepository->findAll());
+		$this->view->assign('teamers', $this->feUserRepository->getAllTeamers());
+		$this->view->assign('trainees', $this->feUserRepository->getAllTrainees());
+		$this->view->assign('kitchenGroups', $this->feUserRepository->getAllKitchenGroups());
 	}
 	
 		

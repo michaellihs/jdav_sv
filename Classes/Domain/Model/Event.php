@@ -198,9 +198,9 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Accommodation for event (Huette / Haus...)
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Accommodation> $accomodation
+	 * @var Tx_JdavSv_Domain_Model_Accommodation
 	 */
-	protected $accomodation;
+	protected $accommodation;
 
 	/**
 	 * Selbstverpflegung / Halb- / Vollpension
@@ -279,7 +279,6 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		* It will be rewritten on each save in the kickstarter
 		* You may modify the constructor of this class instead
 		*/
-		$this->accomodation = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->catering = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->state = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->fee = new Tx_Extbase_Persistence_ObjectStorage();
@@ -733,42 +732,22 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 	/**
-	 * Setter for accomodation
+	 * Setter for accommodation
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Accommodation> $accomodation Accommodation for event (Huette / Haus...)
+	 * @param Tx_JdavSv_Domain_Model_Accommodation $accommodation Accommodation for event (Huette / Haus...)
 	 * @return void
 	 */
-	public function setAccomodation(Tx_Extbase_Persistence_ObjectStorage $accomodation) {
-		$this->accomodation = $accomodation;
+	public function setAccommodation(Tx_JdavSv_Domain_Model_Accommodation $accommodation) {
+		$this->accommodation = $accommodation;
 	}
 
 	/**
-	 * Getter for accomodation
+	 * Getter for accommodation
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Accommodation> Accommodation for event (Huette / Haus...)
+	 * @return Tx_JdavSv_Domain_Model_Accommodation Accommodation for event (Huette / Haus...)
 	 */
-	public function getAccomodation() {
-		return $this->accomodation;
-	}
-
-	/**
-	 * Adds a Accommodation
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Accommodation the Accommodation to be added
-	 * @return void
-	 */
-	public function addAccomodation(Tx_JdavSv_Domain_Model_Accommodation $accomodation) {
-		$this->accomodation->attach($accomodation);
-	}
-
-	/**
-	 * Removes a Accommodation
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Accommodation the Accommodation to be removed
-	 * @return void
-	 */
-	public function removeAccomodation(Tx_JdavSv_Domain_Model_Accommodation $accomodationToRemove) {
-		$this->accomodation->detach($accomodationToRemove);
+	public function getAccommodation() {
+		return $this->accommodation;
 	}
 
 	/**
