@@ -391,6 +391,17 @@ CREATE TABLE tx_jdavsv_domain_model_registrationstatetransitionprerequisites (
 	KEY parent (pid)
 );
 
+CREATE TABLE tx_jdavsv_domain_model_categoryprerequisitefulfillment (
+    sys_language_uid int(11) DEFAULT '0' NOT NULL,
+    l18n_parent int(11) DEFAULT '0' NOT NULL,
+    l18n_diffsource mediumblob NOT NULL,
+    t3ver_label varchar(30) DEFAULT '' NOT NULL,
+    hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+    registration  int(11) DEFAULT '0' NOT NULL,
+    prerequisite  int(11) DEFAULT '0' NOT NULL,
+    annotation text NOT NULL
+)
+
 CREATE TABLE fe_users (
     tx_jdavsv_is_teamer tinyint(4) unsigned DEFAULT '0' NOT NULL,
     tx_jdavsv_is_trainee tinyint(4) unsigned DEFAULT '0' NOT NULL,

@@ -40,14 +40,16 @@ config.tx_extbase {
                 }
             }
             
-            Tx_Yag_Domain_Model_Extern_TTContent {
-                mapping {
-                    tableName = tt_content
-                    columns {
-                        lockToDomain.mapOnProperty = lockToDomain
-                    }
-                }
-            }
+			Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment {
+				mapping {
+					tableName = tx_jdavsv_domain_model_categoryprerequisitefulfillment
+					recordType >
+					columns {
+						tstamp.mapOnProperty = date
+					}
+				}
+			}
+
         }
     }
 }

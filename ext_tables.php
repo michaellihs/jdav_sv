@@ -260,11 +260,11 @@ $TCA['tx_jdavsv_domain_model_paymentmethods'] = array (
 	)
 );
 
-t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_registrationstatetransitionprerequisites', 'EXT:jdav_sv/Resources/Private/Language/locallang_csh_tx_jdavsv_domain_model_registrationstatetransitionprerequisites.xml');
-t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_registrationstatetransitionprerequisites');
-$TCA['tx_jdavsv_domain_model_registrationstatetransitionprerequisites'] = array (
+t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_categoryprerequisitefulfillment', 'EXT:jdav_sv/Resources/Private/Language/locallang_csh_tx_jdavsv_domain_model_registrationstatetransitionprerequisites.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_categoryprerequisitefulfillment');
+$TCA['tx_jdavsv_domain_model_categoryprerequisitefulfillment'] = array (
 	'ctrl' => array (
-		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registrationstatetransitionprerequisites',
+		'title'             => 'tx_jdavsv_domain_model_registrationstatetransitionprerequisites',
 		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
@@ -278,8 +278,8 @@ $TCA['tx_jdavsv_domain_model_registrationstatetransitionprerequisites'] = array 
 		'enablecolumns' 	=> array(
 			'disabled' => 'hidden'
 			),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/RegistrationStateTransitionPrerequisites.php',
-		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_jdavsv_domain_model_registrationstatetransitionprerequisites.gif'
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/CategoryPrerequisiteFulfillment.php',
+		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_jdavsv_domain_model_categoryprerequisitefulfillment.gif'
 	)
 );
 
