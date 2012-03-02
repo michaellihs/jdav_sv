@@ -25,27 +25,27 @@
 
 
 /**
- * Category
+ * Class implements prerequisites that have to be fulfilled by a registration of an event in this category to be completed.
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * Name of event category
+	 * Associated category
 	 *
-	 * @var string $name
+	 * @var Tx_JdavSv_Domain_Model_Category
 	 */
-	protected $name;
+	protected $category;
 
 
 
 	/**
-	 * Is a tour report required for registration
+	 * If set to true, prerequisite is required
 	 *
-	 * @var boolean $tourReportRequired
+	 * @var boolean
 	 */
-	protected $tourReportRequired;
+	protected $required;
 
 
 	
@@ -59,10 +59,34 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEn
 
 
 	/**
-	 * Setter for name
+	 * Description of prerequisite
 	 *
-	 * @param string $name Name of event category
-	 * @return void
+	 * @var string
+	 */
+	protected $name;
+
+
+
+	/**
+	 * @param \Tx_JdavSv_Domain_Model_Category $category
+	 */
+	public function setCategory($category) {
+		$this->category = $category;
+	}
+
+
+
+	/**
+	 * @return \Tx_JdavSv_Domain_Model_Category
+	 */
+	public function getCategory() {
+		return $this->category;
+	}
+
+
+
+	/**
+	 * @param string $name
 	 */
 	public function setName($name) {
 		$this->name = $name;
@@ -71,9 +95,7 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEn
 
 
 	/**
-	 * Getter for name
-	 *
-	 * @return string Name of event category
+	 * @return string
 	 */
 	public function getName() {
 		return $this->name;
@@ -82,57 +104,37 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEn
 
 
 	/**
-	 * Setter for tourReportRequired
-	 *
-	 * @param boolean $tourReportRequired Is a tour report required for registration
-	 * @return void
+	 * @param boolean $required
 	 */
-	public function setTourReportRequired($tourReportRequired) {
-		$this->tourReportRequired = $tourReportRequired;
+	public function setRequired($required) {
+		$this->required = $required;
 	}
 
 
 
 	/**
-	 * Getter for tourReportRequired
-	 *
-	 * @return boolean Is a tour report required for registration
+	 * @return boolean
 	 */
-	public function getTourReportRequired() {
-		return $this->tourReportRequired;
+	public function getRequired() {
+		return $this->required;
 	}
 
 
 
 	/**
-	 * Returns the state of tourReportRequired
-	 *
-	 * @return boolean the state of tourReportRequired
-	 */
-	public function isTourReportRequired() {
-		return $this->getTourReportRequired();
-	}
-
-
-	
-	/**
-	 * Returns shortcut for this category
-	 *
-	 * @return string
-	 */
-	public function getShortcut() {
-		return $this->shortcut;
-	}
-
-
-	
-	/**
-	 * Setter for shortcut
-	 *
 	 * @param string $shortcut
 	 */
 	public function setShortcut($shortcut) {
 		$this->shortcut = $shortcut;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getShortcut() {
+		return $this->shortcut;
 	}
 
 }

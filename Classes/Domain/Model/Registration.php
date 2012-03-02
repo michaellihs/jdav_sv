@@ -31,7 +31,6 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-
 class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
