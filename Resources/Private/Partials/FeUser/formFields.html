@@ -23,7 +23,13 @@
 	<div class="controls">
 		<label class="checkbox">
 			<f:form.checkbox property="isTeamer" checked="{feUser.isTeamer}" value="1"  />
-			Ist Teamer
+			Ist Teamer<br/>
+			<f:form.checkbox property="isTrainee" checked="{feUser.isTrainee}" value="1"  />
+			Ist Hospitant<br/>
+			<f:form.checkbox property="isKitchenGroup" checked="{feUser.isKitchenGroup}" value="1"  />
+			Ist insteressiert an Kochgruppe<br/>
+			<f:form.checkbox property="isAdmin" checked="{feUser.isAdmin}" value="1"  />
+			Ist Administrator<br/>
 		</label>
 	</div>
 </div>

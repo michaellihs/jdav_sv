@@ -37,6 +37,34 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 */
 	protected $isTeamer;
 
+
+
+	/**
+	 * True, if user is trainee
+	 *
+	 * @var bool
+	 */
+	protected $isTrainee;
+
+
+
+	/**
+	 * True, if user is kitchen group interested
+	 * @var bool
+	 */
+	protected $isKitchenGroup;
+
+
+
+	/**
+	 * True, if user is admin
+	 *
+	 * @var bool
+	 */
+	protected $isAdmin;
+
+
+
 	/**
 	 * @param boolean $isTeamer
 	 */
@@ -51,6 +79,60 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 */
 	public function getIsTeamer() {
 		return $this->isTeamer;
+	}
+
+
+
+	/**
+	 * @param boolean $isTrainee
+	 */
+	public function setIsTrainee($isTrainee) {
+		$this->isTrainee = $isTrainee;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsTrainee() {
+		return $this->isTrainee;
+	}
+
+
+
+	/**
+	 * @param boolean $isKitchenGroup
+	 */
+	public function setIsKitchenGroup($isKitchenGroup) {
+		$this->isKitchenGroup = $isKitchenGroup;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsKitchenGroup() {
+		return $this->isKitchenGroup;
+	}
+
+
+
+	/**
+	 * @param boolean $isAdmin
+	 */
+	public function setIsAdmin($isAdmin) {
+		$this->isAdmin = $isAdmin;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsAdmin() {
+		return $this->isAdmin;
 	}
 
 }

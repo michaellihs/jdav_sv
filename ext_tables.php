@@ -293,9 +293,32 @@ $tempColumns = array(
 		'config' => array(
 			'type' => 'check',
 		)
+	),
+	'tx_jdavsv_is_trainee' => array(
+		'exclude' => 1,
+		'label'   => 'Ist Hospitant',
+		'config' => array(
+			'type' => 'check',
+		)
+	),
+	'tx_jdavsv_is_kitchen_group' => array(
+		'exclude' => 1,
+		'label'   => 'Ist Kochgruppeninteressierter',
+		'config' => array(
+			'type' => 'check',
+		)
+	),
+	'tx_jdavsv_is_admin' => array(
+		'exclude' => 1,
+		'label'   => 'Ist Admin',
+		'config' => array(
+			'type' => 'check',
+		)
 	)
 );
 t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns, 1);
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_teamer');
-
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_trainee');
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_kitchen_group');
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_admin');
 ?>

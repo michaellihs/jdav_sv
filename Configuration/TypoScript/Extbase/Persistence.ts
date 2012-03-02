@@ -22,6 +22,9 @@ config.tx_extbase {
                     columns {
                         lockToDomain.mapOnProperty = lockToDomain
                         tx_jdavsv_is_teamer.mapOnProperty = isTeamer
+                        tx_jdavsv_is_trainee.mapOnProperty = isTrainee
+                        tx_jdavsv_is_kitchen_group.mapOnProperty = isKitchenGroup
+                        tx_jdavsv_is_admin.mapOnProperty = isAdmin
                     }
                 }
             }
