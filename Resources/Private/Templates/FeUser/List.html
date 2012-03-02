@@ -28,6 +28,18 @@
 				<f:link.action class="btn btn-primary" action="list" arguments="{restFilters: 1}"><i class="icon-white icon-remove"></i> Filter zurücksetzen</f:link.action>
 			</td>
 		</tr>
+		<tr>
+			<td colspan="3">
+				<div class="control-group">
+					<div class="controls">
+						<label class="checkbox"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{teamerFilter}' property:'filterValue')}" checked="{teamerFilter.filterValue}" value="1" /> Teamer</label>&nbsp;
+						<label style="padding-top: 5px" class="checkbox"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{traineeFilter}' property:'filterValue')}" checked="{traineeFilter.filterValue}" value="1" /> Hospitant</label>&nbsp;
+						<label style="padding-top: 5px" class="checkbox"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{kitchenGroupFilter}' property:'filterValue')}" checked="{kitchenGroupFilter.filterValue}" value="1" /> Kochgruppe</label>&nbsp;
+						<label style="padding-top: 5px" class="checkbox"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{adminFilter}' property:'filterValue')}" checked="{adminFilter.filterValue}" value="1" /> Administrator</label>
+					</div>
+				</div>
+			</td>
+		</tr>
 	</table>
 </f:form>
 <table  class="table table-striped" >
@@ -44,10 +56,12 @@
 				<strong>{row.firstName}</strong>
 			</td>
 			<td>
-				<strong>{row.email}</strong>
+				<f:if condition="{row.email}">
+					<a href="mailto:{row.email}">{row.email}</a>
+				</f:if>
 			</td>
 			<td>
-				<strong>{row.telephone}</strong>
+				{row.telephone}
 			</td>
 			<td>
 				<p class="pull-right">

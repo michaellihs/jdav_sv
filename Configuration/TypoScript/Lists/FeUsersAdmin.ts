@@ -129,6 +129,26 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 			table = __self__
 			field = isOnline
 		}
+
+		isTeamer {
+			table = __self__
+			field = isTeamer
+		}
+
+		isTrainee {
+			table = __self__
+			field = isTrainee
+		}
+
+		isKitchenGroup {
+			table = __self__
+			field = isKitchenGroup
+		}
+
+		isAdmin {
+			table = __self__
+			field = isAdmin
+		}
     
     }
     
@@ -184,6 +204,38 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 					filterIdentifier = emailFilter
 					label = E-Mail
 					fieldIdentifier = email
+				}
+
+				## Teamer Filter
+				30 < plugin.tx_ptextlist.prototype.filter.string
+				30 {
+					filterIdentifier = teamerFilter
+					label = Teamer
+					fieldIdentifier = isTeamer
+				}
+
+				## Hospitanten Filter
+				40 < plugin.tx_ptextlist.prototype.filter.string
+				40 {
+					filterIdentifier = traineeFilter
+					label = Hospitant
+					fieldIdentifier = isTrainee
+				}
+
+				## Kochgruppen Filter
+				50 < plugin.tx_ptextlist.prototype.filter.string
+				50 {
+					filterIdentifier = kitchenGroupFilter
+					label = Kochgruppe
+					fieldIdentifier = isKitchenGroup
+				}
+
+				## Admin Filter
+				60 < plugin.tx_ptextlist.prototype.filter.string
+				60 {
+					filterIdentifier = adminFilter
+					label = Administratoren
+					fieldIdentifier = isAdmin
 				}
 
 			}
