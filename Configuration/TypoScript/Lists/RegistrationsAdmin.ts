@@ -55,16 +55,6 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
             field = vegetarian
         }
 
-        state {
-            table = __self__
-            field = state
-        }
-
-        paymentMethod {
-            table = __self__
-            field = paymentMethod
-        }
-
         event {
             table = __self__
             field = event

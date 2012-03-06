@@ -8,7 +8,8 @@
 	<div class="controls">
 	<f:if condition="{event}">
 			<f:then>
-				<f:form.select disabled="1" class="span8" id="event" property="event" options="{events}" optionValueField="uid" optionLabelField="fullName" value="{event}" />
+				<f:form.select disabled="1" property="{event}" class="span8" id="event" options="{events}" optionValueField="uid" optionLabelField="fullName" value="{event}" />
+				<f:form.hidden property="event" value="{event}" />
 			</f:then>
 			<f:else>
 				<f:form.select class="span8" id="event" property="event" options="{events}" optionValueField="uid" optionLabelField="fullName" value="{registration.event}" />

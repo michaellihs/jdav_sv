@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_categoryprerequisitefulfillment'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_categoryprerequisitefulfillment']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'registration,prerequisite,date,annotation',
+		'showRecordFieldList'	=> 'registration,prerequisite,date,annotation,is_fullfilled',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'registration,prerequisite,date,annotation'),
+		'1' => array('showitem'	=> 'registration,prerequisite,date,annotation,is_fullfilled'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -73,6 +73,15 @@ $TCA['tx_jdavsv_domain_model_categoryprerequisitefulfillment'] = array(
 		'prerequisite' => array(
 			'exclude'	=> 0,
 			'label'		=> 'Voraussetzung',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			)
+		),
+		'is_fulfilled' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Erfuellt',
 			'config'	=> array(
 				'type' => 'input',
 				'size' => 4,

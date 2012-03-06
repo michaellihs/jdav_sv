@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_categoryprerequisite'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_categoryprerequisite']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'category, required, shortcut, title, sorting'
+		'showRecordFieldList'	=> 'category, required, shortcut, title, description, sorting'
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'category, required, shortcut, title, sorting')
+		'1' => array('showitem'	=> 'category, required, shortcut, title, description, sorting')
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> '')
@@ -94,6 +94,16 @@ $TCA['tx_jdavsv_domain_model_categoryprerequisite'] = array(
 				'size' => 30,
 				'eval' => 'trim'
 			)
+		),
+		'description' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.description',
+			'config'	=> array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
+			),
 		),
 		'sorting' => array(
 			'exclude'	=> 0,

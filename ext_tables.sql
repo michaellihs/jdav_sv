@@ -323,7 +323,8 @@ CREATE TABLE tx_jdavsv_domain_model_categoryprerequisitefulfillment (
     hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 
     registration int(11) DEFAULT '0' NOT NULL,
-    prerequisite  int(11) DEFAULT '0' NOT NULL,
+    prerequisite  tinyint(4) unsigned DEFAULT '0' NOT NULL,
+    is_fulfilled  tinyint(4) unsigned DEFAULT '0' NOT NULL,
     annotation text NOT NULL,
 
     PRIMARY KEY (uid),
@@ -359,6 +360,7 @@ CREATE TABLE tx_jdavsv_domain_model_categoryprerequisite (
     shortcut varchar(255) DEFAULT '' NOT NULL,
     title varchar(255) DEFAULT '' NOT NULL,
     sorting int(11) DEFAULT '0' NOT NULL,
+    description text NOT NULL,
 
     PRIMARY KEY (uid),
     KEY parent (pid),

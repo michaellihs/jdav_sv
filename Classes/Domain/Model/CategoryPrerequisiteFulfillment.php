@@ -71,6 +71,15 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment extends Tx_Extbase_
 
 
 	/**
+	 * If set to true, fulfillment is fulfilled
+	 *
+	 * @var boolean
+	 */
+	protected $isFulfilled;
+
+
+
+	/**
 	 * @param string $annotation
 	 */
 	public function setAnnotation($annotation) {
@@ -138,6 +147,24 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment extends Tx_Extbase_
 	 */
 	public function getRegistration() {
 		return $this->registration;
+	}
+
+
+
+	/**
+	 * @param boolean $isFulfilled
+	 */
+	public function setIsFulfilled($isFulfilled) {
+		$this->isFulfilled = $isFulfilled;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsFulfilled() {
+		return $this->isFulfilled;
 	}
 
 }

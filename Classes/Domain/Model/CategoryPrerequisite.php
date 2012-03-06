@@ -68,6 +68,15 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObjec
 
 
 	/**
+	 * Holds description for prerequisite
+	 *
+	 * @var string
+	 */
+	protected $description;
+
+
+
+	/**
 	 * @var int
 	 */
 	protected $sorting;
@@ -160,6 +169,24 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObjec
 	 */
 	public function getSorting() {
 		return $this->sorting;
+	}
+
+
+
+	/**
+	 * @param string $description
+	 */
+	public function setDescription($description) {
+		$this->description = $description;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getDescription() {
+		return $this->description;
 	}
 
 }

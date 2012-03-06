@@ -18,6 +18,22 @@
 
 		<fieldset>
 			<f:render partial="Registration/formFields" arguments="{registration:registration, feUsers: feUsers, events: events}" />
+
+			<div class="control-group">
+				<label class="control-label">Voraussetzungen</label>
+				<div class="controls">
+					<f:if condition="{registration.allPrerequisiteFulfillments}">
+						<f:then>
+								<f:for each="{registration.allPrerequisiteFulfillments}" as="prerequisiteFulfillment">
+									<label class="checkbox"><f:form.checkbox name="prerequisite[{prerequisiteFulfillment.prerequisite.uid}]" value="1" checked="{prerequisiteFulfillment.isFulfilled}" />{prerequisiteFulfillment.prerequisite.title}</label>
+								</f:for>
+						</f:then>
+						<f:else>
+							Es liegen keine Voraussetzungen vor!
+						</f:else>
+					</f:if>
+				</div>
+
 			<div class="form-actions">
 				<f:form.submit class="btn-primary btn" value="Anmeldung Speichern" />
 				<f:link.action controller="RegistrationAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>

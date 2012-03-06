@@ -43,7 +43,7 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Person that made registration
 	 *
-	 * @var Tx_Extbase_Domain_Model_FrontendUser $attendee
+	 * @var Tx_JdavSv_Domain_Model_FeUser $attendee
 	 */
 	protected $attendee;
 
@@ -105,16 +105,7 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 * @return void
 	 */
 	protected function initStorageObjects() {
-		/**
-		* Do not modify this method!
-		* It will be rewritten on each save in the kickstarter
-		* You may modify the constructor of this class instead
-		*/
-		$this->state = new Tx_Extbase_Persistence_ObjectStorage();
-		
-		$this->paymentMethod = new Tx_Extbase_Persistence_ObjectStorage();
-		
-		$this->event = new Tx_Extbase_Persistence_ObjectStorage();
+
 	}
 
 	/**
@@ -139,17 +130,17 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Setter for attendee
 	 *
-	 * @param integer $attendee Person that made registration
+	 * @param Tx_JdavSv_Domain_Model_FeUser $attendee Person that made registration
 	 * @return void
 	 */
-	public function setAttendee($attendee) {
+	public function setAttendee(Tx_JdavSv_Domain_Model_FeUser $attendee) {
 		$this->attendee = $attendee;
 	}
 
 	/**
 	 * Getter for attendee
 	 *
-	 * @return integer Person that made registration
+	 * @return Tx_JdavSv_Domain_Model_FeUser Person that made registration
 	 */
 	public function getAttendee() {
 		return $this->attendee;
@@ -288,6 +279,47 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function setIsAccepted($isAccepted) {
 		$this->isAccepted = $isAccepted;
+	}
+
+
+
+	/**
+	 * Returns an array of ALL prerequisites for this registration.
+	 *
+	 * PrerequisitesFulfillments will be flagged with 'isFulfilled' if prerequisite is already
+	 * fulfilled. Non-fulfilled prerequisites will have isFulfilled=false.
+	 *
+	 * @return array
+	 */
+	public function getAllPrerequisiteFulfillments() {
+		// All prerequisites for event-category of attached event
+		$prerequisites = $this->event->getCategory()->getPrerequisites();
+		$categoryFulfillmentRepository = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository'); /* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository*/
+		$fulfilledPrerequisites = $categoryFulfillmentRepository->findByRegistration($this);
+
+		$fulfilledPrerequisitesMap = array();
+		foreach($fulfilledPrerequisites as $fulfilledPrerequisite) { /* @var $fulfilledPrerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
+			$fulfilledPrerequisitesMap[$fulfilledPrerequisite->getPrerequisite()->getUid()] = $fulfilledPrerequisite;
+		}
+
+		$allPrerequisites = array();
+		foreach($prerequisites as $prerequisite) { /* @var $prerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisite */
+			if (array_key_exists($prerequisite->getUid(), $fulfilledPrerequisitesMap)) {
+				$allPrerequisites[] = $fulfilledPrerequisitesMap[$prerequisite->getUid()];
+			} else {
+				$prerequisiteFulfillment = new Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment();
+				$prerequisiteFulfillment->setRegistration($this);
+				$prerequisiteFulfillment->setPrerequisite($prerequisite);
+				$prerequisiteFulfillment->setIsFulfilled(false);
+				$allPrerequisites[] = $prerequisiteFulfillment;
+			}
+		}
+
+		#echo '<pre>';
+		#var_dump($allPrerequisites);
+		#echo '</pre>';
+
+		return $allPrerequisites;
 	}
 
 }
