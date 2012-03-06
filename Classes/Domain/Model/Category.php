@@ -59,6 +59,43 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEn
 
 
 	/**
+	 * Prerequisites that need to be fulfilled in order to complete a registration for this event type
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_CategoryPrerequisite>
+	 */
+	protected $prerequisites;
+
+
+
+	/**
+	 * The constructor.
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		//Do not remove the next line: It would break the functionality
+		$this->initStorageObjects();
+	}
+
+
+
+	/**
+	 * Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
+	 *
+	 * @return void
+	 */
+	protected function initStorageObjects() {
+		/**
+		 * Do not modify this method!
+		 * It will be rewritten on each save in the kickstarter
+		 * You may modify the constructor of this class instead
+		 */
+		$this->prerequisites = new Tx_Extbase_Persistence_ObjectStorage();
+	}
+
+
+
+	/**
 	 * Setter for name
 	 *
 	 * @param string $name Name of event category
@@ -133,6 +170,50 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEn
 	 */
 	public function setShortcut($shortcut) {
 		$this->shortcut = $shortcut;
+	}
+
+
+
+	/**
+	 * Attaches a prerequisite to prerequisites of this category
+	 *
+	 * @param Tx_JdavSv_Domain_Model_CategoryPrerequisite $prerequisite
+	 */
+	public function addPrerequisite(Tx_JdavSv_Domain_Model_CategoryPrerequisite $prerequisite) {
+		$this->prerequisites->attach($prerequisite);
+	}
+
+
+
+	/**
+	 * Removes given prerequisite from attached prerequisites
+	 *
+	 * @param Tx_JdavSv_Domain_Model_CategoryPrerequisite $prerequisite
+	 */
+	public function removePrerequisite(Tx_JdavSv_Domain_Model_CategoryPrerequisite $prerequisite) {
+		$this->prerequisites->detach($prerequisite);
+	}
+
+
+
+	/**
+	 * Sets all prerequisites for this category
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage $prerequisites
+	 */
+	public function setPrerequisites(Tx_Extbase_Persistence_ObjectStorage $prerequisites) {
+		$this->prerequisites = $prerequisites;
+	}
+
+
+
+	/**
+	 * Returns all prerequisites for this category
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 */
+	public function getPrerequisites() {
+		return $this->prerequisites;
 	}
 
 }

@@ -313,7 +313,7 @@ CREATE TABLE tx_jdavsv_domain_model_categoryprerequisitefulfillment (
     registration int(11) DEFAULT '0' NOT NULL,
     prerequisite  int(11) DEFAULT '0' NOT NULL,
     annotation text NOT NULL
-)
+);
 
 CREATE TABLE tx_jdavsv_domain_model_categoryprerequisite (
     sys_language_uid int(11) DEFAULT '0' NOT NULL,
@@ -331,7 +331,7 @@ CREATE TABLE tx_jdavsv_domain_model_categoryprerequisite (
     shortcut varchar(255) DEFAULT '' NOT NULL,
     title varchar(255) DEFAULT '' NOT NULL,
     sorting int(11) DEFAULT '0' NOT NULL,
-)
+);
 
 CREATE TABLE fe_users (
     tx_jdavsv_is_teamer tinyint(4) unsigned DEFAULT '0' NOT NULL,

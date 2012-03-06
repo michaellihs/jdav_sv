@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_category'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_category']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'name,shortcut,tour_report_required',
+		'showRecordFieldList'	=> 'name,shortcut,tour_report_required,prerequisites',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'name,shortcut,tour_report_required'),
+		'1' => array('showitem'	=> 'name,shortcut,tour_report_required,prerequisites'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -85,18 +85,36 @@ $TCA['tx_jdavsv_domain_model_category'] = array(
 			'config'	=> array(
 				'type' => 'check',
 				'default' => 0
-			),
+			)
 		),
 		'event' => array(
 			'config' => array(
 				'type'	=> 'passthrough',
-			),
+			)
 		),
 		'eventcategoryregistrationstate' => array(
 			'config' => array(
 				'type'	=> 'passthrough',
-			),
+			)
 		),
-	),
+		'prerequisites' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Voraussetzungen',
+			'config'	=> array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jdavsv_domain_model_categoryprerequisite',
+				'foreign_field' => 'category',
+				'minitems' => 0,
+				'maxitems' => 9999,
+				'appearance' => array(
+					'collapse' => 0,
+					'newRecordLinkPosition' => 'bottom',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				)
+			)
+		)
+	)
 );
 ?>

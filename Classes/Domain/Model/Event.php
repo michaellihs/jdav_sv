@@ -283,9 +283,6 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		 * It will be rewritten on each save in the kickstarter
 		 * You may modify the constructor of this class instead
 		 */
-		$this->catering = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->state = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->fee = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->registrations = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
