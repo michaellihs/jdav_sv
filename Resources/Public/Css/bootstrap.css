@@ -1067,6 +1067,9 @@ table {
 .table-no-bottom {
   margin-bottom: 0;
 }
+.table-no-border-top td, th {
+  border-top: none;
+}
 .table-condensed th, .table-condensed td {
   padding: 4px 5px;
 }

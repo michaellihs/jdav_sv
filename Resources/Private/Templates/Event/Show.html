@@ -1,13 +1,79 @@
-<f:layout name="Default" />
+<div class="event-outer-wrapper">
+	<div class="well">
+		<div class="well well-white">
+			<p class="pull-right btn {event.lights}">{event.lightsText}</p>
+			<small>{event.category.name}</small>
+			<h2>{event.title}</h2>
+		</div>
+		<table>
+			<tr>
+				<td class="span2">
+					<small><i class="icon-tag"></i> {event.category.shortcut}-{event.accreditationNumber}</small>
+				</td>
+				<td class="span4">
+					<small><i class="icon-calendar"></i> von {event.dateStart -> f:format.date(format: 'd.m.Y')} bis {event.dateStart -> f:format.date(format: 'd.m.Y')}</small>
+				</td>
+				<td class="span4">
+					<small><i class="icon-home"></i> {event.accommodation.name}</small>
+				</td>
+			</tr>
+		</table>
+		<table class="table table-no-bottom">
+			<tr>
+				<td colspan="2">
+					{event.announcement}
+				</td>
+			</tr>
+		</table>
+		<div class="tabs">
+			<ul class="nav nav-tabs" id="eventDescriptionTabs">
+			  <li class="active"><a href="#overview" data-toggle="pill">Übersicht</a></li>
+			  <li><a href="#description" data-toggle="tab">Beschreibung</a></li>
+			  <li><a href="#content" data-toggle="tab">Inhalte</a></li>
+			  <li><a href="#prerequisites" data-toggle="tab">Voraussetzungen</a></li>
+			</ul>
 
-<f:section name="main">
-<h1>Single View for Event</h1>
+			<div class="tab-content">
+				<div class="tab-pane active" id="overview">
+					<table class="table table-no-border-top">
+						<tr>
+							<td class="span2"><strong>Dauer:</strong></td>
+							<td class="span3">{event.duration} Tage</td>
+							<td class="span2"><strong>Betreuungsverhältnis:</strong></td>
+							<td class="span3">{event.attTeamerRatio} (Teamer:Teilnehmer)</td>
+						</tr>
+						<tr>
+							<td class="span2"><strong>Anreise:</strong></td>
+							<td class="span3">{event.travelling}</td>
+							<td class="span2"><strong>Preis:</strong></td>
+							<td class="span3">{event.price}</td>
+						</tr>
+						<tr>
+							<td class="span2"><strong>Gruppengröße:</strong></td>
+							<td class="span3">{event.minRegistrations} bis {event.maxRegistrations} Teilnehmer</td>
+							<td class="span2"><strong>Anmeldeschluss:</strong></td>
+							<td class="span3">{event.registrationDeadline  -> f:format.date(format: 'd.m.Y')}</td>
+						</tr>
+					</table>
+				</div>
+				<div class="tab-pane" id="description">
+				  {event.description}
+				</div>
+				<div class="tab-pane" id="content">
+				  {event.contents}
+				</div>
+				<div class="tab-pane" id="prerequisites">
+				  {event.requirements}
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+				<f:link.action class="pull-right btn-large btn" controller="Registration" action="register" arguments="{event: event}">Anmelden</f:link.action>
+		</div><br><br>
+	</div>
+	<f:link.action class="pull-right" controller="Event" action="list">Zurück zur Schulungsübersicht</f:link.action>
+</div>
 
-<f:flashMessages />
-<f:render partial="Event/properties" arguments="{event:event}" />
-
-<f:render partial="Registration/list" arguments="{event:event, registrations:event.registrations}" />
-
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="create">New Event</f:link.action>
-</f:section>
+<script language="javascript">
+	$('#eventDescriptionTabs').tab('show')
+</script>
