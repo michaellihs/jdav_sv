@@ -1,24 +1,51 @@
-<f:layout name="Default" />
-<f:section name="main">
 <h1>Schulungs&uuml;bersicht</h1>
 
 <f:flashMessages />
 
-<table  class="tx_jdavsv" >
-	<f:for each="{listData}" as="row">
-		<tr style="background-color:{row.event.value.lights}">
-		    <td><div class="tx-jdavsv-eventslist-categoryshortcut" style="z-index: -1; font-size: 30px; color: gray">{row.event.value.category.shortcut}</div>
-		      {row.event.value.accreditationNumber}
-		    </td>
-			<td>{row.event.value.dateStart -> f:format.date()}<br>
-			{row.event.value.dateEnd -> f:format.date()}</td>
-			<td>{row.event.value.title} ({row.event.value.registrationsCount} / {row.event.value.maxRegistrations})<br>
-			<f:link.action controller="Event" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action>&nbsp;
-			<f:link.action controller="Event" action="attendeeRegistrationsList" arguments="{event: row.event.value.uid}">TN-Liste</f:link.action>&nbsp;</td>
-			<td><f:link.action controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action><br/>
-			<f:link.action controller="Registration" action="unregister" arguments="{event: row.event.value}">Abmelden</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
+<div class="events-list-outer-wrapper">
+	<div class="well events-list-filterbox">
 
-</f:section>
+	</div>
+	<div class="events-list">
+		<f:for each="{listData}" as="row">
+			<div class="well">
+				<div class="well well-white">
+					<p class="pull-right btn {row.event.value.lights}">{row.event.value.lightsText}</p>
+					<small>{row.event.value.category.name}</small>
+					<h2>{row.event.value.title}</h2>
+				</div>
+				<table>
+					<tr>
+						<td class="span2">
+							<small><i class="icon-tag"></i> {row.event.value.category.shortcut}-{row.event.value.accreditationNumber}</small>
+						</td>
+						<td class="span4">
+							<small><i class="icon-calendar"></i> von {row.event.value.dateStart -> f:format.date(format: 'd.m.Y')} bis {row.event.value.dateStart -> f:format.date(format: 'd.m.Y')}</small>
+						</td>
+						<td class="span4">
+							<small><i class="icon-home"></i> {row.event.value.accommodation.name}</small>
+						</td>
+					</tr>
+				</table>
+				<table class="table table-no-bottom">
+					<tr>
+						<td colspan="2">
+							{row.event.value.announcement}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>&nbsp;</p>
+						</td>
+						<td>
+							<p class="pull-right"><br>
+								<f:link.action class="btn-large btn-primary" controller="Event" action="show" arguments="{event: row.event.value}">Details</f:link.action>
+								<f:link.action class="btn-large btn-primary" controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action>
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</f:for>
+	</div>
+</div>

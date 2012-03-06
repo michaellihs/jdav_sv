@@ -1031,6 +1031,19 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 
 
 	/**
+	 * Returns text for describing traffic lights for event's registration status
+	 *
+	 * @return string
+	 */
+	public function getLightsText() {
+		if ($this->maxRegistrations - $this->getRegistrationsCount() <= -2) return 'Keine Plätze frei';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 2) return 'Wenige Plätze frei';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 4) return 'Einige Plätze frei';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() > 4) return 'Genügend Plätze frei';
+	}
+
+
+	/**
 	 * @return boolean
 	 */
 	public function getIsAccepted() {

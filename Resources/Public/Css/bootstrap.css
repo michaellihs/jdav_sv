@@ -1064,6 +1064,9 @@ table {
 .table tbody + tbody {
   border-top: 2px solid #ddd;
 }
+.table-no-bottom {
+  margin-bottom: 0;
+}
 .table-condensed th, .table-condensed td {
   padding: 4px 5px;
 }
@@ -1669,6 +1672,9 @@ table .span12 {
 .well blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15);
+}
+.well-white {
+  background-color: #ffffff;
 }
 .fade {
   -webkit-transition: opacity 0.15s linear;
