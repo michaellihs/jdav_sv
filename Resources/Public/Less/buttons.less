@@ -107,6 +107,8 @@
 // -------------------------
 .btn-primary,
 .btn-primary:hover,
+.btn-yellow,
+.btn-yellow:hover,
 .btn-warning,
 .btn-warning:hover,
 .btn-danger,
@@ -142,6 +144,10 @@
 // Danger and error appear as red
 .btn-danger {
   .buttonBackground(#ee5f5b, #bd362f);
+}
+// Orange lights
+.btn-yellow {
+  .buttonBackground(lighten(@yellow, 15%), @yellow);
 }
 // Success appears as green
 .btn-success {

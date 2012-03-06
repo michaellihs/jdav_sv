@@ -1022,10 +1022,10 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return string
 	 */
 	public function getLights() {
-		if ($this->maxRegistrations - $this->getRegistrationsCount() < -2) return '#FFB6C1';
-		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 2) return '#FFDAB9';
-		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 5) return '#FAFAD2';
-		if ($this->maxRegistrations - $this->getRegistrationsCount() > 5) return '#7FFFD4';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() <= -2) return 'btn-danger';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 2) return 'btn-warning';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() <= 4) return 'btn-yellow';
+		if ($this->maxRegistrations - $this->getRegistrationsCount() > 4) return 'btn-success';
 	}
 
 

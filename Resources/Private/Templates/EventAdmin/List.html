@@ -13,6 +13,7 @@
 <table  class="table table-striped" >
     <tr>
         <f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
+		<th></th>
     </tr>
     <f:for each="{listData}" as="row">
 		<tr>
@@ -22,12 +23,15 @@
 			<td>{row.event.value.dateStart -> f:format.date(format: 'd.m.Y')}<br>
 			{row.event.value.dateEnd -> f:format.date(format: 'd.m.Y')}</td>
 			<td>
-                <strong>{row.event.value.title}</strong> <p class="pull-right" style="font-size: 0.8em">{row.event.value.registrationsCount} / {row.event.value.maxRegistrations}</p><br>
+                <strong>{row.event.value.title}</strong> <br>
 				{row.event.value.subtitle}<br />
                 <f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action>&nbsp;
                 <f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForTeamerList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListTeamerPid}">Teamer TN-Liste</f:link.action>&nbsp;
                 <f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForParticipantsList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListParticipantsPid}">TN-Liste</f:link.action>&nbsp;
             </td>
+			<td>
+				<p class="pull-right btn {row.event.value.lights}">{row.event.value.registrationsCount} / {row.event.value.maxRegistrations}</p>
+			</td>
 			<td>
                 <p class="pull-right">
                     <f:link.action class="btn btn-primary" controller="EventAdmin" action="edit" arguments="{event: row.event.value.uid}"><i class="icon-pencil icon-white"></i> Bearbeiten</f:link.action>
@@ -39,7 +43,7 @@
 	</f:for>
 </table>
 <div class="form-actions">
-	<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i>Neue Veranstaltung anlegen</f:link.action>
+	<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i> Neue Veranstaltung anlegen</f:link.action>
 </div>
 
 </f:section>
