@@ -54,7 +54,7 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment extends Tx_Extbase_
 
 	/**
 	 * Date when fulfillment was set
-	 *
+	 *w
 	 * @var int
 	 */
 	protected $date;

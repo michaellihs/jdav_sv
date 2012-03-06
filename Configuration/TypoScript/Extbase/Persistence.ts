@@ -50,6 +50,13 @@ config.tx_extbase {
 				}
 			}
 
+			Tx_JdavSv_Domain_Model_CategoryPrerequisite {
+				mapping {
+					tableName = tx_jdavsv_domain_model_categoryprerequisite
+					recordType >
+				}
+			}
+
         }
     }
 }

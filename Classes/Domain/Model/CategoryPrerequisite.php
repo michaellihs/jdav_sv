@@ -63,7 +63,14 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObjec
 	 *
 	 * @var string
 	 */
-	protected $name;
+	protected $title;
+
+
+
+	/**
+	 * @var int
+	 */
+	protected $sorting;
 
 
 
@@ -86,10 +93,10 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObjec
 
 
 	/**
-	 * @param string $name
+	 * @param string $title
 	 */
-	public function setName($name) {
-		$this->name = $name;
+	public function setTitle($title) {
+		$this->title = $title;
 	}
 
 
@@ -97,8 +104,8 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObjec
 	/**
 	 * @return string
 	 */
-	public function getName() {
-		return $this->name;
+	public function getTitle() {
+		return $this->title;
 	}
 
 
@@ -135,6 +142,24 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObjec
 	 */
 	public function getShortcut() {
 		return $this->shortcut;
+	}
+
+
+
+	/**
+	 * @param int $sorting
+	 */
+	public function setSorting($sorting) {
+		$this->sorting = $sorting;
+	}
+
+
+
+	/**
+	 * @return int
+	 */
+	public function getSorting() {
+		return $this->sorting;
 	}
 
 }

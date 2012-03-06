@@ -3,16 +3,16 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_jdavsv_domain_model_eventstate'] = array(
-	'ctrl' => $TCA['tx_jdavsv_domain_model_eventstate']['ctrl'],
+$TCA['tx_jdavsv_domain_model_categoryprerequisite'] = array(
+	'ctrl' => $TCA['tx_jdavsv_domain_model_categoryprerequisite']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'name,tx_jdavsv_order',
+		'showRecordFieldList'	=> 'category, required, shortcut, title, sorting'
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'name,tx_jdavsv_order'),
+		'1' => array('showitem'	=> 'category, required, shortcut, title, sorting')
 	),
 	'palettes' => array(
-		'1' => array('showitem'	=> ''),
+		'1' => array('showitem'	=> '')
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
@@ -25,7 +25,7 @@ $TCA['tx_jdavsv_domain_model_eventstate'] = array(
 				'items' => array(
 					array('LLL:EXT:lang/locallang_general.php:LGL.allLanguages', -1),
 					array('LLL:EXT:lang/locallang_general.php:LGL.default_value', 0)
-				),
+				)
 			)
 		),
 		'l18n_parent' => array(
@@ -35,15 +35,15 @@ $TCA['tx_jdavsv_domain_model_eventstate'] = array(
 			'config'		=> array(
 				'type'			=> 'select',
 				'items'			=> array(
-					array('', 0),
+					array('', 0)
 				),
-				'foreign_table' => 'tx_jdavsv_domain_model_eventstate',
-				'foreign_table_where' => 'AND tx_jdavsv_domain_model_eventstate.uid=###REC_FIELD_l18n_parent### AND tx_jdavsv_domain_model_eventstate.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_jdavsv_domain_model_categoryprerequisite',
+				'foreign_table_where' => 'AND tx_jdavsv_domain_model_categoryprerequisite.uid=###REC_FIELD_l18n_parent### AND tx_jdavsv_domain_model_categoryprerequisite.sys_language_uid IN (-1,0)'
 			)
 		),
 		'l18n_diffsource' => array(
 			'config'		=>array(
-				'type'		=>'passthrough',
+				'type'		=>'passthrough'
 			)
 		),
 		't3ver_label' => array(
@@ -51,39 +51,59 @@ $TCA['tx_jdavsv_domain_model_eventstate'] = array(
 			'label'			=> 'LLL:EXT:lang/locallang_general.php:LGL.versionLabel',
 			'config'		=> array(
 				'type'		=>'none',
-				'cols'		=> 27,
+				'cols'		=> 27
 			)
 		),
 		'hidden' => array(
 			'exclude'	=> 1,
 			'label'		=> 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'	=> array(
-				'type'	=> 'check',
+				'type'	=> 'check'
 			)
 		),
-		'name' => array(
+		'category' => array(
 			'exclude'	=> 0,
-			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventstate.name',
+			'label'		=> 'Kategorie',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			)
+		),
+		'required' => array(
+			'exclude'	=> 1,
+			'label'		=> 'Voraussetzung',
+			'config'	=> array(
+				'type'	=> 'check'
+			)
+		),
+		'shortcut' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Kürzel',
 			'config'	=> array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
+			)
 		),
-		'tx_jdavsv_order' => array(
+		'title' => array(
 			'exclude'	=> 0,
-			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventstate.tx_jdavsv_order',
+			'label'		=> 'name',
 			'config'	=> array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
-			),
+			)
 		),
-		'event' => array(
-			'config' => array(
-				'type'	=> 'passthrough',
-			),
-		),
-	),
+		'sorting' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Sortierung',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			)
+		)
+	)
 );
 ?>

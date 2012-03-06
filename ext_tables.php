@@ -260,11 +260,11 @@ $TCA['tx_jdavsv_domain_model_paymentmethods'] = array (
 	)
 );
 
-t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_categoryprerequisitefulfillment', 'EXT:jdav_sv/Resources/Private/Language/locallang_csh_tx_jdavsv_domain_model_registrationstatetransitionprerequisites.xml');
+t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_categoryprerequisitefulfillment', 'Category Prerequisites Fulfillment');
 t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_categoryprerequisitefulfillment');
 $TCA['tx_jdavsv_domain_model_categoryprerequisitefulfillment'] = array (
 	'ctrl' => array (
-		'title'             => 'tx_jdavsv_domain_model_registrationstatetransitionprerequisites',
+		'title'             => 'tx_jdavsv_domain_model_categoryprerequisitefulfillment',
 		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
@@ -280,6 +280,29 @@ $TCA['tx_jdavsv_domain_model_categoryprerequisitefulfillment'] = array (
 			),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/CategoryPrerequisiteFulfillment.php',
 		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_jdavsv_domain_model_categoryprerequisitefulfillment.gif'
+	)
+);
+
+t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_categoryprerequisite', 'Category Prerequisites');
+t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_categoryprerequisite');
+$TCA['tx_jdavsv_domain_model_categoryprerequisite'] = array (
+	'ctrl' => array (
+		'title'             => 'tx_jdavsv_domain_model_categoryprerequisite',
+		'label' 			=> 'name',
+		'tstamp' 			=> 'tstamp',
+		'crdate' 			=> 'crdate',
+		'versioningWS' 		=> 2,
+		'versioning_followPages'	=> TRUE,
+		'origUid' 			=> 't3_origuid',
+		'languageField' 	=> 'sys_language_uid',
+		'transOrigPointerField' 	=> 'l18n_parent',
+		'transOrigDiffSourceField' 	=> 'l18n_diffsource',
+		'delete' 			=> 'deleted',
+		'enablecolumns' 	=> array(
+			'disabled' => 'hidden'
+			),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/CategoryPrerequisite.php',
+		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_jdavsv_domain_model_categoryprerequisite.gif'
 	)
 );
 
