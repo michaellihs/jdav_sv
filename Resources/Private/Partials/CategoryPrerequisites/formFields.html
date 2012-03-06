@@ -1,0 +1,17 @@
+<f:form.hidden property="category" value="{category}" />
+<f:form.hidden name="category" value="{category}" />
+
+<div class="control-group">
+    <label class="control-label" for="shortcut">Kürzel</label>
+    <div class="controls"><f:form.textfield class="span1" property="shortcut" /></div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="name">Titel</label>
+    <div class="controls"><f:form.textfield class="span8" property="title" /></div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="tourReportRequired">Erforderlich</label>
+	<div class="controls"><f:form.checkbox property="required" value="1" checked="{categoryPrerequisite.required}"/></div>
+</div>

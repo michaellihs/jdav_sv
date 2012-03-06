@@ -7,12 +7,15 @@
 	<br>
 	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
 	<f:form method="post" action="create" class="form-horizontal" name="newCategory" object="{newCategory}">
+		<legend>Neue Kategorie anlegen</legend>
 		<f:render partial="formErrors" />
 		<fieldset>
-			<legend>Neue Kategorie anlegen</legend>
 			<f:render partial="Category/formFields" />
 		</fieldset>
-		<f:form.submit class="btn-primary btn" value="Kategorie Speichern" />
-		<f:link.action controller="CategoryAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+
+		<div class="form-actions">
+			<f:form.submit class="btn-primary btn" value="Kategorie Speichern" />
+			<f:link.action controller="CategoryAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+		</div>
 	</f:form>
 </f:section>

@@ -8,43 +8,41 @@
 		<f:render partial="formErrors" />
 		<br />
 
+		<legend>Kategorie bearbeiten</legend>
 		<fieldset>
-			<legend>Kategorie bearbeiten</legend>
 			<f:render partial="Category/formFields" arguments="{category: category}" />
 
 			<div class="control-group">
 				<label class="control-label">Voraussetzungen:</label>
 				<div class="controls">
 					<f:if condition="{category.prerequisites}">
-						<t:then>
+						<f:then>
 							<table class="table table-striped">
 								<tr>
-									<th>Voraussetzung</th>
+									<th>Erforderlich</th>
 									<th>Kürzel</th>
 									<th>Titel</th>
 									<th></th>
 								</tr>
-								<f:for each="{category.prerequisites}" as="prerequisite">
+								<f:for each="{category.prerequisites}" as="categoryPrerequisite">
 									<tr>
-										<td>{prerequisite.required}</td>
-										<td>{prerequisite.shortcut}</td>
-										<td>{prerequisite.title}</td>
+										<td><f:form.checkbox value="{categoryPrerequisite.required}" disabled="1" checked="{categoryPrerequisite.required}" /></td>
+										<td>{categoryPrerequisite.shortcut}</td>
+										<td>{categoryPrerequisite.title}</td>
 										<td>
-											<p class="pull-right">
-												<f:link.action controller="CategoryPrerequisites" class="btn btn-primary" action="edit" arguments="{prerequisite: prerequisite}">Bearbeiten</f:link.action>
-												<f:link.action controller="CategoryPrerequisites" class="btn btn-danger" action="delete" arguments="{prerequisite: prerequisite}">Löschen</f:link.action>
+											<p class="pull-right span3">
+												<f:link.action controller="CategoryPrerequisites" class="btn btn-primary" action="edit" arguments="{category: category, categoryPrerequisite: categoryPrerequisite}">Bearbeiten</f:link.action>
+												<f:link.action controller="CategoryPrerequisites" class="btn btn-danger" action="delete" arguments="{category: category, categoryPrerequisite: categoryPrerequisite}">Löschen</f:link.action>
 											</p>
 										</td>
 									</tr>
 								</f:for>
 							</table>
-						</t:then>
+						</f:then>
 						<f:else>
 							<p>Es sind noch keine Voraussetzungen festgelegt!</p>
 						</f:else>
 					</f:if>
-
-
 					<f:link.action controller="CategoryPrerequisites" class="btn btn-primary" action="new" arguments="{category: category}">Neue Voraussetzung anlegen</f:link.action>
 				</div>
 			</div>

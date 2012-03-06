@@ -136,41 +136,6 @@ $TCA['tx_jdavsv_domain_model_registration'] = array(
 				'default' => 0
 			),
 		),
-		'state' => array(
-			'exclude'	=> 0,
-			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.state',
-			'config'	=> array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_jdavsv_domain_model_registrationstate',
-				'maxitems'      => 1,
-		        'minitems'      => 1,
-				'appearance' => array(
-					'collapse' => 0,
-					'newRecordLinkPosition' => 'bottom',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
-				),
-			),
-		),
-		'payment_method' => array(
-			'exclude'	=> 0,
-			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.payment_method',
-			'config'	=> array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_jdavsv_domain_model_paymentmethods',
-				'foreign_field' => 'registration',
-		        'minitems'      => 1,
-				'maxitems'      => 1,
-				'appearance' => array(
-					'collapse' => 0,
-					'newRecordLinkPosition' => 'bottom',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
-				),
-			),
-		),
 		'event' => array(
 			'exclude'	=> 0,
 			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.event',

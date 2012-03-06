@@ -203,13 +203,6 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $accommodation;
 
 	/**
-	 * Selbstverpflegung / Halb- / Vollpension
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Catering> $catering
-	 */
-	protected $catering;
-
-	/**
 	 * fee
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> $fee

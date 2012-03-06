@@ -12,6 +12,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Registration' => 'register,unregister,list, show, confirmRegistration',
         'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist',
 		'Category' => 'list, new, create, edit, update, delete',
+		'CategoryPrerequisites' => 'new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete',
 		'Accommodation' => 'list, new, create, edit, update, delete',
 	),
@@ -21,6 +22,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Registration' => 'register,unregister,list, show, confirmRegistration',
         'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist',
 		'Category' => 'list, new, create, edit, update, delete',
+		'CategoryPrerequisites' => 'new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete',
 		'Accommodation' => 'list, new, create, edit, update, delete',
 	)

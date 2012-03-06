@@ -76,20 +76,6 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	protected $vegetarian;
 
 	/**
-	 * State that registration is in
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_RegistrationState> $state
-	 */
-	protected $state;
-
-	/**
-	 * How is the registration payed?
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_PaymentMethods> $paymentMethod
-	 */
-	protected $paymentMethod;
-
-	/**
 	 * Event, registration belongs to
 	 *
 	 * @var Tx_JdavSv_Domain_Model_Event $event
@@ -261,44 +247,6 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function isVegetarian() {
 		return $this->getVegetarian();
-	}
-
-	/**
-	 * Setter for state
-	 *
-	 * @param Tx_JdavSv_Domain_Model_RegistrationState $state State that registration is in
-	 * @return void
-	 */
-	public function setState(Tx_JdavSv_Domain_Model_RegistrationState $state) {
-		$this->state = $state;
-	}
-
-	/**
-	 * Getter for state
-	 *
-	 * @return Tx_JdavSv_Domain_Model_RegistrationState State that registration is in
-	 */
-	public function getState() {
-		return $this->state;
-	}
-
-	/**
-	 * Setter for paymentMethod
-	 *
-	 * @param Tx_JdavSv_Domain_Model_PaymentMethods $paymentMethod How is the registration payed?
-	 * @return void
-	 */
-	public function setPaymentMethod(Tx_JdavSv_Domain_Model_PaymentMethods $paymentMethod) {
-		$this->paymentMethod = $paymentMethod;
-	}
-
-	/**
-	 * Getter for paymentMethod
-	 *
-	 * @return Tx_JdavSv_Domain_Model_PaymentMethods How is the registration payed?
-	 */
-	public function getPaymentMethod() {
-		return $this->paymentMethod;
 	}
 
 	/**

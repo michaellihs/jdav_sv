@@ -1,0 +1,21 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default" />
+<f:section name="main">
+	<h1>Kategorie-Voraussetungen</h1>
+	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+	<f:form class="form-horizontal" method="post" action="create" name="categoryPrerequisite" object="{categoryPrerequisite}" >
+		<f:render partial="formErrors" />
+		<br />
+
+		<legend>Voraussetzung für Kategorie <strong>{category.name}</strong> anlegen</legend>
+		<fieldset>
+			<f:render partial="CategoryPrerequisites/formFields" arguments="{category: category, categoryPrerequisite: categoryPrerequisite}" />
+
+			<div class="form-actions">
+				<f:form.submit class="btn-primary btn" value="Voraussetzung anlegen" />
+				<f:link.action controller="Category" action="edit" arguments="{category: category}" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Kategorie</f:link.action>
+			</div>
+		</fieldset>
+	</f:form>
+</f:section>
