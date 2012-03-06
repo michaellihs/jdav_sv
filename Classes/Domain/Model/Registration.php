@@ -322,5 +322,58 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		return $allPrerequisites;
 	}
 
+
+
+	/**
+	 * Sets fulfillments of prerequisites by an array with following format:
+	 *
+	 *  array
+	 *  1 => string '1'
+	 *  2 => string '1'
+	 *  3 => string '1'
+	 *
+	 * where key is uid of fulfillment and value is equal to '1' if fulfillment is fullfilled
+	 *
+	 * @param array $prerequisitesFulfillmentsArray
+	 */
+	public function setCategoryPrerequisiteFulfillmentsByArgumentsArray(array $prerequisitesFulfillmentsArray) {
+		// All prerequisites for event-category of attached event
+		$prerequisites = $this->event->getCategory()->getPrerequisites();
+		$categoryFulfillmentRepository = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository'); /* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository*/
+		$fulfilledPrerequisites = $categoryFulfillmentRepository->findByRegistration($this);
+
+		$fulfilledPrerequisitesMap = array();
+		foreach($fulfilledPrerequisites as $fulfilledPrerequisite) { /* @var $fulfilledPrerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
+			// Reset old prerequisite fulfillements
+			$fulfilledPrerequisite->setIsFulfilled(FALSE);
+			$fulfilledPrerequisitesMap[$fulfilledPrerequisite->getPrerequisite()->getUid()] = $fulfilledPrerequisite;
+		}
+
+		foreach ($prerequisites as $prerequisite) { /* @var $prerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisite */
+			if (array_key_exists($prerequisite->getUid(), $prerequisitesFulfillmentsArray)
+					&& intval($prerequisitesFulfillmentsArray[$prerequisite->getUid()]) === 1) {
+				if (array_key_exists($prerequisite->getUid(), $fulfilledPrerequisitesMap)) {
+					// First case: Fulfillment already existed
+					$prerequisiteFulfillment = $fulfilledPrerequisitesMap[$prerequisite->getUid()];
+					$prerequisiteFulfillment->setIsFulfilled(TRUE);
+					$categoryFulfillmentRepository->update($prerequisiteFulfillment);
+				} else {
+					// Second case: Fulfillment does not already exist
+					$prerequisiteFulfillment = new Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment();
+					$prerequisiteFulfillment->setRegistration($this);
+					$prerequisiteFulfillment->setPrerequisite($prerequisite);
+					$prerequisiteFulfillment->setIsFulfilled(TRUE);
+					$categoryFulfillmentRepository->add($prerequisiteFulfillment);
+				}
+			} else {
+				// Second case: Fulfillment is NOT fulfilled in current request
+				if (array_key_exists($prerequisite->getUid(), $fulfilledPrerequisitesMap)) {
+					// We delete already existing fulfillment
+					$categoryFulfillmentRepository->remove($fulfilledPrerequisitesMap[$prerequisite->getUid()]);
+				}
+			}
+		}
+	}
+
 }
 ?>
