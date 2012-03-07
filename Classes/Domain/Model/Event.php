@@ -196,6 +196,13 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $registrationDeadline;
 
 	/**
+	 * Last date when user is able to unregister
+	 *
+	 * @var DateTime
+	 */
+	protected $unregisterDeadline;
+
+	/**
 	 * Accommodation for event (Huette / Haus...)
 	 *
 	 * @var Tx_JdavSv_Domain_Model_Accommodation
@@ -1127,6 +1134,24 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 
 
 	/**
+	 * @param \DateTime $unregisterDeadline
+	 */
+	public function setUnregisterDeadline($unregisterDeadline) {
+		$this->unregisterDeadline = $unregisterDeadline;
+	}
+
+
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getUnregisterDeadline() {
+		return $this->unregisterDeadline;
+	}
+
+
+
+	/**
 	 * Getter for registrations that are currently NOT on waiting list for this event
 	 *
 	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
@@ -1222,6 +1247,40 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 			}
 		}
 		return NULL;
+	}
+
+
+
+	/**
+	 * Returns true, if registration of this event can be canceled due to unregister deadline
+	 *
+	 * @return bool
+	 */
+	public function getCancelRegistrationIsPossible() {
+		if (!isset($this->unregisterDeadline)) {
+			return true;
+		}
+
+		if ($this->unregisterDeadline->getTimestamp() > time()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+
+
+	/**
+	 * Returns true if current user is registered for this event and registration is accepted and registration is not waitinglist
+	 * @return bool
+	 */
+	public function getCurrentUserRegistrationsIsAcceptedAndNotOnWaitinglist() {
+		$registration = $this->getRegistrationForCurrentUser();
+		if ($registration !== null) {
+			return $registration->getIsAcceptedAndNotOnWaitinglist();
+		} else {
+			return false;
+		}
 	}
 
 

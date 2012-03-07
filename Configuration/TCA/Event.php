@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted',
+		'showRecordFieldList'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted'),
+		'1' => array('showitem'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -274,6 +274,18 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 		'registration_deadline' => array(
 			'exclude'	=> 0,
 			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_event.registration_deadline',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 12,
+				'max' => 20,
+				'eval' => 'datetime',
+				'checkbox' => 1,
+				'default' => time()
+			),
+		),
+		'unregister_deadline' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Abmeldeschluss',
 			'config'	=> array(
 				'type' => 'input',
 				'size' => 12,

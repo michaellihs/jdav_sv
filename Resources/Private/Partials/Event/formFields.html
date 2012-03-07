@@ -112,6 +112,11 @@
 </div>
 
 <div class="control-group">
+<label for="unregisterDeadline" class="control-label">Abmeldeschluss</label>
+    <div class="controls"><f:form.textfield class="input-small" property="unregisterDeadline"  value="{event.unregisterDeadline->f:format.date(format: 'd.m.Y')}"  /></div>
+</div>
+
+<div class="control-group">
 <label for="isProposal" class="control-label">Status</label>
     <div class="controls">
 		<label class="checkbox">

@@ -35,7 +35,15 @@
 					</tr>
 					<tr>
 						<td>
-							<p>&nbsp;</p>
+							<br/>
+							<f:if condition="{row.event.value.currentUserIsRegisteredForThisEvent}">
+								<f:then>
+									<p><strong><i class="icon-info-sign"></i> Du bist zu dieser Veranstaltung angemeldet!</strong></p>
+								</f:then>
+								<f:else>
+									<p>&nbsp;</p>
+								</f:else>
+							</f:if>
 						</td>
 						<td>
 							<p class="pull-right"><br>
@@ -45,7 +53,9 @@
 										<f:link.action class="btn btn-large" controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action>
 									</f:then>
 									<f:else>
-										<f:link.action class="btn btn-large btn-danger" controller="Registration" action="unregister" arguments="{event: row.event.value}">Abmelden</f:link.action>
+										<f:if condition="{row.event.value.cancelRegistrationIsPossible}">
+											<f:then><f:link.action class="btn btn-large btn-danger" controller="Registration" action="unregister" arguments="{event: row.event.value}">Abmelden</f:link.action></f:then>
+										</f:if>
 									</f:else>
 								</f:if>
 							</p>

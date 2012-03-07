@@ -404,5 +404,30 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		return ($this->getAllPrerequisitesAreFulfilled() && !$this->waitingList && $this->isAccepted);
 	}
 
+
+
+	/**
+	 * Returns true, if registration is accepted and not waiting list
+	 *
+	 * @return bool
+	 */
+	public function getIsAcceptedAndNotOnWaitinglist() {
+		return ($this->isAccepted && !$this->isWaitingList());
+	}
+
+
+
+	/**
+	 * Returns true, if registration is reservation only
+	 *
+	 * - not yet accepted
+	 * - not on waiting list
+	 *
+	 * @return bool
+	 */
+	public function getIsReservationOnly() {
+		return !($this->isWaitingList() || $this->isAccepted);
+	}
+
 }
 ?>
