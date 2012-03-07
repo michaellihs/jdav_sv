@@ -30,7 +30,7 @@
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
 
-class Tx_JdavSv_Domain_RegistrationManager {
+class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	
 	/**
 	 * Holds a singleton instance of this class
@@ -56,23 +56,6 @@ class Tx_JdavSv_Domain_RegistrationManager {
 	 * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
 	 */
 	protected $registrationRepository;
-	
-	
-	
-	/**
-	 * Factory method for registration manager
-	 *
-	 * @return Tx_JdavSv_Domain_RegistrationManager
-	 */
-	public static function getInstance() {
-		if (self::$instance === null) {
-			$instance = new Tx_JdavSv_Domain_RegistrationManager();
-			$instance->injectEventRepository(t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_EventRepository'));
-			$instance->injectRegistrationRepository(t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository'));
-			self::$instance = $instance;
-		}
-		return self::$instance;
-	}
 	
 	
 	
@@ -159,7 +142,21 @@ class Tx_JdavSv_Domain_RegistrationManager {
 			throw new Exception('We have more than one registration of a single user for an event. This should never happen!');
 		}
 	}
+
+
+
+	/**
+	 * Returns all registrations for a given user
+	 *
+	 * @param Tx_JdavSv_Domain_Model_FeUser $user
+	 * @return array<Tx_JdavSv_Domain_Model_Registration>
+	 */
+	public function getRegistrationsByUser(Tx_JdavSv_Domain_Model_FeUser $user) {
+		// TODO don't respect events that do not count like LJLT or Bouldernight
+		// TODO think about how to handle reservations
+		// TODO respect current year / event-cycle
+		return $this->registrationRepository->findByAttendee($user);
+	}
 	
 }
-
 ?>

@@ -50,57 +50,25 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	
 
 	/**
-	 * Initializes the current action
+	 * Injects registration manager
 	 *
-	 * @return void
+	 * @param Tx_JdavSv_Domain_RegistrationManager $registrationManager
 	 */
-	protected function initializeAction() {
-		parent::initializeAction();
-		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
-		$this->registrationManager = Tx_JdavSv_Domain_RegistrationManager::getInstance();
+	public function injectRegistrationManager(Tx_JdavSv_Domain_RegistrationManager $registrationManager) {
+		$this->registrationManager = $registrationManager;
 	}
-	
-	
-		
-	/**
-	 * Displays all Registrations
-	 *
-	 * @return string The rendered list view
-	 */
-	public function listAction() {
-		$registrations = $this->registrationRepository->findAll();
-		
-		$this->view->assign('registrations', $registrations);
-	}
-	
-	
-		
-	/**
-	 * Displays a single Registration
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Registration $registration the Registration to display
-	 * @return string The rendered view
-	 */
-	public function showAction(Tx_JdavSv_Domain_Model_Registration $registration) {
-		$this->view->assign('registration', $registration);
-	}
-	
-	
-		
-	/**
-	 * Creates a new Registration and forwards to the list action.
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Registration $newRegistration a fresh Registration object which has not yet been added to the repository
-	 * @return string An HTML form for creating a new Registration
-	 * @dontvalidate $newRegistration
-	 */
-	public function newAction(Tx_JdavSv_Domain_Model_Registration $newRegistration = NULL) {
 
 
 
-		$this->view->assign('newRegistration', $newRegistration);
+	/**
+	 * Injects registration repository
+	 *
+	 * @param Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository
+	 */
+	public function injectRegistrationRepository(Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository) {
+		$this->registrationRepository = $registrationRepository;
 	}
-	
+
 	
 		
 	/**
@@ -113,31 +81,6 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 		$this->registrationRepository->add($newRegistration);
 		$this->flashMessageContainer->add('Your new Registration was created.');
 		
-		$this->redirect('list');
-	}
-	
-		
-	
-	/**
-	 * Updates an existing Registration and forwards to the index action afterwards.
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Registration $registration the Registration to display
-	 * @return string A form to edit a Registration 
-	 */
-	public function editAction(Tx_JdavSv_Domain_Model_Registration $registration) {
-		$this->view->assign('registration', $registration);
-	}
-	
-		
-
-	/**
-	 * Updates an existing Registration and forwards to the list action afterwards.
-	 *
-	 * @param Tx_JdavSv_Domain_Model_Registration $registration the Registration to display
-	 */
-	public function updateAction(Tx_JdavSv_Domain_Model_Registration $registration) {
-		$this->registrationRepository->update($registration);
-		$this->flashMessageContainer->add('Your Registration was updated.');
 		$this->redirect('list');
 	}
 	
@@ -166,6 +109,10 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	public function registerAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$this->checkForLoggedInFesUserAndRedirect();
 		$this->checkForRegistrationAndRedirectIfAlreadyRegistered($event);
+
+		$otherRegistrations = $this->registrationManager->getRegistrationsByUser($this->feUser);
+
+		$this->view->assign('otherRegistrations', $otherRegistrations);
 		$this->view->assign('feUser', $this->feUser);
 		$this->view->assign('event', $event);
 	}
@@ -182,7 +129,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 		$this->checkForLoggedInFesUserAndRedirect();
 		$this->checkForRegistrationAndRedirectIfNotAlreadyRegistered($event);
 		$this->registrationManager->unregisterUserForEvent($this->feUser, $event);
-		$this->flashMessages->add('Deine Anmeldung wurde storniert!');
+		$this->flashMessageContainer->add('Deine Anmeldung wurde storniert!');
 		$this->forward('list', 'Event');
 	}
 	
@@ -210,7 +157,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 */
 	protected function checkForLoggedInFesUserAndRedirect() {
 	    if (is_null($this->feUser)) {
-            $this->flashMessages->add('Für die An- oder Abmeldung zu einer Schulung muss man eingeloggt sein!');
+            $this->flashMessageContainer->add('Für die An- oder Abmeldung zu einer Schulung muss man eingeloggt sein!', '', t3lib_FlashMessage::ERROR);
             $this->redirect('list', 'Event');
         }
 	}
@@ -225,7 +172,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 */
 	protected function checkForRegistrationAndRedirectIfAlreadyRegistered(Tx_JdavSv_Domain_Model_Event $event) {
 	    if ($this->registrationManager->isUserRegisteredForEvent($this->feUser, $event)) {
-            $this->flashMessages->add('Anmeldung zur Schulung ist bereits erfolgt!');
+            $this->flashMessageContainer->add('Anmeldung zur Schulung ist bereits erfolgt!', '', t3lib_FlashMessage::ERROR);
             $this->forward('list', 'Event');
         }
 	}
@@ -240,11 +187,10 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 */
 	protected function checkForRegistrationAndRedirectIfNotAlreadyRegistered(Tx_JdavSv_Domain_Model_Event $event) {
 		if (!$this->registrationManager->isUserRegisteredForEvent($this->feUser, $event)) {
-			$this->flashMessages->add('Du kannst dich nicht von einer Schulung abmelden, zu der du nicht angemeldet warst!');
+			$this->flashMessageContainer->add('Du kannst dich nicht von einer Schulung abmelden, zu der du nicht angemeldet warst!', '', t3lib_FlashMessage::ERROR);
 			$this->forward('list', 'Event');
 		}
 	}
 	
 }
-
 ?>

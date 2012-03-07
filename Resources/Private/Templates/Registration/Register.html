@@ -1,23 +1,65 @@
-<f:layout name="Default" />
-
-This Template is responsible for displaying a single view for a domain object
-
-If you modify this template, do not forget to change the overwrite settings 
-in /Configuration/Kickstarter/settings.yaml:
-	Resources:
-		Private: 
-			Templates:
-				Show.html		keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
-
-<f:section name="main">
-<h1>Anmeldung zur Veranstaltung: {event.title}</h1>
+<h1>Anmeldung</h1>
 
 <f:flashMessages />
 
+<div class="well">
+	<div class="well well-white">
+		<p class="pull-right btn {event.lights}">{event.lightsText}</p>
+		<small>{event.category.name}</small>
+		<h2>{event.title}</h2>
+	</div>
+	<table>
+		<tr>
+			<td class="span2">
+				<small><i class="icon-tag"></i> {event.category.shortcut}-{event.accreditationNumber}</small>
+			</td>
+			<td class="span4">
+				<small><i class="icon-calendar"></i> von {event.dateStart -> f:format.date(format: 'd.m.Y')} bis {event.dateStart -> f:format.date(format: 'd.m.Y')}</small>
+			</td>
+			<td class="span4">
+				<small><i class="icon-home"></i> {event.accommodation.name}</small>
+			</td>
+		</tr>
+	</table>
+	<table class="table table-no-bottom">
+		<tr>
+			<td colspan="2">
+				{event.announcement}
+			</td>
+		</tr>
+	</table>
+</div>
+
 Ihr Benutzername: {feUser.name} <br><br>
 
-<f:link.action controller="Registration" action="confirmRegistration" arguments="{event: event}">Anmeldung best&auml;tigen</f:link.action><br />
-<f:link.action controller="Event" action="list">Zur&uuml;ck zur Liste der Schulungen</f:link.action><br />
-</f:section>
+<f:form class="form-horizontal" controller="Registration" action="confirmRegistration">
+	<f:form.hidden name="event" value="{event}" />
+	<f:if condition="{otherRegistrations}">
+		<f:then>
+			<div class="alert alert-error">
+				Du hast dich bereits zu mindestens einer anderen Veranstaltung angemeldet. Du kannst dich jeweils nur für eine Veranstaltung anmelden und
+				bekommst bei den anderen Veranstaltungen zunächste einen Wartelistenplatz.
+			</div>
+			Bitte wähle diejenige Schulung aus, bei der du dich anmelden möchtest (bei den anderen Schulungen kommst du zunächst auf die Warteliste):
+			<div class="control-group">
+				<label class="control-label">Angemeldete Schulungen:</label>
+				<div class="controls">
+					<label class="radio">
+						<f:form.radio name="firstChoiceEvent[{event}]" value="event" checked="checked"/> {event.category.shortcut}-{event.accreditationNumber} {event.title} <small>(diese Schulung!)</small>
+					</label>
+					<f:for each="{otherRegistrations}" as="registration">
+						<label class="radio">
+							<f:form.radio name="firstChoiceEvent[{registration.event}]" value="{registration.event}" /> {registration.event.category.shortcut}-{registration.event.accreditationNumber} {registration.event.title}
+						</label>
+					</f:for>
+				</div>
+			</div>
+
+		</f:then>
+	</f:if>
+
+	<div class="form-actions">
+		<f:form.submit class="btn btn-primary" value="Anmeldung bestätigen" />
+		<f:link.action class="btn btn-danger" controller="Event" action="list">Zurück zur Liste der Schulungen</f:link.action>
+	</div>
+</f:form>

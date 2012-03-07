@@ -73,7 +73,22 @@
 				</div>
 				<f:if condition="{event.currentUserRegistrationsIsAcceptedAndNotOnWaitinglist}">
 					<div class="tab-pane" id="attendees">
-						Teilnemerliste
+						<table class="table">
+							<tr>
+								<th>Name</th>
+								<th>Vorname</th>
+								<th>E-Mail</th>
+								<th>Telefon</th>
+							</tr>
+							<f:for each="{event.registrations}" as="registration">
+								<tr>
+									<td>{registration.attendee.lastName}</td>
+									<td>{registration.attendee.firstName}</td>
+									<td><a href="mailto:{registration.attendee.email}">{registration.attendee.email}</a></td>
+									<td>{registration.attendee.telephone}</td>
+								</tr>
+							</f:for>
+						</table>
 					</div>
 				</f:if>
 				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">
