@@ -31,8 +31,10 @@
 				<li><a href="#description" data-toggle="tab">Beschreibung</a></li>
 				<li><a href="#content" data-toggle="tab">Inhalte</a></li>
 				<li><a href="#prerequisites" data-toggle="tab">Voraussetzungen</a></li>
-				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">
+				<f:if condition="{event.currentUserRegistrationsIsAcceptedAndNotOnWaitinglist}">
 					<li><a href="#attendees" data-toggle="tab">Teilnehmerliste</a></li>
+				</f:if>
+				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">
 					<li><a href="#registrationStatus" data-toggle="tab">Anmeldestatus</a></li>
 				</f:if>
 			</ul>
@@ -69,10 +71,12 @@
 				<div class="tab-pane" id="prerequisites">
 				  {event.requirements}
 				</div>
-				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">
+				<f:if condition="{event.currentUserRegistrationsIsAcceptedAndNotOnWaitinglist}">
 					<div class="tab-pane" id="attendees">
 						Teilnemerliste
 					</div>
+				</f:if>
+				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">
 					<div class="tab-pane" id="registrationStatus">
 						<f:if condition="{event.registrationForCurrentUser.isConfirmed}">
 							<f:then>
