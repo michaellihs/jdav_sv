@@ -115,6 +115,35 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 		$this->registrationRepository->add($registration);
 		return $registration;
 	}
+
+
+
+	/**
+	 * Creates registration for given user and given event respecting given choices and setting waitinglist attribute respectively
+	 *
+	 * @param Tx_Extbase_Domain_Model_FrontendUser $feUser
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @param int Tx_JdavSv_Domain_Model_Registration
+	 * @return Tx_JdavSv_Domain_Model_Registration
+	 */
+	public function registerUserForEventRespectingFirstChoice(Tx_Extbase_Domain_Model_FrontendUser $feUser, Tx_JdavSv_Domain_Model_Event $event, $firstChoiceEvent) {
+		$registrationsForUser = $this->getRegistrationsByUser($feUser);
+		$newRegistration = $this->registerUserForEvent($feUser, $event);
+		$registrationsForUser[] = $newRegistration;
+
+		foreach ($registrationsForUser as $registration) { /* @var $registration Tx_JdavSv_Domain_Model_Registration */
+			if (intval($registration->getEvent()->getUid()) === intval($firstChoiceEvent)) {
+				$registration->setWaitingList(FALSE);
+			} else {
+				$registration->setWaitingList(TRUE);
+			}
+			if ($registration->getUid()) {
+				$this->registrationRepository->update($registration);
+			}
+		}
+
+		return $newRegistration;
+	}
 	
 	
 	
@@ -155,7 +184,7 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 		// TODO don't respect events that do not count like LJLT or Bouldernight
 		// TODO think about how to handle reservations
 		// TODO respect current year / event-cycle
-		return $this->registrationRepository->findByAttendee($user);
+		return $this->registrationRepository->findByAttendee($user)->toArray();
 	}
 	
 }

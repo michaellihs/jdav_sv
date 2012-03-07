@@ -45,11 +45,11 @@ Ihr Benutzername: {feUser.name} <br><br>
 				<label class="control-label">Angemeldete Schulungen:</label>
 				<div class="controls">
 					<label class="radio">
-						<f:form.radio name="firstChoiceEvent[{event}]" value="event" checked="checked"/> {event.category.shortcut}-{event.accreditationNumber} {event.title} <small>(diese Schulung!)</small>
+						<f:form.radio name="firstChoiceEvent" value="{event.uid}" checked="checked"/> {event.category.shortcut}-{event.accreditationNumber} {event.title} <small>(diese Schulung!)</small>
 					</label>
 					<f:for each="{otherRegistrations}" as="registration">
 						<label class="radio">
-							<f:form.radio name="firstChoiceEvent[{registration.event}]" value="{registration.event}" /> {registration.event.category.shortcut}-{registration.event.accreditationNumber} {registration.event.title}
+							<f:form.radio name="firstChoiceEvent" value="{registration.event.uid}" /> {registration.event.category.shortcut}-{registration.event.accreditationNumber} {registration.event.title}
 						</label>
 					</f:for>
 				</div>

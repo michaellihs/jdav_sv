@@ -50,14 +50,23 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	
 
 	/**
-	 * Initializes the current action
+	 * Injects registration manager
 	 *
-	 * @return void
+	 * @param Tx_JdavSv_Domain_RegistrationManager $registrationManager
 	 */
-	protected function initializeAction() {
-		parent::initializeAction();
-		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
-		$this->registrationManager = Tx_JdavSv_Domain_RegistrationManager::getInstance();
+	public function injectRegistrationManager(Tx_JdavSv_Domain_RegistrationManager $registrationManager) {
+		$this->registrationManager = $registrationManager;
+	}
+
+
+
+	/**
+	 * Injects registration repository
+	 *
+	 * @param Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository
+	 */
+	public function injectRegistrationRepository(Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository) {
+		$this->registrationRepository = $registrationRepository;
 	}
 	
 	

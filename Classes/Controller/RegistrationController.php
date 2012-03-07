@@ -139,12 +139,15 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 * Confirms a registration for logged in user at given event
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @param int $firstChoiceEvent
 	 * @return string Rendered HTML source
 	 */
-	public function confirmRegistrationAction(Tx_JdavSv_Domain_Model_Event $event) {
+	public function confirmRegistrationAction(Tx_JdavSv_Domain_Model_Event $event, $firstChoiceEvent = NULL) {
 		$this->checkForLoggedInFesUserAndRedirect();
         $this->checkForRegistrationAndRedirectIfAlreadyRegistered($event);
-        $this->registrationManager->registerUserForEvent($this->feUser, $event);
+
+        $this->registrationManager->registerUserForEventRespectingFirstChoice($this->feUser, $event, $firstChoiceEvent);
+
         $this->view->assign('feUser', $this->feUser);
         $this->view->assign('event', $event);
 	}
