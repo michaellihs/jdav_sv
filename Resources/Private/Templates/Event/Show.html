@@ -27,10 +27,14 @@
 		</table>
 		<div class="tabs">
 			<ul class="nav nav-tabs" id="eventDescriptionTabs">
-			  <li class="active"><a href="#overview" data-toggle="pill">Übersicht</a></li>
-			  <li><a href="#description" data-toggle="tab">Beschreibung</a></li>
-			  <li><a href="#content" data-toggle="tab">Inhalte</a></li>
-			  <li><a href="#prerequisites" data-toggle="tab">Voraussetzungen</a></li>
+				<li class="active"><a href="#overview" data-toggle="pill">Übersicht</a></li>
+				<li><a href="#description" data-toggle="tab">Beschreibung</a></li>
+				<li><a href="#content" data-toggle="tab">Inhalte</a></li>
+				<li><a href="#prerequisites" data-toggle="tab">Voraussetzungen</a></li>
+				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">
+					<li><a href="#attendees" data-toggle="tab">Teilnehmerliste</a></li>
+					<li><a href="#registrationStatus" data-toggle="tab">Anmeldestatus</a></li>
+				</f:if>
 			</ul>
 
 			<div class="tab-content">
@@ -65,11 +69,51 @@
 				<div class="tab-pane" id="prerequisites">
 				  {event.requirements}
 				</div>
+				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">
+					<div class="tab-pane" id="attendees">
+						Teilnemerliste
+					</div>
+					<div class="tab-pane" id="registrationStatus">
+						<f:if condition="{event.registrationForCurrentUser.isConfirmed}">
+							<f:then>
+								<div class="alert alert-success">
+									<p><strong>Deine Anmeldung ist abgeschlossen und bestätigt!</strong></p>
+									<f:for each="{event.registrationForCurrentUser.AllPrerequisiteFulfillments}" as="fulfillment">
+										<f:if condition="{fulfillment.fulfilled}">
+											<f:then><p><i class="icon-ok"></i> Erfüllt: {fulfillment.prerequisite.title}</p></f:then>
+											<f:else><p><i class="icon-error"></i> Noch zu erledigen: {fulfillment.prerequisite.title}</p></f:else>
+										</f:if>
+									</f:for>
+								</div>
+							</f:then>
+							<f:else>
+								<div class="alert alert-error">
+									<p><strong>Deine Anmeldung ist noch nicht abgeschlossen!</strong></p>
+									<f:for each="{event.registrationForCurrentUser.AllPrerequisiteFulfillments}" as="fulfillment">
+										<f:if condition="{fulfillment.fulfilled}">
+											<f:then><p><i class="icon-ok"></i> Erfüllt: {fulfillment.prerequisite.title}</p></f:then>
+											<f:else><p><i class="icon-error"></i> Noch zu erledigen: {fulfillment.prerequisite.title}</p></f:else>
+										</f:if>
+									</f:for>
+								</div>
+							</f:else>
+						</f:if>
+					</div>
+				</f:if>
 			</div>
 		</div>
-		<div class="actions">
-				<f:link.action class="pull-right btn-large btn" controller="Registration" action="register" arguments="{event: event}">Anmelden</f:link.action>
-		</div><br><br>
+		<f:if condition="{event.currentUserIsNotRegisteredForThisEvent}">
+			<f:then>
+				<div class="actions">
+						<f:link.action class="pull-right btn-large btn" controller="Registration" action="register" arguments="{event: event}">Anmelden</f:link.action>
+				</div><br><br>
+			</f:then>
+			<f:else>
+				<div class="actions">
+						<f:link.action class="pull-right btn-large btn" controller="Registration" action="unregister" arguments="{event: event}">Abmelden</f:link.action>
+				</div><br><br>
+			</f:else>
+		</f:if>
 	</div>
 	<f:link.action class="pull-right" controller="Event" action="list">Zurück zur Schulungsübersicht</f:link.action>
 </div>

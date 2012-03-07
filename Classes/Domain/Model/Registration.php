@@ -375,5 +375,34 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		}
 	}
 
+
+
+	/**
+	 * Returns true, if all prerequisites for this registration are fulfilled
+	 *
+	 * @return bool
+	 */
+	public function getAllPrerequisitesAreFulfilled() {
+		$allPrerequisistesAreFulfilled = TRUE;
+		foreach ($this->getAllPrerequisiteFulfillments() as $prerequisiteFulfillment) { /* @var $prerequisiteFulfillment Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
+			$allPrerequisistesAreFulfilled = ($allPrerequisistesAreFulfilled && $prerequisiteFulfillment->getIsFulfilled());
+		}
+		return $allPrerequisistesAreFulfilled;
+	}
+
+
+
+	/**
+	 * Returns true, if
+	 * - registration is accepted
+	 * - all prerequisites are fulfilled
+	 * - is not waiting list registration
+	 *
+	 * @return bool
+	 */
+	public function getIsConfirmed() {
+		return ($this->getAllPrerequisitesAreFulfilled() && !$this->waitingList && $this->isAccepted);
+	}
+
 }
 ?>

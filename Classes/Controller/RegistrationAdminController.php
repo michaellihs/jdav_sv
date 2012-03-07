@@ -144,7 +144,12 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	public function updateAction(Tx_JdavSv_Domain_Model_Registration $registration) {
 		// Save prerequisite fulfillments
-		$registration->setCategoryPrerequisiteFulfillmentsByArgumentsArray($this->request->getArgument('prerequisite'));
+		if ($this->request->hasArgument('prerequisite')) {
+			$prerequisites = $this->request->getArgument('prerequisite');
+		} else {
+			$prerequisites = array();
+		}
+		$registration->setCategoryPrerequisiteFulfillmentsByArgumentsArray($prerequisites);
 		$this->registrationRepository->update($registration);
 
 		$this->flashMessageContainer->add('Die Anmeldung wurde gespeichert.');

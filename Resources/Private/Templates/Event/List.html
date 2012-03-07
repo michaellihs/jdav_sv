@@ -39,8 +39,15 @@
 						</td>
 						<td>
 							<p class="pull-right"><br>
-								<f:link.action class="btn-large btn" controller="Event" action="show" arguments="{event: row.event.value}">Details</f:link.action>
-								<f:link.action class="btn-large btn" controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action>
+								<f:link.action class="btn btn-large" controller="Event" action="show" arguments="{event: row.event.value}">Details</f:link.action>
+								<f:if condition="{row.event.value.currentUserIsNotRegisteredForThisEvent}">
+									<f:then>
+										<f:link.action class="btn btn-large" controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action>
+									</f:then>
+									<f:else>
+										<f:link.action class="btn btn-large btn-danger" controller="Registration" action="unregister" arguments="{event: row.event.value}">Abmelden</f:link.action>
+									</f:else>
+								</f:if>
 							</p>
 						</td>
 					</tr>

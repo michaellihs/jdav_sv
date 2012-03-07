@@ -33,18 +33,9 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 	/**
 	 * Holds currently logged in feUser (if there is one)
 	 *
-	 * @var Tx_Extbase_Domain_Model_FrontendUser
+	 * @var Tx_JdavSv_Domain_Model_FeUser
 	 */
 	protected $feUser;
-
-
-
-	/**
-	 * Holds array of fe_users
-	 *
-	 * @var array<Tx_Extbase_Domain_Model_FrontendUser>
-	 */
-	protected $feUsers;
 
 
 
@@ -58,9 +49,20 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 
 
 	/**
+	 * Holds instance of persistence manager
+	 *
 	 * @var Tx_Extbase_Persistence_Manager
 	 */
 	protected $persistenceManager;
+
+
+
+	/**
+	 * Holds fe_user manager
+	 *
+	 * @var Tx_JdavSv_Utility_FeUserManager
+	 */
+	protected $feUserManager;
 	
 
 
@@ -85,6 +87,17 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 	}
 
 
+
+	/**
+	 * Injects feUserManager
+	 *
+	 * @param Tx_JdavSv_Utility_FeUserManager $feUserManager
+	 */
+	public function injectFeUserManager(Tx_JdavSv_Utility_FeUserManager $feUserManager) {
+		$this->feUserManager = $feUserManager;
+	}
+
+
 	
 	/**
 	 * Initializes the controller
@@ -101,17 +114,7 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 	 * logged-in user from T3 environment
 	 */
 	protected function initializeFeUser() {
-	    $feUserUid = $GLOBALS['TSFE']->fe_user->user['uid'];
-        if ($feUserUid > 0) {
-            $query = $this->feUserRepository->createQuery();
-            $query->getQuerySettings()->setRespectStoragePage(FALSE);
-            $queryResult = $query->matching($query->equals('uid', $feUserUid))->execute();
-            if (count($queryResult) > 0) {
-                $this->feUser = $queryResult[0];
-            }
-        } else {
-            $this->feUser = null;
-        }
+		$this->feUser = $this->feUserManager->getCurrentlyLoggedInFeUser();
 	}
 	
 }

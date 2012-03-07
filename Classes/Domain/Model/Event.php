@@ -1163,5 +1163,77 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		return $this->category->getShortcut() . $this->accreditationNumber . ' ' . $this->title;
 	}
 
+
+
+	/**
+	 * Returns true, if currently logged in user is NOT registered for this event
+	 *
+	 * @return bool
+	 */
+	public function getCurrentUserIsNotRegisteredForThisEvent() {
+		return !($this->getCurrentUserIsRegisteredForThisEvent());
+	}
+
+
+
+	/**
+	 * Returns true, if currently logged in user is registered for this event
+	 *
+	 * @return bool
+	 */
+	public function getCurrentUserIsRegisteredForThisEvent() {
+		$currentUser = $this->getCurrentUser();
+		if ($currentUser === NULL) {
+			return FALSE;
+		} else {
+			return $this->isGivenUserRegisteredForEvent($currentUser);
+		}
+	}
+
+
+
+	/**
+	 * Returns true, if given user is registered for this event
+	 *
+	 * @param Tx_JdavSv_Domain_Model_FeUser $user
+	 * @return bool True, if given user is registered for this event
+	 */
+	public function isGivenUserRegisteredForEvent(Tx_JdavSv_Domain_Model_FeUser $user) {
+		foreach ($this->registrations as $registration) { /* @var $registration Tx_JdavSv_Domain_Model_Registration */
+			if ($registration->getAttendee()->getUid() === $user->getUid()) {
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+
+
+
+	/**
+	 * Returns registration for currently logged in user if there is one - or NULL if there is none
+	 *
+	 * @return null|Tx_JdavSv_Domain_Model_Registration
+	 */
+	public function getRegistrationForCurrentUser() {
+		$currentUser = $this->getCurrentUser();
+		foreach ($this->registrations as $registration) { /* @var $registration Tx_JdavSv_Domain_Model_Registration */
+			if ($registration->getAttendee()->getUid() === $currentUser->getUid()) {
+				return $registration;
+			}
+		}
+		return NULL;
+	}
+
+
+
+	/**
+	 * Returns currently logged in user
+	 *
+	 * @return Tx_JdavSv_Domain_Model_FeUser
+	 */
+	protected function getCurrentUser() {
+		return t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Utility_FeUserManager')->getCurrentlyLoggedInFeUser();
+	}
+
 }
 ?>
