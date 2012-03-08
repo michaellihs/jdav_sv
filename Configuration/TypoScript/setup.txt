@@ -78,6 +78,7 @@ plugin.tx_jdavsv {
 	    pids {
 
 	        administration {
+	        	pid = {$plugin.tx_jdavsv.settings.pids.administration.pid}
 	            registrationsListParticipantsPid = {$plugin.tx_jdavsv.settings.pids.administration.registrationsListParticipantsPid}
 	            registrationsListTeamerPid = {$plugin.tx_jdavsv.settings.pids.administration.registrationsListTeamerPid}
 	        }

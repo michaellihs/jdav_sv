@@ -307,7 +307,7 @@ class Tx_JdavSv_Utility_FluidMailer {
 			$this->view->injectSettings($this->extbaseFrameworkConfiguration);
 		}
 		$this->view->initializeView(); // In FLOW3, solved through Object Lifecycle methods, we need to call it explicitely
-		$this->view->assign('settings', $this->extbaseFrameworkConfiguration); // same with settings injection.
+		$this->view->assign('settings', $this->settings); // same with settings injection.
 	}
 
 

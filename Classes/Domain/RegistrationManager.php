@@ -55,6 +55,15 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
 	 */
 	protected $registrationRepository;
+
+
+
+	/**
+	 * Holds instance of persistence manager
+	 *
+	 * @var Tx_Extbase_Persistence_Manager
+	 */
+	protected $persistenceManager;
 	
 	
 	
@@ -76,6 +85,17 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 */
 	public function injectRegistrationRepository(Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository) {
 		$this->registrationRepository = $registrationRepository;
+	}
+
+
+
+	/**
+	 * Injects persistence manager
+	 *
+	 * @param Tx_Extbase_Persistence_Manager $persistenceManager
+	 */
+	public function injectPersistenceManager(Tx_Extbase_Persistence_Manager $persistenceManager) {
+		$this->persistenceManager = $persistenceManager;
 	}
 	
 	
@@ -145,10 +165,20 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 			}
 		}
 
-		$mailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
-		$mailer->setTemplateByTsDefinedTemplate('confirmRegistrationAttendee')
-			->setTo(array('mimi@kaktusteam.de' => 'Michael Knoll'))
+		$this->persistenceManager->persistAll();
+
+		$registrationForUserMailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
+		$registrationForUserMailer->setTemplateByTsDefinedTemplate('confirmReservationAttendee')
+			->setTo(array($newRegistration->getAttendee()->getEmail() => $newRegistration->getAttendee()->getFirstName() . ' ' . $newRegistration->getAttendee()->getLastName()))
 			->setSubject('Reservierungsbestätigung "' . $newRegistration->getEvent()->getFullName() . '"')
+			->assignToView('registration', $newRegistration)
+			->send();
+
+		$registrationForAdminMailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
+		$registrationForAdminMailer->setTemplateByTsDefinedTemplate('confirmReservationAdmin')
+			// TODO use config here!
+			->setTo(array('mimi@kaktusteam.de' => 'JDAV Ba-Wü'))
+			->setSubject('Neue Reservierung für "' . $newRegistration->getEvent()->getFullName() . '"')
 			->assignToView('registration', $newRegistration)
 			->send();
 

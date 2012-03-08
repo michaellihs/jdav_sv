@@ -14,11 +14,21 @@ plugin.tx_jdavsv {
 	settings {
 	    pids {
 	        administration {
+	        	# cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der Admin Plugin eingebunden ist
+	        	pid =
 	            # cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der TN Liste für Teilnehmer liegt
 	            registrationsListParticipantsPid =
 	            # cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der TN Liste für Teamer lieg
 	            registrationsListTeamerPid =
 	        }
+	    }
+	    email {
+	    	defaultFrom {
+	    		# cat=plugin.tx_jdavsv/file; type=string; label=E-Mail Adresse zum Versand von SV-E-Mails
+	    		email =
+	    		# cat=plugin.tx_jdavsv/file; type=string; label=E-Mail Name zum Versand von SV-E-Mails
+	    		name =
+	    	}
 	    }
 	}
 }
