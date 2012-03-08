@@ -107,6 +107,15 @@
 </div>
 
 <div class="control-group">
+<label for="tourReportRequired" class="control-label">Zählt zu Schulungen zu denen Jugendleiter sich nur zur einer anmelden kann</label>
+    <div class="controls">
+		<f:form.checkbox property="countsInMaxRegistrations" value="1" checked="{event.countsInMaxRegistrations}"/>
+		<span class="help-block">Zu Grundausbildungen, Fortbildungen, Aufbaumodulen etc. kann ein Jugendleiter sich zunächst nur zu einer Schulung im Jahr anmelden.
+		Landesjugendleitertag, Bouldernights... können aber grundsätzlich in Kombination mit einer anderen Schulung besucht werden.</span>
+	</div>
+</div>
+
+<div class="control-group">
 <label for="registrationDeadline" class="control-label">Anmeldeschluss</label>
     <div class="controls"><f:form.textfield class="input-small" property="registrationDeadline"  value="{event.registrationDeadline->f:format.date(format: 'd.m.Y')}"  /></div>
 </div>

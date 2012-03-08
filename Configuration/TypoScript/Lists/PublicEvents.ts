@@ -13,7 +13,7 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
     backendConfig < plugin.tx_ptextlist.prototype.backend.extbase
     backendConfig {
         repositoryClassName = Tx_JdavSv_Domain_Repository_EventRepository
-        sorting = title
+        sorting = dateEnd
     }
     
     
@@ -86,15 +86,15 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
             label = Ende
             sortingFields {
                 10 {
-                    field = dateEnd
-                    label = Veranstaltungsende
+                    field = dateStart
+                    label = Beginn
                     direction = asc
                     forceDirection = 0
                 }
 
                 20 {
-                    field = dateStart
-                    label = Veranstaltungsbeginn
+                    field = dateEnd
+                    label = Ende
                     direction = asc
                     forceDirection = 0
                 }

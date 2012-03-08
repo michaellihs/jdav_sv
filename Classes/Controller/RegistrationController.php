@@ -110,7 +110,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 		$this->checkForLoggedInFesUserAndRedirect();
 		$this->checkForRegistrationAndRedirectIfAlreadyRegistered($event);
 
-		$otherRegistrations = $this->registrationManager->getRegistrationsByUser($this->feUser);
+		$otherRegistrations = $this->registrationManager->getCountingRegistrationsByUser($this->feUser);
 
 		$this->view->assign('otherRegistrations', $otherRegistrations);
 		$this->view->assign('feUser', $this->feUser);
@@ -130,7 +130,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 		$this->checkForRegistrationAndRedirectIfNotAlreadyRegistered($event);
 		$this->registrationManager->unregisterUserForEvent($this->feUser, $event);
 		$this->flashMessageContainer->add('Deine Anmeldung wurde storniert!');
-		$this->forward('list', 'Event');
+		$this->redirect('list', 'Event');
 	}
 	
 	

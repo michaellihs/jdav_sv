@@ -259,6 +259,17 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	protected $isAccepted;
 
 
+	/**
+	 * If set to true, this events counts in max number of registrations for one user.
+	 *
+	 * All "Schulungen" will have set true here
+	 * "Grundausbildung", "Landesjugendleitertag" ... will have set false here.
+	 *
+	 * @var boolean
+	 */
+	protected $countsInMaxRegistrations;
+
+
 
 	/**
 	 * The constructor.
@@ -1147,6 +1158,24 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	public function getUnregisterDeadline() {
 		return $this->unregisterDeadline;
+	}
+
+
+
+	/**
+	 * @param boolean $countsInMaxRegistrations
+	 */
+	public function setCountsInMaxRegistrations($countsInMaxRegistrations) {
+		$this->countsInMaxRegistrations = $countsInMaxRegistrations;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getCountsInMaxRegistrations() {
+		return $this->countsInMaxRegistrations;
 	}
 
 

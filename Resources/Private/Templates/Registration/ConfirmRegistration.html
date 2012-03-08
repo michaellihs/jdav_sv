@@ -1,17 +1,3 @@
-<f:layout name="Default" />
-
-This Template is responsible for displaying a single view for a domain object
-
-If you modify this template, do not forget to change the overwrite settings 
-in /Configuration/Kickstarter/settings.yaml:
-	Resources:
-		Private: 
-			Templates:
-				Show.html		keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the kickstarter
-
-<f:section name="main">
 <h1>Anmeldung zur Veranstaltung: {event.title}</h1>
 
 <f:flashMessages />
@@ -19,4 +5,3 @@ Otherwise your changes will be overwritten the next time you save the extension 
 Ihr Benutzername: {feUser.name} <br><br>
 Anmeldung zur Schulung {event.title} ist erfolgt! <br><br>
 <f:link.action controller="Event" action="list">Zur&uuml;ck zur Liste der Schulungen</f:link.action><br />
-</f:section>

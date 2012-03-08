@@ -29,7 +29,6 @@
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-
 class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	
 	/**
@@ -121,13 +120,17 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	/**
 	 * Creates registration for given user and given event respecting given choices and setting waitinglist attribute respectively
 	 *
+	 * If a user tries to register for an event although he had registrations before,
+	 * he needs to select one event on which he does NOT want to be registered on the
+	 * waiting list. This event is given in $firstChoiceEvent. All other registrations are set to waiting list.
+	 *
 	 * @param Tx_Extbase_Domain_Model_FrontendUser $feUser
 	 * @param Tx_JdavSv_Domain_Model_Event $event
-	 * @param int Tx_JdavSv_Domain_Model_Registration
+	 * @param int $firstChoiceEvent
 	 * @return Tx_JdavSv_Domain_Model_Registration
 	 */
 	public function registerUserForEventRespectingFirstChoice(Tx_Extbase_Domain_Model_FrontendUser $feUser, Tx_JdavSv_Domain_Model_Event $event, $firstChoiceEvent) {
-		$registrationsForUser = $this->getRegistrationsByUser($feUser);
+		$registrationsForUser = $this->getCountingRegistrationsByUser($feUser);
 		$newRegistration = $this->registerUserForEvent($feUser, $event);
 		$registrationsForUser[] = $newRegistration;
 
@@ -141,6 +144,13 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 				$this->registrationRepository->update($registration);
 			}
 		}
+
+		$mailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
+		$mailer->setTemplateByTsDefinedTemplate('confirmRegistrationAttendee')
+			->setTo(array('mimi@kaktusteam.de' => 'Michael Knoll'))
+			->setSubject('Reservierungsbestätigung "' . $newRegistration->getEvent()->getFullName() . '"')
+			->assignToView('registration', $newRegistration)
+			->send();
 
 		return $newRegistration;
 	}
@@ -181,10 +191,27 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 * @return array<Tx_JdavSv_Domain_Model_Registration>
 	 */
 	public function getRegistrationsByUser(Tx_JdavSv_Domain_Model_FeUser $user) {
-		// TODO don't respect events that do not count like LJLT or Bouldernight
-		// TODO think about how to handle reservations
 		// TODO respect current year / event-cycle
 		return $this->registrationRepository->findByAttendee($user)->toArray();
+	}
+
+
+
+	/**
+	 * Returns only registrations of events that are set to be counting in max number of registrations per User
+	 *
+	 * @param Tx_JdavSv_Domain_Model_FeUser $user
+	 * @return array
+	 */
+	public function getCountingRegistrationsByUser(Tx_JdavSv_Domain_Model_FeUser $user) {
+		$allRegistrations = $this->getRegistrationsByUser($user);
+		$countingRegistrations = array();
+		foreach($allRegistrations as $registration) { /* @var $regisration Tx_JdavSv_Domain_Model_Registration */
+			if ($registration->getEvent()->getCountsInMaxRegistrations()) {
+				$countingRegistrations[] = $registration;
+			}
+		}
+		return $countingRegistrations;
 	}
 	
 }

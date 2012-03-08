@@ -8,11 +8,17 @@
 
 ## Inclusion of external TS resources from other extensions
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_extlist/Configuration/TypoScript/setup.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pt_extlist/Configuration/TypoScript/Export/setup.txt">
 
 
 
 ## Inclusion of external TS resources from Extbase
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Extbase/Persistence.ts">
+
+
+
+## Inclusion of settings from this extension
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Email/email.ts">
 
 
 

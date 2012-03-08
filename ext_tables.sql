@@ -37,6 +37,7 @@ CREATE TABLE tx_jdavsv_domain_model_event (
     teamer_input_finished tinyint(1) unsigned DEFAULT '0' NOT NULL,
     is_proofread tinyint(1) unsigned DEFAULT '0' NOT NULL,
     is_accepted tinyint(1) unsigned DEFAULT '0' NOT NULL,
+    counts_in_max_registrations  tinyint(1) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
