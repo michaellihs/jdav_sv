@@ -15,6 +15,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'CategoryPrerequisites' => 'new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete',
 		'Accommodation' => 'list, new, create, edit, update, delete',
+		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction'
 	),
 	array(
 		'Event' => 'list, attendeeRegistrationsList, show',
@@ -25,6 +26,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'CategoryPrerequisites' => 'new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete',
 		'Accommodation' => 'list, new, create, edit, update, delete',
+		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction'
 	)
 );
 

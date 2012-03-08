@@ -98,16 +98,8 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
 
         20 {
             label = Adresse
-            fieldIdentifier = address, zip
+            fieldIdentifier = address
             columnIdentifier = addressColumn
-            sortingFields {
-                10 {
-                    field = zip
-                    direction = asc
-                    forceDirection = 0
-                    label = Adresse (nach PLZ sortieren)
-                }
-            }
 
             renderObj = COA
             renderObj {

@@ -43,12 +43,31 @@ class Tx_JdavSv_Extlist_Filters_RegistrationsByEventFilter extends Tx_PtExtlist_
         if ($this->filterValue === '') {
             return NULL;
         }
-
         $fieldName = Tx_PtExtlist_Utility_DbUtils::getSelectPartByFieldConfig($fieldIdentifier);
         $filterValue = intval($this->filterValue, 10);
         $criteria = Tx_PtExtlist_Domain_QueryObject_Criteria::equals($fieldName, $filterValue);
         return $criteria;
     }
+
+
+
+	/**
+	 * Filter is always active, if called
+	 */
+	protected function setActiveState() {
+		$this->isActive = true;
+	}
+
+
+	/**
+	 * Manually sets UID of event to be filtered
+	 *
+	 * @param $eventUid
+	 */
+	public function setEventUid($eventUid) {
+		$this->filterValue = $eventUid;
+		$this->buildFilterQuery();
+	}
 
 }
 ?>

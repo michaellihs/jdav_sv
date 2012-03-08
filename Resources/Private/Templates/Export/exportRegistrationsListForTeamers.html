@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="{csssFilePath}" />
+    </head>
+
+    <body>
+	<h1>{event.fullName}</h1>
+	<p>Teilnehmerliste für Teamer</p>
+
+	<table align="center" class="tx-ptextlist-list tx-ptextlist-list-standard" id="tx-ptextlist-list-{config.listConfiguration.listIdentifier}">
+		<thead>
+			<f:render partial="Export/ListHeader" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
+		</thead>
+		<tbody>
+			<f:render partial="Export/ListBody" arguments="{listData:listData}" />
+		</tbody>
+	</table>
+
+	</body>
+</html>

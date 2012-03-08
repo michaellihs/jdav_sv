@@ -284,6 +284,7 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 		$this->sendMail(
 				array($registration->getAttendee()->getEmail() => $registration->getAttendee()->getEmailName()),
 				null,
+				'Reservierungsbestätigung für "' . $registration->getEvent()->getFullName() . '"',
 				'confirmReservationAttendee',
 				array('registration' => $registration)
 		);

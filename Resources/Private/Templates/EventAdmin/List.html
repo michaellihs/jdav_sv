@@ -26,8 +26,8 @@
                 <strong>{row.event.value.title}</strong> <br>
 				{row.event.value.subtitle}<br />
                 <f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action>&nbsp;
-                <f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForTeamerList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListTeamerPid}">Teamer TN-Liste</f:link.action>&nbsp;
-                <f:link.action controller="Filterbox" action="submit" extensionName="ptextlist" pluginName="pi1" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForParticipantsList}' arguments:'filterValue:{row.event.value.uid}')}" pageUid="{settings.pids.administration.registrationsListParticipantsPid}">TN-Liste</f:link.action>&nbsp;
+                <f:link.action controller="Export" action="exportRegistrationsListForTeamers" arguments="{event: row.event.value}">Teamer TN-Liste</f:link.action>&nbsp;
+				<f:link.action controller="Export" action="exportRegistrationsListForParticipants" arguments="{event: row.event.value}">Teilnehmer TN-Liste</f:link.action>&nbsp;
             </td>
 			<td>
                 <p class="pull-right">

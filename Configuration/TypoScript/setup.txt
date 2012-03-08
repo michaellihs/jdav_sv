@@ -33,6 +33,11 @@
 
 
 
+## Copy pt_extlist export settings into our namespace
+plugin.tx_jdavsv.settings.export.pdfExport < plugin.tx_ptextlist.settings.export.exportConfigs.pdfExport
+
+
+
 ## CSS inclusion
 page.includeCSS {
     jdavSvBootstrapCss = EXT:jdav_sv/Resources/Public/Css/bootstrap.css

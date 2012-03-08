@@ -7,7 +7,6 @@
 # @author Michael Knoll <mimi@kaktusteam.de>
 #############################################
 
-
 plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
 
     pager.itemsPerPage = 0
@@ -82,14 +81,14 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
     columns {
 
         10 {
-            label = Vor- und Nachname
-            fieldIdentifier = first_name, last_name
+            label = Nachname, Vorname
+            fieldIdentifier = last_name, first_name
             columnIdentifier = nameColumn
         }
 
         20 {
             label = Adresse
-            fieldIdentifier = address, zip
+            fieldIdentifier = address
             columnIdentifier = addressColumn
             sortingFields {
                 10 {
