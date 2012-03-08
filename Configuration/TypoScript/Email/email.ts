@@ -15,11 +15,19 @@ plugin.tx_jdavsv.settings.email {
 	}
 
 
+	adminTo {
+		name = {$plugin.tx_jdavsv.settings.email.adminTo.name}
+		email = {$plugin.tx_jdavsv.settings.email.adminTo.email}
+	}
+
+
 	## Settings for templates used for mailings sent by this extension
 	templatesBasePath = EXT:jdav_sv/Resources/Private/Templates/Email/
 	templates {
 		confirmReservationAttendee = confirmReservationAttendee.html
 		confirmReservationAdmin = confirmReservationAdmin.html
+		confirmUnregisterAttendee = confirmUnregisterAttendee.html
+		confirmUnregisterAdmin = confirmUnregisterAdmin.html
 	}
 
 }

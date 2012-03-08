@@ -146,5 +146,16 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 		return $this->lastName . ', ' . $this->firstName;
 	}
 
+
+
+	/**
+	 * Returns full name as 'firstName lastName'
+	 *
+	 * @return string
+	 */
+	public function getEmailName() {
+		return $this->firstName . ' ' . $this->lastName;
+	}
+
 }
 ?>

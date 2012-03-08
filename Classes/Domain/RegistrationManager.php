@@ -64,6 +64,23 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 * @var Tx_Extbase_Persistence_Manager
 	 */
 	protected $persistenceManager;
+
+
+
+	/**
+	 * Holds instance of configuration manager
+	 * @var Tx_Extbase_Configuration_ConfigurationManager
+	 */
+	protected $configurationManager;
+
+
+
+	/**
+	 * Holds TS settings for this extension
+	 *
+	 * @var array
+	 */
+	protected $settings;
 	
 	
 	
@@ -96,6 +113,26 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 */
 	public function injectPersistenceManager(Tx_Extbase_Persistence_Manager $persistenceManager) {
 		$this->persistenceManager = $persistenceManager;
+	}
+
+
+
+	/**
+	 * Injects configuration manager
+	 *
+	 * @param Tx_Extbase_Configuration_ConfigurationManager $configurationManager
+	 */
+	public function injectConfigurationManager(Tx_Extbase_Configuration_ConfigurationManager $configurationManager) {
+		$this->configurationManager = $configurationManager;
+	}
+
+
+
+	/**
+	 * Initializes object
+	 */
+	public function initializeObject() {
+		$this->settings = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
 	}
 	
 	
@@ -167,20 +204,9 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 
 		$this->persistenceManager->persistAll();
 
-		$registrationForUserMailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
-		$registrationForUserMailer->setTemplateByTsDefinedTemplate('confirmReservationAttendee')
-			->setTo(array($newRegistration->getAttendee()->getEmail() => $newRegistration->getAttendee()->getFirstName() . ' ' . $newRegistration->getAttendee()->getLastName()))
-			->setSubject('Reservierungsbestätigung "' . $newRegistration->getEvent()->getFullName() . '"')
-			->assignToView('registration', $newRegistration)
-			->send();
+		$this->sendReservationConfirmationMailToAttendee($newRegistration);
+		$this->sendReservationConfirmationMailToAdmin($newRegistration);
 
-		$registrationForAdminMailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
-		$registrationForAdminMailer->setTemplateByTsDefinedTemplate('confirmReservationAdmin')
-			// TODO use config here!
-			->setTo(array('mimi@kaktusteam.de' => 'JDAV Ba-Wü'))
-			->setSubject('Neue Reservierung für "' . $newRegistration->getEvent()->getFullName() . '"')
-			->assignToView('registration', $newRegistration)
-			->send();
 
 		return $newRegistration;
 	}
@@ -206,10 +232,13 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 		$registrations = $query->execute();
 		if ($registrations->count() == 1) {
 		    $this->registrationRepository->remove($registrations->getFirst());
+			$this->sendUnregisterConfirmationToAttendee($registrations->getFirst());
+			$this->sendUnregisterConfirmationToAdmin($registrations->getFirst());
 		    t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager')->persistAll();
 		} elseif ($registrations->count() > 1) {
 			throw new Exception('We have more than one registration of a single user for an event. This should never happen!');
 		}
+
 	}
 
 
@@ -242,6 +271,114 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 			}
 		}
 		return $countingRegistrations;
+	}
+
+
+
+	/**
+	 * Sends reservation confirmation email to attendee
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	protected function sendReservationConfirmationMailToAttendee(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$this->sendMail(
+				array($registration->getAttendee()->getEmail() => $registration->getAttendee()->getEmailName()),
+				null,
+				'confirmReservationAttendee',
+				array('registration' => $registration)
+		);
+	}
+
+
+
+	/**
+	 * Sends reservation confirmation email to administrator
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	protected function sendReservationConfirmationMailToAdmin(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$this->sendMail(
+			$this->getAdminEmailArray(),
+			null,
+			'Neue Reservierung für "' . $registration->getEvent()->getFullName() . '"',
+			'confirmReservationAdmin',
+			array('registration' => $registration)
+		);
+	}
+
+
+
+	/**
+	 * Sends confirmation of unregistering to attendee
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	protected function sendUnregisterConfirmationToAttendee(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$this->sendMail(
+			array($registration->getAttendee()->getEmail() => $registration->getAttendee()->getEmailName()),
+			null,
+			'Bestätitung der Stornierung von "' . $registration->getEvent()->getFullName() . '"',
+			'confirmUnregisterAttendee',
+			array('registration' => $registration)
+		);
+	}
+
+
+
+
+	/**
+	 * Sends confirmation of unregistering to admin
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	protected function sendUnregisterConfirmationToAdmin(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$this->sendMail(
+			$this->getAdminEmailArray(),
+			null,
+			'Neue Stornierung: "' . $registration->getEvent()->getFullName() . '"',
+			'confirmUnregisterAdmin',
+			array('registration' => $registration)
+		);
+	}
+
+
+
+
+	/**
+	 * Sends email with given parameters
+	 *
+	 * @param array $to array('email' => 'name')
+	 * @param array $from array('email => 'name')
+	 * @param string $subject
+	 * @param string $template Template as defined in settings!
+	 * @param array $templateAssignments
+	 */
+	protected function sendMail($to, $from=NULL, $subject, $template, array $templateAssignments = array()) {
+		$mailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
+		$mailer->setTemplateByTsDefinedTemplate($template)
+			->setTo($to)
+			->setSubject($subject);
+
+		if ($from) {
+			$mailer->setFrom($from);
+		}
+
+		foreach ($templateAssignments as $key => $value) {
+			$mailer->assignToView($key, $value);
+		}
+
+		$mailer->send();
+	}
+
+
+
+	/**
+	 * Returns email adress of admin as set in settings
+	 *
+	 * @return array
+	 */
+	protected function getAdminEmailArray() {
+		return array($this->settings['email']['adminTo']['email'] => $this->settings['email']['adminTo']['name']);
 	}
 	
 }

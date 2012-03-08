@@ -29,6 +29,12 @@ plugin.tx_jdavsv {
 	    		# cat=plugin.tx_jdavsv/file; type=string; label=E-Mail Name zum Versand von SV-E-Mails
 	    		name =
 	    	}
+	    	adminTo {
+	    		# cat=plugin.tx_jdavsv/file; type=string; label=E-Mail Adresse an die Admin-E-Mails gesendet werden sollen
+				email =
+				# cat=plugin.tx_jdavsv/file; type=string; label=E-Mail Name an den Admin-E-Mails gesendet werden sollen
+				name =
+	    	}
 	    }
 	}
 }
