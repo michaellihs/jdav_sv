@@ -12,7 +12,7 @@
         </ul>
         <p class="navbar-text pull-right">
             Logged in as {feUser.emailName}&nbsp;
-			<a href="index.php?id=32&logintype=logout&pid=28&tx_felogin_pi1[noredirect]=0">Logout</a>
+			<a href="index.php?id={currentPid}&logintype=logout">Logout</a>
         </p>
 
       </div><!--/.nav-collapse -->
@@ -47,8 +47,7 @@
         </ul>
       </div><!--/.well -->
     </div><!--/span-->
-    <div class="span1">&nbsp;</div>
-    <div class="span9">
+    <div class="span10">
       <f:render section="main" />
     </div> <!--/span-->
 

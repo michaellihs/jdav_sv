@@ -16,9 +16,10 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'CategoryPrerequisites' => 'new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete',
 		'Accommodation' => 'list, new, create, edit, update, delete',
-		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction'
+		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration'
 	),
 	array(
+		'Login' => 'showLoginForm',
 		'Event' => 'list, attendeeRegistrationsList, show',
         'EventAdmin' => 'list, update, new, show, create, delete, edit, teamerRegistrationsList, attendeeRegistrationsList',
 		'Registration' => 'register,unregister,list, show, confirmRegistration',
@@ -27,7 +28,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'CategoryPrerequisites' => 'new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete',
 		'Accommodation' => 'list, new, create, edit, update, delete',
-		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction'
+		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration'
 	)
 );
 

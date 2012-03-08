@@ -69,6 +69,7 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$listContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')
 								->getFilterByFilterIdentifier('registrationsByEventFilter')->setEventUid($event->getUid());
 
+		// TODO put configuration into TS
 		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/exportRegistrationsListForParticipants.html';
 		$this->defaultPdfExportSettings['fileName'] = 'teilnehmerliste-' . $event->getCategory()->getShortcut() . $event->getAccreditationNumber();
 		$this->defaultPdfExportSettings['paperOrientation'] = 'landscape';
@@ -103,6 +104,7 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$listContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')
 			->getFilterByFilterIdentifier('registrationsByEventFilter')->setEventUid($event->getUid());
 
+		// TODO put configuration into TS
 		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/exportRegistrationsListForTeamers.html';
 		$this->defaultPdfExportSettings['fileName'] = 'teilnehmerliste-' . $event->getCategory()->getShortcut() . $event->getAccreditationNumber();
 		$this->defaultPdfExportSettings['paperOrientation'] = 'landscape';
@@ -118,6 +120,25 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$this->view->assign('listData', $listData);
 		$this->view->assign('listCaptions', $listCaptions);
 		$this->view->assign('listHeader', $listContext->getList()->getListHeader());
+
+		return $this->view->render();
+	}
+
+
+
+	/**
+	 * Exports invoice for given registration
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	public function exportInvoiceForRegistrationAction(Tx_JdavSv_Domain_Model_Registration $registration) {
+		// TODO put configuration into TS
+		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/registrationInvoice.html';
+		$this->defaultPdfExportSettings['fileName'] = 'rechnung-' . $registration->getEvent()->getCategory()->getShortcut() . $registration->getEvent()->getAccreditationNumber();
+		$this->defaultPdfExportSettings['paperOrientation'] = 'portrait';
+
+		$this->view->setConfiguration($this->defaultPdfExportSettings);
+		$this->view->assign('registration', $registration);
 
 		return $this->view->render();
 	}

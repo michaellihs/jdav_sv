@@ -89,7 +89,8 @@
 								</tr>
 							</f:for>
 						</table>
-						<f:link.action controller="Export" action="exportRegistrationsListForParticipants" arguments="{event: event}">Teilnehmerliste als PDF herunterladen</f:link.action>
+						<f:link.action controller="Export" action="exportRegistrationsListForParticipants" arguments="{event: event}">Teilnehmerliste als PDF herunterladen</f:link.action><br/>
+						<f:link.action controller="Export" action="exportInvoiceForRegistration" arguments="{registration: event.registrationForCurrentUser}">Teilnahmebestätigung als PDF herunterladen</f:link.action>
 					</div>
 				</f:if>
 				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">

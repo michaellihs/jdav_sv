@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="{csssFilePath}" />
+    </head>
+
+    <body>
+	<h1>Bestätigung für Schulung</h1>
+	<p>Hiermit bestätigen wir {registration.attendee.emailName} die Teilnahme an der Veranstaltung</p>
+	
+	<h2>{registration.event.title}</h2>
+
+	<br><br>
+	
+	<p>Die Veranstaltung hat stattgefunden vom {registration.event.dateStart->f:format.date(format: 'd.m.Y')} bis {registration.event.dateEnd->f:format.date(format: 'd.m.Y')}
+		({registration.event.duration} Tage)</p>
+	
+	<h3>Inhalte der Veranstaltung</h3>
+	
+	<p>{registration.event.contents}</p>
+
+	<br>
+	
+	<p>Die Kosten der Veranstaltung in Höhe von {registration.event.price} &euro; wurden bezahlt.</p>
+
+	<br>
+
+	<p>JDAV Landesgeschäftsstelle Baden-Württemberg e.V.</p>
+
+	</body>
+</html>

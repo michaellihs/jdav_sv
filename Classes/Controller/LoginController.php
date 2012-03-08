@@ -34,6 +34,7 @@ class Tx_JdavSv_Controller_LoginController extends Tx_JdavSv_Controller_Abstract
 	 * Renders login form for SV
 	 */
 	public function showLoginFormAction() {
+		$this->view->assign('currentPid', t3lib_div::_GP('id'));
 		// Nothing to do here - only render form
 		if (isset($this->feUser)) {
 			$this->redirect('list', 'EventAdmin');
