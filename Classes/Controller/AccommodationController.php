@@ -31,7 +31,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 
-class Tx_JdavSv_Controller_AccommodationController extends Tx_JdavSv_Controller_AbstractController {
+class Tx_JdavSv_Controller_AccommodationController extends Tx_JdavSv_Controller_AbstractAdminController {
 	
 	/**
 	 * categoryRepository
@@ -47,7 +47,8 @@ class Tx_JdavSv_Controller_AccommodationController extends Tx_JdavSv_Controller_
 	 *
 	 * @return void
 	 */
-	protected function initializeAction() {
+	protected function postInitializeAction() {
+		// TODO use injection here!
 		$this->accommodationRepository = $this->objectManager->get('Tx_JdavSv_Domain_Repository_AccommodationRepository');
 	}
 	

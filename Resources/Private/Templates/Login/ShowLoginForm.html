@@ -1,0 +1,30 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+
+<form action="index.php?id=32" target="_top" method="post" onsubmit="">
+	<fieldset>
+	<legend>Anmelden</legend>
+	<div>
+		<label for="user">Benutzername:</label>
+		<input type="text" id="user" name="user" value="" />
+	</div>
+	<div>
+		<label for="pass">Passwort:</label>
+		<input type="password" id="pass" name="pass" value="" />
+	</div>
+
+
+
+	<div>
+		<input type="submit" name="submit" value="Anmelden" />
+	</div>
+
+	<div class="felogin-hidden">
+		<input type="hidden" name="logintype" value="login" />
+		<input type="hidden" name="pid" value="28" />
+		<input type="hidden" name="redirect_url" value="" />
+		<input type="hidden" name="tx_felogin_pi1[noredirect]" value="0" />
+
+	</div>
+	</fieldset>
+</form>

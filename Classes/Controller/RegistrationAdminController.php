@@ -29,7 +29,7 @@
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
 
-class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Controller_AbstractController {
+class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Controller_AbstractAdminController {
 	
 	/**
 	 * registrationRepository
@@ -296,5 +296,4 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	}
 	
 }
-
 ?>

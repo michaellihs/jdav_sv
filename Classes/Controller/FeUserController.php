@@ -28,7 +28,7 @@
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_AbstractController {
+class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_AbstractAdminController {
 
 	/**
 	 * Action for showing FeUser details

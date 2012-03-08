@@ -28,7 +28,7 @@
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-class Tx_JdavSv_Controller_CategoryPrerequisitesController extends Tx_JdavSv_Controller_AbstractController {
+class Tx_JdavSv_Controller_CategoryPrerequisitesController extends Tx_JdavSv_Controller_AbstractAdminController {
 	
 	/**
 	 * categoryRepository
@@ -62,7 +62,8 @@ class Tx_JdavSv_Controller_CategoryPrerequisitesController extends Tx_JdavSv_Con
 	 *
 	 * @return void
 	 */
-	protected function initializeAction() {
+	protected function postInitializeAction() {
+		// TODO use injection here!
 		$this->categoryRepository = $this->objectManager->get('Tx_JdavSv_Domain_Repository_CategoryRepository');
 		$this->categoryPrerequisiteRepository = $this->objectManager->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteRepository');
 		$this->categoryPrerequisiteFulfillmentRepository = $this->objectManager->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository');

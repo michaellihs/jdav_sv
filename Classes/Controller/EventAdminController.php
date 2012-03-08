@@ -28,7 +28,7 @@
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_AbstractController {
+class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_AbstractAdminController {
 	
 	/**
 	 * eventRepository
@@ -71,8 +71,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 *
 	 * @return void
 	 */
-	protected function initializeAction() {
-		parent::initializeAction();
+	protected function postInitializeAction() {
 		$this->eventRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_EventRepository');
 		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_CategoryRepository');
