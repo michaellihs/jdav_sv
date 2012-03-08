@@ -145,6 +145,11 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 			field = isKitchenGroup
 		}
 
+		isProofreader {
+			table = __self__
+			field = isProofreader
+		}
+
 		isAdmin {
 			table = __self__
 			field = isAdmin
@@ -230,9 +235,17 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 					fieldIdentifier = isKitchenGroup
 				}
 
-				## Admin Filter
+				## Korrekturleser Filter
 				60 < plugin.tx_ptextlist.prototype.filter.string
 				60 {
+					filterIdentifier = proofreaderFilter
+					label = Korrekturleser
+					fieldIdentifier = isProofreader
+				}
+
+				## Admin Filter
+				70 < plugin.tx_ptextlist.prototype.filter.string
+				70 {
 					filterIdentifier = adminFilter
 					label = Administratoren
 					fieldIdentifier = isAdmin

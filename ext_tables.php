@@ -331,6 +331,13 @@ $tempColumns = array(
 			'type' => 'check',
 		)
 	),
+	'tx_jdavsv_is_proofreader' => array(
+		'exclude' => 1,
+		'label'   => 'Ist Korrekturleser',
+		'config' => array(
+			'type' => 'check',
+		)
+	),
 	'tx_jdavsv_is_admin' => array(
 		'exclude' => 1,
 		'label'   => 'Ist Admin',
@@ -344,4 +351,5 @@ t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_teamer');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_trainee');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_kitchen_group');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_admin');
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_proofreader');
 ?>

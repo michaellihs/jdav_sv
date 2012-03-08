@@ -1,62 +1,98 @@
-
 <div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <a class="brand" href="#">JDAV Baden-Württemberg</a>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li class="active"><a href="#">Jugendleiter</a></li>
-          <li><a href="#contact">Teamer</a></li>
-          <li><a href="#about">Veranstaltungen</a></li>
-          <li><a href="#contact">Anmeldungen</a></li>
-        </ul>
-        <p class="navbar-text pull-right">
-            Logged in as {feUser.emailName}&nbsp;
-			<a href="index.php?id={currentPid}&logintype=logout">Logout</a>
-        </p>
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="#">JDAV Baden-Württemberg :: Schulungsverwaltung</a>
+			<!--<div class="nav-collapse">
+					<ul class="nav">
+					  <li class="active"><a href="#">Jugendleiter</a></li>
+					  <li><a href="#contact">Teamer</a></li>
+					  <li><a href="#about">Veranstaltungen</a></li>
+					  <li><a href="#contact">Anmeldungen</a></li>
+					</ul>-->
+			<p class="navbar-text pull-right">
+				Angemeldet als {feUser.emailName}&nbsp;
+				<a href="index.php?id={currentPid}&logintype=logout">Logout</a>
+			</p>
 
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
+		</div>
+		<!--/.nav-collapse -->
+	</div>
+</div>
 </div>
 
 <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span2">
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-          <li class="nav-header">Benutzer</li>
-		  <li><f:link.action controller="FeUser" action="list">Übersicht</f:link.action></li>
-		  <li><f:link.action controller="FeUser" action="new">Benutzer anlegen</f:link.action></li>
+	<div class="row-fluid">
+		<div class="span2">
+			<div class="well sidebar-nav">
+				<ul class="nav nav-list">
+					<f:if condition="{feUser.isAdmin}">
+						<li class="nav-header">Benutzer</li>
+						<li>
+							<f:link.action controller="FeUser" action="list">Übersicht</f:link.action>
+						</li>
+						<li>
+							<f:link.action controller="FeUser" action="new">Benutzer anlegen</f:link.action>
+						</li>
+					</f:if>
 
-		  <li class="nav-header">Anmeldungen</li>
-		  <li><f:link.action controller="RegistrationAdmin" action="list">Übersicht</f:link.action></li>
-		  <li><f:link.action controller="RegistrationAdmin" action="new">Anmeldung anlegen</f:link.action></li>
+					<f:if condition="{feUser.isAdmin}">
+						<li class="nav-header">Anmeldungen</li>
+						<li>
+							<f:link.action controller="RegistrationAdmin" action="list">Übersicht</f:link.action>
+						</li>
+						<li>
+							<f:link.action controller="RegistrationAdmin" action="new">Anmeldung anlegen</f:link.action>
+						</li>
+					</f:if>
 
-          <li class="nav-header">Veranstaltungen</li>
-          <li><f:link.action controller="EventAdmin" action="list">Übersicht</f:link.action></li>
-          <li><f:link.action controller="EventAdmin" action="new">Veranstaltung anlegen</f:link.action></li>
+					<li class="nav-header">Veranstaltungen</li>
+					<li>
+						<f:link.action controller="EventAdmin" action="list">Übersicht</f:link.action>
+					</li>
+					<li>
+						<f:link.action controller="EventAdmin" action="new">Veranstaltung anlegen</f:link.action>
+					</li>
 
-          <li class="nav-header">Veranstaltungs-kategorien</li>
-          <li><f:link.action controller="Category" action="list">Übersicht</f:link.action></li>
-          <li><f:link.action controller="Category" action="new">Kategorie anlegen</f:link.action></li>
+					<f:if condition="{feUser.isAdmin}">
+						<li class="nav-header">Veranstaltungs-kategorien</li>
+						<li>
+							<f:link.action controller="Category" action="list">Übersicht</f:link.action>
+						</li>
+						<li>
+							<f:link.action controller="Category" action="new">Kategorie anlegen</f:link.action>
+						</li>
+					</f:if>
 
-		  <li class="nav-header">Veranstaltungsorte</li>
-          <li><f:link.action controller="Accommodation" action="list">Übersicht</f:link.action></li>
-          <li><f:link.action controller="Accommodation" action="new">Veranstaltungsort hinzufügen</f:link.action></li>
-        </ul>
-      </div><!--/.well -->
-    </div><!--/span-->
-    <div class="span10">
-      <f:render section="main" />
-    </div> <!--/span-->
+					<f:if condition="{feUser.isAdmin}">
+						<li class="nav-header">Veranstaltungsorte</li>
+						<li>
+							<f:link.action controller="Accommodation" action="list">Übersicht</f:link.action>
+						</li>
+						<li>
+							<f:link.action controller="Accommodation" action="new">Veranstaltungsort hinzufügen
+							</f:link.action>
+						</li>
+					</f:if>
+				</ul>
+			</div>
+			<!--/.well -->
+		</div>
+		<!--/span-->
+		<div class="span10">
+			<f:render section="main"/>
+		</div>
+		<!--/span-->
 
-  </div><!--/row-->
-  <hr>
+	</div>
+	<!--/row-->
+	<hr>
 
-  <footer>
-    <p>JDAV Baden-Württemberg Schulungsverwaltung &copy; <a href="http://mimi.kaktusteam.de" target="_blank">Michael Knoll</a> 2012</p>
-  </footer>
+	<footer>
+		<p>
+			JDAV Baden-Württemberg Schulungsverwaltung
+			&copy; <a href="http://mimi.kaktusteam.de" target="_blank">Michael Knoll</a>2012
+		</p>
+	</footer>
 </div><!--/.fluid-container-->
 
 <!-- Le javascript
@@ -65,8 +101,8 @@
 <script src="/typo3conf/ext/jdav_sv/Resources/Public/Js/jquery.js"></script>
 <script src="/typo3conf/ext/jdav_sv/Resources/Public/Js/bootstrap.min.js"></script>
 <script language="javascript">
-    $('.dropdown-toggle').dropdown();
-    $('.dropdown-menu').find('form').click(function (e) {
-        e.stopPropagation();
-      });
+	$('.dropdown-toggle').dropdown();
+	$('.dropdown-menu').find('form').click(function (e) {
+		e.stopPropagation();
+	});
 </script>

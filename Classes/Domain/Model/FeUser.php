@@ -49,7 +49,8 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 
 
 	/**
-	 * True, if user is kitchen group interested
+	 * True, if user is interested in kitchen group
+	 *
 	 * @var bool
 	 */
 	protected $isKitchenGroup;
@@ -62,6 +63,15 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 * @var bool
 	 */
 	protected $isAdmin;
+
+
+
+	/**
+	 * True, if user is proofreader
+	 *
+	 * @var bool
+	 */
+	protected $isProofreader;
 
 
 
@@ -155,6 +165,24 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 */
 	public function getEmailName() {
 		return $this->firstName . ' ' . $this->lastName;
+	}
+
+
+
+	/**
+	 * @param boolean $isProofreader
+	 */
+	public function setIsProofreader($isProofreader) {
+		$this->isProofreader = $isProofreader;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsProofreader() {
+		return $this->isProofreader;
 	}
 
 }

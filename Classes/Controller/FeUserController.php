@@ -62,6 +62,7 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 		$this->view->assign('traineeFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('feUserFilters')->getFilterByFilterIdentifier('traineeFilter'));
 		$this->view->assign('kitchenGroupFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('feUserFilters')->getFilterByFilterIdentifier('kitchenGroupFilter'));
 		$this->view->assign('adminFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('feUserFilters')->getFilterByFilterIdentifier('adminFilter'));
+		$this->view->assign('proofreaderFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('feUserFilters')->getFilterByFilterIdentifier('proofreaderFilter'));
 		$this->view->assign('listData', $extlistContext->getListData());
 		$this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
 		$this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
