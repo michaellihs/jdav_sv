@@ -56,12 +56,21 @@
 		</f:for>
 	</table>
 
-	<f:render partial="Extlist/Pager"
-			  arguments="{pager: pager, pagerCollection: pagerCollection, item:'Anmeldungen', action:'list'}"/>
 
 	<div class="form-actions">
-		<f:link.action controller="RegistrationAdmin" action="new" class="btn btn-primary">
-			<i class="icon-plus icon-white"></i>Neue Anmeldung
-		</f:link.action>
+		<table>
+			<tr>
+				<td class="span4">
+					<f:link.action controller="RegistrationAdmin" action="new" class="btn btn-primary">
+						<i class="icon-plus icon-white"></i>Neue Anmeldung
+					</f:link.action>
+				</td>
+				<td>
+					<f:render partial="Extlist/Pager"
+							  arguments="{pager: pager, pagerCollection: pagerCollection, item:'Anmeldungen', action:'list'}"/>
+				</td>
+			</tr>
+		</table>
+
 	</div>
 </f:section>

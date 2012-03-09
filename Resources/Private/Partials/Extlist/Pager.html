@@ -1,31 +1,31 @@
 {namespace extlist=Tx_PtExtlist_ViewHelpers}
 
-<div class="well">
-	<div class="tx-ptextlist-pager-item-display centered">
-
-		<f:if condition="{pager.firstItemIndex}">
-			Zeige {item} <span class="first">{pager.firstItemIndex}</span> bis
-			<f:if condition="{pager.itemCount} < {pager.lastItemIndex}">
-				<f:then><span>{pager.itemCount}</span></f:then>
-				<f:else><span class="last">{pager.lastItemIndex}</span></f:else>
-			</f:if>
-			von <span class="count">{pager.itemCount}</span>
-		</f:if>
-
-	</div>
-	<div class="pagination pagination-centered">
+<div class="centered">
+	<div class="pagination centered">
 		<ul id="tx-ptextlist-pager-{pager.pagerIdentifier}">
+			<li class="disabled">
+				<a href="#">
+					<f:if condition="{pager.firstItemIndex}">
+						Zeige {item} <span class="first">{pager.firstItemIndex}</span> bis
+						<f:if condition="{pager.itemCount} < {pager.lastItemIndex}">
+							<f:then><span>{pager.itemCount}</span></f:then>
+							<f:else><span class="last">{pager.lastItemIndex}</span></f:else>
+						</f:if>
+						von <span class="count">{pager.itemCount}</span>
+					</f:if>
+				</a>
+			</li>
 
 			<f:if condition="{pager.showFirstLink}">
-				<li>
+				<li class="{f:if(condition: '{pager.isOnFirstPage}', then:'disabled')}">
 					<f:link.action action="{action}"
-										 arguments="{extlist:namespace.GPArray(object:'{pagerCollection}' arguments:'page:{pager.firstPage}')}">
+								   arguments="{extlist:namespace.GPArray(object:'{pagerCollection}' arguments:'page:{pager.firstPage}')}">
 						&lt;&lt;</f:link.action>
 				</li>
 			</f:if>
 
 			<f:if condition="{pager.showPreviousLink}">
-				<li>
+				<li class="{f:if(condition: '{pager.isOnFirstPage}', then:'disabled')}">
 					<extlist:link.action action="{action}"
 										 arguments="{extlist:namespace.GPArray(object:'{pagerCollection}' arguments:'page:{pager.previousPage}')}">
 						&lt;</extlist:link.action>
@@ -37,7 +37,7 @@
 					<f:then>
 						<li>
 							<extlist:link.action action="{action}"
-									arguments="{extlist:namespace.GPArray(object:'{pagerCollection}' arguments:'page:{i}')}">
+												 arguments="{extlist:namespace.GPArray(object:'{pagerCollection}' arguments:'page:{i}')}">
 								{pageNumber}
 							</extlist:link.action>
 						</li>
@@ -49,7 +49,7 @@
 			</f:for>
 
 			<f:if condition="{pager.showNextLink}">
-				<li>
+				<li class="{f:if(condition: '{pager.isOnLastPage}', then:'disabled')}">
 					<extlist:link.action action="{action}"
 										 arguments="{extlist:namespace.GPArray(object:'{pagerCollection}' arguments:'page:{pager.nextPage}')}">
 						&gt;</extlist:link.action>
@@ -57,7 +57,7 @@
 			</f:if>
 
 			<f:if condition="{pager.showLastLink}">
-				<li>
+				<li class="{f:if(condition: '{pager.isOnLastPage}', then:'disabled')}">
 					<extlist:link.action action="{action}"
 										 arguments="{extlist:namespace.GPArray(object:'{pagerCollection}' arguments:'page:{pager.lastPage}')}">
 						&gt;&gt;</extlist:link.action>

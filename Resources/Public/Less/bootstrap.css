@@ -2823,7 +2823,7 @@ button.btn.small, input[type="submit"].btn.small {
   border-left-width: 0;
 }
 .pagination a:hover, .pagination .active a {
-  background-color: #ebebeb;
+  background-color: #f5f5f5;
 }
 .pagination .active a {
   color: #999999;
@@ -2831,6 +2831,7 @@ button.btn.small, input[type="submit"].btn.small {
 }
 .pagination .disabled a, .pagination .disabled a:hover {
   color: #999999;
+  background-color: #555555;
   cursor: default;
 }
 .pagination li:first-child a {
