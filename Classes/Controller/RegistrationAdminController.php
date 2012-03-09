@@ -86,6 +86,9 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 		$this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
 		$this->view->assign('pager', $extlistContext->getPager());
 		$this->view->assign('pagerCollection', $extlistContext->getPagerCollection());
+		$this->view->assign('eventFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('registrationAdminFilters')->getFilterByFilterIdentifier('eventFilter'));
+		$this->view->assign('dateFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('registrationAdminFilters')->getFilterByFilterIdentifier('dateFilter'));
+		$this->view->assign('userFilter', $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('registrationAdminFilters')->getFilterByFilterIdentifier('userFilter'));
 	}
 	
 	

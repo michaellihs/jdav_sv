@@ -9,6 +9,56 @@
 	<ptextbase:flashMessages renderMode="div"
 							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
 	<legend>Übersicht</legend>
+	<f:form class="well form-inline" controller="RegistrationAdmin" action="list">
+			<strong>Filter</strong>
+			<table>
+				<tr>
+					<td>
+						<span>Teilnehmername:</span><br>
+						<f:form.textfield class="span3" id="{userFilter.filterIdentifier}" property="filterValue"
+										  value="{userFilter.filterValue}"
+										  name="{extlist:namespace.FormElementName(object:'{userFilter}' property:'filterValue')}"
+										  size="{userFilter.filterConfig.settings.size}"
+										  maxlength="{userFilter.filterConfig.settings.maxLength}"/>
+						&nbsp;
+					</td>
+					<td>
+						<span>Veranstaltung:</span><br>
+						<ptextbase:form.select class="span4" id="{eventFilter.filterIdentifier}" property="filterValue"
+										  value="{eventFilter.filterValue}"
+										  name="{extlist:namespace.FormElementName(object:'{eventFilter}' property:'filterValue')}"
+										  options="{eventFilter.events}"
+										  optionValueField="uid"
+										  optionLabelField="fullName"
+										  emptyOption="[Keine Veranstaltung gewählt]"
+								/>
+						&nbsp;
+					</td>
+					<td>
+						<span>von:</span><br>
+						<f:form.textfield class="span2" id="{dateFilter.filterIdentifier}From" property="filterValueFrom"
+										  value="{dateFilter.filterValueFrom ->f:format.date(format: 'd.m.Y')}"
+										  name="{extlist:namespace.FormElementName(object:'{dateFilter}' property:'filterValueFrom')}" />
+						&nbsp;
+					</td>
+					<td>
+						<span>bis:</span><br>
+						<f:form.textfield class="span2" id="{dateFilter.filterIdentifier}to" property="filterValueTo"
+										  value="{dateFilter.filterValueTo -> f:format.date(format:'d.m.Y')}"
+										  name="{extlist:namespace.FormElementName(object:'{dateFilter}' property:'filterValueTo')}" />
+						&nbsp;
+					</td>
+					<td>
+						<span>&nbsp;</span><br>
+						<f:form.submit class="btn btn-primary" value="Filter anwenden"/>
+						&nbsp;
+						<f:link.action class="btn btn-primary" action="list" arguments="{restFilters: 1}"><i
+								class="icon-white icon-remove"></i> Filter zurücksetzen
+						</f:link.action>
+					</td>
+				</tr>
+			</table>
+		</f:form>
 	<table class="table table-striped">
 		<tr>
 			<f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html"

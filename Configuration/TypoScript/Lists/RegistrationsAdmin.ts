@@ -64,7 +64,17 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
             table = __self__
             field = isAccepted
         }
-    
+
+        eventUid {
+        	table = __self__
+        	field = event.uid
+        }
+
+        eventTitle {
+        	table = event
+        	field = title
+        }
+
     }
     
     
@@ -89,6 +99,44 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
         	label = Teilnehmer
         }
     
+    }
+
+
+    filters {
+
+    	registrationAdminFilters {
+
+    		filterConfigs {
+
+				## Username filter
+				10 < plugin.tx_ptextlist.prototype.filter.string
+				10 {
+					filterClassName = Tx_JdavSv_Extlist_Filters_RegistrationsByUsernameAdminFilter
+					filterIdentifier = userFilter
+					label = Name
+					fieldIdentifier = attendee
+				}
+
+				## Event filter
+				20 < plugin.tx_ptextlist.prototype.filter.string
+				20 {
+					filterClassName = Tx_JdavSv_Extlist_Filters_RegistrationsByEventAdminFilter
+					filterIdentifier = eventFilter
+					label = Veranstaltung
+					fieldIdentifier = event
+				}
+
+				## Date filter
+				30 < plugin.tx_ptextlist.prototype.filter.dateRange
+				30 {
+					fieldIdentifier = date
+					filterIdentifier = dateFilter
+				}
+
+    		}
+
+    	}
+
     }
 
 }
