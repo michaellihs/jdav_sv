@@ -147,7 +147,7 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	 * @param string $password
 	 */
 	public function changePasswordAction(Tx_JdavSv_Domain_Model_FeUser $feUser, $password) {
-
+		die('change password');
 	}
 
 }

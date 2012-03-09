@@ -185,5 +185,22 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 		return $this->isProofreader;
 	}
 
+
+
+	/**
+	 * Setter for password. As we have encrypted passwords here, we need to encrypt them before storing!
+	 *
+	 * @param $password
+	 */
+	public function setPassword($password) {
+		if (t3lib_extMgm::isLoaded('saltedpasswords')) {
+			$saltedpasswordsInstance = tx_saltedpasswords_salts_factory::getSaltingInstance();
+			$encryptedPassword = $saltedpasswordsInstance->getHashedPassword($password);
+			$this->password = $encryptedPassword;
+		} else {
+			parent::setPassword($password);
+		}
+	}
+
 }
 ?>

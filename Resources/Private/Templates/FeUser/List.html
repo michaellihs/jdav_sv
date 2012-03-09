@@ -105,6 +105,10 @@
 									   arguments="{feUser: row.feUser.value.uid}"><i class="icon-pencil icon-white"></i>
 							Bearbeiten
 						</f:link.action>
+						<f:link.action class="btn btn-danger" controller="FeUser" action="showChangePassword"
+									   arguments="{feUser: row.feUser.value.uid}">
+							Passwort setzen
+						</f:link.action>
 						<f:link.action class="btn btn-danger" controller="FeUser" action="delete"
 									   arguments="{feUser: row.feUser.value.uid}"><i class="icon-trash icon-white"></i>
 							Löschen

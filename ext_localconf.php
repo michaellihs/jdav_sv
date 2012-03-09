@@ -13,7 +13,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
         'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist',
 		'Category' => 'list, new, create, edit, update, delete',
 		'CategoryPrerequisites' => 'new, create, edit, update, delete',
-		'FeUser' => 'list, show, new, create, edit, update, delete',
+		'FeUser' => 'list, show, new, create, edit, update, delete, changePassword, showChangePassword',
 		'Accommodation' => 'list, new, create, edit, update, delete',
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration'
 	),
@@ -24,7 +24,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
         'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist',
 		'Category' => 'list, new, create, edit, update, delete',
 		'CategoryPrerequisites' => 'new, create, edit, update, delete',
-		'FeUser' => 'list, show, new, create, edit, update, delete',
+		'FeUser' => 'list, show, new, create, edit, update, delete, changePassword, showChangePassword',
 		'Accommodation' => 'list, new, create, edit, update, delete',
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration'
 	)
