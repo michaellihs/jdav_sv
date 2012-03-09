@@ -31,6 +31,14 @@
 class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser {
 
 	/**
+	 * Set to true, if username has been set and hence email != username
+	 *
+	 * @var bool
+	 */
+	private $_usernameHasBeenSet = false;
+
+
+	/**
 	 * True, if user is teamer
 	 *
 	 * @var bool
@@ -184,6 +192,35 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	public function getIsProofreader() {
 		return $this->isProofreader;
 	}
+
+
+
+	/**
+	 * We only set username once, whether here or in setEmail()
+	 *
+	 * @param string $username
+	 */
+	public function setUsername($username) {
+		if ($username !== '') {
+			$this->_usernameHasBeenSet = true;
+		}
+		parent::setUsername($username);
+	}
+
+
+
+	/**
+	 * E-Mail == Username here!
+	 *
+	 * @param $email
+	 */
+	public function setEmail($email) {
+		if (!$this->_usernameHasBeenSet) {
+			$this->setUsername($email);
+		}
+		parent::setEmail($email);
+	}
+
 
 
 

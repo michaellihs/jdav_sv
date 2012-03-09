@@ -1,4 +1,12 @@
 <div class="control-group">
+    <label class="control-label" for="username">Benutzername</label>
+    <div class="controls">
+		<f:form.textfield class="span4" property="username" />
+		<span class="help-inline">Wenn leer, wird E-Mail zu Benutzernamen!</span>
+	</div>
+</div>
+
+<div class="control-group">
     <label class="control-label" for="title">Vorname</label>
     <div class="controls"><f:form.textfield class="span4" property="firstName" /></div>
 </div>
@@ -10,7 +18,10 @@
 
 <div class="control-group">
     <label class="control-label" for="title">E-Mail</label>
-    <div class="controls"><f:form.textfield class="span4" property="email" /></div>
+    <div class="controls">
+		<f:form.textfield class="span4" property="email" />
+		<span class="help-inline">Wenn kein anderer Benutzername gesetzt, ist Benutzername gleich E-Mail!</span>
+	</div>
 </div>
 
 <div class="control-group">
