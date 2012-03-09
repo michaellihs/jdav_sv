@@ -84,6 +84,8 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 		$this->view->assign('listData', $extlistContext->getListData());
 		$this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
 		$this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
+		$this->view->assign('pager', $extlistContext->getPager());
+		$this->view->assign('pagerCollection', $extlistContext->getPagerCollection());
 	}
 	
 	

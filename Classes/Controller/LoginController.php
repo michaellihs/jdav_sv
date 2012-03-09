@@ -60,6 +60,12 @@ class Tx_JdavSv_Controller_LoginController extends Tx_JdavSv_Controller_Abstract
 	}
 
 
+
+	/**
+	 * Checks whether logged in user has sufficient rights
+	 *
+	 * @return bool
+	 */
 	protected function checkFeUser() {
 		return ($this->feUser->getIsAdmin() || $this->feUser->getIsTeamer() || $this->feUser->getIsProofreader());
 	}

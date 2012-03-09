@@ -61,3 +61,11 @@ config.tx_extbase {
         }
     }
 }
+
+
+
+plugin.tx_jdavsv {
+   persistence {
+		   storagePid = 28
+   }
+}
