@@ -25,6 +25,16 @@
 		<div class="span2">
 			<div class="well sidebar-nav">
 				<ul class="nav nav-list">
+					<f:if condition="{currentUser.isTeamer}">
+						<li class="nav-header">Meine Schulungen</li>
+						<li>
+							<f:link.action controller="EventAdmin" action="myEventsList">Übersicht</f:link.action>
+						</li>
+						<li>
+							<f:link.action controller="EventAdmin" action="new" arguments="{teamer: currentUser}">Schulung anlegen</f:link.action>
+						</li>
+					</f:if>
+
 					<f:if condition="{currentUser.isAdmin}">
 						<li class="nav-header">Benutzer</li>
 						<li>

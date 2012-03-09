@@ -28,6 +28,7 @@ plugin.tx_jdavsv.settings.email {
 		confirmReservationAdmin = confirmReservationAdmin.html
 		confirmUnregisterAttendee = confirmUnregisterAttendee.html
 		confirmUnregisterAdmin = confirmUnregisterAdmin.html
+		confirmation = confirm.html
 	}
 
 }

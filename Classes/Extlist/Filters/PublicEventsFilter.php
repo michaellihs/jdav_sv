@@ -3,7 +3,7 @@
 *  Copyright notice
 *
 *  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
-*  	
+*
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -23,32 +23,35 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-
 /**
- * Repository for Tx_JdavSv_Domain_Model_Event
+ * Class implements filter that filters events if they are not set as public
  *
- * @version $Id$
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * @author Michael Knoll
+ * @package Extlist
+ * @subpackag Filters
  */
- 
-class Tx_JdavSv_Domain_Repository_EventRepository extends Tx_Extbase_Persistence_Repository {
+class Tx_JdavSv_Extlist_Filters_PublicEventsFilter extends Tx_PtExtlist_Domain_Model_Filter_AbstractSingleValueFilter {
+
+    /**
+     * Build the filterCriteria for a single field
+     *
+     * @api
+     * @param Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier
+     * @return Tx_PtExtlist_Domain_QueryObject_SimpleCriteria
+     */
+    protected function buildFilterCriteria(Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier) {
+        $fieldName = Tx_PtExtlist_Utility_DbUtils::getSelectPartByFieldConfig($fieldIdentifier);
+        $criteria = Tx_PtExtlist_Domain_QueryObject_Criteria::equals($fieldName, 1);
+        return $criteria;
+    }
+
+
 
 	/**
-	 * Returns all events where given fe_user is first teamer or second teamer
-	 *
-	 * @param Tx_JdavSv_Domain_Model_FeUser $feUser
-	 * @return array|Tx_Extbase_Persistence_QueryResultInterface
+	 * Filter is always active, if called
 	 */
-	public function getEventsForTeamer(Tx_JdavSv_Domain_Model_FeUser $feUser) {
-		$query = $this->createQuery();
-		$query->matching(
-			$query->logicalOr(
-				$query->equals('firstTeamer', $feUser),
-				$query->equals('secondTeamer', $feUser)
-			)
-		);
-		return $query->execute();
+	protected function setActiveState() {
+		$this->isActive = true;
 	}
 
 }

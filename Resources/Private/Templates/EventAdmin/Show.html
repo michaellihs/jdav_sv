@@ -17,11 +17,17 @@
 <f:render partial="Registration/list" arguments="{event:event, registrations:event.nonWaitingListRegistrations}" />
 
 <legend>Warteliste</legend>
-<f:render partial="Registration/list" arguments="{waitingList: 1, event:event, registrations:event.waitingListRegistrations}" />
+<f:render partial="Registration/list" arguments="{waitingList: 1, event:event, registrations:event.waitingListRegistrations, currentUser: currentUser}" />
 
 <br/>
 <div class="form-actions">
-	<f:link.action controller="EventAdmin" action="list" class="btn btn-primary">Zurück zur Übersicht</f:link.action>
+	<f:if condition="{currentUser.isAdmin}">
+		<f:link.action class="btn btn-primary" controller="EventAdmin" action="list">Zurück zur Schulungsübersicht</f:link.action>
+	</f:if>
+	<f:if condition="{currentUser.isTeamer}">
+		<f:link.action class="btn btn-primary" controller="EventAdmin" action="myEventsList">Zurück zu meinen Schulungen
+		</f:link.action>
+	</f:if>
 </div>
 
 </f:section>

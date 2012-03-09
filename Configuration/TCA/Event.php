@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted,counts_in_max_registrations',
+		'showRecordFieldList'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted,counts_in_max_registrations,is_public',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted,counts_in_max_registrations'),
+		'1' => array('showitem'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted,counts_in_max_registrations,is_public'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -356,6 +356,14 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 		'counts_in_max_registrations' => array(
 			'exclude'   => 0,
 			'label'     => 'Counts in max registrations',
+			'config'    => array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
+		'is_public' => array(
+			'exclude'   => 0,
+			'label'     => 'Is public',
 			'config'    => array(
 				'type' => 'check',
 				'default' => 0

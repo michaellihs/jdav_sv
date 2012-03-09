@@ -1,0 +1,23 @@
+Hallo {registration.attendee.firstName},
+
+hiermit bestätigen wir deine Anmeldung zur Schulung "{registration.event.title}".
+
+*Deine Anmeldung ist hiermit verbindlich!*
+
+<f:if condition="{registration.event.category.prerequisites}">
+Die nächsten Schritte sollten nun sein:
+<f:for each="{registration.event.category.prerequisites}" as="prerequisite">
+* {prerequisite.description}
+</f:for>
+</f:if>
+
+Eine Teilnehmerliste findest du (nach dem Login) auf unserer Webseite. Nach Abschluss der Veranstaltung und vorausgesetzt, du hast daran teilgenommen, findest du eine Teilnahmebestätigung auf der Webseite.
+
+Der Link zu den Schulungsdetails lautet:
+<f:uri.action absolute="1" noCacheHash="1" pluginName="pi1" extensionName="jdavsv" controller="Event" action="show" arguments="{event: registration.event.uid}" />
+
+
+
+Herzliche Grüße
+
+Deine JDAV-Landesgeschäftsstelle Baden-Württemberg e.V.

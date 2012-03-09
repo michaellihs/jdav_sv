@@ -1,46 +1,71 @@
 {namespace extlist=Tx_PtExtlist_ViewHelpers}
 {namespace ptextbase=Tx_PtExtbase_ViewHelpers}
 
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 
 <f:section name="main">
 
-<h1>Veranstaltungen</h1>
-<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
-<br />
-<legend>Übersicht</legend>
-<table  class="table table-striped" >
-    <tr>
-        <f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
-    </tr>
-    <f:for each="{listData}" as="row">
+	<h1>Veranstaltungen</h1>
+	<ptextbase:flashMessages renderMode="div"
+							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
+	<br/>
+	<legend>Übersicht</legend>
+	<table class="table table-striped">
 		<tr>
-		    <td>
-                <strong>{row.event.value.category.shortcut}-{row.event.value.accreditationNumber}</strong><br>
-				<p class="btn {row.event.value.lights}">{row.event.value.registrationsCount} / {row.event.value.maxRegistrations}</p>
-		    </td>
-			<td>{row.event.value.dateStart -> f:format.date(format: 'd.m.Y')}<br>
-			{row.event.value.dateEnd -> f:format.date(format: 'd.m.Y')}</td>
-			<td>
-                <strong>{row.event.value.title}</strong> <br>
-				{row.event.value.subtitle}<br />
-                <f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">Details</f:link.action>&nbsp;
-                <f:link.action controller="Export" action="exportRegistrationsListForTeamers" arguments="{event: row.event.value}">Teamer TN-Liste</f:link.action>&nbsp;
-				<f:link.action controller="Export" action="exportRegistrationsListForParticipants" arguments="{event: row.event.value}">Teilnehmer TN-Liste</f:link.action>&nbsp;
-            </td>
-			<td>
-                <p class="pull-right">
-                    <f:link.action class="btn btn-primary" controller="EventAdmin" action="edit" arguments="{event: row.event.value.uid}"><i class="icon-pencil icon-white"></i> Bearbeiten</f:link.action>
-                    <f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="new" arguments="{event: row.event.value.uid}"><i class="icon-plus icon-white"></i> Neue Anmeldung</f:link.action>
-                    <f:link.action class="btn btn-danger" controller="EventAdmin" action="delete" arguments="{event: row.event.value.uid}"><i class="icon-trash icon-white"></i> Löschen</f:link.action>
-                </p>
-            </td>
+			<f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html"
+					  arguments="{listHeader:listHeader, listCaptions:listCaptions}"/>
 		</tr>
-	</f:for>
-</table>
-<div class="form-actions">
-	<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i> Neue Veranstaltung anlegen</f:link.action>
-</div>
+		<f:for each="{listData}" as="row">
+			<tr>
+				<td>
+					<strong>{row.event.value.category.shortcut}-{row.event.value.accreditationNumber}</strong><br>
+
+					<p class="btn {row.event.value.lights}">{row.event.value.registrationsCount} /
+						{row.event.value.maxRegistrations}</p>
+				</td>
+				<td>{row.event.value.dateStart -> f:format.date(format: 'd.m.Y')}<br>
+					{row.event.value.dateEnd -> f:format.date(format: 'd.m.Y')}
+				</td>
+				<td>
+					<strong>{row.event.value.title}</strong> <br>
+					{row.event.value.subtitle}<br/>
+					<f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">
+						Details
+					</f:link.action>
+					&nbsp;
+					<f:link.action controller="Export" action="exportRegistrationsListForTeamers"
+								   arguments="{event: row.event.value}">Teamer TN-Liste
+					</f:link.action>
+					&nbsp;
+					<f:link.action controller="Export" action="exportRegistrationsListForParticipants"
+								   arguments="{event: row.event.value}">Teilnehmer TN-Liste
+					</f:link.action>
+					&nbsp;
+				</td>
+				<td>
+					<p class="pull-right">
+						<f:link.action class="btn btn-primary" controller="EventAdmin" action="edit"
+									   arguments="{event: row.event.value.uid}"><i class="icon-pencil icon-white"></i>
+							Bearbeiten
+						</f:link.action>
+						<f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="new"
+									   arguments="{event: row.event.value.uid}"><i class="icon-plus icon-white"></i>
+							Neue Anmeldung
+						</f:link.action>
+						<f:link.action class="btn btn-danger" controller="EventAdmin" action="delete"
+									   arguments="{event: row.event.value.uid}"><i class="icon-trash icon-white"></i>
+							Löschen
+						</f:link.action>
+					</p>
+				</td>
+			</tr>
+		</f:for>
+	</table>
+	<div class="form-actions">
+		<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i>
+			Neue Veranstaltung anlegen
+		</f:link.action>
+	</div>
 
 </f:section>

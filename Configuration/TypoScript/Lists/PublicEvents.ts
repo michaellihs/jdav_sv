@@ -66,6 +66,11 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
             field = maxRegistrations
             isSortable = 1
         }
+
+        isPublic {
+        	table = __self__
+        	field = isPublic
+        }
     
     }
     
@@ -115,6 +120,26 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
             isSortable = 0
         }
     
+    }
+
+    filters {
+
+    	hiddenEventsFilter {
+
+    		filterConfigs {
+
+    			10 {
+					filterClassName = Tx_JdavSv_Extlist_Filters_PublicEventsFilter
+					partialPath = noPartialToBeSetHere
+					filterIdentifier = registrationsByEventFilter
+					label = nothinToLabelHere
+					fieldIdentifier = isPublic
+				}
+
+    		}
+
+    	}
+
     }
 
 }

@@ -258,6 +258,13 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $isAccepted;
 
+	/**
+	 * If set to true, event is shown in public
+	 *
+	 * @var boolean
+	 */
+	protected $isPublic;
+
 
 	/**
 	 * If set to true, this events counts in max number of registrations for one user.
@@ -1061,6 +1068,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 
+
 	/**
 	 * @return boolean
 	 */
@@ -1140,6 +1148,24 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	public function setTeamerInputFinished($teamerInputFinished) {
 		$this->teamerInputFinished = $teamerInputFinished;
+	}
+
+
+
+	/**
+	 * @param boolean $isPublic
+	 */
+	public function setIsPublic($isPublic) {
+		$this->isPublic = $isPublic;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsPublic() {
+		return $this->isPublic;
 	}
 
 
@@ -1253,7 +1279,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return bool True, if given user is registered for this event
 	 */
 	public function isGivenUserRegisteredForEvent(Tx_JdavSv_Domain_Model_FeUser $user) {
-		foreach ($this->registrations as $registration) { /* @var $registration Tx_JdavSv_Domain_Model_Registration */
+		foreach ($this->registrations as $registration) {
+			/* @var $registration Tx_JdavSv_Domain_Model_Registration */
 			if ($registration->getAttendee()->getUid() === $user->getUid()) {
 				return TRUE;
 			}
@@ -1270,7 +1297,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	public function getRegistrationForCurrentUser() {
 		$currentUser = $this->getCurrentUser();
-		foreach ($this->registrations as $registration) { /* @var $registration Tx_JdavSv_Domain_Model_Registration */
+		foreach ($this->registrations as $registration) {
+			/* @var $registration Tx_JdavSv_Domain_Model_Registration */
 			if ($registration->getAttendee()->getUid() === $currentUser->getUid()) {
 				return $registration;
 			}
@@ -1315,6 +1343,17 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 
 
 	/**
+	 * Returns true, if event is NOT yet accepted
+	 *
+	 * @return bool
+	 */
+	public function getIsNotAccepted() {
+		return !($this->isAccepted());
+	}
+
+
+
+	/**
 	 * Returns currently logged in user
 	 *
 	 * @return Tx_JdavSv_Domain_Model_FeUser
@@ -1324,4 +1363,5 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 }
+
 ?>

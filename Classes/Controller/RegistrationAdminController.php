@@ -251,6 +251,24 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 		$this->registrationRepository->update($registration);
 		$this->redirect('show', 'EventAdmin', null, array('event' => $registration->getEvent()));
 	}
+
+
+
+	/**
+	 * Sends confirmation email to attendee
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	public function sendConfirmationAction(Tx_JdavSv_Domain_Model_Registration $registration) {
+		$mailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
+		$mailer->setTo(array($registration->getAttendee()->getEmail() => $registration->getAttendee()->getEmailName()))
+			->setSubject('Anmeldebestätigung für Veranstaltung ' . $registration->getEvent()->getFullName())
+			->setTemplateByTsDefinedTemplate('confirmation')
+			->assignToView('registration', $registration)
+			->send();
+		$this->flashMessageContainer->add('Bestätigungsemail wurde versendet!');
+		$this->forward('list');
+	}
 	
 	
 	

@@ -87,7 +87,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 */
 	public function listAction() {
 		$extlistContextForEventAdminList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
-		    $this->settings['listConfig']['publicEvents'], 'publicEvents');
+		    $this->settings['listConfig']['adminEvents'], 'adminEvents');
 
         $extlistContextForRegistrationsTeamerList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
             $this->settings['listConfig']['registrationsTeamer'],
@@ -155,15 +155,17 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * Creates a new Event and forwards to the list action.
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $newEvent a fresh Event object which has not yet been added to the repository
+	 * @param Tx_JdavSv_Domain_Model_FeUser $teamer If given, this value is set for first teamer
 	 * @return string An HTML form for creating a new Event
 	 * @dontvalidate $newEvent
 	 */
-	public function newAction(Tx_JdavSv_Domain_Model_Event $newEvent = NULL) {
+	public function newAction(Tx_JdavSv_Domain_Model_Event $newEvent = NULL, Tx_JdavSv_Domain_Model_FeUser $teamer = NULL) {
 		$this->view->assign('newEvent', $newEvent);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('accommodations', $this->accommodationRepository->findAll());
 		$this->view->assign('teamers', $this->feUserRepository->getAllTeamers());
 		$this->view->assign('trainees', $this->feUserRepository->getAllTrainees());
+		$this->view->assign('firstTeamer', $teamer);
 		$this->view->assign('kitchenGroups', $this->feUserRepository->getAllKitchenGroups());
 	}
 	
@@ -172,13 +174,15 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * Creates a new Event and forwards to the list action.
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $newEvent a fresh Event object which has not yet been added to the repository
+	 * @param Tx_JdavSv_Domain_Model_FeUser $teamer If given, this value is set for first teamer
 	 * @return void
 	 */
-	public function createAction(Tx_JdavSv_Domain_Model_Event $newEvent) {
+	public function createAction(Tx_JdavSv_Domain_Model_Event $newEvent, Tx_JdavSv_Domain_Model_FeUser $teamer = NULL) {
 		$this->eventRepository->add($newEvent);
 		$this->flashMessageContainer->add('Die Veranstaltung wurde angelegt.');
-		
-		$this->redirect('list');
+		$this->persistenceManager->persistAll();
+
+		$this->redirect('edit', null, null, array('teamer' => $teamer, 'event' => $newEvent));
 	}
 	
 		
@@ -187,13 +191,15 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * Updates an existing Event and forwards to the index action afterwards.
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event the Event to display
+	 * @param Tx_JdavSv_Domain_Model_FeUser $teamer If given, this value is set for first teamer
 	 * @return string A form to edit a Event 
 	 */
-	public function editAction(Tx_JdavSv_Domain_Model_Event $event) {
+	public function editAction(Tx_JdavSv_Domain_Model_Event $event, Tx_JdavSv_Domain_Model_FeUser $teamer = NULL) {
 		$this->view->assign('event', $event);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('accommodations', $this->accommodationRepository->findAll());
 		$this->view->assign('teamers', $this->feUserRepository->getAllTeamers());
+		$this->view->assign('firstTeamer', $teamer);
 		$this->view->assign('trainees', $this->feUserRepository->getAllTrainees());
 		$this->view->assign('kitchenGroups', $this->feUserRepository->getAllKitchenGroups());
 	}
@@ -204,11 +210,12 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * Updates an existing Event and forwards to the list action afterwards.
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event the Event to display
+	 * @param Tx_JdavSv_Domain_Model_FeUser $teamer If given, this value is set for first teamer
 	 */
-	public function updateAction(Tx_JdavSv_Domain_Model_Event $event) {
+	public function updateAction(Tx_JdavSv_Domain_Model_Event $event, Tx_JdavSv_Domain_Model_FeUser $teamer = NULL) {
 		$this->eventRepository->update($event);
 		$this->flashMessageContainer->add('Die Veranstaltung wurde gespeichert.');
-		$this->redirect('list');
+		$this->redirect('edit', null, null, array('teamer' => $teamer, 'event' => $event));
 	}
 	
 		
@@ -216,12 +223,26 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * Deletes an existing Event
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event the Event to be deleted
+	 * @param string $returnTo Action to return to after deletion
 	 * @return void
 	 */
-	public function deleteAction(Tx_JdavSv_Domain_Model_Event $event) {
+	public function deleteAction(Tx_JdavSv_Domain_Model_Event $event, $returnTo = null) {
 		$this->eventRepository->remove($event);
 		$this->flashMessageContainer->add('Die Veranstaltung wurde gelöscht.');
-		$this->redirect('list');
+		if ($returnTo) {
+			$this->redirect($returnTo);
+		} else {
+			$this->redirect('list');
+		}
+	}
+
+
+
+	/**
+	 * Shows list of events for currently logged in user
+	 */
+	public function myEventsListAction() {
+		$this->view->assign('events', $this->eventRepository->getEventsForTeamer($this->feUser));
 	}
 
 }
