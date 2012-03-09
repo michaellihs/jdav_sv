@@ -7,7 +7,6 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
 	'Pi1',
 	array(
-		'Login' => 'showLoginForm',
 		'Event' => 'list, attendeeRegistrationsList, show',
         'EventAdmin' => 'list, update, new, create, delete, edit, teamerRegistrationsList, attendeeRegistrationsList',
 		'Registration' => 'register,unregister,list, show, confirmRegistration',
@@ -19,7 +18,6 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration'
 	),
 	array(
-		'Login' => 'showLoginForm',
 		'Event' => 'list, attendeeRegistrationsList, show',
         'EventAdmin' => 'list, update, new, show, create, delete, edit, teamerRegistrationsList, attendeeRegistrationsList',
 		'Registration' => 'register,unregister,list, show, confirmRegistration',

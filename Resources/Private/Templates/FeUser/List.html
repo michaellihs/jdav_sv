@@ -1,79 +1,123 @@
 {namespace extlist=Tx_PtExtlist_ViewHelpers}
 {namespace ptextbase=Tx_PtExtbase_ViewHelpers}
 
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 
 <f:section name="main">
 
-<h1>Benutzer</h1>
-<br/>
-<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
-<legend>Übersicht</legend>
-<f:form class="well form-inline" controller="FeUser" action="list">
-	<strong>Filter</strong>
-	<table>
-		<tr>
-			<td>
-				<span>Benutzername:</span><br>
-				<f:form.textfield class="span4" id="{usernameFilter.filterIdentifier}" property="filterValue" value="{usernameFilter.filterValue}" name="{extlist:namespace.FormElementName(object:'{usernameFilter}' property:'filterValue')}" size="{usernameFilter.filterConfig.settings.size}" maxlength="{usernameFilter.filterConfig.settings.maxLength}"/>&nbsp;
-			</td>
-			<td>
-				<span>E-Mail:</span><br>
-				<f:form.textfield class="span4" id="{emailFilter.filterIdentifier}" property="filterValue" value="{emailFilter.filterValue}" name="{extlist:namespace.FormElementName(object:'{emailFilter}' property:'filterValue')}" size="{emailFilter.filterConfig.settings.size}" maxlength="{emailFilter.filterConfig.settings.maxLength}"/>&nbsp;
-			</td>
-			<td>
-				<span>&nbsp;</span><br>
-				<f:form.submit class="btn btn-primary" value="Filter anwenden" />&nbsp;
-				<f:link.action class="btn btn-primary" action="list" arguments="{restFilters: 1}"><i class="icon-white icon-remove"></i> Filter zurücksetzen</f:link.action>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">
-				<div class="control-group">
-					<div class="controls">
-						<label class="checkbox inline"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{teamerFilter}' property:'filterValue')}" checked="{teamerFilter.filterValue}" value="1" /> Teamer</label>
-						<label class="checkbox inline"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{traineeFilter}' property:'filterValue')}" checked="{traineeFilter.filterValue}" value="1" /> Hospitant</label>
-						<label class="checkbox inline"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{kitchenGroupFilter}' property:'filterValue')}" checked="{kitchenGroupFilter.filterValue}" value="1" /> Kochgruppe</label>
-						<label class="checkbox inline"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{proofreaderFilter}' property:'filterValue')}" checked="{proofreaderFilter.filterValue}" value="1" /> Korrekturleser</label>
-						<label class="checkbox inline"><f:form.checkbox name="{extlist:namespace.FormElementName(object:'{adminFilter}' property:'filterValue')}" checked="{adminFilter.filterValue}" value="1" /> Administrator</label>
+	<h1>Benutzer</h1>
+	<br/>
+	<ptextbase:flashMessages renderMode="div"
+							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
+	<legend>Übersicht</legend>
+	<f:form class="well form-inline" controller="FeUser" action="list">
+		<strong>Filter</strong>
+		<table>
+			<tr>
+				<td>
+					<span>Benutzername:</span><br>
+					<f:form.textfield class="span4" id="{usernameFilter.filterIdentifier}" property="filterValue"
+									  value="{usernameFilter.filterValue}"
+									  name="{extlist:namespace.FormElementName(object:'{usernameFilter}' property:'filterValue')}"
+									  size="{usernameFilter.filterConfig.settings.size}"
+									  maxlength="{usernameFilter.filterConfig.settings.maxLength}"/>
+					&nbsp;
+				</td>
+				<td>
+					<span>E-Mail:</span><br>
+					<f:form.textfield class="span4" id="{emailFilter.filterIdentifier}" property="filterValue"
+									  value="{emailFilter.filterValue}"
+									  name="{extlist:namespace.FormElementName(object:'{emailFilter}' property:'filterValue')}"
+									  size="{emailFilter.filterConfig.settings.size}"
+									  maxlength="{emailFilter.filterConfig.settings.maxLength}"/>
+					&nbsp;
+				</td>
+				<td>
+					<span>&nbsp;</span><br>
+					<f:form.submit class="btn btn-primary" value="Filter anwenden"/>
+					&nbsp;
+					<f:link.action class="btn btn-primary" action="list" arguments="{restFilters: 1}"><i
+							class="icon-white icon-remove"></i> Filter zurücksetzen
+					</f:link.action>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox inline">
+								<f:form.checkbox
+										name="{extlist:namespace.FormElementName(object:'{teamerFilter}' property:'filterValue')}"
+										checked="{teamerFilter.filterValue}" value="1"/>
+								Teamer</label>
+							<label class="checkbox inline">
+								<f:form.checkbox
+										name="{extlist:namespace.FormElementName(object:'{traineeFilter}' property:'filterValue')}"
+										checked="{traineeFilter.filterValue}" value="1"/>
+								Hospitant</label>
+							<label class="checkbox inline">
+								<f:form.checkbox
+										name="{extlist:namespace.FormElementName(object:'{kitchenGroupFilter}' property:'filterValue')}"
+										checked="{kitchenGroupFilter.filterValue}" value="1"/>
+								Kochgruppe</label>
+							<label class="checkbox inline">
+								<f:form.checkbox
+										name="{extlist:namespace.FormElementName(object:'{proofreaderFilter}' property:'filterValue')}"
+										checked="{proofreaderFilter.filterValue}" value="1"/>
+								Korrekturleser</label>
+							<label class="checkbox inline">
+								<f:form.checkbox
+										name="{extlist:namespace.FormElementName(object:'{adminFilter}' property:'filterValue')}"
+										checked="{adminFilter.filterValue}" value="1"/>
+								Administrator</label>
+						</div>
 					</div>
-				</div>
-			</td>
-		</tr>
-	</table>
-</f:form>
-<table  class="table table-striped" >
-    <tr>
-        <f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
-		<th></th>
-    </tr>
-    <f:for each="{listData}" as="row">
+				</td>
+			</tr>
+		</table>
+	</f:form>
+	<table class="table table-striped">
 		<tr>
-		    <td>
-                <strong>{row.lastName}</strong>
-		    </td>
-			<td>
-				<strong>{row.firstName}</strong>
-			</td>
-			<td>
-				<f:if condition="{row.email}">
-					<a href="mailto:{row.email}">{row.email}</a>
-				</f:if>
-			</td>
-			<td>
-				{row.telephone}
-			</td>
-			<td>
-				<p class="pull-right">
-					<f:link.action class="btn btn-primary" controller="FeUser" action="edit" arguments="{feUser: row.feUser.value.uid}"><i class="icon-pencil icon-white"></i> Bearbeiten</f:link.action>
-					<f:link.action class="btn btn-danger" controller="FeUser" action="delete" arguments="{feUser: row.feUser.value.uid}"><i class="icon-trash icon-white"></i> Löschen</f:link.action>
-				</p>
-			</td>
+			<f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html"
+					  arguments="{listHeader:listHeader, listCaptions:listCaptions}"/>
+			<th></th>
 		</tr>
-	</f:for>
-</table>
+		<f:for each="{listData}" as="row">
+			<tr>
+				<td>
+					<strong>{row.lastName}</strong>
+				</td>
+				<td>
+					<strong>{row.firstName}</strong>
+				</td>
+				<td>
+					<f:if condition="{row.email}">
+						<a href="mailto:{row.email}">{row.email}</a>
+					</f:if>
+				</td>
+				<td>
+					{row.telephone}
+				</td>
+				<td>
+					<p class="pull-right">
+						<f:link.action class="btn btn-primary" controller="FeUser" action="edit"
+									   arguments="{feUser: row.feUser.value.uid}"><i class="icon-pencil icon-white"></i>
+							Bearbeiten
+						</f:link.action>
+						<f:link.action class="btn btn-danger" controller="FeUser" action="delete"
+									   arguments="{feUser: row.feUser.value.uid}"><i class="icon-trash icon-white"></i>
+							Löschen
+						</f:link.action>
+					</p>
+				</td>
+			</tr>
+		</f:for>
+	</table>
 
-<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i> Neuen Benutzer anlegen</f:link.action>
-
+	<div class="form-actions">
+		<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i>
+			Neuen Benutzer anlegen
+		</f:link.action>
+	</div>
 </f:section>

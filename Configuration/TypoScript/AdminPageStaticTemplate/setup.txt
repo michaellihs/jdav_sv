@@ -1,0 +1,41 @@
+#############################################
+# JDAV Baden-Württemberg Schulungsverwaltung
+#
+# Static template for admin page
+#
+# @author Michael Knoll <mimi@kaktusteam.de>
+#############################################
+
+config {
+    doctype			= xhtml_trans
+
+    // Character sets
+    renderCharset 		= utf-8
+    metaCharset 		= utf-8
+
+    language         	= de
+    locale_all       	= de_DE.UTF-8
+    htmlTag_langKey  	= de
+
+    index_enable = 1
+}
+
+
+page = PAGE
+page {
+
+    10 = TEMPLATE
+    10 {
+
+        template = FILE
+        template.file = EXT:jdav_sv/Resources/Private/Layouts/index.html
+
+        subparts {
+
+            content_col < styles.content.get
+
+        }
+
+    }
+
+}

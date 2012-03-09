@@ -130,5 +130,25 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 		$this->redirect('list');
 	}
 
+
+
+	/**
+	 *
+	 * @param Tx_JdavSv_Domain_Model_FeUser $feUser
+	 */
+	public function showChangePasswordAction(Tx_JdavSv_Domain_Model_FeUser $feUser) {
+		$this->view->assign('feUser', $feUser);
+	}
+
+
+
+	/**
+	 * @param Tx_JdavSv_Domain_Model_FeUser $feUser
+	 * @param string $password
+	 */
+	public function changePasswordAction(Tx_JdavSv_Domain_Model_FeUser $feUser, $password) {
+
+	}
+
 }
 ?>

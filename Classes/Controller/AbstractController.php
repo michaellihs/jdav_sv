@@ -117,7 +117,7 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 	protected function initializeView(Tx_Extbase_MVC_View_ViewInterface $view) {
 		parent::initializeView($view);
 		if ($this->feUser) {
-			$view->assign('feUser', $this->feUser);
+			$view->assign('currentUser', $this->feUser);
 			$view->assign('currentPid', t3lib_div::_GP('id'));
 		}
 	}

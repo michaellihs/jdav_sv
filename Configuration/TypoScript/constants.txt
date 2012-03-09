@@ -1,3 +1,11 @@
+#############################################
+# JDAV Baden-Württemberg Schulungsverwaltung
+#
+# Constants for TypoScript Templates
+#
+# @author Michael Knoll <mimi@kaktusteam.de>
+#############################################
+
 plugin.tx_jdavsv {
 	view {
 		# cat=plugin.tx_jdavsv/file; type=string; label=Path to template root (FE)
@@ -12,14 +20,13 @@ plugin.tx_jdavsv {
 		storagePid = 28
 	}
 	settings {
+		# cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der sich das Login Formular befindet
+		loginPageUid =
+
 	    pids {
 	        administration {
 	        	# cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der Admin Plugin eingebunden ist
 	        	pid =
-	            # cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der TN Liste für Teilnehmer liegt
-	            registrationsListParticipantsPid =
-	            # cat=plugin.tx_jdavsv//a; type=int+; label=PID der Seite, auf der TN Liste für Teamer lieg
-	            registrationsListTeamerPid =
 	        }
 	    }
 	    email {

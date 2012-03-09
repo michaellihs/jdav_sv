@@ -38,6 +38,11 @@ plugin.tx_jdavsv.settings.export.pdfExport < plugin.tx_ptextlist.settings.export
 
 
 
+## Some base settings
+plugin.tx_jdavsv.settings.loginPageUid = {$plugin.tx_jdavsv.settings.loginPageUid}
+
+
+
 ## CSS inclusion
 page.includeCSS {
     jdavSvBootstrapCss = EXT:jdav_sv/Resources/Public/Css/bootstrap.css

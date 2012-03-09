@@ -10,8 +10,8 @@
 					  <li><a href="#contact">Anmeldungen</a></li>
 					</ul>-->
 			<p class="navbar-text pull-right">
-				Angemeldet als {feUser.emailName}&nbsp;
-				<a href="index.php?id={currentPid}&logintype=logout">Logout</a>
+				Angemeldet als {currentUser.emailName}&nbsp;
+				<a href="index.php?id={settings.loginPageUid}&logintype=logout">Logout</a>
 			</p>
 
 		</div>
@@ -25,7 +25,7 @@
 		<div class="span2">
 			<div class="well sidebar-nav">
 				<ul class="nav nav-list">
-					<f:if condition="{feUser.isAdmin}">
+					<f:if condition="{currentUser.isAdmin}">
 						<li class="nav-header">Benutzer</li>
 						<li>
 							<f:link.action controller="FeUser" action="list">Übersicht</f:link.action>
@@ -35,7 +35,7 @@
 						</li>
 					</f:if>
 
-					<f:if condition="{feUser.isAdmin}">
+					<f:if condition="{currentUser.isAdmin}">
 						<li class="nav-header">Anmeldungen</li>
 						<li>
 							<f:link.action controller="RegistrationAdmin" action="list">Übersicht</f:link.action>
@@ -53,7 +53,7 @@
 						<f:link.action controller="EventAdmin" action="new">Veranstaltung anlegen</f:link.action>
 					</li>
 
-					<f:if condition="{feUser.isAdmin}">
+					<f:if condition="{currentUser.isAdmin}">
 						<li class="nav-header">Veranstaltungs-kategorien</li>
 						<li>
 							<f:link.action controller="Category" action="list">Übersicht</f:link.action>
@@ -63,7 +63,7 @@
 						</li>
 					</f:if>
 
-					<f:if condition="{feUser.isAdmin}">
+					<f:if condition="{currentUser.isAdmin}">
 						<li class="nav-header">Veranstaltungsorte</li>
 						<li>
 							<f:link.action controller="Accommodation" action="list">Übersicht</f:link.action>

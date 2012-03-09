@@ -38,7 +38,7 @@ abstract class Tx_JdavSv_Controller_AbstractAdminController extends Tx_JdavSv_Co
 		parent::initializeAction();
 		if (!isset($this->feUser) || !($this->feUser->getIsAdmin() || $this->feUser->getIsTeamer() || $this->feUser->getIsProofreader())) {
 			$this->flashMessageContainer->add('Sie sind nicht als Administrator eingelogt!', t3lib_FlashMessage::ERROR);
-			$this->redirect('showLoginForm', 'Login');
+			$this->redirect('login',null,null,null,$this->settings['loginPageUid']);
 		}
 		$this->postInitializeAction();
 	}

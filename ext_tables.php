@@ -21,7 +21,8 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSi
 // Register static TypoScript template for this extension
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', '[jdav_sv] JDAV Schulungsverwaltung');
 
-
+// Register static TypoScript template for this extension
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/AdminPageStaticTemplate', '[jdav_sv] Root Template JDAV Schulungsverwaltung');
 
 // Register FlexForm
 t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/Flexform_pi1.xml');
