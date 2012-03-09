@@ -1,32 +1,30 @@
 {namespace ptextbase=Tx_PtExtbase_ViewHelpers}
 
-<div class="container-fluid">
-	<div class="span5 well">
-		<f:form class="form-horizontal" pageUid="{currentPid}" controller="EventAdmin" action="list">
-			<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
-			<fieldset>
-			<legend>Zur Schulungsverwaltung anmelden</legend>
-			<div class="control-group">
-				<label class="control-label" for="user">Benutzername:</label>
-				<div class="controls">
-					<input type="text" id="user" name="user" value="" />
-				</div>
+<div class="well offset4 span5">
+	<f:form class="form-horizontal" pageUid="{currentPid}" controller="EventAdmin" action="list">
+		<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+		<fieldset>
+		<legend>Zur Schulungsverwaltung anmelden</legend>
+		<div class="control-group">
+			<label class="control-label" for="user">Benutzername:</label>
+			<div class="controls">
+				<input type="text" id="user" name="user" value="" />
 			</div>
-			<div class="control-group">
-				<label class="control-label" for="pass">Passwort:</label>
-				<div class="controls">
-					<input type="password" id="pass" name="pass" value="" />
-				</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="pass">Passwort:</label>
+			<div class="controls">
+				<input type="password" id="pass" name="pass" value="" />
 			</div>
-			<div class="form-actions">
-				<input class="btn btn-primary" type="submit" name="submit" value="Anmelden" />
-			</div>
+		</div>
+		<div class="form-actions">
+			<input class="btn btn-primary" type="submit" name="submit" value="Anmelden" />
+		</div>
 
-			<div class="felogin-hidden">
-				<input type="hidden" name="logintype" value="login" />
-				<input type="hidden" name="pid" value="28" />
-			</div>
-			</fieldset>
-		</f:form>
-	</div>
+		<div class="felogin-hidden">
+			<input type="hidden" name="logintype" value="login" />
+			<input type="hidden" name="pid" value="28" />
+		</div>
+		</fieldset>
+	</f:form>
 </div>
