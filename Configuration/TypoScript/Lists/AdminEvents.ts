@@ -11,6 +11,14 @@ plugin.tx_jdavsv.settings.listConfig.adminEvents {
 
     filters >
 
+
+
+    pager {
+
+    	itemsPerPage = 20
+
+    }
+
 }
 
 

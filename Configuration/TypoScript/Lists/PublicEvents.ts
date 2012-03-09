@@ -122,6 +122,8 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
     
     }
 
+
+
     filters {
 
     	hiddenEventsFilter {
@@ -139,6 +141,15 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
     		}
 
     	}
+
+    }
+
+
+
+    pager {
+
+    	## Show all events in frontend
+    	itemsPerPage = 0
 
     }
 

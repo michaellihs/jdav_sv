@@ -87,6 +87,15 @@ plugin.tx_jdavsv.settings.listConfig.accommodationAdmin {
     
     }
 
+
+
+    pager {
+
+    	## Show all categories
+    	itemsPerPage = 0
+
+    }
+
 }
 
 

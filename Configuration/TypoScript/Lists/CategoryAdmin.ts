@@ -59,6 +59,15 @@ plugin.tx_jdavsv.settings.listConfig.categoryAdmin {
     
     }
 
+
+
+    pager {
+
+    	## Show all categories
+    	itemsPerPage = 0
+
+    }
+
 }
 
 

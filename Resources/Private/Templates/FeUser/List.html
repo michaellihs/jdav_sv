@@ -120,8 +120,20 @@
 	</table>
 
 	<div class="form-actions">
-		<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i>
-			Neuen Benutzer anlegen
-		</f:link.action>
+		<table>
+			<tr>
+				<td class="span4">
+					<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i
+							class="icon-plus icon-white"></i>
+						Neuen Benutzer anlegen
+					</f:link.action>
+				</td>
+				<td>
+					<f:render partial="Extlist/Pager"
+							  arguments="{pager: pager, pagerCollection: pagerCollection, item:'Benutzer', action:'list'}"/>
+				</td>
+			</tr>
+		</table>
 	</div>
+
 </f:section>
