@@ -34,13 +34,25 @@ abstract class Tx_JdavSv_Controller_AbstractAdminController extends Tx_JdavSv_Co
 	 * Initializes the controller and checks for admin rights on logged in feuser
 	 */
 	final protected function initializeAction() {
-		$this->preInitializeAction();
 		parent::initializeAction();
-		if (!isset($this->feUser) || !($this->feUser->getIsAdmin() || $this->feUser->getIsTeamer() || $this->feUser->getIsProofreader())) {
-			$this->flashMessageContainer->add('Sie sind nicht eingelogt!', t3lib_FlashMessage::ERROR);
+		$this->checkFeUser();
+		$this->preInitializeAction();
+		$this->postInitializeAction();
+	}
+
+
+
+	/**
+	 * Checks access rights and if we have a logged in user
+	 */
+	protected function checkFeUser() {
+		if (!isset($this->feUser)) {
+			$this->flashMessageContainer->add('Bitte überprüfen Sie Benutzername und Passwort!', 'Fehler bei der Anmeldung', t3lib_FlashMessage::ERROR);
+			$this->redirect('showLoginForm', 'Login');
+		} elseif(!($this->feUser->getIsAdmin() || $this->feUser->getIsTeamer() || $this->feUser->getIsProofreader())) {
+			$this->flashMessageContainer->add('Sie haben nicht die nötigen Rechte um die Anwendung zu nutzen!', 'Fehler bei der Anmeldung', t3lib_FlashMessage::ERROR);
 			$this->redirect('showLoginForm', 'Login');
 		}
-		$this->postInitializeAction();
 	}
 
 

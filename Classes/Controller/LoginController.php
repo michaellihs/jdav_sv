@@ -54,9 +54,14 @@ class Tx_JdavSv_Controller_LoginController extends Tx_JdavSv_Controller_Abstract
 		$this->view->assign('currentPid', t3lib_div::_GP('id'));
 
 		// Nothing to do here - only render form
-		if (isset($this->feUser)) {
+		if (isset($this->feUser) && $this->checkFeUser()) {
 			$this->redirect('list', 'EventAdmin');
 		}
+	}
+
+
+	protected function checkFeUser() {
+		return ($this->feUser->getIsAdmin() || $this->feUser->getIsTeamer() || $this->feUser->getIsProofreader());
 	}
 
 }
