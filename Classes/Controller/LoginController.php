@@ -34,12 +34,30 @@ class Tx_JdavSv_Controller_LoginController extends Tx_JdavSv_Controller_Abstract
 	 * Renders login form for SV
 	 */
 	public function showLoginFormAction() {
+		if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['loginFormOnSubmitFuncs'])) {
+			$_params = array();
+			foreach($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['loginFormOnSubmitFuncs'] as $funcRef) {
+				list($onSub, $hid) = t3lib_div::callUserFunction($funcRef, $_params, $this);
+				$onSubmitAr[] = $onSub;
+				$extraHiddenAr[] = $hid;
+			}
+		}
+		if (count($onSubmitAr)) {
+			$onSubmit = implode('; ', $onSubmitAr).'; return true;';
+		}
+		if (count($extraHiddenAr)) {
+			$extraHidden = implode(LF, $extraHiddenAr);
+		}
+
+		$this->view->assign('onSubmit', $onSubmit);
+		$this->view->assign('extraHidden', $extraHidden);
 		$this->view->assign('currentPid', t3lib_div::_GP('id'));
+
 		// Nothing to do here - only render form
 		if (isset($this->feUser)) {
 			$this->redirect('list', 'EventAdmin');
 		}
 	}
-	
+
 }
 ?>

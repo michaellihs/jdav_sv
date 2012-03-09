@@ -1,7 +1,7 @@
 {namespace ptextbase=Tx_PtExtbase_ViewHelpers}
 
 <div class="well offset4 span5">
-	<f:form class="form-horizontal" pageUid="{currentPid}" controller="EventAdmin" action="list">
+	<form class="form-horizontal" action="index.php" method="post" onsubmit="{onSubmit}" >
 		<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
 		<fieldset>
 		<legend>Zur Schulungsverwaltung anmelden</legend>
@@ -23,8 +23,11 @@
 
 		<div class="felogin-hidden">
 			<input type="hidden" name="logintype" value="login" />
-			<input type="hidden" name="pid" value="28" />
+			<input type="hidden" name="id" value="{currentPid}" />
+			<input type="hidden" name="redirect_url" value="{f:uri.action(controller:settings.loginRedirectController, action:settings.loginRedirectAction)}" />
+			<input type="hidden" name="pid" value="{settings.feUsersPid}" />
+			<f:format.html parseFuncTSPath="">{extraHidden}</f:format.html>
 		</div>
 		</fieldset>
-	</f:form>
+	</form>
 </div>

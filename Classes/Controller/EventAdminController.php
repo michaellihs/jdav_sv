@@ -250,5 +250,17 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->view->assign('events', $this->eventRepository->getEventsForTeamer($this->feUser));
 	}
 
+
+
+	/**
+	 * Sort action for event admin list
+	 */
+	public function sortAction() {
+		$extlistContextForEventAdminList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+			$this->settings['listConfig']['adminEvents'], 'adminEvents');
+		$extlistContextForEventAdminList->getDataBackend()->getSorter()->reset();
+		$this->forward('list');
+	}
+
 }
 ?>

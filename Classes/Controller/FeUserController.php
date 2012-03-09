@@ -150,5 +150,18 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 		die('change password');
 	}
 
+
+
+	/**
+	 * Sort action for fe_users list
+	 */
+	public function sortAction() {
+		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+			$this->settings['listConfig']['feUsersAdmin'], 'feUsersAdmin'
+		);
+		$extlistContext->getDataBackend()->getSorter()->reset();
+		$this->forward('list');
+	}
+
 }
 ?>

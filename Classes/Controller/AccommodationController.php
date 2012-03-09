@@ -133,5 +133,18 @@ class Tx_JdavSv_Controller_AccommodationController extends Tx_JdavSv_Controller_
 		$this->redirect('list');
 	}
 
+
+
+	/**
+	 * Sorting action for accomodation list
+	 */
+	public function sortAction() {
+		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+			$this->settings['listConfig']['accommodationAdmin'], 'accommodationAdmin'
+		);
+		$extlistContext->getDataBackend()->getSorter()->reset();
+		$this->forward('list');
+	}
+
 }
 ?>

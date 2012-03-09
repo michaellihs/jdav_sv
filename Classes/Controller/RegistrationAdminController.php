@@ -269,6 +269,19 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 		$this->flashMessageContainer->add('Bestätigungsemail wurde versendet!');
 		$this->forward('list');
 	}
+
+
+
+	/**
+	 * Sort action for registrations
+	 */
+	public function sortAction() {
+		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+			$this->settings['listConfig']['registrationsAdmin'], 'registrationsAdmin'
+		);
+		$extlistContext->getDataBackend()->getSorter()->reset();
+		$this->forward('list');
+	}
 	
 	
 	

@@ -61,12 +61,12 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	 */
 	public function listAction() {
 		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
-				$this->settings['listConfig']['categoryAdmin'], 'categoryAdmin'
-			);
+			$this->settings['listConfig']['categoryAdmin'], 'categoryAdmin'
+		);
 
-			$this->view->assign('listData', $extlistContext->getListData());
-			$this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
-			$this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
+		$this->view->assign('listData', $extlistContext->getListData());
+		$this->view->assign('listHeader', $extlistContext->getList()->getListHeader());
+		$this->view->assign('listCaptions', $extlistContext->getRendererChain()->renderCaptions($extlistContext->getList()->getListHeader()));
 	}
 	
 		
@@ -131,6 +131,19 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 		$this->categoryRepository->remove($category);
 		$this->flashMessageContainer->add('Die Kategorie wurde gelöscht.');
 		$this->redirect('list');
+	}
+
+
+
+	/**
+	 * Sorting action for categories
+	 */
+	public function sortAction() {
+		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+			$this->settings['listConfig']['categoryAdmin'], 'categoryAdmin'
+		);
+		$extlistContext->getDataBackend()->getSorter()->reset();
+		$this->forward('list');
 	}
 
 }
