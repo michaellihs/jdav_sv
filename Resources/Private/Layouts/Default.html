@@ -31,7 +31,9 @@
 							<f:link.action controller="EventAdmin" action="myEventsList">Übersicht</f:link.action>
 						</li>
 						<li>
-							<f:link.action controller="EventAdmin" action="new" arguments="{teamer: currentUser}">Schulung anlegen</f:link.action>
+							<f:link.action controller="EventAdmin" action="new" arguments="{teamer: currentUser}">
+								Schulung anlegen
+							</f:link.action>
 						</li>
 					</f:if>
 
@@ -55,13 +57,15 @@
 						</li>
 					</f:if>
 
-					<li class="nav-header">Veranstaltungen</li>
-					<li>
-						<f:link.action controller="EventAdmin" action="list">Übersicht</f:link.action>
-					</li>
-					<li>
-						<f:link.action controller="EventAdmin" action="new">Veranstaltung anlegen</f:link.action>
-					</li>
+					<f:if condition="{currentUser.isAdmin}">
+						<li class="nav-header">Veranstaltungen</li>
+						<li>
+							<f:link.action controller="EventAdmin" action="list">Übersicht</f:link.action>
+						</li>
+						<li>
+							<f:link.action controller="EventAdmin" action="new">Veranstaltung anlegen</f:link.action>
+						</li>
+					</f:if>
 
 					<f:if condition="{currentUser.isAdmin}">
 						<li class="nav-header">Veranstaltungs-kategorien</li>

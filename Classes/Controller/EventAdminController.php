@@ -86,6 +86,11 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * @return string The rendered list view
 	 */
 	public function listAction() {
+
+		if (!$this->feUser->getIsAdmin()) {
+			$this->forward('myEventsList');
+		}
+
 		$extlistContextForEventAdminList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
 		    $this->settings['listConfig']['adminEvents'], 'adminEvents');
 
