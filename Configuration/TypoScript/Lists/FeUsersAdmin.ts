@@ -257,6 +257,14 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 
 	}
 
+
+
+	pager {
+
+		itemsPerPage = 20
+
+	}
+
 }
 
 

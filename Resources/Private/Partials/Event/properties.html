@@ -1,148 +1,42 @@
-<table class="tx-jdavsv-pi1" >
-	<tr>
-		<td>
-			Name der Schulung
-		</td>
-		<td>
-			<strong>{event.category.shortcut}{event.accreditationNumber} {event.title} - {event.subtitle}</strong>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Teamer
-		</td>
-		<td>
-			{event.firstTeamer.firstName}<br>
-			{event.secondTeamer}<br>
-			{event.trainee}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Beschreibung
-		</td>
-		<td>
-			{event.description}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Zeitraum
-		</td>
-		<td>
-			{event.dateStart -> f:format.date(format: 'd.m.Y')} bis {event.dateEnd -> f:format.date(format: 'd.m.Y')}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Dauer
-		</td>
-		<td>
-			{event.duration} Tage
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Veranstaltungsort / Unterkunft
-		</td>
-		<td>
-			{event.accommodation.name}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Anreise
-		</td>
-		<td>
-			{event.travelling}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Voraussetzungen
-		</td>
-		<td>
-			{event.requirements}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Schulungsinhalte
-		</td>
-		<td>
-			{event.contents}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			Ausbildungsziele
-		</td>
-		<td>
-			{event.educationObjective}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.kitchen_group" />
-		</td>
-		<td>
-			{event.kitchenGroup}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.price" />
-		</td>
-		<td>
-			{event.price}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.max_registrations" />
-		</td>
-		<td>
-			{event.maxRegistrations}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.min_registrations" />
-		</td>
-		<td>
-			{event.minRegistrations}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.att_teamer_ratio" />
-		</td>
-		<td>
-			{event.attTeamerRatio}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.announcement" />
-		</td>
-		<td>
-			{event.announcement}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.tour_report_required" />
-		</td>
-		<td>
-			{event.tourReportRequired}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_jdavsv_domain_model_event.registration_deadline" />
-		</td>
-		<td>
-			{event.registrationDeadline -> f:format.date(format: 'd.m.Y')}
-		</td>
-	</tr>
-</table>
+<div class="tabs">
+	<ul class="nav nav-tabs" id="eventDescriptionTabs">
+		<li class="active"><a href="#overview" data-toggle="pill">Übersicht</a></li>
+		<li><a href="#description" data-toggle="tab">Beschreibung</a></li>
+		<li><a href="#content" data-toggle="tab">Inhalte</a></li>
+		<li><a href="#prerequisites" data-toggle="tab">Voraussetzungen</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="overview">
+			<table class="table table-no-border-top">
+				<tr>
+					<td class="span2"><strong>Dauer:</strong></td>
+					<td class="span3">{event.duration} Tage</td>
+					<td class="span2"><strong>Betreuungsverhältnis:</strong></td>
+					<td class="span3">{event.attTeamerRatio} (Teamer:Teilnehmer)</td>
+				</tr>
+				<tr>
+					<td class="span2"><strong>Anreise:</strong></td>
+					<td class="span3">{event.travelling}</td>
+					<td class="span2"><strong>Preis:</strong></td>
+					<td class="span3">{event.price}</td>
+				</tr>
+				<tr>
+					<td class="span2"><strong>Gruppengröße:</strong></td>
+					<td class="span3">{event.minRegistrations} bis {event.maxRegistrations} Teilnehmer</td>
+					<td class="span2"><strong>Anmeldeschluss:</strong></td>
+					<td class="span3">{event.registrationDeadline  -> f:format.date(format: 'd.m.Y')}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="tab-pane" id="description">
+		  {event.description}
+		</div>
+		<div class="tab-pane" id="content">
+		  {event.contents}
+		</div>
+		<div class="tab-pane" id="prerequisites">
+		  {event.requirements}
+		</div>
+	</div>
+</div>

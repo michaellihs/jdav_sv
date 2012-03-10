@@ -139,6 +139,14 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
 
     }
 
+
+
+    pager {
+
+    	itemsPerPage = 20
+
+    }
+
 }
 
 

@@ -9,8 +9,6 @@
 
 plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
 
-    pager.itemsPerPage = 0
-
     backendConfig < plugin.tx_ptextlist.prototype.backend.typo3
     backendConfig {
 
@@ -31,6 +29,8 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
         )
 
     }
+
+
 
     fields {
 
@@ -78,6 +78,8 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
 
     }
 
+
+
     columns {
 
         10 {
@@ -115,6 +117,8 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
         }
     }
 
+
+
     filters {
 
         filterbox1 {
@@ -132,6 +136,14 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
             }
 
         }
+
+    }
+
+
+
+    pager {
+
+    	itemsPerPage = 0
 
     }
 

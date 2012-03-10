@@ -10,8 +10,6 @@
 
 plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
 
-    pager.itemsPerPage = 0
-
     backendConfig < plugin.tx_ptextlist.prototype.backend.typo3
     backendConfig {
 
@@ -32,6 +30,8 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
         )
 
     }
+
+
 
     fields {
         event_uid {
@@ -88,6 +88,8 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
 
     }
 
+
+
     columns {
 
         10 {
@@ -137,6 +139,8 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
         }
     }
 
+
+
     filters {
 
         filterbox1 {
@@ -154,6 +158,14 @@ plugin.tx_jdavsv.settings.listConfig.registrationsTeamer {
             }
 
         }
+
+    }
+
+
+
+    pager {
+
+    	itemsPerPage = 0
 
     }
 

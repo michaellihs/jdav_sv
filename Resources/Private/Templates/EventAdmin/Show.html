@@ -6,12 +6,14 @@
 <f:section name="main">
 <h1>Veranstaltung</h1>
 
-<legend>Veranstaltungsdetails</legend>
+<legend>{event.category.shortcut}{event.accreditationNumber} {event.title} - {event.subtitle}</legend>
 <ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
 
 <f:render partial="Event/properties" arguments="{event:event}" />
 
-<f:link.action action="edit">Veranstaltung bearbeiten</f:link.action><br />
+<br/>
+<f:link.action class="btn btn-primary" action="edit">Veranstaltung bearbeiten</f:link.action><br />
+<br/>
     
 <legend>Anmeldungen</legend>
 <f:render partial="Registration/list" arguments="{event:event, registrations:event.nonWaitingListRegistrations}" />
