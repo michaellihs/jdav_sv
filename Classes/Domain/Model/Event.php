@@ -31,7 +31,6 @@
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-
 class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
@@ -41,12 +40,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $title;
 
+
+
 	/**
 	 * Event's subtitle
 	 *
 	 * @var string $subtitle
 	 */
 	protected $subtitle;
+
+
 
 	/**
 	 * Event's description
@@ -55,12 +58,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $description;
 
+
+
 	/**
 	 * When does event start
 	 *
 	 * @var DateTime $dateStart
 	 */
 	protected $dateStart;
+
+
 
 	/**
 	 * When does event end
@@ -69,12 +76,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $dateEnd;
 
+
+
 	/**
 	 * Length of event (in days)
 	 *
 	 * @var float $duration
 	 */
 	protected $duration;
+
+
 
 	/**
 	 * Where does event take place
@@ -83,12 +94,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $place;
 
+
+
 	/**
 	 * How is the place reached where event takes place
 	 *
 	 * @var string $travelling
 	 */
 	protected $travelling;
+
+
 
 	/**
 	 * Internal identifier for event
@@ -97,12 +112,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $accreditationNumber;
 
+
+
 	/**
 	 * Requirements to be fullfilled for attending event
 	 *
 	 * @var string $requirements
 	 */
 	protected $requirements;
+
+
 
 	/**
 	 * Contents of event
@@ -111,12 +130,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $contents;
 
+
+
 	/**
 	 * What is to be learned during event
 	 *
 	 * @var string $educationObjective
 	 */
 	protected $educationObjective;
+
+
 
 	/**
 	 * First teamer for event
@@ -125,12 +148,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $firstTeamer;
 
+
+
 	/**
 	 * Second teamer for event
 	 *
 	 * @var integer $secondTeamer
 	 */
 	protected $secondTeamer;
+
+
 
 	/**
 	 * Hospitant for event
@@ -139,12 +166,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $trainee;
 
+
+
 	/**
 	 * Kitchen group for event
 	 *
 	 * @var integer $kitchenGroup
 	 */
 	protected $kitchenGroup;
+
+
 
 	/**
 	 * Price of event
@@ -153,12 +184,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $price;
 
+
+
 	/**
 	 * Maximum number of registrations
 	 *
 	 * @var integer $maxRegistrations
 	 */
 	protected $maxRegistrations;
+
+
 
 	/**
 	 * Minimum number of registrations
@@ -167,12 +202,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $minRegistrations;
 
+
+
 	/**
 	 * Ration of teamers / attendee
 	 *
 	 * @var string $attTeamerRatio
 	 */
 	protected $attTeamerRatio;
+
+
 
 	/**
 	 * Text for announcing the event
@@ -181,12 +220,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $announcement;
 
+
+
 	/**
 	 * Is it required to send a tour report for attending
 	 *
 	 * @var boolean $tourReportRequired
 	 */
 	protected $tourReportRequired;
+
+
 
 	/**
 	 * Last date for registration
@@ -195,12 +238,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $registrationDeadline;
 
+
+
 	/**
 	 * Last date when user is able to unregister
 	 *
 	 * @var DateTime
 	 */
 	protected $unregisterDeadline;
+
+
 
 	/**
 	 * Accommodation for event (Huette / Haus...)
@@ -209,12 +256,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $accommodation;
 
+
+
 	/**
 	 * fee
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_EventFee> $fee
 	 */
 	protected $fee;
+
+
 
 	/**
 	 * category
@@ -223,12 +274,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $category;
 
+
+
 	/**
 	 * registrations
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration> $registrations
 	 */
 	protected $registrations;
+
+
 
 	/**
 	 * If set to true, event is a proposal only (do not show in events list, no registration possible)
@@ -237,12 +292,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $isProposal;
 
+
+
 	/**
 	 * If set to true, teamer has finished inputting his data for the event
 	 *
 	 * @var boolean
 	 */
 	protected $teamerInputFinished;
+
+
 
 	/**
 	 * If set to true, event has had proofreading
@@ -251,6 +310,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $isProofread;
 
+
+
 	/**
 	 * If set to true, event is accepted and registrations can be made
 	 *
@@ -258,12 +319,24 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	protected $isAccepted;
 
+
+
 	/**
 	 * If set to true, event is shown in public
 	 *
 	 * @var boolean
 	 */
 	protected $isPublic;
+
+
+
+	/**
+	 * Holds comments for this event (internal)
+	 *
+	 * @var string
+	 */
+	protected $comment;
+
 
 
 	/**
@@ -1362,6 +1435,23 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		return t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Utility_FeUserManager')->getCurrentlyLoggedInFeUser();
 	}
 
-}
 
+
+	/**
+	 * @param string $comment
+	 */
+	public function setComment($comment) {
+		$this->comment = $comment;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getComment() {
+		return $this->comment;
+	}
+
+}
 ?>

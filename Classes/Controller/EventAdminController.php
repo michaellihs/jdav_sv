@@ -1,27 +1,27 @@
 <?php
 /***************************************************************
-*  Copyright notice
-*
-*  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
-*  	
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+ *  Copyright notice
+ *
+ *  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 
 /**
  * Controller for administration of Events
@@ -29,21 +29,21 @@
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
 class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_AbstractAdminController {
-	
+
 	/**
 	 * eventRepository
-	 * 
+	 *
 	 * @var Tx_JdavSv_Domain_Repository_EventRepository
 	 */
 	protected $eventRepository;
-	
-	
-	
+
+
+
 	/**
-     * registrationRepository
-     * 
-     * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
-     */
+	 * registrationRepository
+	 *
+	 * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
+	 */
 	protected $registrationRepository;
 
 
@@ -63,8 +63,8 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 * @var Tx_JdavSv_Domain_Repository_AccommodationRepository
 	 */
 	protected $accommodationRepository;
-	
-	
+
+
 
 	/**
 	 * Initializes the current action
@@ -77,9 +77,9 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->categoryRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_CategoryRepository');
 		$this->accommodationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_AccommodationRepository');
 	}
-	
-	
-		
+
+
+
 	/**
 	 * Displays all Events
 	 *
@@ -92,31 +92,31 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		}
 
 		$extlistContextForEventAdminList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
-		    $this->settings['listConfig']['adminEvents'], 'adminEvents');
+			$this->settings['listConfig']['adminEvents'], 'adminEvents');
 
-        $extlistContextForRegistrationsTeamerList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
-            $this->settings['listConfig']['registrationsTeamer'],
-            'registrationsTeamer'
-        );
-        $registrationsByEventFilterForTeamerList = $extlistContextForRegistrationsTeamerList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
+		$extlistContextForRegistrationsTeamerList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+			$this->settings['listConfig']['registrationsTeamer'],
+			'registrationsTeamer'
+		);
+		$registrationsByEventFilterForTeamerList = $extlistContextForRegistrationsTeamerList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
 
-        $extlistContextForRegistrationsParticipantsList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
-            $this->settings['listConfig']['registrationsParticipants'],
-            'registrationsParticipants'
-        );
-        $registrationsByEventFilterForParticipantsList = $extlistContextForRegistrationsParticipantsList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
-		    
+		$extlistContextForRegistrationsParticipantsList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+			$this->settings['listConfig']['registrationsParticipants'],
+			'registrationsParticipants'
+		);
+		$registrationsByEventFilterForParticipantsList = $extlistContextForRegistrationsParticipantsList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
+
 		$this->view->assign('listData', $extlistContextForEventAdminList->getListData());
-        $this->view->assign('listCaptions', $extlistContextForEventAdminList->getRendererChain()->renderCaptions($extlistContextForEventAdminList->getList()->getListHeader()));
-        $this->view->assign('listHeader', $extlistContextForEventAdminList->getList()->getListHeader());
-        $this->view->assign('registrationsByEventFilterForTeamerList', $registrationsByEventFilterForTeamerList);
-        $this->view->assign('registrationsByEventFilterForParticipantsList', $registrationsByEventFilterForParticipantsList);
+		$this->view->assign('listCaptions', $extlistContextForEventAdminList->getRendererChain()->renderCaptions($extlistContextForEventAdminList->getList()->getListHeader()));
+		$this->view->assign('listHeader', $extlistContextForEventAdminList->getList()->getListHeader());
+		$this->view->assign('registrationsByEventFilterForTeamerList', $registrationsByEventFilterForTeamerList);
+		$this->view->assign('registrationsByEventFilterForParticipantsList', $registrationsByEventFilterForParticipantsList);
 		$this->view->assign('pager', $extlistContextForEventAdminList->getPager());
 		$this->view->assign('pagerCollection', $extlistContextForEventAdminList->getPagerCollection());
 	}
 
 
-		
+
 	/**
 	 * Displays a single Event
 	 *
@@ -126,9 +126,9 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	public function showAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Displays a registrations list for teamers
 	 *
@@ -138,13 +138,13 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	public function teamerRegistrationsListAction(Tx_JdavSv_Domain_Model_Event $event) {
 		$registrations = $this->registrationRepository->getAcceptedRegistrationsByEvent($event);
 		$waitingListRegistrations = $this->registrationRepository->getWaitingListRegistrationsByEvent($event);
-		
+
 		$this->view->assign('registrations', $registrations);
 		$this->view->assign('waitingListRegistrations', $waitingListRegistrations);
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Displays a registrations list for attendees
 	 *
@@ -155,9 +155,9 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$registrations = $this->registrationRepository->getAcceptedRegistrationsByEvent($event);
 		$this->view->assign('registrations', $registrations);
 	}
-	
-	
-		
+
+
+
 	/**
 	 * Creates a new Event and forwards to the list action.
 	 *
@@ -175,8 +175,9 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->view->assign('firstTeamer', $teamer);
 		$this->view->assign('kitchenGroups', $this->feUserRepository->getAllKitchenGroups());
 	}
-	
-		
+
+
+
 	/**
 	 * Creates a new Event and forwards to the list action.
 	 *
@@ -191,15 +192,15 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 
 		$this->redirect('edit', null, null, array('teamer' => $teamer, 'event' => $newEvent));
 	}
-	
-		
-	
+
+
+
 	/**
 	 * Updates an existing Event and forwards to the index action afterwards.
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event the Event to display
 	 * @param Tx_JdavSv_Domain_Model_FeUser $teamer If given, this value is set for first teamer
-	 * @return string A form to edit a Event 
+	 * @return string A form to edit a Event
 	 */
 	public function editAction(Tx_JdavSv_Domain_Model_Event $event, Tx_JdavSv_Domain_Model_FeUser $teamer = NULL) {
 		$this->view->assign('event', $event);
@@ -210,8 +211,8 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->view->assign('trainees', $this->feUserRepository->getAllTrainees());
 		$this->view->assign('kitchenGroups', $this->feUserRepository->getAllKitchenGroups());
 	}
-	
-		
+
+
 
 	/**
 	 * Updates an existing Event and forwards to the list action afterwards.
@@ -224,8 +225,9 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->flashMessageContainer->add('Die Veranstaltung wurde gespeichert.');
 		$this->redirect('edit', null, null, array('teamer' => $teamer, 'event' => $event));
 	}
-	
-		
+
+
+
 	/**
 	 * Deletes an existing Event
 	 *

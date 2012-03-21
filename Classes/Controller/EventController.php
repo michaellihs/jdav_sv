@@ -67,8 +67,8 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	 */
 	public function listAction() {
 		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
-		    $this->settings['listConfig']['publicEvents'], 'publicEvents');
-		    
+			$this->settings['listConfig']['publicEvents'], 'publicEvents');
+
 		$this->view->assign('listData', $extlistContext->getListData());
 	}
 

@@ -25,6 +25,7 @@ CREATE TABLE tx_jdavsv_domain_model_event (
 	min_registrations int(11) DEFAULT '0' NOT NULL,
 	att_teamer_ratio varchar(255) DEFAULT '' NOT NULL,
 	announcement text NOT NULL,
+	comment text NOT NULL,
 	tour_report_required tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	registration_deadline int(11) DEFAULT '0' NOT NULL,
 	unregister_deadline int(11) DEFAULT '0' NOT NULL,

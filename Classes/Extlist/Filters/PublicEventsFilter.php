@@ -32,18 +32,18 @@
  */
 class Tx_JdavSv_Extlist_Filters_PublicEventsFilter extends Tx_PtExtlist_Domain_Model_Filter_AbstractSingleValueFilter {
 
-    /**
-     * Build the filterCriteria for a single field
-     *
-     * @api
-     * @param Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier
-     * @return Tx_PtExtlist_Domain_QueryObject_SimpleCriteria
-     */
-    protected function buildFilterCriteria(Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier) {
-        $fieldName = Tx_PtExtlist_Utility_DbUtils::getSelectPartByFieldConfig($fieldIdentifier);
-        $criteria = Tx_PtExtlist_Domain_QueryObject_Criteria::equals($fieldName, 1);
-        return $criteria;
-    }
+	/**
+	 * Build the filterCriteria for a single field
+	 *
+	 * @api
+	 * @param Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier
+	 * @return Tx_PtExtlist_Domain_QueryObject_SimpleCriteria
+	 */
+	protected function buildFilterCriteria(Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier) {
+		$fieldName = Tx_PtExtlist_Utility_DbUtils::getSelectPartByFieldConfig($fieldIdentifier);
+		$criteria = Tx_PtExtlist_Domain_QueryObject_Criteria::equals($fieldName, 1);
+		return $criteria;
+	}
 
 
 
