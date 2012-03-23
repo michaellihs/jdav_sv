@@ -1,27 +1,27 @@
 <?php
 /***************************************************************
-*  Copyright notice
-*
-*  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
-*
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+ *  Copyright notice
+ *
+ *  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 
 /**
  * Controller for the Export actions
@@ -48,7 +48,6 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 
 
 
-
 	protected function initializeAction() {
 		$this->defaultPdfExportSettings = $this->settings['export']['pdfExport'];
 	}
@@ -67,7 +66,7 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		);
 
 		$listContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')
-								->getFilterByFilterIdentifier('registrationsByEventFilter')->setEventUid($event->getUid());
+				->getFilterByFilterIdentifier('registrationsByEventFilter')->setEventUid($event->getUid());
 
 		// TODO put configuration into TS
 		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/exportRegistrationsListForParticipants.html';
@@ -97,13 +96,6 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 	 * @param Tx_JdavSv_Domain_Model_Event $event
 	 */
 	public function exportRegistrationsListForTeamersAction(Tx_JdavSv_Domain_Model_Event $event) {
-		$listContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
-			$this->settings['listConfig']['registrationsParticipants'], 'registrationsTeamer'
-		);
-
-		$listContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')
-			->getFilterByFilterIdentifier('registrationsByEventFilter')->setEventUid($event->getUid());
-
 		// TODO put configuration into TS
 		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/exportRegistrationsListForTeamers.html';
 		$this->defaultPdfExportSettings['fileName'] = 'teilnehmerliste-' . $event->getCategory()->getShortcut() . $event->getAccreditationNumber();
@@ -111,15 +103,7 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 
 		$this->view->setConfiguration($this->defaultPdfExportSettings);
 
-		$list = $listContext->getList(true);
-		$rendererChain = $listContext->getRendererChain();
-		$listData = $rendererChain->renderList($list->getListData());
-		$listCaptions = $rendererChain->renderCaptions($list->getListHeader());
-
 		$this->view->assign('event', $event);
-		$this->view->assign('listData', $listData);
-		$this->view->assign('listCaptions', $listCaptions);
-		$this->view->assign('listHeader', $listContext->getList()->getListHeader());
 
 		return $this->view->render();
 	}
@@ -156,4 +140,5 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 	}
 
 }
+
 ?>

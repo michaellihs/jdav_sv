@@ -1120,7 +1120,8 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return int
 	 */
 	public function getNonWaitingListRegistrationsCount() {
-		$registrationsRepository = t3lib_div::makeInstance('Tx_Extbase_Object_Manager')->get('Tx_JdavSv_Domain_Repository_RegistrationRepository'); /* @var $registrationsRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
+		$registrationsRepository = t3lib_div::makeInstance('Tx_Extbase_Object_Manager')->get('Tx_JdavSv_Domain_Repository_RegistrationRepository');
+		/* @var $registrationsRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
 		$nonWaitingListRegistrationsCount = $registrationsRepository->getNonWaitingListRegistrationsByEvent($this)->count();
 		return $nonWaitingListRegistrationsCount;
 	}
@@ -1337,7 +1338,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return string
 	 */
 	public function getFullName() {
-		return $this->category->getShortcut() . $this->accreditationNumber . ' ' . $this->title;
+		return $this->category->getShortcut() . ' ' . $this->accreditationNumber . ' ' . $this->title;
 	}
 
 
@@ -1489,4 +1490,5 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	}
 
 }
+
 ?>

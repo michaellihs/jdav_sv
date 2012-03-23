@@ -140,7 +140,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$waitingListRegistrations = $this->registrationRepository->getWaitingListRegistrationsByEvent($event);
 
 		$this->view->assign('registrations', $registrations);
-		$this->view->assign('waitingListRegistrations', $waitingListRegistrations);
+		$this->view->assign('waitinglist', $waitingListRegistrations);
 	}
 
 
@@ -267,4 +267,5 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	}
 
 }
+
 ?>

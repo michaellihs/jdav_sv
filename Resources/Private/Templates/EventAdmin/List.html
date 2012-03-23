@@ -19,9 +19,12 @@
 		<f:for each="{listData}" as="row">
 			<tr>
 				<td>
-					<strong>{row.event.value.category.shortcut}-{row.event.value.accreditationNumber}</strong><br>
+					<strong>{row.event.value.category.shortcut} {row.event.value.accreditationNumber}</strong><br>
 
-					<p class="btn {row.event.value.lights}" id="event-registrations-{row.event.value.uid}" data-original-title="Anmeldestand" data-content="{row.event.value.maxRegistrations} Plätze gesamt<br>{row.event.value.nonWaitingListRegistrationsCount} Anmeldungen (ohne Warteliste)<br>{row.event.value.waitingListRegistrationsCount} Wartelistenplätze">{row.event.value.registrationsCount} /
+					<p class="btn {row.event.value.lights}" id="event-registrations-{row.event.value.uid}"
+					   data-original-title="Anmeldestand"
+					   data-content="{row.event.value.maxRegistrations} Plätze gesamt<br>{row.event.value.nonWaitingListRegistrationsCount} Anmeldungen (ohne Warteliste)<br>{row.event.value.waitingListRegistrationsCount} Wartelistenplätze">
+						{row.event.value.registrationsCount} /
 						{row.event.value.maxRegistrations}</p>
 				</td>
 				<td>{row.event.value.dateStart -> f:format.date(format: 'd.m.Y')}<br>
@@ -30,7 +33,8 @@
 				<td>
 					<strong>{row.event.value.title}</strong>
 					<f:if condition="{row.event.value.hasComments}">
-						<i class="icon-tags" data-content="{row.event.value.comment}" data-original-title="Interne Notizen" id="event-comment-{row.event.value.uid}"></i>
+						<i class="icon-tags" data-content="{row.event.value.comment}"
+						   data-original-title="Interne Notizen" id="event-comment-{row.event.value.uid}"></i>
 					</f:if>
 					<br>
 					{row.event.value.subtitle}<br/>
@@ -71,7 +75,8 @@
 		<table>
 			<tr>
 				<td class="span4">
-					<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i>
+					<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i
+							class="icon-plus icon-white"></i>
 						Neue Veranstaltung anlegen
 					</f:link.action>
 				</td>
@@ -87,13 +92,18 @@
 
 <f:section name="javascript">
 	<script type="text/javascript">
-		<f:for each="{listData}" as="row">
+		<
+		f:for each = "{listData}" as = "row" >
 
-			<f:if condition="{row.event.value.hasComments}">
+				< f
+		:
+		if condition = "{row.event.value.hasComments}" >
 				$('#event-comment-{row.event.value.uid}').popover();
-			</f:if>
-			$('#event-registrations-{row.event.value.uid}').popover();
+		<
+		/f:if>
+		$('#event-registrations-{row.event.value.uid}').popover();
 
-		</f:for>
+		<
+		/f:for>
 	</script>
 </f:section>
