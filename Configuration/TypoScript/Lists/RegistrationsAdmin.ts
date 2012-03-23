@@ -102,11 +102,11 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
     }
 
 
-    filters {
+	filters {
 
-    	registrationAdminFilters {
+		registrationAdminFilters {
 
-    		filterConfigs {
+			filterConfigs {
 
 				## Username filter
 				10 < plugin.tx_ptextlist.prototype.filter.string
@@ -133,11 +133,11 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
 					filterIdentifier = dateFilter
 				}
 
-    		}
+			}
 
-    	}
+		}
 
-    }
+	}
 
 
 

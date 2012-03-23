@@ -21,14 +21,18 @@
 				<td>
 					<strong>{row.event.value.category.shortcut}-{row.event.value.accreditationNumber}</strong><br>
 
-					<p class="btn {row.event.value.lights}">{row.event.value.registrationsCount} /
+					<p class="btn {row.event.value.lights}" id="event-registrations-{row.event.value.uid}" data-original-title="Anmeldestand" data-content="{row.event.value.maxRegistrations} Plätze gesamt<br>{row.event.value.nonWaitingListRegistrationsCount} Anmeldungen (ohne Warteliste)<br>{row.event.value.waitingListRegistrationsCount} Wartelistenplätze">{row.event.value.registrationsCount} /
 						{row.event.value.maxRegistrations}</p>
 				</td>
 				<td>{row.event.value.dateStart -> f:format.date(format: 'd.m.Y')}<br>
 					{row.event.value.dateEnd -> f:format.date(format: 'd.m.Y')}
 				</td>
 				<td>
-					<strong>{row.event.value.title}</strong> <br>
+					<strong>{row.event.value.title}</strong>
+					<f:if condition="{row.event.value.hasComments}">
+						<i class="icon-tags" data-content="{row.event.value.comment}" data-original-title="Interne Notizen" id="event-comment-{row.event.value.uid}"></i>
+					</f:if>
+					<br>
 					{row.event.value.subtitle}<br/>
 					<f:link.action controller="EventAdmin" action="show" arguments="{event: row.event.value.uid}">
 						Details
@@ -79,4 +83,17 @@
 		</table>
 	</div>
 
+</f:section>
+
+<f:section name="javascript">
+	<script type="text/javascript">
+		<f:for each="{listData}" as="row">
+
+			<f:if condition="{row.event.value.hasComments}">
+				$('#event-comment-{row.event.value.uid}').popover();
+			</f:if>
+			$('#event-registrations-{row.event.value.uid}').popover();
+
+		</f:for>
+	</script>
 </f:section>

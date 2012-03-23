@@ -1115,6 +1115,30 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 
 
 	/**
+	 * Returns count of non-waiting-list registrations for this event
+	 *
+	 * @return int
+	 */
+	public function getNonWaitingListRegistrationsCount() {
+		$registrationsRepository = t3lib_div::makeInstance('Tx_Extbase_Object_Manager')->get('Tx_JdavSv_Domain_Repository_RegistrationRepository'); /* @var $registrationsRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
+		$nonWaitingListRegistrationsCount = $registrationsRepository->getNonWaitingListRegistrationsByEvent($this)->count();
+		return $nonWaitingListRegistrationsCount;
+	}
+
+
+
+	/**
+	 * Returns waiting-list registrations for this event
+	 *
+	 * @return int
+	 */
+	public function getWaitingListRegistrationsCount() {
+		return $this->getRegistrationsCount() - $this->getNonWaitingListRegistrationsCount();
+	}
+
+
+
+	/**
 	 * Returns 'traffic-lights' for event's registration status
 	 *
 	 * @return string
@@ -1451,6 +1475,17 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	public function getComment() {
 		return $this->comment;
+	}
+
+
+
+	/**
+	 * Returns true if this events has comments attached
+	 *
+	 * @return bool
+	 */
+	public function getHasComments() {
+		return ($this->comment !== NULL && $this->comment !== '');
 	}
 
 }
