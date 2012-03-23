@@ -74,12 +74,17 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	/**
 	 * Displays all Registrations
 	 *
+	 * @param boolean $resetFilters If set to TRUE, filters will be reset
 	 * @return string The rendered list view
 	 */
-	public function listAction() {
+	public function listAction($resetFilters = FALSE) {
 		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
 			$this->settings['listConfig']['registrationsAdmin'], 'registrationsAdmin'
 		);
+
+		if ($resetFilters) {
+			$extlistContext->resetFilterboxCollection();
+		}
 
 		$this->view->assign('listData', $extlistContext->getListData());
 		$this->view->assign('listHeader', $extlistContext->getList()->getListHeader());

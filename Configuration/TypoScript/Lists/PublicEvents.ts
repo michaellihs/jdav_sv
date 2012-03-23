@@ -19,10 +19,15 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
     
     
     fields {
-    
+
         event {
             table = __self__
             field = __object__
+        }
+
+        uid {
+        	table = __self__
+        	field = uid
         }
     
         dateStart {
@@ -136,6 +141,22 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
 					filterIdentifier = registrationsByEventFilter
 					label = nothinToLabelHere
 					fieldIdentifier = isPublic
+				}
+
+    		}
+
+    	}
+
+    	filterbox {
+
+    		filterConfigs {
+
+				10 {
+					filterClassName = Tx_JdavSv_Extlist_Filters_EventCategoryFilter
+					partialPath = noPartialToBeSetHere
+					filterIdentifier = categoryFilter
+					label = nothinToLabelHere
+					fieldIdentifier = category
 				}
 
     		}

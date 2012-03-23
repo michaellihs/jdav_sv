@@ -63,13 +63,21 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	/**
 	 * Displays all Events
 	 *
+	 * @param boolean $resetFilters If set to true, filters will be reset
 	 * @return string The rendered list view
 	 */
-	public function listAction() {
+	public function listAction($resetFilters = FALSE) {
 		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
 			$this->settings['listConfig']['publicEvents'], 'publicEvents');
 
+		if ($resetFilters) {
+			$extlistContext->resetFilterboxCollection();
+		}
+
+		$categoryFilter = $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox')->getFilterByFilterIdentifier('categoryFilter');
+
 		$this->view->assign('listData', $extlistContext->getListData());
+		$this->view->assign('categoryFilter', $categoryFilter);
 	}
 
 
