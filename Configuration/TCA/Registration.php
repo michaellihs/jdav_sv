@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_registration'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_registration']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event',
+		'showRecordFieldList'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event'),
+		'1' => array('showitem'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -151,6 +151,16 @@ $TCA['tx_jdavsv_domain_model_registration'] = array(
 					'showPossibleLocalizationRecords' => 1,
 					'showAllLocalizationLink' => 1
 				),
+			),
+		),
+		'comment' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Comment',
+			'config'	=> array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
 			),
 		),
 	),

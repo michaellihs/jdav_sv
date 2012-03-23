@@ -67,8 +67,7 @@ CREATE TABLE tx_jdavsv_domain_model_event (
 CREATE TABLE tx_jdavsv_domain_model_registration (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
-	
-	
+
 	date int(11) DEFAULT '0' NOT NULL,
 	attendee int(11) DEFAULT '0' NOT NULL,
 	reserved_until int(11) DEFAULT '0' NOT NULL,
@@ -79,6 +78,7 @@ CREATE TABLE tx_jdavsv_domain_model_registration (
 	payment_method int(11) unsigned DEFAULT '0' NOT NULL,
 	event int(11) unsigned DEFAULT '0' NOT NULL,
     is_accepted tinyint(1) unsigned DEFAULT '0' NOT NULL,
+    comment text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

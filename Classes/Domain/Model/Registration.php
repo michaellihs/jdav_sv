@@ -1,27 +1,27 @@
 <?php
 /***************************************************************
-*  Copyright notice
-*
-*  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
-*  	
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+ *  Copyright notice
+ *
+ *  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 
 
 /**
@@ -40,12 +40,16 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	protected $date;
 
+
+
 	/**
 	 * Person that made registration
 	 *
 	 * @var Tx_JdavSv_Domain_Model_FeUser $attendee
 	 */
 	protected $attendee;
+
+
 
 	/**
 	 * If Registration is reservation only, this is the time, reservation ends
@@ -54,12 +58,16 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	protected $reservedUntil;
 
+
+
 	/**
 	 * Registration is for waiting list only
 	 *
 	 * @var boolean $waitingList
 	 */
 	protected $waitingList;
+
+
 
 	/**
 	 * Sorting of registration compared to other registrations
@@ -68,6 +76,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	protected $registrationOrder;
 
+
+
 	/**
 	 * Is attendee a vegetarian
 	 *
@@ -75,19 +85,34 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	protected $vegetarian;
 
+
+
 	/**
 	 * Event, registration belongs to
 	 *
 	 * @var Tx_JdavSv_Domain_Model_Event $event
 	 */
 	protected $event;
-	
+
+
+
 	/**
 	 * Set to true, if registration is approved and accepted
 	 *
 	 * @var boolean
 	 */
 	protected $isAccepted;
+
+
+
+	/**
+	 * Internal comment for registration
+	 *
+	 * @var string
+	 */
+	protected $comment;
+
+
 
 	/**
 	 * The constructor.
@@ -99,6 +124,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		$this->initStorageObjects();
 	}
 
+
+
 	/**
 	 * Initializes all Tx_Extbase_Persistence_ObjectStorage instances.
 	 *
@@ -107,6 +134,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	protected function initStorageObjects() {
 
 	}
+
+
 
 	/**
 	 * Setter for date
@@ -118,6 +147,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		$this->date = $date;
 	}
 
+
+
 	/**
 	 * Getter for date
 	 *
@@ -126,6 +157,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function getDate() {
 		return $this->date;
 	}
+
+
 
 	/**
 	 * Setter for attendee
@@ -137,6 +170,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		$this->attendee = $attendee;
 	}
 
+
+
 	/**
 	 * Getter for attendee
 	 *
@@ -145,6 +180,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function getAttendee() {
 		return $this->attendee;
 	}
+
+
 
 	/**
 	 * Setter for reservedUntil
@@ -156,6 +193,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		$this->reservedUntil = $reservedUntil;
 	}
 
+
+
 	/**
 	 * Getter for reservedUntil
 	 *
@@ -164,6 +203,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function getReservedUntil() {
 		return $this->reservedUntil;
 	}
+
+
 
 	/**
 	 * Setter for waitingList
@@ -175,6 +216,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		$this->waitingList = $waitingList;
 	}
 
+
+
 	/**
 	 * Getter for waitingList
 	 *
@@ -184,6 +227,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		return $this->waitingList;
 	}
 
+
+
 	/**
 	 * Returns the state of waitingList
 	 *
@@ -192,6 +237,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function isWaitingList() {
 		return $this->getWaitingList();
 	}
+
+
 
 	/**
 	 * Setter for registrationOrder
@@ -203,6 +250,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		$this->registrationOrder = $registrationOrder;
 	}
 
+
+
 	/**
 	 * Getter for registrationOrder
 	 *
@@ -211,6 +260,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function getRegistrationOrder() {
 		return $this->registrationOrder;
 	}
+
+
 
 	/**
 	 * Setter for vegetarian
@@ -222,6 +273,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		$this->vegetarian = $vegetarian;
 	}
 
+
+
 	/**
 	 * Getter for vegetarian
 	 *
@@ -231,6 +284,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		return $this->vegetarian;
 	}
 
+
+
 	/**
 	 * Returns the state of vegetarian
 	 *
@@ -239,6 +294,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function isVegetarian() {
 		return $this->getVegetarian();
 	}
+
+
 
 	/**
 	 * Setter for event
@@ -250,6 +307,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		$this->event = $event;
 	}
 
+
+
 	/**
 	 * Getter for event
 	 *
@@ -258,23 +317,27 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function getEvent() {
 		return $this->event;
 	}
-	
+
+
+
 	/**
 	 * Getter for isAccepted property.
-	 * 
+	 *
 	 * Returns true, if registration has been approved and is accepted
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function getIsAccepted() {
 		return $this->isAccepted;
 	}
-	
+
+
+
 	/**
 	 * Setter for isAccepted property.
-	 * 
+	 *
 	 * Set this property to true, if registration has been approved and is accepted.
-	 * 
+	 *
 	 * @param boolean $isAccepted
 	 */
 	public function setIsAccepted($isAccepted) {
@@ -294,16 +357,19 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function getAllPrerequisiteFulfillments() {
 		// All prerequisites for event-category of attached event
 		$prerequisites = $this->event->getCategory()->getPrerequisites();
-		$categoryFulfillmentRepository = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository'); /* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository*/
+		$categoryFulfillmentRepository = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository');
+		/* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository*/
 		$fulfilledPrerequisites = $categoryFulfillmentRepository->findByRegistration($this);
 
 		$fulfilledPrerequisitesMap = array();
-		foreach($fulfilledPrerequisites as $fulfilledPrerequisite) { /* @var $fulfilledPrerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
+		foreach ($fulfilledPrerequisites as $fulfilledPrerequisite) {
+			/* @var $fulfilledPrerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
 			$fulfilledPrerequisitesMap[$fulfilledPrerequisite->getPrerequisite()->getUid()] = $fulfilledPrerequisite;
 		}
 
 		$allPrerequisites = array();
-		foreach($prerequisites as $prerequisite) { /* @var $prerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisite */
+		foreach ($prerequisites as $prerequisite) {
+			/* @var $prerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisite */
 			if (array_key_exists($prerequisite->getUid(), $fulfilledPrerequisitesMap)) {
 				$allPrerequisites[] = $fulfilledPrerequisitesMap[$prerequisite->getUid()];
 			} else {
@@ -339,19 +405,23 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	public function setCategoryPrerequisiteFulfillmentsByArgumentsArray(array $prerequisitesFulfillmentsArray) {
 		// All prerequisites for event-category of attached event
 		$prerequisites = $this->event->getCategory()->getPrerequisites();
-		$categoryFulfillmentRepository = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository'); /* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository*/
+		$categoryFulfillmentRepository = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository');
+		/* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository*/
 		$fulfilledPrerequisites = $categoryFulfillmentRepository->findByRegistration($this);
 
 		$fulfilledPrerequisitesMap = array();
-		foreach($fulfilledPrerequisites as $fulfilledPrerequisite) { /* @var $fulfilledPrerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
+		foreach ($fulfilledPrerequisites as $fulfilledPrerequisite) {
+			/* @var $fulfilledPrerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
 			// Reset old prerequisite fulfillements
 			$fulfilledPrerequisite->setIsFulfilled(FALSE);
 			$fulfilledPrerequisitesMap[$fulfilledPrerequisite->getPrerequisite()->getUid()] = $fulfilledPrerequisite;
 		}
 
-		foreach ($prerequisites as $prerequisite) { /* @var $prerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisite */
+		foreach ($prerequisites as $prerequisite) {
+			/* @var $prerequisite Tx_JdavSv_Domain_Model_CategoryPrerequisite */
 			if (array_key_exists($prerequisite->getUid(), $prerequisitesFulfillmentsArray)
-					&& intval($prerequisitesFulfillmentsArray[$prerequisite->getUid()]) === 1) {
+					&& intval($prerequisitesFulfillmentsArray[$prerequisite->getUid()]) === 1
+			) {
 				if (array_key_exists($prerequisite->getUid(), $fulfilledPrerequisitesMap)) {
 					// First case: Fulfillment already existed
 					$prerequisiteFulfillment = $fulfilledPrerequisitesMap[$prerequisite->getUid()];
@@ -384,7 +454,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getAllPrerequisitesAreFulfilled() {
 		$allPrerequisistesAreFulfilled = TRUE;
-		foreach ($this->getAllPrerequisiteFulfillments() as $prerequisiteFulfillment) { /* @var $prerequisiteFulfillment Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
+		foreach ($this->getAllPrerequisiteFulfillments() as $prerequisiteFulfillment) {
+			/* @var $prerequisiteFulfillment Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment */
 			$allPrerequisistesAreFulfilled = ($allPrerequisistesAreFulfilled && $prerequisiteFulfillment->getIsFulfilled());
 		}
 		return $allPrerequisistesAreFulfilled;
@@ -427,6 +498,24 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getIsReservationOnly() {
 		return !($this->isWaitingList() || $this->isAccepted);
+	}
+
+
+
+	/**
+	 * @param string $comment
+	 */
+	public function setComment($comment) {
+		$this->comment = $comment;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getComment() {
+		return $this->comment;
 	}
 
 }

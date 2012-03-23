@@ -70,7 +70,11 @@
 				<td>{row.registration.value.date -> f:format.date(format: 'd.m.Y')}</td>
 				<td>
 					<strong>{row.registration.value.event.category.shortcut}-{row.registration.value.event.accreditationNumber}
-						{row.registration.value.event.title}</strong><br>
+						{row.registration.value.event.title}</strong>
+					<f:if condition="{row.registration.value.comment}">
+						<i class="icon-tags" id="registration-comment-{row.registration.value.uid}" data-original-title="Interne Notiz" data-content="{row.registration.value.comment}"></i>
+					</f:if>
+					<br>
 					<f:link.action controller="EventAdmin" action="show"
 								   arguments="{event: row.registration.value.event}">Details
 					</f:link.action>
@@ -125,4 +129,10 @@
 
 </f:section>
 
-<f:section name="javascript"></f:section>
+<f:section name="javascript">
+	<script type="text/javascript">
+		<f:for each="{listData}" as="row">
+			<f:if condition="{row.registration.value.comment}">$('#registration-comment-{row.registration.value.uid}').popover();</f:if>
+		</f:for>
+	</script>
+</f:section>
