@@ -23,14 +23,13 @@
 				<td>
 					<strong>{event.category.shortcut}-{event.accreditationNumber}</strong><br>
 
-					<p class="btn {event.lights}">{event.registrationsCount} /
-						{event.maxRegistrations}</p>
+					<f:render partial="Event/RegistrationState" arguments="{event: event}" />
 				</td>
 				<td>{event.dateStart -> f:format.date(format: 'd.m.Y')}<br>
 					{event.dateEnd -> f:format.date(format: 'd.m.Y')}
 				</td>
 				<td>
-					<strong>{event.title}</strong> <br>
+					<strong>{event.title}</strong> <f:render partial="Event/EventComment" arguments="{event: event}" /><br>
 					{event.subtitle}<br/>
 					<f:link.action controller="EventAdmin" action="show" arguments="{event: event.uid}">
 						Details
@@ -63,4 +62,15 @@
 
 </f:section>
 
-<f:section name="javascript"></f:section>
+<f:section name="javascript">
+	<script type="text/javascript">
+		<f:for each="{events}" as="event" >
+
+			<f:if condition="{event.hasComments}" >
+					$('#event-comment-{event.uid}').popover();
+			</f:if>
+			$('#event-registrations-{event.uid}').popover();
+
+		</f:for>
+	</script>
+</f:section>
