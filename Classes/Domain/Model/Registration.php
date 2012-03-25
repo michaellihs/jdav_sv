@@ -115,6 +115,15 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 
 
 	/**
+	 * If set to true, registration is reservation
+	 *
+	 * @var boolean
+	 */
+	protected $isReservation;
+
+
+
+	/**
 	 * The constructor.
 	 *
 	 * @return void
@@ -516,6 +525,24 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getComment() {
 		return $this->comment;
+	}
+
+
+
+	/**
+	 * @param boolean $isReservation
+	 */
+	public function setIsReservation($isReservation) {
+		$this->isReservation = $isReservation;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsReservation() {
+		return $this->isReservation;
 	}
 
 }

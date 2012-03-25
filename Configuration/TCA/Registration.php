@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_registration'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_registration']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment',
+		'showRecordFieldList'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment,is_reservation',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment'),
+		'1' => array('showitem'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment,is_reservation'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -119,6 +119,14 @@ $TCA['tx_jdavsv_domain_model_registration'] = array(
                 'default' => 0
             ),
         ),
+		'is_reservation' => array(
+			'exclude'   => 0,
+			'label'     => 'Is Reservation',
+			'config'    => array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
 		'registration_order' => array(
 			'exclude'	=> 0,
 			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_registration.registration_order',

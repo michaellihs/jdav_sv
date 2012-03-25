@@ -78,6 +78,7 @@ CREATE TABLE tx_jdavsv_domain_model_registration (
 	payment_method int(11) unsigned DEFAULT '0' NOT NULL,
 	event int(11) unsigned DEFAULT '0' NOT NULL,
     is_accepted tinyint(1) unsigned DEFAULT '0' NOT NULL,
+    is_reservation tinyint(1) unsigned DEFAULT '0' NOT NULL,
     comment text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
