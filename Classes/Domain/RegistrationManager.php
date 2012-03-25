@@ -158,9 +158,10 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 *
 	 * @param Tx_Extbase_Domain_Model_FrontendUser $feUser
 	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @param boolean $isReservation If set to true, registration is set to be reservation
 	 * @return Tx_JdavSv_Domain_Model_Registration $registration
 	 */
-	public function registerUserForEvent(Tx_Extbase_Domain_Model_FrontendUser $feUser, Tx_JdavSv_Domain_Model_Event $event) {
+	public function registerUserForEvent(Tx_Extbase_Domain_Model_FrontendUser $feUser, Tx_JdavSv_Domain_Model_Event $event, $isReservation = TRUE) {
 		$registration = new Tx_JdavSv_Domain_Model_Registration();
 		$registration->setEvent($event);
 		$registration->setAttendee($feUser);
@@ -168,6 +169,7 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 		$date->setTimestamp(time());
 		$registration->setDate($date);
 		$registration->setReservedUntil($date->add(new DateInterval('P10D')));
+		$registration->setIsReservation($isReservation);
 		$this->registrationRepository->add($registration);
 		return $registration;
 	}
@@ -368,7 +370,7 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 			$mailer->assignToView($key, $value);
 		}
 
-		$mailer->send();
+		#$mailer->send();
 	}
 
 
