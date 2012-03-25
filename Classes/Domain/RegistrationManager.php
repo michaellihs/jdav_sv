@@ -370,7 +370,7 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 			$mailer->assignToView($key, $value);
 		}
 
-		#$mailer->send();
+		$mailer->send();
 	}
 
 
