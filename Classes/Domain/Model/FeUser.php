@@ -84,6 +84,24 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 
 
 	/**
+	 * Holds date of birth of user
+	 *
+	 * @var DateTime
+	 */
+	protected $dateOfBirth;
+
+
+
+	/**
+	 * Holds mobile phone number of user
+	 *
+	 * @var string
+	 */
+	protected $mobilePhone;
+
+
+
+	/**
 	 * @param boolean $isTeamer
 	 */
 	public function setIsTeamer($isTeamer) {
@@ -237,6 +255,42 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 		} else {
 			parent::setPassword($password);
 		}
+	}
+
+
+
+	/**
+	 * @param DateTime $dateOfBirth
+	 */
+	public function setDateOfBirth(DateTime $dateOfBirth) {
+		$this->dateOfBirth = $dateOfBirth;
+	}
+
+
+
+	/**
+	 * @return DateTime
+	 */
+	public function getDateOfBirth() {
+		return $this->dateOfBirth;
+	}
+
+
+
+	/**
+	 * @param string $mobilePhone
+	 */
+	public function setMobilePhone($mobilePhone) {
+		$this->mobilePhone = $mobilePhone;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getMobilePhone() {
+		return $this->mobilePhone;
 	}
 
 }

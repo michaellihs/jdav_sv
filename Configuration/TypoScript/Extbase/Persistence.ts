@@ -26,6 +26,8 @@ config.tx_extbase {
                         tx_jdavsv_is_kitchen_group.mapOnProperty = isKitchenGroup
                         tx_jdavsv_is_admin.mapOnProperty = isAdmin
                         tx_jdavsv_is_proofreader.mapOnProperty = isProofreader
+                        tx_jdavsv_mobile_phone.mapOnProperty = mobilePhone
+                        tx_jdavsv_date_of_birth.mapOnProperty = dateOfBirth
                     }
                 }
             }
