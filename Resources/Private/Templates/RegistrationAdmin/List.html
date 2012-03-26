@@ -57,6 +57,29 @@
 						</f:link.action>
 					</td>
 				</tr>
+				<tr>
+					<td colspan="4">
+						<div class="control-group">
+							<div class="controls">
+								<label class="checkbox inline">
+									<f:form.checkbox
+											name="{extlist:namespace.FormElementName(object:'{stateFilter}' property:'isReservation')}"
+											checked="{stateFilter.isReservation}" value="1"/>
+									Reservierungen</label>
+								<label class="checkbox inline">
+									<f:form.checkbox
+											name="{extlist:namespace.FormElementName(object:'{stateFilter}' property:'isWaitinglist')}"
+											checked="{stateFilter.isWaitinglist}" value="1"/>
+									Warteliste</label>
+								<label class="checkbox inline">
+									<f:form.checkbox
+											name="{extlist:namespace.FormElementName(object:'{stateFilter}' property:'isAccepted')}"
+											checked="{stateFilter.isAccepted}" value="1"/>
+									Akzeptiert</label>
+							</div>
+						</div>
+					</td>
+				</tr>
 			</table>
 		</f:form>
 	<table class="table table-striped">

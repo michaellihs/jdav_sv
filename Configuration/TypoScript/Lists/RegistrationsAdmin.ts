@@ -133,6 +133,16 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
 					filterIdentifier = dateFilter
 				}
 
+				## State filter
+				40 < plugin.tx_ptextlist.prototype.filter.string
+				40 {
+					## Configuration does not matter here
+					fieldIdentifier = date
+					filterIdentifier = stateFilter
+					filterClassName = Tx_JdavSv_Extlist_Filters_RegistrationsByStateAdminFilter
+					label = Anmeldezustand
+				}
+
 			}
 
 		}
