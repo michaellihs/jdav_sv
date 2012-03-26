@@ -21,9 +21,9 @@
 					<td>{registration.attendee.sektion}</td>
 					<td>{registration.attendee.address}</td>
 					<td>{registration.attendee.telephone}</td>
-					<td>{registration.attendee.mobile}</td>
+					<td>{registration.attendee.mobilePhone}</td>
 					<td>{registration.attendee.email}</td>
-					<td>{registration.attendee.dateOfBirth}</td>
+					<td>{registration.attendee.dateOfBirth->f:format.date(format: 'd.m.Y')}</td>
 				</tr>
 			</f:for>
 			</tbody>
