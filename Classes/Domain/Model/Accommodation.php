@@ -1,27 +1,27 @@
 <?php
 /***************************************************************
-*  Copyright notice
-*
-*  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
-*  	
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+ *  Copyright notice
+ *
+ *  (c) 2011 Michael Knoll <mimi@kaktusteam.de>, MKLV GbR
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 
 
 /**
@@ -41,12 +41,16 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $name;
 
+
+
 	/**
 	 * address of accommodation
 	 *
 	 * @var string $address
 	 */
 	protected $address;
+
+
 
 	/**
 	 * URL of website for accomodation
@@ -55,6 +59,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $url;
 
+
+
 	/**
 	 * E-Mail address for accomodation
 	 *
@@ -62,12 +68,25 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	 */
 	protected $email;
 
+
+
 	/**
 	 * Telephone number of accomodation
 	 *
 	 * @var string $telephone
 	 */
 	protected $telephone;
+
+
+
+	/**
+	 * Notes for accommodation
+	 *
+	 * @var string
+	 */
+	protected $notes;
+
+
 
 	/**
 	 * Setter for name
@@ -79,6 +98,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 		$this->name = $name;
 	}
 
+
+
 	/**
 	 * Getter for name
 	 *
@@ -87,6 +108,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	public function getName() {
 		return $this->name;
 	}
+
+
 
 	/**
 	 * Setter for address
@@ -98,6 +121,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 		$this->address = $address;
 	}
 
+
+
 	/**
 	 * Getter for address
 	 *
@@ -106,6 +131,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	public function getAddress() {
 		return $this->address;
 	}
+
+
 
 	/**
 	 * Setter for url
@@ -117,6 +144,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 		$this->url = $url;
 	}
 
+
+
 	/**
 	 * Getter for url
 	 *
@@ -125,6 +154,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	public function getUrl() {
 		return $this->url;
 	}
+
+
 
 	/**
 	 * Setter for email
@@ -136,6 +167,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 		$this->email = $email;
 	}
 
+
+
 	/**
 	 * Getter for email
 	 *
@@ -144,6 +177,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	public function getEmail() {
 		return $this->email;
 	}
+
+
 
 	/**
 	 * Setter for telephone
@@ -155,6 +190,8 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 		$this->telephone = $telephone;
 	}
 
+
+
 	/**
 	 * Getter for telephone
 	 *
@@ -162,6 +199,28 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	 */
 	public function getTelephone() {
 		return $this->telephone;
+	}
+
+
+
+	/**
+	 * Setter for notes
+	 *
+	 * @param string $notes
+	 */
+	public function setNotes($notes) {
+		$this->notes = $notes;
+	}
+
+
+
+	/**
+	 * Getter for notes
+	 *
+	 * @return string
+	 */
+	public function getNotes() {
+		return $this->notes;
 	}
 
 }

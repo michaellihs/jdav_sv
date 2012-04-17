@@ -12,7 +12,7 @@
 <f:render partial="Event/properties" arguments="{event:event}" />
 
 <br/>
-<f:link.action class="btn btn-primary" action="edit">Veranstaltung bearbeiten</f:link.action><br />
+<f:link.action class="btn btn-primary" controller="EventAdmin" arguments="{event: event}" action="edit">Veranstaltung bearbeiten</f:link.action><br />
 <br/>
     
 <legend>Anmeldungen</legend>

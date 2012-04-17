@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_accommodation'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_accommodation']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'name,address,url,email,telephone',
+		'showRecordFieldList'	=> 'name,address,url,email,telephone,notes',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'name,address,url,email,telephone'),
+		'1' => array('showitem'	=> 'name,address,url,email,telephone,notes'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -104,6 +104,16 @@ $TCA['tx_jdavsv_domain_model_accommodation'] = array(
 			'config'	=> array(
 				'type' => 'input',
 				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+		'notes' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Interne Notizen',
+			'config'	=> array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
 				'eval' => 'trim'
 			),
 		),

@@ -90,7 +90,10 @@
 							</f:for>
 						</table>
 						<f:link.action controller="Export" action="exportRegistrationsListForParticipants" arguments="{event: event}">Teilnehmerliste als PDF herunterladen</f:link.action><br/>
-						<f:link.action controller="Export" action="exportInvoiceForRegistration" arguments="{registration: event.registrationForCurrentUser}">Teilnahmebestätigung als PDF herunterladen</f:link.action>
+
+						<br>
+						<p>Diese Liste darf ausschließlich für Vereinszwecke verwendet werden. Eine Verwendung für andere (insbesondere für kommerzielle) Zwecke sowie die Überlassung der Liste
+						an außenstehende Dritte ist gemäß § 28 Abs.5 BDSG nicht zulässig.</p>
 					</div>
 				</f:if>
 				<f:if condition="{event.currentUserIsRegisteredForThisEvent}">
