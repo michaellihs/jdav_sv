@@ -124,6 +124,14 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 
 
 	/**
+	 * If set to true, user has paid for registration
+	 * @var boolean
+	 */
+	protected $paid;
+
+
+
+	/**
 	 * The constructor.
 	 *
 	 * @return void
@@ -543,6 +551,24 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getIsReservation() {
 		return $this->isReservation;
+	}
+
+
+
+	/**
+	 * @param boolean $paid
+	 */
+	public function setPaid($paid) {
+		$this->paid = $paid;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getPaid() {
+		return $this->paid;
 	}
 
 }

@@ -24,6 +24,11 @@
 </div>
 
 <div class="control-group">
+<label class="control-label" for="vegetarian">Teilnehmer ist Vegetarier</label>
+	<div class="controls"><f:form.checkbox property="vegetarian" value="1" checked="{registration.vegetarian}" /></div>
+</div>
+
+<div class="control-group">
 <label class="control-label" for="date">Anmeldedatum</label>
 	<div class="controls"><f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="date"  value="{registration.date->f:format.date(format:'d.m.Y')}"  /></div>
 </div>
@@ -44,13 +49,13 @@
 </div>
 
 <div class="control-group">
-<label class="control-label" for="vegetarian">Vegetarier</label>
-	<div class="controls"><f:form.checkbox property="vegetarian" value="1" checked="{registration.vegetarian}" /></div>
+<label class="control-label" for="isAccepted">Anmeldung akzeptiert</label>
+	<div class="controls"><f:form.checkbox property="isAccepted" value="1" checked="{registration.isAccepted}" /></div>
 </div>
 
 <div class="control-group">
-<label class="control-label" for="isAccepted">Anmeldung akzeptiert</label>
-	<div class="controls"><f:form.checkbox property="isAccepted" value="1" checked="{registration.isAccepted}" /></div>
+<label class="control-label" for="paid">Anmeldung bezahlt</label>
+	<div class="controls"><f:form.checkbox property="paid" value="1" checked="{registration.paid}" /></div>
 </div>
 
 <div class="control-group">
