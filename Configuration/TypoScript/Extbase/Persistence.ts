@@ -16,7 +16,7 @@ config.tx_extbase {
 
         	Tx_JdavSv_Domain_Model_FeUser >
             Tx_JdavSv_Domain_Model_FeUser {
-            	newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model_FeUser.newRecordStoragePid}
+            	newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model_FeUser.newRecordStoragePid}
                 mapping {
                     tableName = fe_users
                     recordType >
