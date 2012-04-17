@@ -396,6 +396,33 @@ $tempColumns = array(
 			'size' => 4,
 			'eval' => 'int'
 		),
+	),
+	'tx_jdavsv_dav_nr' => array(
+		'exclude'	=> 0,
+		'label'		=> 'DAV Mitgliedsnummer',
+		'config'	=> array(
+			'type' => 'input',
+			'size' => 4,
+			'eval' => 'int'
+		),
+	),
+	'tx_jdavsv_julei_nr' => array(
+		'exclude'	=> 0,
+		'label'		=> 'Jugendleiternummer',
+		'config'	=> array(
+			'type' => 'input',
+			'size' => 4,
+			'eval' => 'int'
+		),
+	),
+	'tx_jdavsv_sex' => array(
+		'exclude'	=> 0,
+		'label'		=> 'Geschlecht',
+		'config'	=> array(
+			'type' => 'input',
+			'size' => 4,
+			'eval' => 'int'
+		),
 	)
 );
 t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns, 1);
@@ -407,4 +434,7 @@ t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_proofreader');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_mobile_phone');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_date_of_birth');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_sektion');
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_dav_nr');
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_julei_nr');
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_sex');
 ?>

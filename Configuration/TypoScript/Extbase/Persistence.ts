@@ -33,6 +33,9 @@ config.tx_extbase {
                         tx_jdavsv_mobile_phone.mapOnProperty = mobilePhone
                         tx_jdavsv_date_of_birth.mapOnProperty = dateOfBirth
                         tx_jdavsv_sektion.mapOnProperty = sektion
+                        tx_jdavsv_dav_nr.mapOnProperty = davNr
+                        tx_jdavsv_julei_nr.mapOnProperty = juleiNr
+                        tx_jdavsv_sex.mapOnProperty = sex
                     }
                 }
             }

@@ -111,6 +111,33 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 
 
 	/**
+	 * Holds DAV nr of user
+	 *
+	 * @var string
+	 */
+	protected $davNr;
+
+
+
+	/**
+	 * Holds julei nr of user
+	 *
+	 * @var string
+	 */
+	protected $juleiNr;
+
+
+
+	/**
+	 * Holds sex of user
+	 *
+	 * @var string
+	 */
+	protected $sex;
+
+
+
+	/**
 	 * @param boolean $isTeamer
 	 */
 	public function setIsTeamer($isTeamer) {
@@ -318,6 +345,60 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 */
 	public function getSektion() {
 		return $this->sektion;
+	}
+
+
+
+	/**
+	 * @param string $davNr
+	 */
+	public function setDavNr($davNr) {
+		$this->davNr = $davNr;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getDavNr() {
+		return $this->davNr;
+	}
+
+
+
+	/**
+	 * @param string $juleiNr
+	 */
+	public function setJuleiNr($juleiNr) {
+		$this->juleiNr = $juleiNr;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getJuleiNr() {
+		return $this->juleiNr;
+	}
+
+
+
+	/**
+	 * @param string $sex
+	 */
+	public function setSex($sex) {
+		$this->sex = $sex;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getSex() {
+		return $this->sex;
 	}
 
 }

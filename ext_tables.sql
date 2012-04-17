@@ -406,6 +406,9 @@ CREATE TABLE tx_jdavsv_domain_model_categoryprerequisite (
 
 CREATE TABLE fe_users (
     tx_jdavsv_sektion int(11) DEFAULT '0' NOT NULL,
+    tx_jdavsv_dav_nr varchar(255) DEFAULT '' NOT NULL,
+    tx_jdavsv_julei_nr varchar(255) DEFAULT '' NOT NULL,
+    tx_jdavsv_sex varchar(255) DEFAULT '' NOT NULL,
     tx_jdavsv_is_teamer tinyint(4) unsigned DEFAULT '0' NOT NULL,
     tx_jdavsv_is_trainee tinyint(4) unsigned DEFAULT '0' NOT NULL,
     tx_jdavsv_is_kitchen_group tinyint(4) unsigned DEFAULT '0' NOT NULL,
