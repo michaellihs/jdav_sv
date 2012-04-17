@@ -267,7 +267,19 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$extlistContextForEventAdminList->getDataBackend()->getSorter()->reset();
 		$this->forward('list');
 	}
+	
+	
+	
+	/**
+	 * Sets all registrations to be paid for given event
+	 * 
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 */
+	public function setRegistrationsPaidAction(Tx_JdavSv_Domain_Model_Event $event) {
+		$event->setRegistrationsPaid();
+		$this->flashMessageContainer->add('Der Status aller Anmeldungen wurde auf <b>bezahlt</b> gesetzt.');
+		$this->forward('show');
+	}
 
 }
-
 ?>

@@ -1489,6 +1489,16 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		return ($this->comment !== NULL && $this->comment !== '');
 	}
 
-}
 
+
+	/**
+	 * Sets all non-waitinglist registrations for this event to be paid
+	 */
+	public function setRegistrationsPaid() {
+		foreach ($this->getNonWaitingListRegistrations() as $nonWaitingListRegistration) {
+			$nonWaitingListRegistration->setPaid(true);
+		}
+	}
+
+}
 ?>

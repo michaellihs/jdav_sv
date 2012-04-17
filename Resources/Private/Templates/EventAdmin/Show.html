@@ -12,11 +12,15 @@
 <f:render partial="Event/properties" arguments="{event:event}" />
 
 <br/>
-<f:link.action class="btn btn-primary" controller="EventAdmin" arguments="{event: event}" action="edit">Veranstaltung bearbeiten</f:link.action><br />
+<f:link.action class="btn btn-primary" controller="EventAdmin" arguments="{event: event}" action="edit">Veranstaltung bearbeiten</f:link.action>
+<br />
 <br/>
     
 <legend>Anmeldungen</legend>
 <f:render partial="Registration/list" arguments="{event:event, registrations:event.nonWaitingListRegistrations}" />
+<f:link.action class="btn btn-primary" controller="EventAdmin" arguments="{event: event}" action="setRegistrationsPaid">Anmeldungen auf bezahlt setzen</f:link.action>
+<br/>
+<br/>
 
 <legend>Warteliste</legend>
 <f:render partial="Registration/list" arguments="{waitingList: 1, event:event, registrations:event.waitingListRegistrations, currentUser: currentUser}" />
