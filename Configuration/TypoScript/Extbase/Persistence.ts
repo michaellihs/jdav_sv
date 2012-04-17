@@ -16,6 +16,7 @@ config.tx_extbase {
 
         	Tx_JdavSv_Domain_Model_FeUser >
             Tx_JdavSv_Domain_Model_FeUser {
+            	newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model_FeUser.newRecordStoragePid}
                 mapping {
                     tableName = fe_users
                     recordType >
@@ -42,8 +43,33 @@ config.tx_extbase {
                     }
                 }
             }
-            
+
+            Tx_JdavSv_Domain_Model_Accommodation {
+            	newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+            }
+
+            Tx_JdavSv_Domain_Model_Category {
+				newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+			}
+
+			Tx_JdavSv_Domain_Model_CategoryPrerequisite {
+				newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+			}
+
+			Tx_JdavSv_Domain_Model_Event {
+				newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+			}
+
+            Tx_JdavSv_Domain_Model_Registration {
+				newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+			}
+
+			Tx_JdavSv_Domain_Model_Sektion {
+				newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+			}
+
 			Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment {
+				newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 				mapping {
 					tableName = tx_jdavsv_domain_model_categoryprerequisitefulfillment
 					recordType >
@@ -54,6 +80,7 @@ config.tx_extbase {
 			}
 
 			Tx_JdavSv_Domain_Model_CategoryPrerequisite {
+				newRecordStoragePid = {$config.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 				mapping {
 					tableName = tx_jdavsv_domain_model_categoryprerequisite
 					recordType >
@@ -68,6 +95,6 @@ config.tx_extbase {
 
 plugin.tx_jdavsv {
    persistence {
-		   storagePid = 28
+		   storagePid = {$plugin.tx_jdavsv.persistence.storagePid}
    }
 }

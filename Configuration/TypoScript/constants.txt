@@ -16,8 +16,14 @@ plugin.tx_jdavsv {
 		layoutRootPath = EXT:jdav_sv/Resources/Private/Layouts/
 	}
 	persistence {
-		# cat=plugin.tx_jdavsv//a; type=int+; label=Default storage PID
-		storagePid = 28
+		# cat=plugin.tx_jdavsv//a; type=string; label=Default storage PID
+		storagePid = 28, 73
+		classes {
+			# cat=plugin.tx_jdavsv//a; type=int+; label=Storage PID for fe_users
+			Tx_JdavSv_Domain_Model_FeUser.newRecordStoragePid = 28
+			# cat=plugin.tx_jdavsv//a; type=int+; label=Storage PID for all jdav_sv domain models
+			Tx_JdavSv_Domain_Model.newRecordStoragePid = 28
+		}
 	}
 	settings {
 		# cat=plugin.tx_jdavsv//a; type=int+; label=PID with fe_users for login
