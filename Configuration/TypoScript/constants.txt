@@ -17,7 +17,7 @@ plugin.tx_jdavsv {
 	}
 	persistence {
 		# cat=plugin.tx_jdavsv//a; type=string; label=Default storage PID
-		storagePid = 28, 73
+		storagePid = 28, 73, 341
 		classes {
 			# cat=plugin.tx_jdavsv//a; type=int+; label=Storage PID for fe_users
 			Tx_JdavSv_Domain_Model_FeUser.newRecordStoragePid = 28

@@ -1,62 +1,95 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
 <div class="control-group">
-    <label class="control-label" for="username">Benutzername</label>
-    <div class="controls">
-		<f:form.textfield class="span4" property="username" />
+	<label class="control-label" for="username">Benutzername</label>
+
+	<div class="controls">
+		<f:form.textfield class="span4" property="username"/>
 		<span class="help-inline">Wenn leer, wird E-Mail zu Benutzernamen!</span>
 	</div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="title">Vorname</label>
-    <div class="controls"><f:form.textfield class="span4" property="firstName" /></div>
+	<label class="control-label" for="title">Vorname</label>
+
+	<div class="controls">
+		<f:form.textfield class="span4" property="firstName"/>
+	</div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="title">Nachname</label>
-    <div class="controls"><f:form.textfield class="span4" property="lastName" /></div>
+	<label class="control-label" for="title">Nachname</label>
+
+	<div class="controls">
+		<f:form.textfield class="span4" property="lastName"/>
+	</div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="dateOfBirth">Geburtsdatum</label>
-    <div class="controls"><f:form.textfield class="span2" property="dateOfBirth" value="{feUser.dateOfBirth->f:format.date(format: 'd.m.Y')}" /></div>
+	<label class="control-label" for="title">Sektion</label>
+
+	<div class="controls">
+		<ptextbase:form.select property="sektion" options="{sektionen}" optionLabelField="name"
+							   optionValueField="uid" emptyOption="Bitte auswählen..."/>
+	</div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="address">Adresse</label>
-    <div class="controls"><f:form.textarea class="span4" cols="40" rows="4" property="address" /></div>
+	<label class="control-label" for="dateOfBirth">Geburtsdatum</label>
+
+	<div class="controls">
+		<f:form.textfield class="span2" property="dateOfBirth"
+						  value="{feUser.dateOfBirth->f:format.date(format: 'd.m.Y')}"/>
+	</div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="title">E-Mail</label>
-    <div class="controls">
-		<f:form.textfield class="span4" property="email" />
+	<label class="control-label" for="address">Adresse</label>
+
+	<div class="controls">
+		<f:form.textarea class="span4" cols="40" rows="4" property="address"/>
+	</div>
+</div>
+
+<div class="control-group">
+	<label class="control-label" for="title">E-Mail</label>
+
+	<div class="controls">
+		<f:form.textfield class="span4" property="email"/>
 		<span class="help-inline">Wenn kein anderer Benutzername gesetzt, ist Benutzername gleich E-Mail!</span>
 	</div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="title">Telefon</label>
-    <div class="controls"><f:form.textfield class="span4" property="telephone" /></div>
+	<label class="control-label" for="title">Telefon</label>
+
+	<div class="controls">
+		<f:form.textfield class="span4" property="telephone"/>
+	</div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="mobilePhone">Handy</label>
-    <div class="controls"><f:form.textfield class="span4" property="mobilePhone" /></div>
+	<label class="control-label" for="mobilePhone">Handy</label>
+
+	<div class="controls">
+		<f:form.textfield class="span4" property="mobilePhone"/>
+	</div>
 </div>
 
 <div class="control-group">
-    <label class="control-label" for="title">Rollen</label>
+	<label class="control-label" for="title">Rollen</label>
+
 	<div class="controls">
 		<label class="checkbox">
-			<f:form.checkbox property="isTeamer" checked="{feUser.isTeamer}" value="1"  />
+			<f:form.checkbox property="isTeamer" checked="{feUser.isTeamer}" value="1"/>
 			Ist Teamer<br/>
-			<f:form.checkbox property="isTrainee" checked="{feUser.isTrainee}" value="1"  />
+			<f:form.checkbox property="isTrainee" checked="{feUser.isTrainee}" value="1"/>
 			Ist Hospitant<br/>
-			<f:form.checkbox property="isKitchenGroup" checked="{feUser.isKitchenGroup}" value="1"  />
+			<f:form.checkbox property="isKitchenGroup" checked="{feUser.isKitchenGroup}" value="1"/>
 			Ist insteressiert an Kochgruppe<br/>
-			<f:form.checkbox property="isProofreader" checked="{feUser.isProofreader}" value="1"  />
+			<f:form.checkbox property="isProofreader" checked="{feUser.isProofreader}" value="1"/>
 			Ist Korrekturleser<br/>
-			<f:form.checkbox property="isAdmin" checked="{feUser.isAdmin}" value="1"  />
+			<f:form.checkbox property="isAdmin" checked="{feUser.isAdmin}" value="1"/>
 			Ist Administrator<br/>
 		</label>
 	</div>

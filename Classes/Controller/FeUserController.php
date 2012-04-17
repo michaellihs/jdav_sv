@@ -40,12 +40,32 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 
 
 	/**
+	 * Holds instance of sektion repository
+	 *
+	 * @var Tx_JdavSv_Domain_Repository_SektionRepository
+	 */
+	protected $sektionRepository;
+
+
+
+	/**
 	 * Injects fe_group repository
 	 *
 	 * @param Tx_Extbase_Domain_Repository_FrontendUserGroupRepository $feGroupRepository
 	 */
 	public function injectFeGroupRepository(Tx_Extbase_Domain_Repository_FrontendUserGroupRepository $feGroupRepository) {
 		$this->feGroupRepository = $feGroupRepository;
+	}
+
+
+
+	/**
+	 * Injects sektion repository
+	 *
+	 * @param Tx_JdavSv_Domain_Repository_SektionRepository $sektionRepository
+	 */
+	public function injectSektionRepository(Tx_JdavSv_Domain_Repository_SektionRepository $sektionRepository) {
+		$this->sektionRepository = $sektionRepository;
 	}
 
 
@@ -112,6 +132,7 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	 */
 	public function editAction(Tx_JdavSv_Domain_Model_FeUser $feUser) {
 		$this->view->assign('feUser', $feUser);
+		$this->view->assign('sektionen', $this->sektionRepository->findAll());
 	}
 
 
@@ -145,6 +166,7 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	 */
 	public function newAction(Tx_JdavSv_Domain_Model_FeUser $feUser = null) {
 		$this->view->assign('feUser', $feUser);
+		$this->view->assign('sektionen', $this->sektionRepository->findAll());
 	}
 
 

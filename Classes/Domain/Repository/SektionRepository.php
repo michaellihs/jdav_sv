@@ -33,5 +33,16 @@
  */
 class Tx_JdavSv_Domain_Repository_SektionRepository extends Tx_Extbase_Persistence_Repository {
 
+	/**
+	 * Returns all sektionen ordered by name
+	 *
+	 * @return array|Tx_Extbase_Persistence_QueryResultInterface
+	 */
+	public function findAll() {
+		$query = $this->createQuery();
+		$query->setOrderings(array('name' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
+		return $query->execute();
+	}
+
 }
 ?>

@@ -32,6 +32,7 @@ config.tx_extbase {
                         tx_jdavsv_is_proofreader.mapOnProperty = isProofreader
                         tx_jdavsv_mobile_phone.mapOnProperty = mobilePhone
                         tx_jdavsv_date_of_birth.mapOnProperty = dateOfBirth
+                        tx_jdavsv_sektion.mapOnProperty = sektion
                     }
                 }
             }

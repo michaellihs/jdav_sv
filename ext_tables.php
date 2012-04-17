@@ -387,6 +387,15 @@ $tempColumns = array(
 			'checkbox' => 1,
 			'default' => time()
 		),
+	),
+	'tx_jdavsv_sektion' => array(
+		'exclude'	=> 0,
+		'label'		=> 'Sektion',
+		'config'	=> array(
+			'type' => 'input',
+			'size' => 4,
+			'eval' => 'int'
+		),
 	)
 );
 t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns, 1);
@@ -397,4 +406,5 @@ t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_admin');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_is_proofreader');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_mobile_phone');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_date_of_birth');
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_sektion');
 ?>

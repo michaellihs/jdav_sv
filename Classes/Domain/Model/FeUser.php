@@ -102,6 +102,15 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 
 
 	/**
+	 * Holds sektion of user
+	 *
+	 * @var Tx_JdavSv_Domain_Model_Sektion
+	 */
+	protected $sektion;
+
+
+
+	/**
 	 * @param boolean $isTeamer
 	 */
 	public function setIsTeamer($isTeamer) {
@@ -291,6 +300,24 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 */
 	public function getMobilePhone() {
 		return $this->mobilePhone;
+	}
+
+
+
+	/**
+	 * @param Tx_JdavSv_Domain_Model_Sektion $sektion
+	 */
+	public function setSektion(Tx_JdavSv_Domain_Model_Sektion $sektion) {
+		$this->sektion = $sektion;
+	}
+
+
+
+	/**
+	 * @return Tx_JdavSv_Domain_Model_Sektion
+	 */
+	public function getSektion() {
+		return $this->sektion;
 	}
 
 }
