@@ -1,0 +1,23 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="main">
+	<h1>Sektionen</h1>
+	<br>
+	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+	<f:form method="post" action="create" class="form-horizontal" name="newSektion" object="{newSektion}">
+		<legend>Neue Sektion anlegen</legend>
+		<f:render partial="formErrors" />
+		<fieldset>
+			<f:render partial="Sektion/formFields" />
+		</fieldset>
+
+		<div class="form-actions">
+			<f:form.submit class="btn-primary btn" value="Sektion Speichern" />
+			<f:link.action controller="SektionAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+		</div>
+	</f:form>
+</f:section>
+
+<f:section name="javascript"></f:section>

@@ -1,0 +1,52 @@
+{namespace extlist=Tx_PtExtlist_ViewHelpers}
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default"/>
+
+
+<f:section name="main">
+
+	<h1>Sektionen</h1>
+	<ptextbase:flashMessages renderMode="div"
+							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
+	<br/>
+	<legend>Übersicht</legend>
+	<table class="table table-striped">
+		<tr>
+			<f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html"
+					  arguments="{listHeader:listHeader, listCaptions:listCaptions}"/>
+			<th></th>
+		</tr>
+		<f:for each="{listData}" as="row">
+			<tr>
+				<td>
+					{row.zip}
+				</td>
+				<td>
+					{row.name}
+				</td>
+				<td>
+					<p class="pull-right">
+						<f:link.action class="btn btn-primary" controller="Sektion" action="edit"
+									   arguments="{category: row.sektion.value.uid}"><i
+								class="icon-pencil icon-white"></i> Bearbeiten
+						</f:link.action>
+						<f:link.action class="btn btn-danger" controller="Sektion" action="delete"
+									   arguments="{category: row.sektion.value.uid}"><i
+								class="icon-trash icon-white"></i> Löschen
+						</f:link.action>
+					</p>
+				</td>
+			</tr>
+		</f:for>
+	</table>
+
+	<div class="form-actions">
+		<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i>
+			Neue Sektion anlegen
+		</f:link.action>
+	</div>
+
+</f:section>
+
+<f:section name="javascript"></f:section>

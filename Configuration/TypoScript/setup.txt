@@ -32,6 +32,7 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsAdmin.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsTeamer.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/RegistrationsParticipants.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:jdav_sv/Configuration/TypoScript/Lists/SektionAdmin.ts">
 
 
 

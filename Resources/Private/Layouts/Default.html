@@ -68,6 +68,16 @@
 					</f:if>
 
 					<f:if condition="{currentUser.isAdmin}">
+						<li class="nav-header">Sektionen</li>
+						<li>
+							<f:link.action controller="SektionAdmin" action="list">Übersicht</f:link.action>
+						</li>
+						<li>
+							<f:link.action controller="SektionAdmin" action="new">Sektion anlegen</f:link.action>
+						</li>
+					</f:if>
+
+					<f:if condition="{currentUser.isAdmin}">
 						<li class="nav-header">Veranstaltungs-kategorien</li>
 						<li>
 							<f:link.action controller="Category" action="list">Übersicht</f:link.action>
