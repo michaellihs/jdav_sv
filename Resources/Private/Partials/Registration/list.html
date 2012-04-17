@@ -15,7 +15,7 @@
 	</tr>
     <f:for each="{registrations}" as="registration">
     <tr>
-        <td>{registration.attendee.name}</td>
+        <td>{registration.attendee.lastName}, {registration.attendee.firstName}</td>
         <td>{registration.date -> f:format.date(format: 'd.m.Y')}</td>
         <td>{registration.state.name}</td>
         <td>
