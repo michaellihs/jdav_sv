@@ -8,10 +8,13 @@
 
 # Set up Extbase Persistence configuration for Extbase Domain Models
 config.tx_extbase {
+
     persistence{
+
         storagePid = {$plugin.tx_jdavsv.persistence.storagePid}
         enableAutomaticCacheClearing = 1
         updateReferenceIndex = 0
+
         classes {
 
         	Tx_JdavSv_Domain_Model_FeUser >

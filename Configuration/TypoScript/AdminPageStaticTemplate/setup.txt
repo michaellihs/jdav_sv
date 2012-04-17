@@ -39,3 +39,5 @@ page {
     }
 
 }
+
+config.tx_extbase.persistence.classes.Tx_Extbase_Domain_Model_FrontendUserGroup.mapping.recordType >

@@ -28,6 +28,8 @@ plugin.tx_jdavsv {
 	settings {
 		# cat=plugin.tx_jdavsv//a; type=int+; label=PID with fe_users for login
 		feUsersPid =
+		# cat=plugin.tx_jdavsv//a; type=string; label=UID of fe_group to be set for new fe_user per default (comma separated)
+		fe_users.defaultFeGroup =
 	    email {
 	    	defaultFrom {
 	    		# cat=plugin.tx_jdavsv/file; type=string; label=E-Mail Adresse zum Versand von SV-E-Mails

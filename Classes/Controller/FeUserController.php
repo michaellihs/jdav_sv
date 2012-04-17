@@ -31,6 +31,26 @@
 class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_AbstractAdminController {
 
 	/**
+	 * Holds fe_groups repository
+	 *
+	 * @var Tx_Extbase_Domain_Repository_FrontendUserGroupRepository
+	 */
+	protected $feGroupRepository;
+
+
+
+	/**
+	 * Injects fe_group repository
+	 *
+	 * @param Tx_Extbase_Domain_Repository_FrontendUserGroupRepository $feGroupRepository
+	 */
+	public function injectFeGroupRepository(Tx_Extbase_Domain_Repository_FrontendUserGroupRepository $feGroupRepository) {
+		$this->feGroupRepository = $feGroupRepository;
+	}
+
+
+
+	/**
 	 * Action for showing FeUser details
 	 *
 	 * @param Tx_JdavSv_Domain_Model_FeUser $feUser
@@ -102,6 +122,14 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	 * @param Tx_JdavSv_Domain_Model_FeUser $feUser
 	 */
 	public function createAction(Tx_JdavSv_Domain_Model_FeUser $feUser) {
+		// We set default fe_groups configured in TypoScript
+		if (!$feUser->getUsergroup()->count() > 0) {
+			$defaultFeGroups = explode(',',$this->settings['fe_users']['defaultFeGroup']);
+			foreach($defaultFeGroups as $defaultFeGroup) {
+				$feUser->addUsergroup($this->feGroupRepository->findByUid($defaultFeGroup));
+			}
+		}
+
 		$this->feUserRepository->add($feUser);
 		$this->flashMessageContainer->add('Der Benutzer wurde angelegt.');
 		$this->redirect('list');

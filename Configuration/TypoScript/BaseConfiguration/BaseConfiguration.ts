@@ -14,6 +14,15 @@ plugin.tx_jdavsv.settings {
 }
 
 
+## fe_group to be set for new fe_user
+plugin.tx_jdavsv.settings {
+
+	fe_users {
+		defaultFeGroup = {$plugin.tx_jdavsv.settings.fe_users.defaultFeGroup}
+	}
+
+}
+
 
 ## Copy pt_extlist export settings into our namespace
 plugin.tx_jdavsv.settings.export.pdfExport < plugin.tx_ptextlist.settings.export.exportConfigs.pdfExport
