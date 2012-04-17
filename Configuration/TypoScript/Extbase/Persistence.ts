@@ -45,31 +45,31 @@ config.tx_extbase {
             }
 
             Tx_JdavSv_Domain_Model_Accommodation {
-            	newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+            	newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
             }
 
             Tx_JdavSv_Domain_Model_Category {
-				newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 			}
 
 			Tx_JdavSv_Domain_Model_CategoryPrerequisite {
-				newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 			}
 
 			Tx_JdavSv_Domain_Model_Event {
-				newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 			}
 
             Tx_JdavSv_Domain_Model_Registration {
-				newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 			}
 
 			Tx_JdavSv_Domain_Model_Sektion {
-				newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 			}
 
 			Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment {
-				newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 				mapping {
 					tableName = tx_jdavsv_domain_model_categoryprerequisitefulfillment
 					recordType >
@@ -80,7 +80,7 @@ config.tx_extbase {
 			}
 
 			Tx_JdavSv_Domain_Model_CategoryPrerequisite {
-				newRecordStoragePid = {$plugin.tx_extbase.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
 				mapping {
 					tableName = tx_jdavsv_domain_model_categoryprerequisite
 					recordType >
