@@ -261,7 +261,11 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 
 	pager {
 
-		itemsPerPage = 20
+		pagerConfigs {
+			default.pagerClassName = Tx_PtExtlist_Domain_Model_Pager_DeltaPager
+		}
+
+		itemsPerPage = 50
 
 	}
 
