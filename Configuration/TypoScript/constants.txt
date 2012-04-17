@@ -23,6 +23,8 @@ plugin.tx_jdavsv {
 			Tx_JdavSv_Domain_Model_FeUser.newRecordStoragePid = 28
 			# cat=plugin.tx_jdavsv//a; type=int+; label=Storage PID for all jdav_sv domain models
 			Tx_JdavSv_Domain_Model.newRecordStoragePid = 28
+			# cat=plugin.tx_jdavsv//a; type=int+; label=Storage PID for DAV Sektionen
+			Tx_JdavSv_Domain_Model_Sektion.newRecordStoragePid = 28
 		}
 	}
 	settings {

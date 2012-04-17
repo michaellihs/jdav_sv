@@ -68,7 +68,7 @@ config.tx_extbase {
 			}
 
 			Tx_JdavSv_Domain_Model_Sektion {
-				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model.newRecordStoragePid}
+				newRecordStoragePid = {$plugin.tx_jdavsv.persistence.classes.Tx_JdavSv_Domain_Model_Sektion.newRecordStoragePid}
 			}
 
 			Tx_JdavSv_Domain_Model_CategoryPrerequisiteFulfillment {
