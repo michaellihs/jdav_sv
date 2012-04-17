@@ -144,7 +144,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * First teamer for event
 	 *
-	 * @var integer $firstTeamer
+	 * @var Tx_JdavSv_Domain_Model_FeUser $firstTeamer
 	 */
 	protected $firstTeamer;
 
@@ -153,7 +153,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Second teamer for event
 	 *
-	 * @var integer $secondTeamer
+	 * @var Tx_JdavSv_Domain_Model_FeUser $secondTeamer
 	 */
 	protected $secondTeamer;
 
@@ -162,7 +162,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Hospitant for event
 	 *
-	 * @var integer $trainee
+	 * @var Tx_JdavSv_Domain_Model_FeUser $trainee
 	 */
 	protected $trainee;
 
@@ -171,7 +171,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Kitchen group for event
 	 *
-	 * @var integer $kitchenGroup
+	 * @var Tx_JdavSv_Domain_Model_FeUser $kitchenGroup
 	 */
 	protected $kitchenGroup;
 
@@ -658,10 +658,10 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for firstTeamer
 	 *
-	 * @param integer $firstTeamer First teamer for event
+	 * @param Tx_JdavSv_Domain_Model_FeUser $firstTeamer First teamer for event
 	 * @return void
 	 */
-	public function setFirstTeamer($firstTeamer) {
+	public function setFirstTeamer(Tx_JdavSv_Domain_Model_FeUser $firstTeamer) {
 		$this->firstTeamer = $firstTeamer;
 	}
 
@@ -670,7 +670,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for firstTeamer
 	 *
-	 * @return integer First teamer for event
+	 * @return Tx_JdavSv_Domain_Model_FeUser First teamer for event
 	 */
 	public function getFirstTeamer() {
 		return $this->firstTeamer;
@@ -681,10 +681,10 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for secondTeamer
 	 *
-	 * @param integer $secondTeamer Second teamer for event
+	 * @param Tx_JdavSv_Domain_Model_FeUser $secondTeamer Second teamer for event
 	 * @return void
 	 */
-	public function setSecondTeamer($secondTeamer) {
+	public function setSecondTeamer(Tx_JdavSv_Domain_Model_FeUser $secondTeamer) {
 		$this->secondTeamer = $secondTeamer;
 	}
 
@@ -693,7 +693,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for secondTeamer
 	 *
-	 * @return integer Second teamer for event
+	 * @return Tx_JdavSv_Domain_Model_FeUser Second teamer for event
 	 */
 	public function getSecondTeamer() {
 		return $this->secondTeamer;
@@ -704,10 +704,10 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for trainee
 	 *
-	 * @param integer $trainee Hospitant for event
+	 * @param Tx_JdavSv_Domain_Model_FeUser $trainee Hospitant for event
 	 * @return void
 	 */
-	public function setTrainee($trainee) {
+	public function setTrainee(Tx_JdavSv_Domain_Model_FeUser $trainee) {
 		$this->trainee = $trainee;
 	}
 
@@ -716,7 +716,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for trainee
 	 *
-	 * @return integer Hospitant for event
+	 * @return Tx_JdavSv_Domain_Model_FeUser Hospitant for event
 	 */
 	public function getTrainee() {
 		return $this->trainee;
@@ -727,10 +727,10 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Setter for kitchenGroup
 	 *
-	 * @param integer $kitchenGroup Kitchen group for event
+	 * @param Tx_JdavSv_Domain_Model_FeUser $kitchenGroup Kitchen group for event
 	 * @return void
 	 */
-	public function setKitchenGroup($kitchenGroup) {
+	public function setKitchenGroup(Tx_JdavSv_Domain_Model_FeUser $kitchenGroup) {
 		$this->kitchenGroup = $kitchenGroup;
 	}
 
@@ -739,7 +739,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	/**
 	 * Getter for kitchenGroup
 	 *
-	 * @return integer Kitchen group for event
+	 * @return Tx_JdavSv_Domain_Model_FeUser Kitchen group for event
 	 */
 	public function getKitchenGroup() {
 		return $this->kitchenGroup;

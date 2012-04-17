@@ -52,7 +52,10 @@ class Tx_JdavSv_Domain_Repository_FeUserRepository extends Tx_Extbase_Domain_Rep
 	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getAllTeamers() {
-		return $this->findByIsTeamer(1);
+		$query = $this->createQuery();
+		$query->matching($query->equals('isTeamer', 1))
+			->setOrderings(array('lastName' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING, 'firstName' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
+		return $query->execute();
 	}
 
 

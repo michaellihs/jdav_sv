@@ -54,7 +54,7 @@
 	<div class="controls">
 		<f:if condition="{firstTeamer}">
 			<f:then>
-				<f:form.select disabled="1" value="{firstTeamer}" property="{firstTeamer}" options="{teamers}"
+				<f:form.select disabled="1" value="{firstTeamer}" property="firstTeamer" options="{teamers}"
 							   optionLabelField="fullName"
 							   optionValueField="uid"/>
 				<f:form.hidden property="firstTeamer" value="{firstTeamer}"/>

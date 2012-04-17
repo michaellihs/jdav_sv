@@ -76,6 +76,16 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
         	table = __self__
         	field = isPublic
         }
+
+        firstTeamer {
+        	table = __self__
+        	field = firstTeamer
+        }
+
+        secondTeamer {
+        	table = __self__
+        	field = secondTeamer
+        }
     
     }
     
@@ -119,12 +129,33 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
         }
 
         40 {
+        	fieldIdentifier = firstTeamer
+        	columnIdentifier = teamer
+        	label = Teamer
+        	sortingFields {
+        		10 {
+        			field = firstTeamer
+        			label = Teamer
+        			direction = asc
+        			forceDirection = 0
+        		}
+
+        		20 {
+        			field = secondTeamer
+        			label = Co-Teamer
+        			direction = asc
+        			forceDirection = 0
+        		}
+        	}
+        }
+
+        50 {
             fieldIdentifier = event
             columnIdentifier = event
             label =
             isSortable = 0
         }
-    
+
     }
 
 

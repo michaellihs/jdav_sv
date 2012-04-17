@@ -46,6 +46,10 @@
 					&nbsp;
 				</td>
 				<td>
+					{row.event.value.firstTeamer.fullName}<br>
+					{row.event.value.secondTeamer.fullName}
+				</td>
+				<td>
 					<p class="pull-right">
 						<f:link.action class="btn btn-primary" controller="EventAdmin" action="edit"
 									   arguments="{event: row.event.value.uid}"><i class="icon-pencil icon-white"></i>
