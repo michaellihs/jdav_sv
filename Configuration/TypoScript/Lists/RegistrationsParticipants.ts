@@ -64,6 +64,12 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
             isSortable = 0
         }
 
+        mobilePhone {
+        	table = fe_users
+        	field = tx_jdavsv_mobile_phone
+        	isSortable = 0
+        }
+
         zip {
             table = fe_users
             field = zip
@@ -110,6 +116,13 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
         }
 
         40 {
+        	label = Handy
+        	fieldIdentifier = mobilePhone
+        	columnIdentifier = mobilePhone
+        	isSortable = 0
+        }
+
+        50 {
             label = E-Mail
             fieldIdentifier = email
             columnIdentifier = emailColumn

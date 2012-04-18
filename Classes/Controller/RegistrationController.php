@@ -37,6 +37,15 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
 	 */
 	protected $registrationRepository;
+
+
+
+	/**
+	 * Holds sektion repository
+	 *
+	 * @var Tx_JdavSv_Domain_Repository_SektionRepository
+	 */
+	protected $sektionRepository;
 	
 	
 	
@@ -69,6 +78,17 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 		$this->registrationRepository = $registrationRepository;
 	}
 
+
+
+	/**
+	 * Injects sektion repository
+	 *
+	 * @param Tx_JdavSv_Domain_Repository_SektionRepository $sektionRepository
+	 */
+	public function injectSektionRepository(Tx_JdavSv_Domain_Repository_SektionRepository $sektionRepository) {
+		$this->sektionRepository = $sektionRepository;
+	}
+
 	
 		
 	/**
@@ -80,7 +100,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	public function createAction(Tx_JdavSv_Domain_Model_Registration $newRegistration) {
 		$this->registrationRepository->add($newRegistration);
 		$this->flashMessageContainer->add('Your new Registration was created.');
-		
+
 		$this->redirect('list');
 	}
 	
@@ -112,6 +132,22 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 
 		$otherRegistrations = $this->registrationManager->getCountingRegistrationsByUser($this->feUser);
 
+		// Check whether user has dav_nr set
+		if ($this->feUser->hasNoDavNrSet()) {
+			$this->view->assign('missingDavNr', 1);
+		}
+
+		// Check whether user has julei_nr set
+		if ($this->feUser->hasNoJuleiNrSet()) {
+			$this->view->assign('missingJuleiNr', 1);
+		}
+
+		// Check whether user has sektion set
+		if ($this->feUser->hasNoSektionSet()) {
+			$this->view->assign('sektionen', $this->sektionRepository->findAll());
+			$this->view->assign('missingSektion', 1);
+		}
+
 		$this->view->assign('otherRegistrations', $otherRegistrations);
 		$this->view->assign('feUser', $this->feUser);
 		$this->view->assign('event', $event);
@@ -140,13 +176,38 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Event $event
 	 * @param int $firstChoiceEvent
+	 * @param string $davNr
+	 * @param string $juleiNr
+	 * @param boolean $vegetarian
+	 * @param int $sektion
 	 * @return string Rendered HTML source
 	 */
-	public function confirmRegistrationAction(Tx_JdavSv_Domain_Model_Event $event, $firstChoiceEvent = NULL) {
+	public function confirmRegistrationAction(Tx_JdavSv_Domain_Model_Event $event, $firstChoiceEvent = NULL,
+											  $davNr = NULL, $juleiNr = NULL, $vegetarian = NULL, $sektion = NULL) {
+
 		$this->checkForLoggedInFesUserAndRedirect();
         $this->checkForRegistrationAndRedirectIfAlreadyRegistered($event);
 
-        $this->registrationManager->registerUserForEventRespectingFirstChoice($this->feUser, $event, $firstChoiceEvent);
+        $newRegistration = $this->registrationManager->registerUserForEventRespectingFirstChoice($this->feUser, $event, $firstChoiceEvent);
+
+		if ($sektion) {
+			$this->feUser->setSektion($this->sektionRepository->findByUid($sektion));
+		}
+
+		if ($vegetarian) {
+			$newRegistration->setVegetarian(TRUE);
+			$this->registrationRepository->update($newRegistration);
+		}
+
+		if ($davNr) {
+			$this->feUser->setDavNr($davNr);
+		}
+
+		if ($juleiNr) {
+			$this->feUser->setJuleiNr($juleiNr);
+		}
+
+		$this->feUserRepository->update($this->feUser);
 
         $this->view->assign('feUser', $this->feUser);
         $this->view->assign('event', $event);

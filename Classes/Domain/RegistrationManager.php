@@ -370,7 +370,11 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 			$mailer->assignToView($key, $value);
 		}
 
-		$mailer->send();
+		try {
+			$mailer->send();
+		} catch (Exception $e) {
+			// We prevent exception if mail cannot be send
+		}
 	}
 
 

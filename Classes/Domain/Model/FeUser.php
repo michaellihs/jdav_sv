@@ -401,5 +401,83 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 		return $this->sex;
 	}
 
+
+
+	/**
+	 * Returns true, if user has dav-nr set
+	 *
+	 * @return boolean
+	 */
+	public function hasDavNrSet() {
+		if ($this->davNr !== NULL && $this->davNr !== '') {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+
+
+	/**
+	 * Returns TRUE, if user has no dav-nr set
+	 *
+	 * @return bool
+	 */
+	public function hasNoDavNrSet() {
+		return !$this->hasDavNrSet();
+	}
+
+
+
+	/**
+	 * Returns TRUE, if user has julei nr set
+	 *
+	 * @return bool
+	 */
+	public function hasJuleiNrSet() {
+		if ($this->juleiNr !== NULL && $this->juleiNr !== '') {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+
+
+	/**
+	 * Returns TRUE, if user has no julei-nr set
+	 *
+	 * @return bool
+	 */
+	public function hasNoJuleiNrSet() {
+		return !$this->hasJuleiNrSet();
+	}
+
+
+
+	/**
+	 * Returns TRUE, if user has sektion set
+	 *
+	 * @return bool
+	 */
+	public function hasSektionSet() {
+		if ($this->sektion !== NULL) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+
+
+	/**
+	 * Returns TRUE, if user has NO sektion set
+	 *
+	 * @return bool
+	 */
+	public function hasNoSektionSet() {
+		return !$this->hasSektionSet();
+	}
+
 }
 ?>
