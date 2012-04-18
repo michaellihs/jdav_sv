@@ -198,6 +198,7 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 				## Username filter
 				10 < plugin.tx_ptextlist.prototype.filter.string
 				10 {
+					filterClassName = Tx_JdavSv_Extlist_Filters_FeUsersByUsernameAdminFilter
 					filterIdentifier = usernameFilter
 					label = Name
 					fieldIdentifier = firstName, lastName
