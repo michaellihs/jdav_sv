@@ -31,6 +31,7 @@
 				<li><a href="#description" data-toggle="tab">Beschreibung</a></li>
 				<li><a href="#content" data-toggle="tab">Inhalte</a></li>
 				<li><a href="#prerequisites" data-toggle="tab">Voraussetzungen</a></li>
+				<li><a href="#accommodation" data-toggle="tab">Unterkunft</a></li>
 				<f:if condition="{event.currentUserRegistrationsIsAcceptedAndNotOnWaitinglist}">
 					<li><a href="#attendees" data-toggle="tab">Teilnehmerliste</a></li>
 				</f:if>
@@ -70,6 +71,22 @@
 				</div>
 				<div class="tab-pane" id="prerequisites">
 				  {event.requirements}
+				</div>
+				<div class="tab-pane" id="accommodation">
+					<table class="table table-no-border-top">
+						<tr>
+							<td class="span5">
+								<strong>{event.accommodation.name}</strong><br>
+								{event.accommodation.address}<br><br>
+								{event.accommodation.telephone}<br><br>
+								<a href="mailto:{event.accommodation.email}">{event.accommodation.email}</a><br>
+								<a href="{event.accommodation.url}">{event.accommodation.url}</a>
+							</td>
+							<td class="span5">
+				  				{event.accommodation.googleMapsCode->f:format.html(parseFuncTSPath:'')}
+							</td>
+						</tr>
+					</table>
 				</div>
 				<f:if condition="{event.currentUserRegistrationsIsAcceptedAndNotOnWaitinglist}">
 					<div class="tab-pane" id="attendees">

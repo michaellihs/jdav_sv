@@ -281,6 +281,7 @@ CREATE TABLE tx_jdavsv_domain_model_accommodation (
 	email varchar(255) DEFAULT '' NOT NULL,
 	telephone varchar(255) DEFAULT '' NOT NULL,
 	notes text NOT NULL,
+	google_maps_code text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

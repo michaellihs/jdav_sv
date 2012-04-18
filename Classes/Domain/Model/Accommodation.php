@@ -89,6 +89,15 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 
 
 	/**
+	 * Holds iframe code for google maps
+	 *
+	 * @var string
+	 */
+	protected $googleMapsCode;
+
+
+
+	/**
 	 * Setter for name
 	 *
 	 * @param string $name Name of accomodation
@@ -221,6 +230,24 @@ class Tx_JdavSv_Domain_Model_Accommodation extends Tx_Extbase_DomainObject_Abstr
 	 */
 	public function getNotes() {
 		return $this->notes;
+	}
+
+
+
+	/**
+	 * @param string $googleMapsCode
+	 */
+	public function setGoogleMapsCode($googleMapsCode) {
+		$this->googleMapsCode = $googleMapsCode;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getGoogleMapsCode() {
+		return $this->googleMapsCode;
 	}
 
 }

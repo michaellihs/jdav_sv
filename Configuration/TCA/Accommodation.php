@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_accommodation'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_accommodation']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'name,address,url,email,telephone,notes',
+		'showRecordFieldList'	=> 'name,address,url,email,telephone,notes, google_maps_code',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'name,address,url,email,telephone,notes'),
+		'1' => array('showitem'	=> 'name,address,url,email,telephone,notes, google_maps_code'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -120,6 +120,16 @@ $TCA['tx_jdavsv_domain_model_accommodation'] = array(
 		'event' => array(
 			'config' => array(
 				'type'	=> 'passthrough',
+			),
+		),
+		'google_maps_code' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Google Maps Code',
+			'config'	=> array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
 			),
 		),
 	),
