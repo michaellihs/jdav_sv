@@ -46,5 +46,9 @@ plugin.tx_jdavsv {
 				name =
 	    	}
 	    }
+	    # cat=plugin.tx_jdavsv//a; type=int+; label=PID of page that shows frontend plugin
+	    frontendPluginPid = 29
+	    # cat=plugin.tx_jdavsv//a; type=int+; label=PID of page that shows administration plugin
+		administrationPluginPid = 32
 	}
 }

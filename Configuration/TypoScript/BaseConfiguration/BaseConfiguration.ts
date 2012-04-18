@@ -11,6 +11,8 @@ plugin.tx_jdavsv.settings {
 	feUsersPid = {$plugin.tx_jdavsv.settings.feUsersPid}
 	loginRedirectController = EventAdmin
 	loginRedirectAction = list
+	frontendPluginPid = {$plugin.tx_jdavsv.settings.frontendPluginPid}
+	administrationPluginPid = {$plugin.tx_jdavsv.settings.administrationPluginPid}
 }
 
 
