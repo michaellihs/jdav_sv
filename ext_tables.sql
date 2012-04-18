@@ -395,6 +395,7 @@ CREATE TABLE tx_jdavsv_domain_model_categoryprerequisite (
 
     category int(11) DEFAULT '0' NOT NULL,
     required tinyint(4) unsigned DEFAULT '0' NOT NULL,
+    internal tinyint(4) unsigned DEFAULT '0' NOT NULL,
     shortcut varchar(255) DEFAULT '' NOT NULL,
     title varchar(255) DEFAULT '' NOT NULL,
     sorting int(11) DEFAULT '0' NOT NULL,

@@ -131,9 +131,11 @@
 								<div class="alert alert-error">
 									<p><strong>Deine Anmeldung ist noch nicht abgeschlossen!</strong></p>
 									<f:for each="{event.registrationForCurrentUser.AllPrerequisiteFulfillments}" as="fulfillment">
-										<f:if condition="{fulfillment.fulfilled}">
-											<f:then><p><i class="icon-ok"></i> Erfüllt: {fulfillment.prerequisite.title}</p></f:then>
-											<f:else><p><i class="icon-error"></i> Noch zu erledigen: {fulfillment.prerequisite.title}</p></f:else>
+										<f:if condition="{fulfillment.prerequisite.notInternal}">
+											<f:if condition="{fulfillment.fulfilled}">
+												<f:then><p><i class="icon-ok"></i> Erfüllt: {fulfillment.prerequisite.title}</p></f:then>
+												<f:else><p><i class="icon-error"></i> Noch zu erledigen: {fulfillment.prerequisite.description}</p></f:else>
+											</f:if>
 										</f:if>
 									</f:for>
 								</div>

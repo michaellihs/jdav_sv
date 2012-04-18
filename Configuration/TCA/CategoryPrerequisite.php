@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_categoryprerequisite'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_categoryprerequisite']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'category, required, shortcut, title, description, sorting'
+		'showRecordFieldList'	=> 'category, required, shortcut, title, description, sorting, internal'
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'category, required, shortcut, title, description, sorting')
+		'1' => array('showitem'	=> 'category, required, shortcut, title, description, sorting, internal')
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> '')
@@ -73,6 +73,13 @@ $TCA['tx_jdavsv_domain_model_categoryprerequisite'] = array(
 		'required' => array(
 			'exclude'	=> 1,
 			'label'		=> 'Voraussetzung',
+			'config'	=> array(
+				'type'	=> 'check'
+			)
+		),
+		'internal' => array(
+			'exclude'	=> 1,
+			'label'		=> 'Intern',
 			'config'	=> array(
 				'type'	=> 'check'
 			)

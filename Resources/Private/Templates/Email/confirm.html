@@ -7,7 +7,7 @@ hiermit bestätigen wir deine Anmeldung zur Schulung "{registration.event.title}
 <f:if condition="{registration.event.category.prerequisites}">
 Die nächsten Schritte sollten nun sein:
 <f:for each="{registration.event.category.prerequisites}" as="prerequisite">
-* {prerequisite.description}
+<f:if condition="{prerequisite.notInternal}">* {prerequisite.description}</f:if>
 </f:for>
 </f:if>
 

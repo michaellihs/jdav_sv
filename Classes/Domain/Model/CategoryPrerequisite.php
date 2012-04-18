@@ -84,6 +84,15 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObjec
 
 
 	/**
+	 * If set to true, prerequisite is for internal use only
+	 *
+	 * @var boolean
+	 */
+	protected $internal;
+
+
+
+	/**
 	 * @param \Tx_JdavSv_Domain_Model_Category $category
 	 */
 	public function setCategory($category) {
@@ -187,6 +196,35 @@ class Tx_JdavSv_Domain_Model_CategoryPrerequisite extends Tx_Extbase_DomainObjec
 	 */
 	public function getDescription() {
 		return $this->description;
+	}
+
+
+
+	/**
+	 * @param boolean $internal
+	 */
+	public function setInternal($internal) {
+		$this->internal = $internal;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getInternal() {
+		return $this->internal;
+	}
+
+
+
+	/**
+	 * Returns TRUE if prerequisite is not internal
+	 *
+	 * @return boolean
+	 */
+	public function getNotInternal() {
+		return !$this->getInternal();
 	}
 
 }

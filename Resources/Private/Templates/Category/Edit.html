@@ -20,6 +20,7 @@
 							<table class="table table-striped">
 								<tr>
 									<th>Erforderlich</th>
+									<th>Intern</th>
 									<th>Kürzel</th>
 									<th>Titel</th>
 									<th></th>
@@ -27,6 +28,7 @@
 								<f:for each="{category.prerequisites}" as="categoryPrerequisite">
 									<tr>
 										<td><f:form.checkbox value="{categoryPrerequisite.required}" disabled="1" checked="{categoryPrerequisite.required}" /></td>
+										<td><f:form.checkbox value="{categoryPrerequisite.internal}" disabled="1" checked="{categoryPrerequisite.internal}" /></td>
 										<td>{categoryPrerequisite.shortcut}</td>
 										<td>{categoryPrerequisite.title}</td>
 										<td>
