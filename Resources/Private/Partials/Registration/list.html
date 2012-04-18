@@ -3,7 +3,7 @@
 <table class="table table-striped">
 	<tr>
 		<th>
-			Teilnehmer
+			Teilnehmer (Sektion)
 		</th>
 		<th>
 			Anmeldedatum
@@ -15,7 +15,7 @@
 	</tr>
     <f:for each="{registrations}" as="registration">
     <tr>
-        <td>{registration.attendee.lastName}, {registration.attendee.firstName}</td>
+        <td>{registration.attendee.lastName}, {registration.attendee.firstName} <f:if condition="{registration.attendee.sektion}"><small>({registration.attendee.sektion.name})</small></f:if></td>
         <td>{registration.date -> f:format.date(format: 'd.m.Y')}</td>
         <td>{registration.state.name}</td>
         <td>
