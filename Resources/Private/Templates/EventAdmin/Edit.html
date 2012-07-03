@@ -13,18 +13,8 @@
 			<legend>Veranstaltung bearbeiten</legend>
 			<f:render partial="Event/formFields" arguments="{event:event, categories: categories, accommodations: accommodations, teamers: teamers, trainees: trainees, kitchenGroups: kitchenGroups, firstTeamer: firstTeamer, currentUser: currentUser}" />
 			<div class="form-actions">
-				<f:if condition="{firstTeamer}">
-					<f:then>
-						<f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
-						<f:link.action controller="EventAdmin" action="myEventsList" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zu meinen Veranstaltungen</f:link.action>
-					</f:then>
-					<f:else>
-						<f:if condition="{currentUser.isAdmin}">
-							<f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
-							<f:link.action controller="EventAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
-						</f:if>
-					</f:else>
-				</f:if>
+				<f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
+				<f:link.action controller="EventAdmin" action="myEventsList" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zu meinen Veranstaltungen</f:link.action>
 			</div>
 		</fieldset>
 
