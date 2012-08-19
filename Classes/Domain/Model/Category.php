@@ -68,6 +68,15 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEn
 
 
 	/**
+	 * Text that is shown in announcement of events belonging to this category
+	 *
+	 * @var string
+	 */
+	protected $announcement;
+
+
+
+	/**
 	 * The constructor.
 	 *
 	 * @return void
@@ -214,6 +223,24 @@ class Tx_JdavSv_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEn
 	 */
 	public function getPrerequisites() {
 		return $this->prerequisites;
+	}
+
+
+
+	/**
+	 * @param string $announcement
+	 */
+	public function setAnnouncement($announcement) {
+		$this->announcement = $announcement;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getAnnouncement() {
+		return $this->announcement;
 	}
 
 }

@@ -70,6 +70,16 @@ $TCA['tx_jdavsv_domain_model_category'] = array(
 				'eval' => 'trim'
 			),
 		),
+		'announcement' => array(
+			'exclude'	=> 0,
+			'label'		=> 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_category.announcement',
+			'config'	=> array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
+			),
+		),
         'shortcut' => array(
             'exclude'   => 0,
             'label'     => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_category.shortcut',
