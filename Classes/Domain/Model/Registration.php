@@ -481,6 +481,17 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 
 
 	/**
+	 * Returns true, if not all prerequisites for this registration are fulfilled
+	 *
+	 * @return bool
+	 */
+	public function getNotAllPrerequisitesAreFulfilled() {
+		return !($this->getAllPrerequisitesAreFulfilled());
+	}
+
+
+
+	/**
 	 * Returns true, if
 	 * - registration is accepted
 	 * - all prerequisites are fulfilled
