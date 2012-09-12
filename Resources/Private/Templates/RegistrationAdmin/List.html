@@ -89,11 +89,11 @@
 			<th></th>
 		</tr>
 		<f:for each="{listData}" as="row">
-			<f:if condition="{row.registration.value.allPrerequisitesAreFulfilled}">
+			<f:if condition="{row.registration.value.isFinished}">
 				<f:then><tr style="background-color: #ddaaaa;"></f:then>
 				<f:else><tr style="background-color: #d6e9c6;"></f:else>
 			</f:if>
-				<td>{row.registration.value.date -> f:format.date(format: 'd.m.Y')}</td>
+				<td>{row.registration.value.isFinished}{row.registration.value.date -> f:format.date(format: 'd.m.Y')}</td>
 				<td>
 					<strong>{row.registration.value.event.category.shortcut}-{row.registration.value.event.accreditationNumber}
 						{row.registration.value.event.title}</strong>
