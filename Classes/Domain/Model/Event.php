@@ -1395,10 +1395,12 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	public function getRegistrationForCurrentUser() {
 		$currentUser = $this->getCurrentUser();
-		foreach ($this->registrations as $registration) {
-			/* @var $registration Tx_JdavSv_Domain_Model_Registration */
-			if ($registration->getAttendee()->getUid() === $currentUser->getUid()) {
-				return $registration;
+		if ($currentUser) { // Prevent error, if we do not have a current user
+			foreach ($this->registrations as $registration) {
+				/* @var $registration Tx_JdavSv_Domain_Model_Registration */
+				if ($registration->getAttendee()->getUid() === $currentUser->getUid()) {
+					return $registration;
+				}
 			}
 		}
 		return NULL;
