@@ -492,6 +492,28 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 
 
 	/**
+	 * A registration is finished, if all prerequisites are fulfilled and it is paid and accepted
+	 *
+	 * @return bool
+	 */
+	public function getIsFinished() {
+		return ($this->getAllPrerequisitesAreFulfilled() && $this->paid);
+	}
+
+
+
+	/**
+	 * A registration is not finished, if prerequisites are not fulfilled or it is not paid
+	 *
+	 * @return bool
+	 */
+	public function getIsNotFinished() {
+		return !($this->getIsFinished());
+	}
+
+
+
+	/**
 	 * Returns true, if
 	 * - registration is accepted
 	 * - all prerequisites are fulfilled
