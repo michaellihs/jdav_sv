@@ -497,7 +497,8 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 * @return bool
 	 */
 	public function getIsFinished() {
-		return ($this->getAllPrerequisitesAreFulfilled() && $this->paid);
+		$isFinished = ($this->getAllPrerequisitesAreFulfilled() && $this->paid);
+		return $isFinished;
 	}
 
 
