@@ -15,8 +15,8 @@
 	</tr>
     <f:for each="{registrations}" as="registration">
 		<f:if condition="{row.registration.value.isFinished}">
-			<f:then><tr style="background-color: #ddaaaa;"></f:then>
-			<f:else><tr style="background-color: #d6e9c6;"></f:else>
+			<f:then><tr style="background-color: #d6e9c6;"></f:then>
+			<f:else><tr style="background-color: #ddaaaa;"></f:else>
 		</f:if>
 			<td>{registration.attendee.lastName}, {registration.attendee.firstName} <f:if condition="{registration.attendee.sektion}"><small>({registration.attendee.sektion.name})</small></f:if></td>
 			<td>{registration.date -> f:format.date(format: 'd.m.Y')}</td>
