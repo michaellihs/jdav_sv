@@ -35,13 +35,19 @@ class Tx_JdavSv_Domain_Repository_FeUserRepository extends Tx_Extbase_Domain_Rep
 	 * Returns all fe_users
 	 *
 	 * @param bool $respectStoragePage If set to true, storage page is respected
+	 * @param bool $sortLastFirstName If set to true, returned users will be sorted by last, firstname
 	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
-	public function getAllFeUsers($respectStoragePage = FALSE) {
+	public function getAllFeUsers($respectStoragePage = FALSE, $sortLastFirstName = TRUE) {
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setRespectStoragePage($respectStoragePage);
-		$this->setDefaultQuerySettings($query->getQuerySettings());
-		return $this->findAll();
+		if ($sortLastFirstName) {
+			$query->setOrderings(array(
+				'lastName' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
+				'firstName' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
+			));
+		}
+		return $query->execute();
 	}
 
 
