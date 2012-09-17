@@ -21,7 +21,7 @@
 		<table class="table table-no-bottom">
 			<tr>
 				<td colspan="2">
-					{event.announcement}
+					<f:format.nl2br>{event.announcement}</f:format.nl2br>
 				</td>
 			</tr>
 		</table>
@@ -64,20 +64,20 @@
 					</table>
 				</div>
 				<div class="tab-pane" id="description">
-				  {event.description}
+					<f:format.nl2br>{event.description}</f:format.nl2br>
 				</div>
 				<div class="tab-pane" id="contents">
-				  {event.contents}
+					<f:format.nl2br>{event.contents}</f:format.nl2br>
 				</div>
 				<div class="tab-pane" id="prerequisites">
-				  {event.requirements}
+					<f:format.nl2br>{event.requirements}</f:format.nl2br>
 				</div>
 				<div class="tab-pane" id="accommodation">
 					<table class="table table-no-border-top">
 						<tr>
 							<td class="span5">
 								<strong>{event.accommodation.name}</strong><br>
-								{event.accommodation.address}<br><br>
+								<f:format.nl2br>{event.accommodation.address}</f:format.nl2br><br><br>
 								{event.accommodation.telephone}<br><br>
 								<a href="mailto:{event.accommodation.email}">{event.accommodation.email}</a><br>
 								<a href="{event.accommodation.url}">{event.accommodation.url}</a>
