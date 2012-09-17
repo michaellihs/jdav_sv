@@ -165,19 +165,18 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 		$registration = new Tx_JdavSv_Domain_Model_Registration();
 		$registration->setEvent($event);
 		$registration->setAttendee($feUser);
-		$date = new DateTime();
+		$date = new DateTime(); // empty argument takes now() as date
 
 		// TODO only works with PHP >= 5.3.0
 		# $date->setTimestamp(time());
-		$date->setDate(date('j'), date('n'), date('Y'));
 
 		$registration->setDate($date);
 
 
 		// TODO only works with PHP >= 5.3.0
 		# $registration->setReservedUntil($date->add(new DateInterval('P10D')));
-		$reservationDate = new DateTime('2006-12-12');
-		$reservationDate->modify('+14 day');
+		$reservationDate = new DateTime();
+		$reservationDate->modify('+14 day'); // we add 14 days to now()
 		$registration->setReservedUntil($reservationDate);
 
 		$registration->setIsReservation($isReservation);
