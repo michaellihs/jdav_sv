@@ -1418,7 +1418,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 			return true;
 		}
 
-		if ($this->unregisterDeadline->getTimestamp() > time()) {
+		if ($this->unregisterDeadline->format('U') > time()) {
 			return true;
 		} else {
 			return false;
