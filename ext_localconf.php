@@ -22,9 +22,9 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	array(
 		'Login' => 'showLoginForm',
 		'Event' => 'list, attendeeRegistrationsList, show',
-        'EventAdmin' => 'list, update, new, show, create, delete, edit, teamerRegistrationsList, attendeeRegistrationsList, myEventsList, sort, setRegistrationsPaid',
+		'EventAdmin' => 'list, update, new, create, delete, edit, teamerRegistrationsList, attendeeRegistrationsList, myEventsList, sort, setRegistrationsPaid',
 		'Registration' => 'register,unregister,list, show, confirmRegistration',
-        'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist, sendConfirmation, sort',
+		'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist, sendConfirmation, sort',
 		'Category' => 'list, new, create, edit, update, delete, sort',
 		'CategoryPrerequisites' => 'new, create, edit, update, delete',
 		'FeUser' => 'list, show, new, create, edit, update, delete, changePassword, showChangePassword, sort',
