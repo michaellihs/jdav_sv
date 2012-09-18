@@ -147,11 +147,11 @@
 		</div>
 		<f:if condition="{event.currentUserIsNotRegisteredForThisEvent}">
 			<f:then>
-				<f:link.action class="btn btn-large" controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action>
+				<f:link.action class="btn btn-large" controller="Registration" action="register" arguments="{event: event}">Anmelden</f:link.action>
 			</f:then>
 			<f:else>
-				<f:if condition="{row.event.value.cancelRegistrationIsPossible}">
-					<f:then><f:link.action class="btn btn-large btn-danger" controller="Registration" action="unregister" arguments="{event: row.event.value}">Abmelden</f:link.action></f:then>
+				<f:if condition="{event.cancelRegistrationIsPossible}">
+					<f:then><f:link.action class="btn btn-large btn-danger" controller="Registration" action="unregister" arguments="{event: event}">Abmelden</f:link.action></f:then>
 				</f:if>
 				<f:else>
 					<p class="pull-right"><i class="icon-info-sign"></i> <strong>Die Abmeldefrist ist verstrichen, du kannst dich nicht mehr abmelden!</strong></p>
@@ -161,9 +161,3 @@
 	</div>
 	<f:link.action class="pull-right" controller="Event" action="list">Zurück zur Schulungsübersicht</f:link.action>
 </div>
-
-		<!-- Javascript libraries are not loaded here, so we have to put this into the footer
-<script language="javascript">
-	$('#eventDescriptionTabs').tab('show')
-</script>
-		-->
