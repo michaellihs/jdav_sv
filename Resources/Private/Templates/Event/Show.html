@@ -152,10 +152,10 @@
 			<f:else>
 				<f:if condition="{event.cancelRegistrationIsPossible}">
 					<f:then><f:link.action class="btn btn-large btn-danger" controller="Registration" action="unregister" arguments="{event: event}">Abmelden</f:link.action></f:then>
+					<f:else>
+						<p class="pull-right"><i class="icon-info-sign"></i> <strong>Die Abmeldefrist ist verstrichen, du kannst dich nicht mehr abmelden!</strong></p>
+					</f:else>
 				</f:if>
-				<f:else>
-					<p class="pull-right"><i class="icon-info-sign"></i> <strong>Die Abmeldefrist ist verstrichen, du kannst dich nicht mehr abmelden!</strong></p>
-				</f:else>
 			</f:else>
 		</f:if><br><br>
 	</div>
