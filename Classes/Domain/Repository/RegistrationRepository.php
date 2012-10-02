@@ -75,6 +75,7 @@ class Tx_JdavSv_Domain_Repository_RegistrationRepository extends Tx_Extbase_Pers
 	 */
 	public function getWaitingListRegistrationsByEvent(Tx_JdavSv_Domain_Model_Event $event) {
 		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(FALSE);
 		$query->matching(
 			$query->logicalAnd(
 				$query->equals('event', $event),
@@ -96,12 +97,14 @@ class Tx_JdavSv_Domain_Repository_RegistrationRepository extends Tx_Extbase_Pers
 	 */
 	public function getNonWaitingListRegistrationsByEvent(Tx_JdavSv_Domain_Model_Event $event) {
 		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(FALSE);
 		$query->matching(
 			$query->logicalAnd(
 				$query->equals('event', $event),
 				$query->equals('waitingList', 0)
 			)
 		);
+		$query->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
 		$result = $query->execute();
 		return $result;
 	}

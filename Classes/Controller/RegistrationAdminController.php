@@ -247,7 +247,8 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	public function moveToRegistrationsAction(Tx_JdavSv_Domain_Model_Registration $registration) {
 		$registration->setWaitingList(false);
 		$this->registrationRepository->update($registration);
-		$this->redirect('show', 'EventAdmin', null, array('event' => $registration->getEvent()));
+		$this->persistenceManager->persistAll();
+		$this->forward('show', 'EventAdmin', null, array('event' => $registration->getEvent()));
 	}
 
 
@@ -260,7 +261,8 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	public function moveToWaitinglistAction(Tx_JdavSv_Domain_Model_Registration $registration) {
 		$registration->setWaitingList(true);
 		$this->registrationRepository->update($registration);
-		$this->redirect('show', 'EventAdmin', null, array('event' => $registration->getEvent()));
+		$this->persistenceManager->persistAll();
+		$this->forward('show', 'EventAdmin', null, array('event' => $registration->getEvent()));
 	}
 
 
