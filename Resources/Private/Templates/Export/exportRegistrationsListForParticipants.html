@@ -10,12 +10,12 @@
 	<h1>{event.fullName}</h1>
 	<p>Teilnehmerliste für Teilnehmer</p>
 
-	<table align="center" class="tx-ptextlist-list tx-ptextlist-list-standard" id="tx-ptextlist-list-{config.listConfiguration.listIdentifier}">
+	<table align="center" class="tx_jdavsv" id="tx-ptextlist-list-{config.listConfiguration.listIdentifier}">
 		<thead>
 			<f:render partial="Export/ListHeader" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
 		</thead>
 		<tbody>
-			<f:render partial="Export/ListBody" arguments="{listData:listData}" />
+			<f:render partial="Export/ListBody" arguments="{registrations:event.nonWaitingListRegistrations}" />
 		</tbody>
 	</table>
 
