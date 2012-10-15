@@ -75,12 +75,17 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 * Displays all Registrations
 	 *
 	 * @param boolean $resetFilters If set to TRUE, filters will be reset
+	 * @param boolean $resetPager If set to TRUE, pagers will be reset
 	 * @return string The rendered list view
 	 */
-	public function listAction($resetFilters = FALSE) {
+	public function listAction($resetFilters = FALSE, $resetPager = FALSE) {
 		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
 			$this->settings['listConfig']['registrationsAdmin'], 'registrationsAdmin'
 		);
+
+		if ($resetPager) {
+			$extlistContext->resetPagerCollection();
+		}
 
 		if ($resetFilters) {
 			$extlistContext->resetFilterboxCollection();
