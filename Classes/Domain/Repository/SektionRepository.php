@@ -40,6 +40,7 @@ class Tx_JdavSv_Domain_Repository_SektionRepository extends Tx_Extbase_Persisten
 	 */
 	public function findAll() {
 		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(FALSE);
 		$query->setOrderings(array('name' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
 		return $query->execute();
 	}
