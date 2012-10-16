@@ -285,6 +285,9 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 			->assignToView('registration', $registration)
 			->send();
 		$this->flashMessageContainer->add('Bestätigungsemail wurde versendet!');
+		$registration->setRegistrationConfirmationSent(TRUE);
+		$this->registrationRepository->update($registration);
+		$this->persistenceManager->persistAll();
 		$this->forward('list');
 	}
 

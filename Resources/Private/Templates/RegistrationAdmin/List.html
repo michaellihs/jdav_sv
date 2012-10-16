@@ -121,7 +121,7 @@
 					<p class="pull-right">
 						<f:link.action controller="RegistrationAdmin" action="sendConfirmation"
 									   arguments="{registration: row.registration.value}" class="btn btn-primary">
-							Anm.-Best. versenden
+							Anm.-Best. versenden <f:if condition="{row.registration.value.registrationConfirmationSent}"><i class="icon-white icon-ok"></i></f:if>
 						</f:link.action>
 						<f:link.action controller="RegistrationAdmin" action="edit"
 									   arguments="{registration: row.registration.value}" class="btn btn-primary"><i

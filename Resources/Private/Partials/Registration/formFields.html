@@ -59,6 +59,11 @@
 </div>
 
 <div class="control-group">
+<label class="control-label" for="paid">Anmeldebestätigung verschickt</label>
+	<div class="controls"><f:form.checkbox property="registrationConfirmationSent" value="1" checked="{registration.registrationConfirmationSent}" /></div>
+</div>
+
+<div class="control-group">
 	<label for="comment" class="control-label">Interne Notizen</label>
 	<div class="controls">
 		<f:form.textarea class="span9" property="comment" cols="40" rows="15"/>

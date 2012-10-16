@@ -125,9 +125,19 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 
 	/**
 	 * If set to true, user has paid for registration
+	 *
 	 * @var boolean
 	 */
 	protected $paid;
+
+
+
+	/**
+	 * If set to true, the confirmation of registration has been sent
+	 *
+	 * @var boolean
+	 */
+	protected $registrationConfirmationSent;
 
 
 
@@ -603,6 +613,24 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getPaid() {
 		return $this->paid;
+	}
+
+
+
+	/**
+	 * @param boolean $registrationConfirmationSent
+	 */
+	public function setRegistrationConfirmationSent($registrationConfirmationSent) {
+		$this->registrationConfirmationSent = $registrationConfirmationSent;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getRegistrationConfirmationSent() {
+		return $this->registrationConfirmationSent;
 	}
 
 }
