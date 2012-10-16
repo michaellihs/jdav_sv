@@ -34,5 +34,19 @@
  
 class Tx_JdavSv_Domain_Repository_AccommodationRepository extends Tx_Extbase_Persistence_Repository {
 
+	/**
+	 * Returns all objects of this repository.
+	 *
+	 * @return Tx_Extbase_Persistence_QueryResultInterface|array
+	 *         all objects, will be empty if no objects are found, will be an array if raw query results are enabled
+	 * @api
+	 */
+	public function findAllSorted() {
+		$query = $this->createQuery();
+		$query->setOrderings(array('name' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
+		$result = $query->execute();
+		return $result;
+	}
+
 }
 ?>

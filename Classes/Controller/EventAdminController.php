@@ -169,7 +169,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	public function newAction(Tx_JdavSv_Domain_Model_Event $newEvent = NULL, Tx_JdavSv_Domain_Model_FeUser $teamer = NULL) {
 		$this->view->assign('newEvent', $newEvent);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
-		$this->view->assign('accommodations', $this->accommodationRepository->findAll());
+		$this->view->assign('accommodations', $this->accommodationRepository->findAllSorted());
 		$this->view->assign('teamers', $this->feUserRepository->getAllTeamers());
 		$this->view->assign('trainees', $this->feUserRepository->getAllTrainees());
 		$this->view->assign('firstTeamer', $teamer);
