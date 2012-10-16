@@ -276,8 +276,10 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 * Sends confirmation email to attendee
 	 *
 	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 * @param string Controller and action to forward to after
+	 * @param Tx_JdavSv_Domain_Model_Event $event Event to show after forwarding
 	 */
-	public function sendConfirmationAction(Tx_JdavSv_Domain_Model_Registration $registration) {
+	public function sendConfirmationAction(Tx_JdavSv_Domain_Model_Registration $registration, $from = '', $event = NULL) {
 		$mailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
 		$mailer->setTo(array($registration->getAttendee()->getEmail() => $registration->getAttendee()->getEmailName()))
 			->setSubject('Anmeldebestätigung für Veranstaltung ' . $registration->getEvent()->getFullName())
@@ -288,7 +290,12 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 		$registration->setRegistrationConfirmationSent(TRUE);
 		$this->registrationRepository->update($registration);
 		$this->persistenceManager->persistAll();
-		$this->forward('list');
+		if ($from == '') {
+			$this->forward('list');
+		} else {
+			list($controller, $action) = explode('::', $from);
+			$this->forward($action, $controller, null, array('event' => $event));
+		}
 	}
 
 
