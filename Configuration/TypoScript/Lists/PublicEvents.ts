@@ -13,7 +13,7 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
     backendConfig < plugin.tx_ptextlist.prototype.backend.extbase
     backendConfig {
         repositoryClassName = Tx_JdavSv_Domain_Repository_EventRepository
-        sorting = dateEnd
+        sorting = dateStart
     }
     
     
