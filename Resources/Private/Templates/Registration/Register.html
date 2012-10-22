@@ -31,7 +31,7 @@
 	</table>
 </div>
 
-Ihr Benutzername: {feUser.name} <br><br>
+Dein Benutzername: {feUser.name} <br><br>
 
 <f:form class="form-horizontal" controller="Registration" action="confirmRegistration">
 	<f:form.hidden name="event" value="{event}" />
@@ -87,28 +87,30 @@ Ihr Benutzername: {feUser.name} <br><br>
 		</div>
 	</div>
 
-	<f:if condition="{otherRegistrations}">
-		<f:then>
-			<div class="alert alert-error">
-				Du hast dich bereits zu mindestens einer anderen Veranstaltung angemeldet. Du kannst dich jeweils nur für eine Veranstaltung anmelden und
-				bekommst bei den anderen Veranstaltungen zunächste einen Wartelistenplatz.
-				<br/>
-				Bitte wähle diejenige Schulung aus, bei der du dich anmelden möchtest (bei den anderen Schulungen kommst du zunächst auf die Warteliste):
-				<div class="control-group">
-					<label class="control-label">Angemeldete Schulungen:</label>
-					<div class="controls">
-						<label class="radio">
-							<f:form.radio name="firstChoiceEvent" value="{event.uid}" checked="checked"/> {event.category.shortcut}-{event.accreditationNumber} {event.title} <small>(diese Schulung!)</small>
-						</label>
-						<f:for each="{otherRegistrations}" as="registration">
+	<f:if condition="{event.countsInMaxRegistrations}">
+		<f:if condition="{otherRegistrations}">
+			<f:then>
+				<div class="alert alert-error">
+					Du hast dich bereits zu mindestens einer anderen Veranstaltung angemeldet. Du kannst dich jeweils nur für eine Veranstaltung anmelden und
+					bekommst bei den anderen Veranstaltungen zunächste einen Wartelistenplatz.
+					<br/>
+					Bitte wähle diejenige Schulung aus, bei der du dich anmelden möchtest (bei den anderen Schulungen kommst du zunächst auf die Warteliste):
+					<div class="control-group">
+						<label class="control-label">Angemeldete Schulungen:</label>
+						<div class="controls">
 							<label class="radio">
-								<f:form.radio name="firstChoiceEvent" value="{registration.event.uid}" /> {registration.event.category.shortcut}-{registration.event.accreditationNumber} {registration.event.title}
+								<f:form.radio name="firstChoiceEvent" value="{event.uid}" checked="checked"/> {event.category.shortcut}-{event.accreditationNumber} {event.title} <small>(diese Schulung!)</small>
 							</label>
-						</f:for>
+							<f:for each="{otherRegistrations}" as="registration">
+								<label class="radio">
+									<f:form.radio name="firstChoiceEvent" value="{registration.event.uid}" /> {registration.event.category.shortcut}-{registration.event.accreditationNumber} {registration.event.title}
+								</label>
+							</f:for>
+						</div>
 					</div>
 				</div>
-			</div>
-		</f:then>
+			</f:then>
+		</f:if>
 	</f:if>
 
 	<div class="form-actions">
