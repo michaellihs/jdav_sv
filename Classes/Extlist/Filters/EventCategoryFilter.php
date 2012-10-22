@@ -43,5 +43,21 @@ class Tx_JdavSv_Extlist_Filters_EventCategoryFilter extends Tx_PtExtlist_Domain_
 		return $categories;
 	}
 
+
+
+	/**
+	 * Returns null if "0" is filter value (which stands for "all").
+	 *
+	 * @param Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier
+	 * @return null|Tx_PtExtlist_Domain_QueryObject_SimpleCriteria|void
+	 */
+	protected function buildFilterCriteria(Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier) {
+		if ($this->filterValue == "0") {
+			return NULL;
+		} else {
+			return parent::buildFilterCriteria($fieldIdentifier);
+		}
+	}
+
 }
 ?>
