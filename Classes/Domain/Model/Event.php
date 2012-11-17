@@ -1379,7 +1379,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	public function isGivenUserRegisteredForEvent(Tx_JdavSv_Domain_Model_FeUser $user) {
 		foreach ($this->registrations as $registration) {
 			/* @var $registration Tx_JdavSv_Domain_Model_Registration */
-			if ($registration->getAttendee()->getUid() === $user->getUid()) {
+			if ($registration->getAttendee() != NULL && $registration->getAttendee()->getUid() === $user->getUid()) {
 				return TRUE;
 			}
 		}
