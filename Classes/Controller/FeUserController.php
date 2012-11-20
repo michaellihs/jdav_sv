@@ -165,6 +165,9 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	 * @dontValidate $feUser
 	 */
 	public function newAction(Tx_JdavSv_Domain_Model_FeUser $feUser = null) {
+		if ($feUser === null) {
+			$feUser = new Tx_JdavSv_Domain_Model_FeUser();
+		}
 		$this->view->assign('feUser', $feUser);
 		$this->view->assign('sektionen', $this->sektionRepository->findAll());
 	}
