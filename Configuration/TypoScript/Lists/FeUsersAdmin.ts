@@ -15,7 +15,7 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
         repositoryClassName = Tx_JdavSv_Domain_Repository_FeUserRepository
         #sorting = title
     }
-    
+
     
     
     fields {
