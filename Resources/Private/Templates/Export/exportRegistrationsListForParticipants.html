@@ -10,14 +10,42 @@
 	<h1>{event.fullName}</h1>
 	<p>Teilnehmerliste für Teilnehmer</p>
 
+
 	<table align="center" class="tx_jdavsv" id="tx-ptextlist-list-{config.listConfiguration.listIdentifier}">
 		<thead>
 			<f:render partial="Export/ListHeader" arguments="{listHeader:listHeader, listCaptions:listCaptions}" />
 		</thead>
 		<tbody>
 			<f:render partial="Export/ListBody" arguments="{registrations:event.nonWaitingListRegistrations}" />
+            <f:if condition="{event.firstTeamer}">
+                <tr>
+                    <td colspan="2">
+                        <br/><br/>
+                        <b>Anschrift erster Teamer:</b> <br/><br/>
+                        {event.firstTeamer.firstName} {event.firstTeamer.lastName} <br/>
+                        {event.firstTeamer.address} <br/>
+                        {event.firstTeamer.telephone} <br/>
+                        {event.firstTeamer.mobilePhone}
+                        <f:if condition="{event.firstTeamer.email}"><br/><a href="mailto:{event.firstTeamer.email}">{event.firstTeamer.email}</a></f:if>
+                    </td>
+                    <td colspan="3">
+                        <f:if condition="{event.secondTeamer}">
+                            <br/><br/>
+                            <b>Anschrift zweiter Teamer:</b> <br/><br/>
+                            {event.secondTeamer.firstName} {event.secondTeamer.lastName} <br/>
+                            {event.secondTeamer.address} <br/>
+                            {event.secondTeamer.telephone} <br/>
+                            {event.secondTeamer.mobilePhone}
+                            <f:if condition="{event.firstTeamer.email}"><br/><a href="mailto:{event.secondTeamer.email}">{event.secondTeamer.email}</a></f:if>
+
+                        </f:if>
+                    </td>
+                </tr>
+            </f:if>
 		</tbody>
 	</table>
+
+    <br/>
 
 	<p style="position: fixed;
 	  bottom: 0px;
