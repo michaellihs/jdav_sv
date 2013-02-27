@@ -58,7 +58,11 @@
 						<f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="new"
 									   arguments="{event: row.event.value.uid}"><i class="icon-plus icon-white"></i>
 							Neue Anmeldung
-						</f:link.action>
+						</f:link.action><br/>
+                        <f:link.action class="btn btn-primary" controller="EventAdmin" action="composeMessage"
+                                       arguments="{event: row.event.value.uid}">
+                            Nachricht an TN
+                        </f:link.action>
 						<f:link.action class="btn btn-danger" controller="EventAdmin" action="delete"
 									   arguments="{event: row.event.value.uid}"><i class="icon-trash icon-white"></i>
 							Löschen

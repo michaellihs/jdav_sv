@@ -281,5 +281,29 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->forward('show');
 	}
 
+
+
+	/**
+	 * Shows a form to compose a message sent to all participants of
+	 * the given event
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 */
+	public function composeMessageAction(Tx_JdavSv_Domain_Model_Event $event) {
+
+	}
+
+
+
+	/**
+	 * Sents given message to all participants of given event.
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @param $message
+	 */
+	public function sentMessageAction(Tx_JdavSv_Domain_Model_Event $event, $message) {
+
+	}
+
 }
 ?>
