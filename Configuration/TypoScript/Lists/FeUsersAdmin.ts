@@ -60,6 +60,11 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 			field = lastName
 		}
 
+		dateOfBirth {
+			table = __self__
+			field = dateOfBirth
+		}
+
 		address {
 			table = __self__
 			field = address
@@ -68,6 +73,11 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 		telephone {
 			table = __self__
 			field = telephone
+		}
+
+		mobilePhone {
+			table = __self__
+			field = mobilePhone
 		}
 
 		fax {
@@ -154,7 +164,22 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdmin {
 			table = __self__
 			field = isAdmin
 		}
-    
+
+		sektion {
+			table = __self__
+			field = sektionName
+		}
+
+		davNr {
+			table = __self__
+			field = davNr
+		}
+
+		juleiNr {
+			table = __self__
+			field = juleiNr
+		}
+
     }
     
     

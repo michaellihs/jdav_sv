@@ -350,6 +350,19 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 
 
 	/**
+	 * @return string
+	 */
+	public function getSektionName() {
+		if ($this->sektion) {
+			return $this->getSektion()->getName();
+		} else {
+			return '';
+		}
+	}
+
+
+
+	/**
 	 * @param string $davNr
 	 */
 	public function setDavNr($davNr) {
