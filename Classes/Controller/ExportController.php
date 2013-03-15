@@ -140,5 +140,3 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 	}
 
 }
-
-?>
