@@ -52,5 +52,7 @@ plugin.tx_jdavsv {
 		administrationPluginPid = 32
 		# cat=plugin.tx_jdavsv//a; type=int+; label=PID of page that holds fe_user list export plugin
 		feUserExportPluginPid = 55
+		# cat=plugin.tx_jdavsv//a; type=int+; label=PID of page that holds registrations list excel export plugin
+		registrationsListExportPluginPid = 58
 	}
 }

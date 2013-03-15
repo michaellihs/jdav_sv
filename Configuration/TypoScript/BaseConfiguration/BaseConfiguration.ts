@@ -14,6 +14,7 @@ plugin.tx_jdavsv.settings {
 	frontendPluginPid = {$plugin.tx_jdavsv.settings.frontendPluginPid}
 	administrationPluginPid = {$plugin.tx_jdavsv.settings.administrationPluginPid}
 	feUserExportPluginPid = {$plugin.tx_jdavsv.settings.feUserExportPluginPid}
+	registrationsListExportPluginPid = {$plugin.tx_jdavsv.settings.registrationsListExportPluginPid}
 }
 
 

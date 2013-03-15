@@ -44,6 +44,10 @@
 								   arguments="{event: row.event.value}">Teilnehmer TN-Liste
 					</f:link.action>
 					&nbsp;
+                    <f:link.action pageUid="{settings.registrationsListExportPluginPid}" pluginName="pi1" extensionName="ptextlist" action="download">
+                        Excel Teilnehmerliste
+                    </f:link.action>
+                    &nbsp;
 				</td>
 				<td>
 					{row.event.value.firstTeamer.fullName}<br>
