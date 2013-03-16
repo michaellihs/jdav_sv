@@ -33,7 +33,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * Set to true, if username has been set and hence email != username
 	 *
-	 * @var bool
+	 * @var boolean
 	 */
 	private $_usernameHasBeenSet = false;
 
@@ -41,7 +41,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * True, if user is teamer
 	 *
-	 * @var bool
+	 * @var boolean
 	 */
 	protected $isTeamer;
 
@@ -50,7 +50,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * True, if user is trainee
 	 *
-	 * @var bool
+	 * @var boolean
 	 */
 	protected $isTrainee;
 
@@ -59,7 +59,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * True, if user is interested in kitchen group
 	 *
-	 * @var bool
+	 * @var boolean
 	 */
 	protected $isKitchenGroup;
 
@@ -68,7 +68,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * True, if user is admin
 	 *
-	 * @var bool
+	 * @var boolean
 	 */
 	protected $isAdmin;
 
@@ -77,7 +77,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * True, if user is proofreader
 	 *
-	 * @var bool
+	 * @var boolean
 	 */
 	protected $isProofreader;
 
@@ -134,6 +134,31 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 * @var string
 	 */
 	protected $sex;
+
+
+
+	/**
+	 * @var boolean
+	 */
+	protected $newsletterRecipient;
+
+
+
+	/**
+	 * @param boolean $newsletterRecipient
+	 */
+	public function setNewsletterRecipient($newsletterRecipient) {
+		$this->newsletterRecipient = $newsletterRecipient;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getNewsletterRecipient() {
+		return $this->newsletterRecipient;
+	}
 
 
 
@@ -434,7 +459,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * Returns TRUE, if user has no dav-nr set
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	public function hasNoDavNrSet() {
 		return !$this->hasDavNrSet();
@@ -445,7 +470,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * Returns TRUE, if user has julei nr set
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	public function hasJuleiNrSet() {
 		if ($this->juleiNr !== NULL && $this->juleiNr !== '') {
@@ -460,7 +485,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * Returns TRUE, if user has no julei-nr set
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	public function hasNoJuleiNrSet() {
 		return !$this->hasJuleiNrSet();
@@ -471,7 +496,7 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * Returns TRUE, if user has sektion set
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	public function hasSektionSet() {
 		if ($this->sektion !== NULL) {
@@ -486,11 +511,10 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	/**
 	 * Returns TRUE, if user has NO sektion set
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	public function hasNoSektionSet() {
 		return !$this->hasSektionSet();
 	}
 
 }
-?>
