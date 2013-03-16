@@ -257,4 +257,3 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 	}
 	
 }
-?>

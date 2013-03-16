@@ -1,0 +1,54 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default" />
+<f:section name="main">
+    <h1>Nachricht an Teilnehmer</h1>
+    <h2>{event.title}</h2>
+    <ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+
+    <f:form class="form-horizontal" method="post" controller="Message" action="sendMessageToParticipants">
+        <fieldset>
+            <f:form.hidden name="event" value="{event}" />
+            <div class="control-group">
+                <label class="control-label" for="subject">Betreff (Akk-Nummer wird in [] angehängt)</label>
+
+                <div class="controls">
+                    <f:form.textfield class="span9" name="subject"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="subject">Zusätzliche Empfänger (komma-getrennt)</label>
+
+                <div class="controls">
+                    <f:form.textfield class="span9" name="additionalRecipients"/>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="subject">Warteliste mit einbeziehen</label>
+
+                <div class="controls">
+                    <f:form.checkbox class="span9" name="includeWaitingList" value="1" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="subject">Nachricht</label>
+
+                <div class="controls">
+                    <f:form.textarea class="span9" name="message" cols="40" rows="15"/>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <f:form.submit class="btn-primary btn" value="Nachricht senden" />
+                <f:link.action controller="EventAdmin" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Liste</f:link.action>
+            </div>
+
+
+        </fieldset>
+    </f:form>
+</f:section>
+
+<f:section name="javascript"></f:section>

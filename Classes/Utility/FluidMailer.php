@@ -193,6 +193,19 @@ class Tx_JdavSv_Utility_FluidMailer {
 
 
 	/**
+	 * Setter for BCC part in email
+	 *
+	 * @param array $bcc
+	 * @return Tx_JdavSv_Utitlity_FluidMailer
+	 */
+	public function setBcc(array $bcc) {
+		$this->mailingService->setBcc($bcc);
+		return $this;
+	}
+
+
+
+	/**
 	 * Setter for subject in email
 	 *
 	 * @param $subject

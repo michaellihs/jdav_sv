@@ -17,21 +17,21 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'FeUser' => 'list, show, new, create, edit, update, delete, changePassword, showChangePassword, sort',
 		'Accommodation' => 'list, new, create, edit, update, delete, sort',
 		'SektionAdmin' => 'list, new, create, edit, update, delete, sort',
-		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration'
+		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration',
+		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants'
 	),
 	array(
-			'Login' => 'showLoginForm',
-			'Event' => 'list, attendeeRegistrationsList, show',
+		'Login' => 'showLoginForm',
+		'Event' => 'list, attendeeRegistrationsList, show',
 		'EventAdmin' => 'show, list, update, new, create, delete, edit, teamerRegistrationsList, attendeeRegistrationsList, myEventsList, sort, setRegistrationsPaid',
-			'Registration' => 'register,unregister,list, show, confirmRegistration',
-	        'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist, sendConfirmation, sort',
-			'Category' => 'list, new, create, edit, update, delete, sort',
-			'CategoryPrerequisites' => 'new, create, edit, update, delete',
-			'FeUser' => 'list, show, new, create, edit, update, delete, changePassword, showChangePassword, sort',
-			'Accommodation' => 'list, new, create, edit, update, delete, sort',
-			'SektionAdmin' => 'list, new, create, edit, update, delete, sort',
-			'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration'
+		'Registration' => 'register,unregister,list, show, confirmRegistration',
+		'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist, sendConfirmation, sort',
+		'Category' => 'list, new, create, edit, update, delete, sort',
+		'CategoryPrerequisites' => 'new, create, edit, update, delete',
+		'FeUser' => 'list, show, new, create, edit, update, delete, changePassword, showChangePassword, sort',
+		'Accommodation' => 'list, new, create, edit, update, delete, sort',
+		'SektionAdmin' => 'list, new, create, edit, update, delete, sort',
+		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration',
+		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants'
 	)
 );
-
-?>

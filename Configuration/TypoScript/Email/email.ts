@@ -29,6 +29,7 @@ plugin.tx_jdavsv.settings.email {
 		confirmUnregisterAttendee = confirmUnregisterAttendee.html
 		confirmUnregisterAdmin = confirmUnregisterAdmin.html
 		confirmation = confirm.html
+		participantsMessage = participantsMessage.html
 	}
 
 }
