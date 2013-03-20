@@ -423,6 +423,16 @@ $tempColumns = array(
 			'size' => 4,
 			'eval' => 'int'
 		),
+	),
+	'tx_jdavsv_comment' => array(
+		'exclude'	=> 0,
+		'label'		=> 'Bemerkungen',
+		'config'	=> array(
+			'type' => 'text',
+			'cols' => 40,
+			'rows' => 15,
+			'eval' => 'trim'
+		),
 	)
 );
 t3lib_extMgm::addTCAcolumns('fe_users', $tempColumns, 1);
@@ -437,4 +447,4 @@ t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_sektion');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_dav_nr');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_julei_nr');
 t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_sex');
-?>
+t3lib_extMgm::addToAllTCAtypes('fe_users', 'tx_jdavsv_comment');

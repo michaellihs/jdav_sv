@@ -419,7 +419,7 @@ CREATE TABLE fe_users (
     tx_jdavsv_is_admin tinyint(4) unsigned DEFAULT '0' NOT NULL,
     tx_jdavsv_is_proofreader tinyint(4) unsigned DEFAULT '0' NOT NULL,
     tx_jdavsv_mobile_phone varchar(30) DEFAULT '' NOT NULL,
-    tx_jdavsv_date_of_birth int(11) DEFAULT '0' NOT NULL,
+    tx_jdavsv_comment text NOT NULL,
 
     KEY sektion (sektion)
 );

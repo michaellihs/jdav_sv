@@ -36,6 +36,7 @@ config.tx_extbase {
                         tx_jdavsv_dav_nr.mapOnProperty = davNr
                         tx_jdavsv_julei_nr.mapOnProperty = juleiNr
                         tx_jdavsv_sex.mapOnProperty = sex
+                        tx_jdavsv_comment.mapOnProperty = comment
                         module_sys_dmail_newsletter.mapOnProperty = newsletterRecipient
                     }
                 }

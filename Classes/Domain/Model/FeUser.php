@@ -145,6 +145,33 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 
 
 	/**
+	 * Internal comment for registration
+	 *
+	 * @var string
+	 */
+	protected $comment;
+
+
+
+	/**
+	 * @param string $comment
+	 */
+	public function setComment($comment) {
+		$this->comment = $comment;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getComment() {
+		return $this->comment;
+	}
+
+
+
+	/**
 	 * @param boolean $newsletterRecipient
 	 */
 	public function setNewsletterRecipient($newsletterRecipient) {
