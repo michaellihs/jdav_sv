@@ -27,10 +27,7 @@
 		</table>
 		<div class="tabs">
 			<ul class="nav nav-tabs" id="eventDescriptionTabs">
-				<li class="active"><a href="#overview" data-toggle="pill">Übersicht</a></li>
-				<li><a href="#description" data-toggle="tab">Beschreibung</a></li>
-				<li><a href="#contents" data-toggle="tab">Inhalte</a></li>
-				<li><a href="#prerequisites" data-toggle="tab">Voraussetzungen</a></li>
+				<li class="active"><a href="#overview" data-toggle="pill">Veranstaltungsdetails</a></li>
 				<li><a href="#accommodation" data-toggle="tab">Unterkunft</a></li>
 				<f:if condition="{event.currentUserRegistrationsIsAcceptedAndNotOnWaitinglist}">
 					<li><a href="#attendees" data-toggle="tab">Teilnehmerliste</a></li>
@@ -61,16 +58,31 @@
 							<td class="span2"><strong>Anmeldeschluss:</strong></td>
 							<td class="span3">{event.registrationDeadline  -> f:format.date(format: 'd.m.Y')}</td>
 						</tr>
-					</table>
-				</div>
-				<div class="tab-pane" id="description">
-					<f:format.nl2br>{event.description}</f:format.nl2br>
-				</div>
-				<div class="tab-pane" id="contents">
-					<f:format.nl2br>{event.contents}</f:format.nl2br>
-				</div>
-				<div class="tab-pane" id="prerequisites">
-					<f:format.nl2br>{event.requirements}</f:format.nl2br>
+                    <f:if condition="{event.description}">
+                        <tr>
+                            <td class="span2"><strong>Beschreibung:</strong></td>
+                            <td colspan="3" class="span3"><f:format.nl2br>{event.description}</f:format.nl2br></td>
+                        </tr>
+                    </f:if>
+                    <f:if condition="{event.contents}">
+                        <tr>
+                            <td class="span2"><strong>Inhalte:</strong></td>
+                            <td colspan="3" class="span3"><f:format.nl2br>{event.contents}</f:format.nl2br></td>
+                        </tr>
+                    </f:if>
+                    <f:if condition="event.requirements">
+                        <tr>
+                            <td class="span2"><strong>Voraussetzungen:</strong></td>
+                            <td colspan="3" class="span3"><f:format.nl2br>{event.requirements}</f:format.nl2br></td>
+                        </tr>
+                    </f:if>
+                    <f:if condition="event.educationObjective">
+                        <tr>
+                            <td class="span2"><strong>Ausbildungsziele:</strong></td>
+                            <td colspan="3" class="span3"><f:format.nl2br>{event.educationObjective}</f:format.nl2br></td>
+                        </tr>
+                    </f:if>
+                    </table>
 				</div>
 				<div class="tab-pane" id="accommodation">
 					<table class="table table-no-border-top">
