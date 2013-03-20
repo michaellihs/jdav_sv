@@ -131,6 +131,8 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	 * @param Tx_JdavSv_Domain_Model_FeUser $feUser
 	 */
 	public function editAction(Tx_JdavSv_Domain_Model_FeUser $feUser) {
+		$feGroups = $this->feGroupRepository->findAll();
+		$this->view->assign('feGroups', $feGroups);
 		$this->view->assign('feUser', $feUser);
 		$this->view->assign('sektionen', $this->sektionRepository->findAll());
 	}
@@ -168,6 +170,7 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 		if ($feUser === null) {
 			$feUser = new Tx_JdavSv_Domain_Model_FeUser();
 		}
+		$this->view->assign('feGroups', $this->feGroupRepository->findAll());
 		$this->view->assign('feUser', $feUser);
 		$this->view->assign('sektionen', $this->sektionRepository->findAll());
 	}
@@ -219,4 +222,3 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	}
 
 }
-?>
