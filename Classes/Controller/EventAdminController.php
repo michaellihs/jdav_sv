@@ -106,11 +106,19 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		);
 		$registrationsByEventFilterForParticipantsList = $extlistContextForRegistrationsParticipantsList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
 
+		$extlistContextForRegistrationsParticipantsExcelExportList = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
+			$this->settings['listConfig']['registrationsParticipantsExcelExport'],
+			'registrationsParticipantsExcelExport'
+		);
+		$registrationsByEventFilterForParticipantsExcelExportList = $extlistContextForRegistrationsParticipantsExcelExportList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
+
+
 		$this->view->assign('listData', $extlistContextForEventAdminList->getListData());
 		$this->view->assign('listCaptions', $extlistContextForEventAdminList->getRendererChain()->renderCaptions($extlistContextForEventAdminList->getList()->getListHeader()));
 		$this->view->assign('listHeader', $extlistContextForEventAdminList->getList()->getListHeader());
 		$this->view->assign('registrationsByEventFilterForTeamerList', $registrationsByEventFilterForTeamerList);
 		$this->view->assign('registrationsByEventFilterForParticipantsList', $registrationsByEventFilterForParticipantsList);
+		$this->view->assign('registrationsByEventFilterForParticipantsExcelExportList', $registrationsByEventFilterForParticipantsExcelExportList);
 		$this->view->assign('pager', $extlistContextForEventAdminList->getPager());
 		$this->view->assign('pagerCollection', $extlistContextForEventAdminList->getPagerCollection());
 	}

@@ -44,7 +44,7 @@
 								   arguments="{event: row.event.value}">Teilnehmer TN-Liste
 					</f:link.action>
 					&nbsp;
-                    <f:link.action pageUid="{settings.registrationsListExportPluginPid}" pluginName="pi1" extensionName="ptextlist" action="download">
+                    <f:link.action pageUid="{settings.registrationsListExportPluginPid}" pluginName="pi1" extensionName="ptextlist" action="download" arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForParticipantsExcelExportList}' arguments:'filterValue:{row.event.value.uid}')}">
                         Excel Teilnehmerliste
                     </f:link.action>
                     &nbsp;
