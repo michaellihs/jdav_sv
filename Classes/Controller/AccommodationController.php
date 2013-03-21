@@ -92,7 +92,7 @@ class Tx_JdavSv_Controller_AccommodationController extends Tx_JdavSv_Controller_
 		$this->accommodationRepository->add($newAccommodation);
 		$this->flashMessageContainer->add('Die Unterkunft wurde angelegt.');
 		
-		$this->redirect('list');
+		$this->forward('edit', NULL, NULL, array('accommodation' => $newAccommodation));
 	}
 	
 		
@@ -117,7 +117,7 @@ class Tx_JdavSv_Controller_AccommodationController extends Tx_JdavSv_Controller_
 	public function updateAction(Tx_JdavSv_Domain_Model_Accommodation $accommodation) {
 		$this->accommodationRepository->update($accommodation);
 		$this->flashMessageContainer->add('Die Unterkunft wurde gespeichert.');
-		$this->redirect('list');
+		$this->forward('edit', NULL, NULL, array('accommodation' => $accommodation));
 	}
 	
 		
@@ -147,4 +147,3 @@ class Tx_JdavSv_Controller_AccommodationController extends Tx_JdavSv_Controller_
 	}
 
 }
-?>
