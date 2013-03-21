@@ -117,7 +117,7 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	public function updateAction(Tx_JdavSv_Domain_Model_Category $category) {
 		$this->categoryRepository->update($category);
 		$this->flashMessageContainer->add('Die Kategorie wurde gespeichert.');
-		$this->redirect('list');
+		$this->forward('edit', NULL, NULL, array('category' => $category));
 	}
 	
 		
@@ -147,4 +147,3 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	}
 
 }
-?>
