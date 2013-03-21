@@ -314,4 +314,3 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	}
 
 }
-?>

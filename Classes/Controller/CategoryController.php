@@ -90,9 +90,10 @@ class Tx_JdavSv_Controller_CategoryController extends Tx_JdavSv_Controller_Abstr
 	 */
 	public function createAction(Tx_JdavSv_Domain_Model_Category $newCategory) {
 		$this->categoryRepository->add($newCategory);
+		$this->persistenceManager->persistAll();
 		$this->flashMessageContainer->add('Die Kategorie wurde angelegt.');
-		
-		$this->redirect('list');
+
+		$this->redirect('edit', NULL, NULL, array('category' => $newCategory));
 	}
 	
 		

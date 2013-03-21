@@ -120,7 +120,7 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	public function updateAction(Tx_JdavSv_Domain_Model_FeUser $feUser) {
 		$this->feUserRepository->update($feUser);
 		$this->flashMessageContainer->add('Der Benutzer wurde gespeichert.');
-		$this->redirect('list');
+		$this->redirect('edit', NULL, NULL, array('feUser' => $feUser));
 	}
 
 
@@ -154,8 +154,9 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 		}
 
 		$this->feUserRepository->add($feUser);
+		$this->persistenceManager->persistAll();
 		$this->flashMessageContainer->add('Der Benutzer wurde angelegt.');
-		$this->redirect('list');
+		$this->redirect('edit', NULL, NULL, array('feUser' => $feUser));
 	}
 
 

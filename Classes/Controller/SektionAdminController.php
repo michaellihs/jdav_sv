@@ -91,9 +91,10 @@ class Tx_JdavSv_Controller_SektionAdminController extends Tx_JdavSv_Controller_A
 	 */
 	public function createAction(Tx_JdavSv_Domain_Model_Sektion $newSektion) {
 		$this->sektionRepository->add($newSektion);
+		$this->persistenceManager->persistAll();
 		$this->flashMessageContainer->add('Die Sektion wurde angelegt.');
 		
-		$this->redirect('list');
+		$this->forward('edit', NULL, NULL, array('sektion' => $newSektion));
 	}
 	
 		
@@ -118,7 +119,7 @@ class Tx_JdavSv_Controller_SektionAdminController extends Tx_JdavSv_Controller_A
 	public function updateAction(Tx_JdavSv_Domain_Model_Sektion $sektion) {
 		$this->sektionRepository->update($sektion);
 		$this->flashMessageContainer->add('Die Sektion wurde gespeichert.');
-		$this->redirect('list');
+		$this->redirect('edit', NULL, NULL, array('sektion' => $sektion));
 	}
 
 

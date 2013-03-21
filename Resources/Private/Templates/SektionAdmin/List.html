@@ -27,12 +27,12 @@
 				</td>
 				<td>
 					<p class="pull-right">
-						<f:link.action class="btn btn-primary" controller="Sektion" action="edit"
-									   arguments="{category: row.sektion.value.uid}"><i
+						<f:link.action class="btn btn-primary" controller="SektionAdmin" action="edit"
+									   arguments="{sektion: row.uid}"><i
 								class="icon-pencil icon-white"></i> Bearbeiten
 						</f:link.action>
-						<f:link.action class="btn btn-danger" controller="Sektion" action="delete"
-									   arguments="{category: row.sektion.value.uid}"><i
+						<f:link.action class="btn btn-danger" controller="SektionAdmin" action="delete"
+									   arguments="{sektion: row.uid}"><i
 								class="icon-trash icon-white"></i> Löschen
 						</f:link.action>
 					</p>

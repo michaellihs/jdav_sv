@@ -46,7 +46,14 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 * @var Tx_JdavSv_Domain_RegistrationManager
 	 */
 	protected $registrationManager;
-	
+
+
+
+	/**
+	 * @var Tx_Extbase_Persistence_Manager
+	 */
+	protected $persistenceManager;
+
 	
 
 	/**
@@ -141,9 +148,10 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	 */
 	public function createAction(Tx_JdavSv_Domain_Model_Registration $newRegistration) {
 		$this->registrationRepository->add($newRegistration);
+		$this->persistenceManager->persistAll();
 		$this->flashMessageContainer->add('Die Anmeldung wurde erfolgreich angelegt.');
 		
-		$this->redirect('list');
+		$this->redirect('edit', NULL, NULL, array('registration' => $newRegistration));
 	}
 	
 		
@@ -178,7 +186,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 		$this->registrationRepository->update($registration);
 
 		$this->flashMessageContainer->add('Die Anmeldung wurde gespeichert.');
-		$this->redirect('list');
+		$this->redirect('edit', NULL, NULL, array('registration' => $registration));
 	}
 	
 

@@ -34,6 +34,11 @@ plugin.tx_jdavsv.settings.listConfig.sektionAdmin {
 			field = zip
 		}
 
+		uid {
+			table = __self__
+			field = uid
+		}
+
     }
     
     
@@ -50,6 +55,14 @@ plugin.tx_jdavsv.settings.listConfig.sektionAdmin {
         	fieldIdentifier = name
         	columnIdentifier = name
         	label = Name
+        }
+
+        30 {
+        	fieldIdentifier = uid
+        	columnIdentifier = uid
+        	label = UID
+        	# we do not want to show this column
+        	accessGroups = 1234567
         }
     
     }
