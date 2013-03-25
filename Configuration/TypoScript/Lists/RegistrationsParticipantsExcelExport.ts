@@ -11,6 +11,8 @@
 plugin.tx_jdavsv.settings.listConfig.registrationsParticipantsExcelExport < plugin.tx_jdavsv.settings.listConfig.registrationsParticipants
 plugin.tx_jdavsv.settings.listConfig.registrationsParticipantsExcelExport {
 
+	default.sortingColumn = nameColumn
+
     fields {
 
 
