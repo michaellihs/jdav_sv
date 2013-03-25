@@ -27,6 +27,11 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdminExport {
 			label = Sektion
 		}
 
+		55 {
+			fieldIdentifier = zip
+			columnIdentifier = zip
+			label = PLZ
+		}
 
 		60 {
 			fieldIdentifier = city
