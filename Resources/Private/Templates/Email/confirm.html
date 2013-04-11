@@ -4,14 +4,8 @@ hiermit bestätigen wir deine Anmeldung zur Schulung "{registration.event.title}
 
 *Deine Anmeldung ist hiermit verbindlich!*
 
-<f:if condition="{registration.event.category.prerequisites}">
-Die nächsten Schritte sollten nun sein:
-<f:for each="{registration.event.category.prerequisites}" as="prerequisite">
-<f:if condition="{prerequisite.notInternal}">* {prerequisite.description}</f:if>
-</f:for>
-</f:if>
-
-Eine Teilnehmerliste findest du (nach dem Login) auf unserer Webseite. Nach Abschluss der Veranstaltung und vorausgesetzt, du hast daran teilgenommen, findest du eine Teilnahmebestätigung auf der Webseite.
+Eine Teilnehmerliste findest du nach der Bezahlung des Teilnehmerbeitrages per Lastschrift - etwa 4 Wochen vor der Schulung - (nach dem Login) auf unserer Webseite.
+Nach Abschluss der Veranstaltung und vorausgesetzt, du hast daran teilgenommen, findest du dort auch eine Teilnahmebestätigung.
 
 Der Link zu den Schulungsdetails lautet:
 <f:uri.action pageUid="{settings.frontendPluginPid}" absolute="1" noCacheHash="1" pluginName="pi1" extensionName="jdavsv" controller="Event" action="show" arguments="{event: registration.event.uid}" />
