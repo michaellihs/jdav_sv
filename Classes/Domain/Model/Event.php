@@ -1310,7 +1310,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
 	 */
 	public function getNonWaitingListRegistrations() {
-		$registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
+		$registrationRepository = t3lib_div::makeInstance('Tx_Extbase_Object_Manager')->get('Tx_JdavSv_Domain_Repository_RegistrationRepository');
 		/* @var $registrationRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
 		return $registrationRepository->getNonWaitingListRegistrationsByEvent($this);
 	}
@@ -1323,7 +1323,7 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration>
 	 */
 	public function getWaitingListRegistrations() {
-		$registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
+		$registrationRepository = t3lib_div::makeInstance('Tx_Extbase_Object_Manager')->get('Tx_JdavSv_Domain_Repository_RegistrationRepository');
 		/* @var $registrationRepository Tx_JdavSv_Domain_Repository_RegistrationRepository */
 		return $registrationRepository->getWaitingListRegistrationsByEvent($this);
 	}
