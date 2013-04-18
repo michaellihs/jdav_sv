@@ -1,9 +1,10 @@
-{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+{namespace ptx=Tx_PtExtbase_ViewHelpers}
 
 <f:layout name="Default"/>
 <f:section name="main">
-	<h1>Benutzer</h1>
-	<ptextbase:flashMessages renderMode="div"
+
+    <h1>Benutzer</h1>
+	<ptx:flashMessages renderMode="div"
 							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
 	<f:form class="form-horizontal" method="post" action="update" name="feUser" object="{feUser}">
 

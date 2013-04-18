@@ -49,6 +49,106 @@ class Tx_JdavSv_Domain_Model_Sektion extends Tx_Extbase_DomainObject_AbstractEnt
 
 
 	/**
+	 * @var string
+	 */
+	protected $address;
+
+
+
+	/**
+	 * @var string
+	 */
+	protected $email;
+
+
+
+	/**
+	 * @var Tx_JdavSv_Domain_Model_FeUser
+	 */
+	protected $vorstand;
+
+
+
+	/**
+	 * @var Tx_JdavSv_Domain_Model_FeUser
+	 */
+	protected $jugendreferent;
+
+
+
+	/**
+	 * @param string $email
+	 */
+	public function setEmail($email) {
+		$this->email = $email;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getEmail() {
+		return $this->email;
+	}
+
+
+
+	/**
+	 * @param string $address
+	 */
+	public function setAddress($address) {
+		$this->address = $address;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getAddress() {
+		return $this->address;
+	}
+
+
+
+	/**
+	 * @param \Tx_JdavSv_Domain_Model_FeUser $jugendreferent
+	 */
+	public function setJugendreferent($jugendreferent) {
+		$this->jugendreferent = $jugendreferent;
+	}
+
+
+
+	/**
+	 * @return \Tx_JdavSv_Domain_Model_FeUser
+	 */
+	public function getJugendreferent() {
+		return $this->jugendreferent;
+	}
+
+
+
+	/**
+	 * @param \Tx_JdavSv_Domain_Model_FeUser $vorstand
+	 */
+	public function setVorstand($vorstand) {
+		$this->vorstand = $vorstand;
+	}
+
+
+
+	/**
+	 * @return \Tx_JdavSv_Domain_Model_FeUser
+	 */
+	public function getVorstand() {
+		return $this->vorstand;
+	}
+
+
+
+	/**
 	 * @param string $name
 	 */
 	public function setName($name) {
@@ -83,4 +183,3 @@ class Tx_JdavSv_Domain_Model_Sektion extends Tx_Extbase_DomainObject_AbstractEnt
 	}
 
 }
-?>

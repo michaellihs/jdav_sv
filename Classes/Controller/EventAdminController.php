@@ -67,15 +67,37 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 
 
 	/**
-	 * Initializes the current action
-	 *
-	 * @return void
+	 * @param Tx_JdavSv_Domain_Repository_AccommodationRepository $accommodationRepository
 	 */
-	protected function postInitializeAction() {
-		$this->eventRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_EventRepository');
-		$this->registrationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_RegistrationRepository');
-		$this->categoryRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_CategoryRepository');
-		$this->accommodationRepository = t3lib_div::makeInstance('Tx_JdavSv_Domain_Repository_AccommodationRepository');
+	public function injectAccommodationRepository(Tx_JdavSv_Domain_Repository_AccommodationRepository $accommodationRepository) {
+		$this->accommodationRepository = $accommodationRepository;
+	}
+
+
+
+	/**
+	 * @param Tx_JdavSv_Domain_Repository_CategoryRepository $categoryRepository
+	 */
+	public function injectCategoryRepository(Tx_JdavSv_Domain_Repository_CategoryRepository $categoryRepository) {
+		$this->categoryRepository = $categoryRepository;
+	}
+
+
+
+	/**
+	 * @param Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository
+	 */
+	public function injectRegistrationRepository(Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository) {
+		$this->registrationRepository = $registrationRepository;
+	}
+
+
+
+	/**
+	 * @param Tx_JdavSv_Domain_Repository_EventRepository $eventRepository
+	 */
+	public function injectEventRepository(Tx_JdavSv_Domain_Repository_EventRepository $eventRepository) {
+		$this->eventRepository = $eventRepository;
 	}
 
 

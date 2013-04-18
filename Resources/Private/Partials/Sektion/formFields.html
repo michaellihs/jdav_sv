@@ -1,9 +1,39 @@
 <div class="control-group">
     <label class="control-label" for="name">Name</label>
-    <div class="controls"><f:form.textfield class="span1" property="name" /></div>
+    <div class="controls"><f:form.textfield class="span9" property="name" /></div>
 </div>
 
 <div class="control-group">
     <label class="control-label" for="zip">Zip</label>
-    <div class="controls"><f:form.textfield class="span4" property="zip" /></div>
+    <div class="controls"><f:form.textfield class="span2" property="zip" /></div>
+</div>
+
+<div class="control-group">
+	<label for="comment" class="control-label">Adresse / Anschrift</label>
+	<div class="controls">
+		<f:form.textarea class="span9" property="address" cols="30" rows="6"/>
+	</div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="email">E-Mail</label>
+    <div class="controls"><f:form.textfield class="span4" property="email" /></div>
+</div>
+
+<div class="control-group">
+	<label class="control-label" for="title">Jugendreferent</label>
+
+	<div class="controls">
+		<ptextbase:form.select property="jugendreferent" options="{personen}" optionLabelField="fullName"
+							   optionValueField="uid" emptyOption="Bitte auswählen..."/>
+	</div>
+</div>
+
+<div class="control-group">
+	<label class="control-label" for="title">Vorstand</label>
+
+	<div class="controls">
+		<ptextbase:form.select property="vorstand" options="{personen}" optionLabelField="fullName"
+							   optionValueField="uid" emptyOption="Bitte auswählen..."/>
+	</div>
 </div>

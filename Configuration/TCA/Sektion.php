@@ -78,7 +78,43 @@ $TCA['tx_jdavsv_domain_model_sektion'] = array(
 				'size' => 7,
 				'eval' => 'trim'
 			),
-		)
+		),
+		'address' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Adresse',
+			'config'	=> array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
+			),
+		),
+		'email' => array(
+			'exclude'	=> 0,
+			'label'		=> 'E-Mail',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 7,
+				'eval' => 'trim'
+			),
+		),
+		'vorstand' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Vorstand',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			),
+		),
+		'jugendreferent' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Jugendreferent',
+			'config'	=> array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			),
+		),
 	)
 );
-?>
