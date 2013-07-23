@@ -70,8 +70,22 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 		$extlistContext = Tx_PtExtlist_ExtlistContext_ExtlistContextFactory::getContextByCustomConfiguration(
 			$this->settings['listConfig']['publicEvents'], 'publicEvents');
 
+		$eventDateFilter = $extlistContext->getFilterByFullFiltername('hiddenEventsFilter.eventsDateFilter'); /* @var $eventDateFilter Tx_JdavSv_Extlist_Filters_EventDateFilter */
+
 		if ($resetFilters) {
 			$extlistContext->resetFilterboxCollection();
+		}
+
+		// Check for start date in flexform settings
+		if ($this->settings['dateStart']) {
+			$eventDateFilter->setStartDate(new DateTime($this->settings['dateStart']));
+			$eventDateFilter->init();
+		}
+
+		// Check for end date in flexform settings
+		if ($this->settings['dateEnd']) {
+			$eventDateFilter->setEndDate(new DateTime($this->settings['dateEnd']));
+			$eventDateFilter->init();
 		}
 
 		$categoryFilter = $extlistContext->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox')->getFilterByFilterIdentifier('categoryFilter');
@@ -106,4 +120,3 @@ class Tx_JdavSv_Controller_EventController extends Tx_JdavSv_Controller_Abstract
 	}
 
 }
-?>

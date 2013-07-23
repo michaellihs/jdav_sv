@@ -60,4 +60,3 @@ class Tx_JdavSv_Extlist_Filters_EventCategoryFilter extends Tx_PtExtlist_Domain_
 	}
 
 }
-?>

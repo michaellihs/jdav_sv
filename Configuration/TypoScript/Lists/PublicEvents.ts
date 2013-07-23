@@ -174,6 +174,14 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
 					fieldIdentifier = isPublic
 				}
 
+				20 {
+					filterClassName = Tx_JdavSv_Extlist_Filters_EventDateFilter
+					partialPath = noPartialToBeSetHere
+					filterIdentifier = eventsDateFilter
+					label = noLabelRequiredHere
+					fieldIdentifier = dateStart
+				}
+
     		}
 
     	}
