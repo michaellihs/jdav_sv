@@ -130,6 +130,26 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 
 
 	/**
+	 * Exports debit information for given registration
+	 *
+	 * @param Tx_JdavSv_Domain_Model_Registration $registration
+	 */
+	public function exportRegistrationDebitInformationAction(Tx_JdavSv_Domain_Model_Registration $registration) {
+		// TODO put configuration into TS
+		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/registrationDebitInformation.html';
+		$this->defaultPdfExportSettings['fileName'] = 'lastschriftinfor-' . $registration->getEvent()->getCategory()->getShortcut() . $registration->getEvent()->getAccreditationNumber();
+		$this->defaultPdfExportSettings['paperOrientation'] = 'portrait';
+
+		$this->view->setConfiguration($this->defaultPdfExportSettings);
+		$this->view->assign('registration', $registration);
+		$this->view->assign('currentDate', time());
+
+		return $this->view->render();
+	}
+
+
+
+	/**
 	 * Overwrites view class name used for this controller
 	 * as we want to have PDF export.
 	 *

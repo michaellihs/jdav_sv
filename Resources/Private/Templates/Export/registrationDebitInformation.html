@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="{csssFilePath}"/>
+</head>
+
+<body marginwidth="0" marginheight="0">
+
+<div class="absolute" style="top: 40px; right: 40px;">
+    LOGO
+</div>
+
+<div class="absolute" style="top: 80px; left: 40px; right: 40px;">
+    JDAV Ba-Wü | Rotebühlstr. 59 A | 70178 Stuttgart<br/>
+    <br/>
+    {registration.attendee.firstName} {registration.attendee.lastName}
+    <f:format.nl2br>{registration.attendee.address}</f:format.nl2br>
+</div>
+
+<div class="absolute" style="top: 40px; right: 40px;">
+    Stuttgart, den {currentDate->f:format.date(format: 'd.m.Y')}
+</div>
+
+<div class="absolute" style="top: 160px; left: 40px; right: 40px; bottom: 160px; ">
+    <f:format.nl2br>
+    <strong>Rechnung Teilnehmerbeitrag</strong>
+    <strong>{registration.event.title}</strong>
+
+    Hiermit berechnen wir den Teilnehmerbeitrag für obige Schulungsveranstaltung der JDAV Baden-Württemberg e. V. in
+    Höhe von 98 €.
+
+    Bitte nicht überweisen, der Betrag wird von dem angegebenen Konto abgebucht.
+
+    Jugend des Deutschen Alpenvereins Landesgeschäftsstelle Baden-Württemberg e. V.
+
+    Ulrike Hausladen
+
+
+
+    Unsere aktuellen Zahlungs-, Storno- und Umbuchungsgebühren sowie die Regelungen zur Fahrtkostenerstattung sind
+    nachzulesen unter www.jdav-bw.de (Schulungen / Anmeldung + Info).
+    </f:format.nl2br>
+</div>
+
+<div class="absolute" style="bottom: 40px; left: 40px;">
+    Konto-Nummer: 258 417 7
+    Bankleitzahl: 600 501 01
+    Name der Bank: BW Bank
+    IBAN: DE57 6005 0101 0002 5841 77
+    BIC / SWIFT-Adresse: SOLADEST
+</div>
+
+<div class="absolute" style="bottom: 80px; left: 40px; right: 40px;">
+    JDAV Landesgeschäftsstelle Baden-Württemberg e. V.
+    Rotebühlstrasse 59 A | 70178 Stuttgart
+    <br>
+    Telefon 0711 – 61 08 86
+    Internet www.jdav-bw.de
+    Email info@jdav-bw.de
+</div>
+
+</body>
+</html>
