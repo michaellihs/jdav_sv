@@ -40,7 +40,18 @@ class Tx_JdavSv_View_PdfExportView extends Tx_PtExtlist_View_Export_PdfListView 
 	 *
 	 * @var string
 	 */
-	protected $filename;
+	protected $fileName;
+
+
+
+	/**
+	 * Holds base path for images etc.
+	 *
+	 * All assets are addressed relative to site root, so we set site root here.
+	 *
+	 * @var string
+	 */
+	protected $basePath = PATH_site;
 
 
 
@@ -86,6 +97,7 @@ class Tx_JdavSv_View_PdfExportView extends Tx_PtExtlist_View_Export_PdfListView 
 
 		$dompdf = new DOMPDF();
 		$dompdf->set_paper($this->paperSize, $this->paperOrientation);
+		$dompdf->set_base_path($this->basePath);
 		$dompdf->load_html($html);
 		$dompdf->render();
 
@@ -95,4 +107,3 @@ class Tx_JdavSv_View_PdfExportView extends Tx_PtExtlist_View_Export_PdfListView 
 	}
 
 }
-?>

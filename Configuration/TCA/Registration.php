@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_registration'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_registration']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment,is_reservation,paid, registration_confirmation_sent',
+		'showRecordFieldList'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment,is_reservation,paid, registration_confirmation_sent, debit_information_sent',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment,is_reservation,paid, registration_confirmation_sent'),
+		'1' => array('showitem'	=> 'date,attendee,reserved_until,waiting_list,registration_order,vegetarian,state,payment_method,event,comment,is_reservation,paid, registration_confirmation_sent, debit_information_sent'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -155,6 +155,14 @@ $TCA['tx_jdavsv_domain_model_registration'] = array(
 		'registration_confirmation_sent' => array(
 			'exclude'	=> 0,
 			'label'		=> 'Anmeldebestätigung verschickt',
+			'config'	=> array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
+		'debit_information_sent' => array(
+			'exclude'	=> 0,
+			'label'		=> 'Einzugs-Info verschickt',
 			'config'	=> array(
 				'type' => 'check',
 				'default' => 0

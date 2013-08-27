@@ -125,7 +125,7 @@
 						</f:link.action>
                         <f:link.action controller="Export" action="exportRegistrationDebitInformation"
                                        arguments="{registration: row.registration.value}" class="btn btn-primary">
-                            Einz.-Info. versenden <f:if condition="{row.registration.value.registrationConfirmationSent}"><i class="icon-white icon-ok"></i></f:if>
+                            Einz.-Info. versenden <f:if condition="{row.registration.value.debitInformationSent}"><i class="icon-white icon-ok"></i></f:if>
                         </f:link.action>
 						<f:link.action controller="RegistrationAdmin" action="edit"
 									   arguments="{registration: row.registration.value}" class="btn btn-primary"><i

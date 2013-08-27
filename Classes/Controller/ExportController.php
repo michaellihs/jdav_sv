@@ -120,6 +120,7 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/registrationInvoice.html';
 		$this->defaultPdfExportSettings['fileName'] = 'rechnung-' . $registration->getEvent()->getCategory()->getShortcut() . $registration->getEvent()->getAccreditationNumber();
 		$this->defaultPdfExportSettings['paperOrientation'] = 'portrait';
+		$this->defaultPdfExportSettings['paperSize'] = 'A4';
 
 		$this->view->setConfiguration($this->defaultPdfExportSettings);
 		$this->view->assign('registration', $registration);
@@ -137,8 +138,14 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 	public function exportRegistrationDebitInformationAction(Tx_JdavSv_Domain_Model_Registration $registration) {
 		// TODO put configuration into TS
 		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/registrationDebitInformation.html';
-		$this->defaultPdfExportSettings['fileName'] = 'lastschriftinfor-' . $registration->getEvent()->getCategory()->getShortcut() . $registration->getEvent()->getAccreditationNumber();
+		$this->defaultPdfExportSettings['fileName'] = 'lastschriftinfo-' . $registration->getEvent()->getCategory()->getShortcut() . $registration->getEvent()->getAccreditationNumber();
 		$this->defaultPdfExportSettings['paperOrientation'] = 'portrait';
+		$this->defaultPdfExportSettings['paperSize'] = 'A4';
+		$this->defaultPdfExportSettings['paperSize'] = 'A4';
+
+		$registration->setDebitInformationSent(TRUE);
+		$this->registrationRepository->update($registration);
+		$this->persistenceManager->persistAll();
 
 		$this->view->setConfiguration($this->defaultPdfExportSettings);
 		$this->view->assign('registration', $registration);

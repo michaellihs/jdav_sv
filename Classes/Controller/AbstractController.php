@@ -49,6 +49,13 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 
 
 	/**
+	 * @var Tx_JdavSv_Domain_Repository_RegistrationRepository
+	 */
+	protected $registrationRepository;
+
+
+
+	/**
 	 * Holds instance of persistence manager
 	 *
 	 * @var Tx_Extbase_Persistence_Manager
@@ -84,6 +91,17 @@ class Tx_JdavSv_Controller_AbstractController extends Tx_PtExtbase_Controller_Ab
 	 */
 	public function injectFeUserRepository(Tx_JdavSv_Domain_Repository_FeUserRepository $feUserRepository) {
 		$this->feUserRepository = $feUserRepository;
+	}
+
+
+
+	/**
+	 * Injects the registration repository
+	 *
+	 * @param Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository
+	 */
+	public function injectRegistrationRepository(Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository) {
+		$this->registrationRepository = $registrationRepository;
 	}
 
 

@@ -142,10 +142,14 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 
 
 	/**
-	 * The constructor.
+	 * If set to true, the debit information (Einzugsermächtigung) has been sent
 	 *
-	 * @return void
+	 * @var boolean
 	 */
+	protected $debitInformationSent;
+
+
+
 	public function __construct() {
 		//Do not remove the next line: It would break the functionality
 		$this->initStorageObjects();
@@ -385,7 +389,7 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		// All prerequisites for event-category of attached event
 		$prerequisites = $this->event->getCategory()->getPrerequisites();
 		$categoryFulfillmentRepository = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository');
-		/* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository*/
+		/* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository */
 		$fulfilledPrerequisites = $categoryFulfillmentRepository->findByRegistration($this);
 
 		$fulfilledPrerequisitesMap = array();
@@ -433,7 +437,7 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		// All prerequisites for event-category of attached event
 		$prerequisites = $this->event->getCategory()->getPrerequisites();
 		$categoryFulfillmentRepository = t3lib_div::makeInstance('Tx_Extbase_Object_ObjectManager')->get('Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository');
-		/* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository*/
+		/* @var $categoryFulfillmentRepository Tx_JdavSv_Domain_Repository_CategoryPrerequisiteFulfillmentRepository */
 		$fulfilledPrerequisites = $categoryFulfillmentRepository->findByRegistration($this);
 
 		$fulfilledPrerequisitesMap = array();
@@ -633,5 +637,23 @@ class Tx_JdavSv_Domain_Model_Registration extends Tx_Extbase_DomainObject_Abstra
 		return $this->registrationConfirmationSent;
 	}
 
+
+
+	/**
+	 * @param boolean $debitInformationSent
+	 */
+	public function setDebitInformationSent($debitInformationSent) {
+		$this->debitInformationSent = $debitInformationSent;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getDebitInformationSent() {
+		return $this->debitInformationSent;
+	}
+
+
 }
-?>
