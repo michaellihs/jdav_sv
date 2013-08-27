@@ -232,6 +232,15 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 
 
 	/**
+	 * Holds the date when registration is first possible
+	 *
+	 * @var DateTime $registrationOpenDate
+	 */
+	protected $registrationOpenDate;
+
+
+
+	/**
 	 * Last date for registration
 	 *
 	 * @var DateTime $registrationDeadline
@@ -915,6 +924,35 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	public function getRegistrationDeadline() {
 		return $this->registrationDeadline;
+	}
+
+
+
+	/**
+	 * @param \DateTime $registrationOpenDate
+	 */
+	public function setRegistrationOpenDate(DateTime $registrationOpenDate) {
+		$this->registrationOpenDate = $registrationOpenDate;
+	}
+
+
+
+	/**
+	 * Returns true, if registration is open for this event
+	 *
+	 * @return bool
+	 */
+	public function getIsRegistrationPossibleDueToDate() {
+		return ($this->registrationOpenDate == NULL || $this->registrationOpenDate->getTimestamp() < time());
+	}
+
+
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getRegistrationOpenDate() {
+		return $this->registrationOpenDate;
 	}
 
 

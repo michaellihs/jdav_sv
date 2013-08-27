@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jdavsv_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_jdavsv_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted,counts_in_max_registrations,is_public,comment',
+		'showRecordFieldList'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,registration_open_date,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted,counts_in_max_registrations,is_public,comment',
 	),
 	'types' => array(
-		'1' => array('showitem'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted,counts_in_max_registrations,is_public,comment'),
+		'1' => array('showitem'	=> 'title,subtitle,description,date_start,date_end,duration,place,travelling,accreditation_number,requirements,contents,education_objective,first_teamer,second_teamer,trainee,kitchen_group,price,max_registrations,min_registrations,att_teamer_ratio,announcement,tour_report_required,registration_deadline,unregister_deadline,registration_open_date,accommodation,catering,fee,category,registrations,is_proposal,teamer_input_finished,is_proofread,is_accepted,counts_in_max_registrations,is_public,comment'),
 	),
 	'palettes' => array(
 		'1' => array('showitem'	=> ''),
@@ -283,9 +283,9 @@ $TCA['tx_jdavsv_domain_model_event'] = array(
 				'default' => time()
 			),
 		),
-		'unregister_deadline' => array(
+		'registration_open_date' => array(
 			'exclude'	=> 0,
-			'label'		=> 'Abmeldeschluss',
+			'label'		=> 'Anmeldung möglich ab',
 			'config'	=> array(
 				'type' => 'input',
 				'size' => 12,

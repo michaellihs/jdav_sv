@@ -67,16 +67,23 @@
 								<td>
 									<p class="pull-right"><br>
 										<f:link.action class="btn btn-large" controller="Event" action="show" arguments="{event: row.event.value}">Details</f:link.action>
-										<f:if condition="{row.event.value.currentUserIsNotRegisteredForThisEvent}">
-											<f:then>
-												<f:link.action class="btn btn-large" controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action>
-											</f:then>
-											<f:else>
-												<f:if condition="{row.event.value.cancelRegistrationIsPossible}">
-													<f:then><f:link.action class="btn btn-large btn-danger" controller="Registration" action="unregister" arguments="{event: row.event.value}">Abmelden</f:link.action></f:then>
-												</f:if>
-											</f:else>
-										</f:if>
+                                        <f:if condition="{row.event.value.isRegistrationPossibleDueToDate}">
+                                            <f:then>
+                                                <f:if condition="{row.event.value.currentUserIsNotRegisteredForThisEvent}">
+                                                    <f:then>
+                                                        <f:link.action class="btn btn-large" controller="Registration" action="register" arguments="{event: row.event.value}">Anmelden</f:link.action>
+                                                    </f:then>
+                                                    <f:else>
+                                                        <f:if condition="{row.event.value.cancelRegistrationIsPossible}">
+                                                            <f:then><f:link.action class="btn btn-large btn-danger" controller="Registration" action="unregister" arguments="{event: row.event.value}">Abmelden</f:link.action></f:then>
+                                                        </f:if>
+                                                    </f:else>
+                                                </f:if>
+                                            </f:then>
+                                            <f:else>
+                                                <i class="icon-info-sign"></i> Anmeldung möglich ab <strong>{row.event.value.registrationOpenDate -> f:format.date(format: 'd.m.Y')}</strong>
+                                            </f:else>
+                                        </f:if>
 									</p>
 								</td>
 							</tr>

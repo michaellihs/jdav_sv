@@ -223,6 +223,15 @@
 			</div>
 		</div>
 
+        <div class="control-group">
+            <label for="registrationOpenDate" class="control-label">Anmeldung möglich ab</label>
+
+            <div class="controls">
+                <f:form.textfield class="input-small" property="registrationOpenDate"
+                                  value="{event.registrationOpenDate->f:format.date(format: 'd.m.Y')}"/>
+            </div>
+        </div>
+
 		<div class="control-group">
 			<label for="isProposal" class="control-label">Status</label>
 

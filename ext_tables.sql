@@ -29,6 +29,7 @@ CREATE TABLE tx_jdavsv_domain_model_event (
 	tour_report_required tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	registration_deadline int(11) DEFAULT '0' NOT NULL,
 	unregister_deadline int(11) DEFAULT '0' NOT NULL,
+	registration_open_date int(11) DEFAULT '0' NOT NULL,
 	accommodation int(11) unsigned DEFAULT '0' NOT NULL,
 	catering int(11) unsigned DEFAULT '0' NOT NULL,
 	fee int(11) unsigned DEFAULT '0' NOT NULL,
