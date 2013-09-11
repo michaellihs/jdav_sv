@@ -25,7 +25,6 @@ plugin.tx_jdavsv.settings.listConfig.adminEvents {
 
 			filterConfigs {
 
-
 				## State filter
 				40 < plugin.tx_ptextlist.prototype.filter.string
 				40 {
@@ -34,6 +33,16 @@ plugin.tx_jdavsv.settings.listConfig.adminEvents {
 					filterIdentifier = stateFilter
 					filterClassName = Tx_JdavSv_Extlist_Filters_EventsByStateAdminFilter
 					label = Archiviert
+				}
+
+				## Event Year filter
+				50 < plugin.tx_ptextlist.prototype.filter.string
+				50 {
+					## Configuration does not matter here
+					fieldIdentifier = eventYear
+					filterIdentifier = eventYearFilter
+					filterClassName = Tx_JdavSv_Extlist_Filters_EventYearAdminFilter
+					label = Veranstaltungsjahr
 				}
 
 			}

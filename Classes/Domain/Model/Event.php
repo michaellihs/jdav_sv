@@ -1589,4 +1589,17 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		return $this->eventYear;
 	}
 
+
+
+	/**
+	 * Returns the full accreditation number
+	 *
+	 * e.g. FB-01-13
+	 *
+	 * @return string
+	 */
+	public function getFullAccreditation() {
+		return $this->category->getShortcut() . '-' . $this->accreditationNumber;
+	}
+
 }

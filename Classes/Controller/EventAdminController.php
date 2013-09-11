@@ -174,6 +174,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->view->assign('pager', $extlistContextForEventAdminList->getPager());
 		$this->view->assign('pagerCollection', $extlistContextForEventAdminList->getPagerCollection());
 		$this->view->assign('stateFilter', $extlistContextForEventAdminList->getFilterByFullFiltername('stateFilterbox.stateFilter'));
+		$this->view->assign('eventYearFilter', $extlistContextForEventAdminList->getFilterByFullFiltername('stateFilterbox.eventYearFilter'));
 	}
 
 

@@ -15,21 +15,22 @@
     <f:form class="well form-inline" controller="EventAdmin" action="list">
         <table width="100%">
             <tr>
-                <td width="50%">
-                    <div class="control-group">
-                        <div class="controls">
-                            <label class="checkbox inline">
-                                <f:form.checkbox
-                                        name="{extlist:namespace.FormElementName(object:'{stateFilter}' property:'isArchived')}"
-                                        checked="{stateFilter.isArchived}" value="1"/>
-                                Archivierte Veranstaltungen</label>
-                                <p class="btn blue" id="state-filter-hint"
-                                   data-original-title="Archiv-Filter"
-                                   data-content="Wenn dieser Filter nicht aktiv ist, werden nur nicht-archivierte Veranstaltungen angezeigt. <br/>Wenn der Filter aktiviert ist, werden sowohl archivierte als auch nicht-archivierte Schulungen angezeigt.">
-                                    ?
-                                </p>
-                        </div>
-                    </div>
+                <td>
+                    <label class="checkbox inline">
+                        <f:form.checkbox
+                                name="{extlist:namespace.FormElementName(object:'{stateFilter}' property:'isArchived')}"
+                                checked="{stateFilter.isArchived}" value="1"/>
+                        Archivierte Veranstaltungen
+                    </label>
+                    <p class="btn blue" id="state-filter-hint"
+                       data-original-title="Archiv-Filter"
+                       data-content="Wenn dieser Filter nicht aktiv ist, werden nur nicht-archivierte Veranstaltungen angezeigt. <br/>Wenn der Filter aktiviert ist, werden sowohl archivierte als auch nicht-archivierte Schulungen angezeigt.">
+                        ?
+                    </p>
+                </td>
+                <td>
+                    <label>Veranstaltungsjahre</label>
+                    <f:form.select size="3" name="{extlist:namespace.FormElementName(object:'{eventYearFilter}' property:'filterValues')}" value="{eventYearFilter.values}" property="eventYear" multiple="1" options="{eventYearFilter.options}" optionValueField="uid" optionLabelField="name" />
                 </td>
                 <td width="50%">
                     <div class="control-group">

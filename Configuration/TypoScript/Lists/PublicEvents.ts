@@ -86,6 +86,11 @@ plugin.tx_jdavsv.settings.listConfig.publicEvents {
         	table = __self__
         	field = secondTeamer
         }
+
+        eventYear {
+        	table = __self__
+        	field = eventYear
+        }
     
     }
     
