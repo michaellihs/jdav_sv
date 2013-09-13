@@ -66,6 +66,10 @@ plugin.tx_jdavsv.settings.listConfig.feUsersAdminExport {
 
 	}
 
+	pager {
+		itemsPerPage = 0
+	}
+
 }
 
 # We copy list config above into pt_extlist namespace
