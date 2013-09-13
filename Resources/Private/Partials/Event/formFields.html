@@ -1,227 +1,227 @@
 {namespace ptextbase=Tx_PtExtbase_ViewHelpers}
 
 <div class="control-group">
-	<label class="control-label" for="title">Titel der Veranstaltung</label>
+    <label class="control-label" for="title">Titel der Veranstaltung</label>
 
-	<div class="controls">
-		<f:form.textfield class="span9" property="title"/>
-	</div>
+    <div class="controls">
+        <f:form.textfield class="span9" property="title"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="subtitle">Untertitel</label>
+    <label class="control-label" for="subtitle">Untertitel</label>
 
-	<div class="controls">
-		<f:form.textfield class="span9" property="subtitle"/>
-	</div>
+    <div class="controls">
+        <f:form.textfield class="span9" property="subtitle"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="dateStart">Zeitraum</label>
+    <label class="control-label" for="dateStart">Zeitraum</label>
 
-	<div class="controls">
-		von:
-		<f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="dateStart"
-						  value="{event.dateStart->f:format.date(format: 'd.m.Y')}"/>
-		bis:
-		<f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="dateEnd"
-						  value="{event.dateEnd->f:format.date(format: 'd.m.Y')}"/>
-		Dauer in Tage:
-		<f:form.textfield additionalAttributes="{placeholder: 'Dauer in Tagen'}" class="input-mini"
-						  property="duration"/>
-		<span class="help-block">Format für Datum: tt.mm.jjjj - Dauer in Tage mit Komma</span>
-	</div>
+    <div class="controls">
+        von:
+        <f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="dateStart"
+                          value="{event.dateStart->f:format.date(format: 'd.m.Y')}"/>
+        bis:
+        <f:form.textfield additionalAttributes="{placeholder: 'tt.mm.jjjj'}" class="input-small" property="dateEnd"
+                          value="{event.dateEnd->f:format.date(format: 'd.m.Y')}"/>
+        Dauer in Tage:
+        <f:form.textfield additionalAttributes="{placeholder: 'Dauer in Tagen'}" class="input-mini"
+                          property="duration"/>
+        <span class="help-block">Format für Datum: tt.mm.jjjj - Dauer in Tage mit Komma</span>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="accreditationNumber">Art
-		<f:if condition="{currentUser.isAdmin}"> - Buchungsnummer</f:if>
-	</label>
+    <label class="control-label" for="accreditationNumber">Art
+        <f:if condition="{currentUser.isAdmin}"> - Buchungsnummer</f:if>
+    </label>
 
-	<div class="controls">
-		<f:form.select class="input-normal" property="category" options="{categories}" optionValueField="uid"
-					   optionLabelField="name" value="{event.category}"/>
-		<f:if condition="{currentUser.isAdmin}">-
-			<f:form.textfield class="input-small" property="accreditationNumber"/>
-		</f:if>
-	</div>
+    <div class="controls">
+        <f:form.select class="input-normal" property="category" options="{categories}" optionValueField="uid"
+                       optionLabelField="name" value="{event.category}"/>
+        <f:if condition="{currentUser.isAdmin}">-
+            <f:form.textfield class="input-small" property="accreditationNumber"/>
+        </f:if>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="firstTeamer">Teamer <br/> Co-Teamer <br/> Hospitant
-	</label>
+    <label class="control-label" for="firstTeamer">Teamer <br/> Co-Teamer <br/> Hospitant
+    </label>
 
-	<div class="controls">
-		<f:if condition="{firstTeamer}">
-			<f:then>
-				<f:form.select disabled="1" value="{firstTeamer}" property="firstTeamer" options="{teamers}"
-							   optionLabelField="fullName"
-							   optionValueField="uid"/>
-				<f:form.hidden property="firstTeamer" value="{firstTeamer}"/>
-				<f:form.hidden name="teamer" value="{firstTeamer}"/>
-			</f:then>
-			<f:else>
-				<ptextbase:form.select property="firstTeamer" options="{teamers}" optionLabelField="fullName"
-									   optionValueField="uid" emptyOption="Bitte auswählen..."/>
-			</f:else>
-		</f:if>
-		<br/>
-		<ptextbase:form.select property="secondTeamer" options="{teamers}" optionLabelField="fullName"
-							   optionValueField="uid" emptyOption="Bitte auswählen..."/>
-		<br/>
-		<ptextbase:form.select property="trainee" options="{trainees}" optionLabelField="fullName"
-							   optionValueField="uid" emptyOption="Bitte auswählen..."/>
-	</div>
+    <div class="controls">
+        <f:if condition="{firstTeamer}">
+            <f:then>
+                <f:form.select disabled="1" value="{firstTeamer}" property="firstTeamer" options="{teamers}"
+                               optionLabelField="fullName"
+                               optionValueField="uid"/>
+                <f:form.hidden property="firstTeamer" value="{firstTeamer}"/>
+                <f:form.hidden name="teamer" value="{firstTeamer}"/>
+            </f:then>
+            <f:else>
+                <ptextbase:form.select property="firstTeamer" options="{teamers}" optionLabelField="fullName"
+                                       optionValueField="uid" emptyOption="Bitte auswählen..."/>
+            </f:else>
+        </f:if>
+        <br/>
+        <ptextbase:form.select property="secondTeamer" options="{teamers}" optionLabelField="fullName"
+                               optionValueField="uid" emptyOption="Bitte auswählen..."/>
+        <br/>
+        <ptextbase:form.select property="trainee" options="{trainees}" optionLabelField="fullName"
+                               optionValueField="uid" emptyOption="Bitte auswählen..."/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="kitchenGroup">Kochgruppe</label>
+    <label class="control-label" for="kitchenGroup">Kochgruppe</label>
 
-	<div class="controls">
-		<ptextbase:form.select property="kitchenGroup" options="{kitchenGroups}" optionLabelField="fullName"
-							   optionValueField="uid" emptyOption="Bitte auswählen..."/>
-	</div>
+    <div class="controls">
+        <ptextbase:form.select property="kitchenGroup" options="{kitchenGroups}" optionLabelField="fullName"
+                               optionValueField="uid" emptyOption="Bitte auswählen..."/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="place">Veranstaltungsort</label>
+    <label class="control-label" for="place">Veranstaltungsort</label>
 
-	<div class="controls">
-		<ptextbase:form.select class="span6" property="accommodation" options="{accommodations}" optionLabelField="name"
-							   optionValueField="uid" emptyOption="Bitte auswählen..."/>
-	</div>
+    <div class="controls">
+        <ptextbase:form.select class="span6" property="accommodation" options="{accommodations}" optionLabelField="name"
+                               optionValueField="uid" emptyOption="Bitte auswählen..."/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="travelling">Anreise</label>
+    <label class="control-label" for="travelling">Anreise</label>
 
-	<div class="controls">
-		<f:form.textarea property="travelling" cols="40" rows="5"/>
-	</div>
+    <div class="controls">
+        <f:form.textarea property="travelling" cols="40" rows="5"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="description">Beschreibung</label>
+    <label class="control-label" for="description">Beschreibung</label>
 
-	<div class="controls">
-		<f:form.textarea property="description" class="span9" cols="40" rows="15"/>
-	</div>
+    <div class="controls">
+        <f:form.textarea property="description" class="span9" cols="40" rows="15"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="requirements">Voraussetzungen</label>
+    <label class="control-label" for="requirements">Voraussetzungen</label>
 
-	<div class="controls">
-		<f:form.textarea property="requirements" class="span9" cols="40" rows="15"/>
-	</div>
+    <div class="controls">
+        <f:form.textarea property="requirements" class="span9" cols="40" rows="15"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label for="contents" class="control-label">Inhalte</label>
+    <label for="contents" class="control-label">Inhalte</label>
 
-	<div class="controls">
-		<f:form.textarea class="span9" property="contents" cols="40" rows="15"/>
-	</div>
+    <div class="controls">
+        <f:form.textarea class="span9" property="contents" cols="40" rows="15"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label for="educationObjective" class="control-label">Ausbildungsziele</label>
+    <label for="educationObjective" class="control-label">Ausbildungsziele</label>
 
-	<div class="controls">
-		<f:form.textarea class="span9" property="educationObjective" cols="40" rows="15"/>
-	</div>
+    <div class="controls">
+        <f:form.textarea class="span9" property="educationObjective" cols="40" rows="15"/>
+    </div>
 </div>
 
 <f:if condition="{currentUser.isAdmin}">
-	<div class="control-group">
-		<label for="price" class="control-label">Preis</label>
+    <div class="control-group">
+        <label for="price" class="control-label">Preis</label>
 
-		<div class="controls">
-			<f:form.textfield class="input-mini" property="price"/>
-		</div>
-	</div>
+        <div class="controls">
+            <f:form.textfield class="input-mini" property="price"/>
+        </div>
+    </div>
 
-	<div class="control-group">
-		<label for="maxRegistrations" class="control-label">Maximale Teilnehmer</label>
+    <div class="control-group">
+        <label for="maxRegistrations" class="control-label">Maximale Teilnehmer</label>
 
-		<div class="controls">
-			<f:form.textfield class="input-mini" property="maxRegistrations"/>
-		</div>
-	</div>
+        <div class="controls">
+            <f:form.textfield class="input-mini" property="maxRegistrations"/>
+        </div>
+    </div>
 
-	<div class="control-group">
-		<label for="minRegistrations" class="control-label">Minimale Teilnehmer</label>
+    <div class="control-group">
+        <label for="minRegistrations" class="control-label">Minimale Teilnehmer</label>
 
-		<div class="controls">
-			<f:form.textfield class="input-mini" property="minRegistrations"/>
-		</div>
-	</div>
+        <div class="controls">
+            <f:form.textfield class="input-mini" property="minRegistrations"/>
+        </div>
+    </div>
 </f:if>
 
 <div class="control-group">
-	<label for="attTeamerRatio" class="control-label">Teamer-TN-Schlüssel</label>
+    <label for="attTeamerRatio" class="control-label">Teamer-TN-Schlüssel</label>
 
-	<div class="controls">
-		<f:form.textfield class="input-mini" property="attTeamerRatio"/>
-	</div>
+    <div class="controls">
+        <f:form.textfield class="input-mini" property="attTeamerRatio"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label for="announcement" class="control-label">Text für Ankündigung</label>
+    <label for="announcement" class="control-label">Text für Ankündigung</label>
 
-	<div class="controls">
-		<f:form.textarea class="span9" property="announcement" cols="40" rows="15"/>
-	</div>
+    <div class="controls">
+        <f:form.textarea class="span9" property="announcement" cols="40" rows="15"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label for="comment" class="control-label">Interne Notizen</label>
+    <label for="comment" class="control-label">Interne Notizen</label>
 
-	<div class="controls">
-		<f:form.textarea class="span9" property="comment" cols="40" rows="15"/>
-	</div>
+    <div class="controls">
+        <f:form.textarea class="span9" property="comment" cols="40" rows="15"/>
+    </div>
 </div>
 
 <div class="control-group">
-	<label for="tourReportRequired" class="control-label">Tourenbericht erforderlich</label>
+    <label for="tourReportRequired" class="control-label">Tourenbericht erforderlich</label>
 
-	<div class="controls">
-		<f:form.checkbox property="tourReportRequired" value="1" checked="{event.tourReportRequired}"/>
-	</div>
+    <div class="controls">
+        <f:form.checkbox property="tourReportRequired" value="1" checked="{event.tourReportRequired}"/>
+    </div>
 </div>
 
 <f:if condition="{currentUser.isAdmin}">
-	<f:then>
-		<div class="control-group">
-			<label for="tourReportRequired" class="control-label">Zählt zu Schulungen zu denen Jugendleiter sich nur zur
-				einer
-				anmelden kann</label>
+    <f:then>
+        <div class="control-group">
+            <label for="tourReportRequired" class="control-label">Zählt zu Schulungen zu denen Jugendleiter sich nur zur
+                einer
+                anmelden kann</label>
 
-			<div class="controls">
-				<f:form.checkbox property="countsInMaxRegistrations" value="1"
-								 checked="{event.countsInMaxRegistrations}"/>
+            <div class="controls">
+                <f:form.checkbox property="countsInMaxRegistrations" value="1"
+                                 checked="{event.countsInMaxRegistrations}"/>
 		<span class="help-block">Zu Grundausbildungen, Fortbildungen, Aufbaumodulen etc. kann ein Jugendleiter sich zunächst nur zu einer Schulung im Jahr anmelden.
 		Landesjugendleitertag, Bouldernights... können aber grundsätzlich in Kombination mit einer anderen Schulung besucht werden.</span>
-			</div>
-		</div>
+            </div>
+        </div>
 
-		<div class="control-group">
-			<label for="registrationDeadline" class="control-label">Anmeldeschluss</label>
+        <div class="control-group">
+            <label for="registrationDeadline" class="control-label">Anmeldeschluss</label>
 
-			<div class="controls">
-				<f:form.textfield class="input-small" property="registrationDeadline"
-								  value="{event.registrationDeadline->f:format.date(format: 'd.m.Y')}"/>
-			</div>
-		</div>
+            <div class="controls">
+                <f:form.textfield class="input-small" property="registrationDeadline"
+                                  value="{event.registrationDeadline->f:format.date(format: 'd.m.Y')}"/>
+            </div>
+        </div>
 
-		<div class="control-group">
-			<label for="unregisterDeadline" class="control-label">Abmeldeschluss</label>
+        <div class="control-group">
+            <label for="unregisterDeadline" class="control-label">Abmeldeschluss</label>
 
-			<div class="controls">
-				<f:form.textfield class="input-small" property="unregisterDeadline"
-								  value="{event.unregisterDeadline->f:format.date(format: 'd.m.Y')}"/>
-			</div>
-		</div>
+            <div class="controls">
+                <f:form.textfield class="input-small" property="unregisterDeadline"
+                                  value="{event.unregisterDeadline->f:format.date(format: 'd.m.Y')}"/>
+            </div>
+        </div>
 
         <div class="control-group">
             <label for="registrationOpenDate" class="control-label">Anmeldung möglich ab</label>
@@ -232,44 +232,48 @@
             </div>
         </div>
 
-		<div class="control-group">
-			<label for="isProposal" class="control-label">Status</label>
+        <div class="control-group">
+            <label for="isProposal" class="control-label">Status</label>
 
-			<div class="controls">
-				<label class="checkbox">
-					<f:form.checkbox property="isProposal" checked="{event.isProposal}" value="1"/>
-					Ist Vorschlag
-				</label>
-				<label class="checkbox">
-					<f:form.checkbox property="teamerInputFinished" checked="{event.teamerInputFinished}" value="1"/>
-					Fertig eingegeben
-				</label>
-				<label class="checkbox">
-					<f:form.checkbox property="isProofread" checked="{event.isProofread}" value="1"/>
-					Korrekturgelesen
-				</label>
-				<label class="checkbox">
-					<f:form.checkbox property="isAccepted" checked="{event.isAccepted}" value="1"/>
-					Akzeptiert
-				</label>
-				<label class="checkbox">
-					<f:form.checkbox property="isPublic" checked="{event.isPublic}" value="1"/>
-					Veröffentlicht
-				</label>
-			</div>
-		</div>
-	</f:then>
-	<f:else>
-		<f:form.hidden value="1" property="isProposal"/>
-		<div class="control-group">
-			<label class="control-label">Status</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <f:form.checkbox property="isProposal" checked="{event.isProposal}" value="1"/>
+                    Ist Vorschlag
+                </label>
+                <label class="checkbox">
+                    <f:form.checkbox property="teamerInputFinished" checked="{event.teamerInputFinished}" value="1"/>
+                    Fertig eingegeben
+                </label>
+                <label class="checkbox">
+                    <f:form.checkbox property="isProofread" checked="{event.isProofread}" value="1"/>
+                    Korrekturgelesen
+                </label>
+                <label class="checkbox">
+                    <f:form.checkbox property="isAccepted" checked="{event.isAccepted}" value="1"/>
+                    Akzeptiert
+                </label>
+                <label class="checkbox">
+                    <f:form.checkbox property="isPublic" checked="{event.isPublic}" value="1"/>
+                    Veröffentlicht
+                </label>
+                <label class="checkbox">
+                    <f:form.checkbox property="archived" checked="{event.archived}" value="1"/>
+                    Archiviert
+                </label>
+            </div>
+        </div>
+    </f:then>
+    <f:else>
+        <f:form.hidden value="1" property="isProposal"/>
+        <div class="control-group">
+            <label class="control-label">Status</label>
 
-			<div class="controls">
-				<label class="checkbox">
-					<f:form.checkbox property="teamerInputFinished" checked="{event.teamerInputFinished}" value="1"/>
-					Fertig eingegeben
-				</label>
-			</div>
-		</div>
-	</f:else>
+            <div class="controls">
+                <label class="checkbox">
+                    <f:form.checkbox property="teamerInputFinished" checked="{event.teamerInputFinished}" value="1"/>
+                    Fertig eingegeben
+                </label>
+            </div>
+        </div>
+    </f:else>
 </f:if>

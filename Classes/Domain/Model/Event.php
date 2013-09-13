@@ -361,10 +361,14 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 
 
 	/**
-	 * The constructor.
+	 * If set to true, this event is archived (no longer bookable...)
 	 *
-	 * @return void
+	 * @var boolean
 	 */
+	protected $archived;
+
+
+
 	public function __construct() {
 		//Do not remove the next line: It would break the functionality
 		$this->initStorageObjects();
@@ -1540,5 +1544,22 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 		}
 	}
 
+
+
+	/**
+	 * @param boolean $archived
+	 */
+	public function setArchived($archived) {
+		$this->archived = $archived;
+	}
+
+
+
+	/**
+	 * @return boolean
+	 */
+	public function getArchived() {
+		return $this->archived;
+	}
+
 }
-?>
