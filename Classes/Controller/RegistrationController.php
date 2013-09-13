@@ -130,7 +130,7 @@ class Tx_JdavSv_Controller_RegistrationController extends Tx_JdavSv_Controller_A
 		$this->checkForLoggedInFesUserAndRedirect();
 		$this->checkForRegistrationAndRedirectIfAlreadyRegistered($event);
 
-		$otherRegistrations = $this->registrationManager->getCountingRegistrationsByUser($this->feUser);
+		$otherRegistrations = $this->registrationManager->getCountingRegistrationsByUser($this->feUser, $event);
 
 		// Check whether user has dav_nr set
 		if ($this->feUser->hasNoDavNrSet()) {

@@ -199,7 +199,7 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 * @return Tx_JdavSv_Domain_Model_Registration
 	 */
 	public function registerUserForEventRespectingFirstChoice(Tx_Extbase_Domain_Model_FrontendUser $feUser, Tx_JdavSv_Domain_Model_Event $event, $firstChoiceEvent) {
-		$registrationsForUser = $this->getCountingRegistrationsByUser($feUser);
+		$registrationsForUser = $this->getCountingRegistrationsByUser($feUser, $event);
 		$newRegistration = $this->registerUserForEvent($feUser, $event);
 		$registrationsForUser[] = $newRegistration;
 
@@ -269,19 +269,34 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 
 
 	/**
-	 * Returns only registrations of events that are set to be counting in max number of registrations per User
+	 * Returns only registrations of events that are set to be counting in max number of registrations per User.
+	 *
+	 * To respect only registrations from different event years, the event for which a user wants to register
+	 * can be given as a second parameter. If it is not given,
 	 *
 	 * @param Tx_JdavSv_Domain_Model_FeUser $user
+	 * @param Tx_JdavSv_Domain_Model_Event $event
 	 * @return array
 	 */
-	public function getCountingRegistrationsByUser(Tx_JdavSv_Domain_Model_FeUser $user) {
+	public function
+	getCountingRegistrationsByUser(Tx_JdavSv_Domain_Model_FeUser $user, Tx_JdavSv_Domain_Model_Event $event) {
+		$eventYearForOtherEvent = NULL;
+		if ($event !== NULL) {
+			$eventYearForOtherEvent = $event->getEventYear();
+		}
+
 		$allRegistrations = $this->getRegistrationsByUser($user);
 		$countingRegistrations = array();
 		foreach($allRegistrations as $registration) { /* @var $regisration Tx_JdavSv_Domain_Model_Registration */
 			if ($registration->getEvent()->getCountsInMaxRegistrations()) {
-				$countingRegistrations[] = $registration;
+				if ($eventYearForOtherEvent != NULL
+						&& $registration->getEvent()->getEventYear() !== NULL
+						&& $eventYearForOtherEvent->getName() == $registration->getEvent()->getEventYear()->getName()) {
+					$countingRegistrations[] = $registration;
+				}
 			}
 		}
+
 		return $countingRegistrations;
 	}
 
