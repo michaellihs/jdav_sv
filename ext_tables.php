@@ -146,6 +146,29 @@ $TCA['tx_jdavsv_domain_model_eventstate'] = array (
 	)
 );
 
+t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_eventyear', 'EXT:jdav_sv/Resources/Private/Language/locallang_csh_tx_jdavsv_domain_model_eventstate.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_eventyear');
+$TCA['tx_jdavsv_domain_model_eventyear'] = array (
+	'ctrl' => array (
+		'title'             => 'LLL:EXT:jdav_sv/Resources/Private/Language/locallang_db.xml:tx_jdavsv_domain_model_eventyear',
+		'label' 			=> 'name',
+		'tstamp' 			=> 'tstamp',
+		'crdate' 			=> 'crdate',
+		'versioningWS' 		=> 2,
+		'versioning_followPages'	=> TRUE,
+		'origUid' 			=> 't3_origuid',
+		'languageField' 	=> 'sys_language_uid',
+		'transOrigPointerField' 	=> 'l18n_parent',
+		'transOrigDiffSourceField' 	=> 'l18n_diffsource',
+		'delete' 			=> 'deleted',
+		'enablecolumns' 	=> array(
+			'disabled' => 'hidden'
+			),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/EventYear.php',
+		'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_jdavsv_domain_model_eventyear.gif'
+	)
+);
+
 t3lib_extMgm::addLLrefForTCAdescr('tx_jdavsv_domain_model_eventcategoryregistrationstate', 'EXT:jdav_sv/Resources/Private/Language/locallang_csh_tx_jdavsv_domain_model_eventcategoryregistrationstate.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_jdavsv_domain_model_eventcategoryregistrationstate');
 $TCA['tx_jdavsv_domain_model_eventcategoryregistrationstate'] = array (

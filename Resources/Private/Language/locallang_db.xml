@@ -77,6 +77,8 @@
 			<label index="tx_jdavsv_domain_model_catering.name">Name</label>
 			<label index="tx_jdavsv_domain_model_eventfee">Event Fee</label>
 			<label index="tx_jdavsv_domain_model_eventfee.name">Name</label>
+			<label index="tx_jdavsv_domain_model_eventyear">Event Year</label>
+			<label index="tx_jdavsv_domain_model_eventyear.name">Name</label>
 			<label index="tx_jdavsv_domain_model_eventfee.price_per_day">Price Per Day</label>
 			<label index="tx_jdavsv_domain_model_paymentmethods">Payment Methods</label>
 			<label index="tx_jdavsv_domain_model_registrationstatetransitionprerequisites">Registration State Transition Prerequisites</label>
