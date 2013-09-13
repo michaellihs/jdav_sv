@@ -41,7 +41,9 @@ class Tx_JdavSv_Extlist_Filters_PublicEventsFilter extends Tx_PtExtlist_Domain_M
 	 */
 	protected function buildFilterCriteria(Tx_PtExtlist_Domain_Configuration_Data_Fields_FieldConfig $fieldIdentifier) {
 		$fieldName = Tx_PtExtlist_Utility_DbUtils::getSelectPartByFieldConfig($fieldIdentifier);
-		$criteria = Tx_PtExtlist_Domain_QueryObject_Criteria::equals($fieldName, 1);
+		$publicCriteria = Tx_PtExtlist_Domain_QueryObject_Criteria::equals($fieldName, 1);
+		$archivedCriteria = Tx_PtExtlist_Domain_QueryObject_Criteria::equals('archived', 0);
+		$criteria = Tx_PtExtlist_Domain_QueryObject_SimpleCriteria::andOp($publicCriteria, $archivedCriteria);
 		return $criteria;
 	}
 
@@ -55,4 +57,3 @@ class Tx_JdavSv_Extlist_Filters_PublicEventsFilter extends Tx_PtExtlist_Domain_M
 	}
 
 }
-?>
