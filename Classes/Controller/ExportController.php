@@ -149,7 +149,7 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 
 		$this->view->setConfiguration($this->defaultPdfExportSettings);
 		$this->view->assign('registration', $registration);
-		$this->view->assign('currentDate', time());
+		$this->view->assign('currentDate', new DateTime());
 
 		return $this->view->render();
 	}
