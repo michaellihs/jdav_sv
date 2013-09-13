@@ -9,8 +9,38 @@
 plugin.tx_jdavsv.settings.listConfig.adminEvents < plugin.tx_jdavsv.settings.listConfig.publicEvents
 plugin.tx_jdavsv.settings.listConfig.adminEvents {
 
-    filters >
+    fields {
 
+        archived {
+			table = __self__
+			field = archived
+        }
+
+	}
+
+    filters >
+	filters {
+
+		stateFilterbox {
+
+			filterConfigs {
+
+
+				## State filter
+				40 < plugin.tx_ptextlist.prototype.filter.string
+				40 {
+					## Configuration does not matter here
+					fieldIdentifier = archived
+					filterIdentifier = stateFilter
+					filterClassName = Tx_JdavSv_Extlist_Filters_EventsByStateAdminFilter
+					label = Archiviert
+				}
+
+			}
+
+		}
+
+	}
 
 
     pager {

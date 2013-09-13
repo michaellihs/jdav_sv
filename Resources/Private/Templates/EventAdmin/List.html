@@ -11,6 +11,42 @@
 							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
 	<br/>
 	<legend>Übersicht</legend>
+
+    <f:form class="well form-inline" controller="EventAdmin" action="list">
+        <table width="100%">
+            <tr>
+                <td width="50%">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox inline">
+                                <f:form.checkbox
+                                        name="{extlist:namespace.FormElementName(object:'{stateFilter}' property:'isArchived')}"
+                                        checked="{stateFilter.isArchived}" value="1"/>
+                                Archivierte Veranstaltungen</label>
+                                <p class="btn blue" id="state-filter-hint"
+                                   data-original-title="Archiv-Filter"
+                                   data-content="Wenn dieser Filter nicht aktiv ist, werden nur nicht-archivierte Veranstaltungen angezeigt. <br/>Wenn der Filter aktiviert ist, werden sowohl archivierte als auch nicht-archivierte Schulungen angezeigt.">
+                                    ?
+                                </p>
+                        </div>
+                    </div>
+                </td>
+                <td width="50%">
+                    <div class="control-group">
+                        <p class=" pull-right">
+                            <f:form.hidden value="1" name="resetPager"/>
+                            <f:form.submit class="btn btn-primary" value="Filter anwenden"/>
+                            &nbsp;
+                            <f:link.action class="btn btn-primary" action="list" arguments="{resetFilters: 1, resetPager: 1}"><i
+                                    class="icon-white icon-remove"></i> Filter zurücksetzen
+                            </f:link.action>
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </f:form>
+
 	<table class="table table-striped">
 		<tr>
 			<f:render partial="EXT:jdav_sv/Resources/Private/Partials/Extlist/ListHeader.html"
@@ -106,5 +142,7 @@
 			$('#event-registrations-{row.event.value.uid}').popover();
 
 		</f:for>
+        $('#state-filter-hint').popover();
+
 	</script>
 </f:section>

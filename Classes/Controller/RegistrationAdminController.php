@@ -363,4 +363,3 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 	}
 	
 }
-?>

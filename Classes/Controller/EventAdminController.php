@@ -105,9 +105,11 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	/**
 	 * Displays all Events
 	 *
+	 * @param bool $resetFilters
+	 * @param bool $resetPager
 	 * @return string The rendered list view
 	 */
-	public function listAction() {
+	public function listAction($resetFilters = FALSE, $resetPager = FALSE) {
 
 		if (!$this->feUser->getIsAdmin()) {
 			$this->forward('myEventsList');
@@ -132,6 +134,18 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 			$this->settings['listConfig']['registrationsParticipantsExcelExport'],
 			'registrationsParticipantsExcelExport'
 		);
+
+
+
+		if ($resetPager) {
+			$extlistContextForEventAdminList->resetPagerCollection();
+		}
+
+		if ($resetFilters) {
+			$extlistContextForEventAdminList->resetFilterboxCollection();
+		}
+
+
 		$registrationsByEventFilterForParticipantsExcelExportList = $extlistContextForRegistrationsParticipantsExcelExportList->getFilterBoxCollection()->getFilterboxByFilterboxIdentifier('filterbox1')->getFilterByFilterIdentifier('registrationsByEventFilter');
 
 
@@ -143,6 +157,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 		$this->view->assign('registrationsByEventFilterForParticipantsExcelExportList', $registrationsByEventFilterForParticipantsExcelExportList);
 		$this->view->assign('pager', $extlistContextForEventAdminList->getPager());
 		$this->view->assign('pagerCollection', $extlistContextForEventAdminList->getPagerCollection());
+		$this->view->assign('stateFilter', $extlistContextForEventAdminList->getFilterByFullFiltername('stateFilterbox.stateFilter'));
 	}
 
 
