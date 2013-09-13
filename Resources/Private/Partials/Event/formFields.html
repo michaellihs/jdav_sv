@@ -17,6 +17,15 @@
 </div>
 
 <div class="control-group">
+    <label class="control-label" for="eventYear">Veranstaltungsjahr</label>
+
+    <div class="controls">
+        <ptextbase:form.select property="eventYear" options="{eventYears}" optionLabelField="name"
+                               optionValueField="uid" emptyOption="Bitte auswählen..."/>
+    </div>
+</div>
+
+<div class="control-group">
     <label class="control-label" for="dateStart">Zeitraum</label>
 
     <div class="controls">

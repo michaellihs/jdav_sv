@@ -11,7 +11,7 @@
 
 		<fieldset>
 			<legend>Veranstaltung bearbeiten</legend>
-			<f:render partial="Event/formFields" arguments="{event:event, categories: categories, accommodations: accommodations, teamers: teamers, trainees: trainees, kitchenGroups: kitchenGroups, firstTeamer: firstTeamer, currentUser: currentUser}" />
+			<f:render partial="Event/formFields" arguments="{event:event, categories: categories, accommodations: accommodations, teamers: teamers, trainees: trainees, kitchenGroups: kitchenGroups, firstTeamer: firstTeamer, currentUser: currentUser, eventYears: eventYears}" />
 			<div class="form-actions">
 				<f:form.submit class="btn-primary btn" value="Veranstaltung Speichern" />
 				<f:link.action controller="EventAdmin" action="myEventsList" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zu meinen Veranstaltungen</f:link.action>

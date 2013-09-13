@@ -18,6 +18,7 @@ CREATE TABLE tx_jdavsv_domain_model_event (
 	education_objective text NOT NULL,
 	first_teamer int(11) DEFAULT '0' NOT NULL,
 	second_teamer int(11) DEFAULT '0' NOT NULL,
+	event_year int(11) DEFAULT '0' NOT NULL,
 	trainee int(11) DEFAULT '0' NOT NULL,
 	kitchen_group int(11) DEFAULT '0' NOT NULL,
 	price double(11,2) DEFAULT '0.00' NOT NULL,

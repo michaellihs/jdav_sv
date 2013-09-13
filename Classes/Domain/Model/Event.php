@@ -286,6 +286,15 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 
 
 	/**
+	 * category
+	 *
+	 * @var Tx_JdavSv_Domain_Model_EventYear
+	 */
+	protected $eventYear;
+
+
+
+	/**
 	 * registrations
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_JdavSv_Domain_Model_Registration> $registrations
@@ -1560,6 +1569,24 @@ class Tx_JdavSv_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntit
 	 */
 	public function getArchived() {
 		return $this->archived;
+	}
+
+
+
+	/**
+	 * @param \Tx_JdavSv_Domain_Model_EventYear $eventYear
+	 */
+	public function setEventYear($eventYear) {
+		$this->eventYear = $eventYear;
+	}
+
+
+
+	/**
+	 * @return \Tx_JdavSv_Domain_Model_EventYear
+	 */
+	public function getEventYear() {
+		return $this->eventYear;
 	}
 
 }

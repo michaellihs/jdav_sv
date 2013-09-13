@@ -67,6 +67,13 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 
 
 	/**
+	 * @var Tx_JdavSv_Domain_Repository_EventYearRepository
+	 */
+	protected $eventYearRepository;
+
+
+
+	/**
 	 * @param Tx_JdavSv_Domain_Repository_AccommodationRepository $accommodationRepository
 	 */
 	public function injectAccommodationRepository(Tx_JdavSv_Domain_Repository_AccommodationRepository $accommodationRepository) {
@@ -89,6 +96,15 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 */
 	public function injectRegistrationRepository(Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository) {
 		$this->registrationRepository = $registrationRepository;
+	}
+
+
+
+	/**
+	 * @param Tx_JdavSv_Domain_Repository_EventYearRepository $eventYearRepository
+	 */
+	public function injectEventYearRepository(Tx_JdavSv_Domain_Repository_EventYearRepository $eventYearRepository) {
+		$this->eventYearRepository = $eventYearRepository;
 	}
 
 
@@ -213,6 +229,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	 */
 	public function newAction(Tx_JdavSv_Domain_Model_Event $newEvent = NULL, Tx_JdavSv_Domain_Model_FeUser $teamer = NULL) {
 		$this->view->assign('newEvent', $newEvent);
+		$this->view->assign('eventYears', $this->eventYearRepository->findAllOrderedByName());
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('accommodations', $this->accommodationRepository->findAllSorted());
 		$this->view->assign('teamers', $this->feUserRepository->getAllTeamers());
@@ -250,6 +267,7 @@ class Tx_JdavSv_Controller_EventAdminController extends Tx_JdavSv_Controller_Abs
 	public function editAction(Tx_JdavSv_Domain_Model_Event $event, Tx_JdavSv_Domain_Model_FeUser $teamer = NULL) {
 		$this->view->assign('event', $event);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
+		$this->view->assign('eventYears', $this->eventYearRepository->findAllOrderedByName());
 		$this->view->assign('accommodations', $this->accommodationRepository->findAll());
 		$this->view->assign('teamers', $this->feUserRepository->getAllTeamers());
 		$this->view->assign('firstTeamer', $teamer);
