@@ -33,4 +33,14 @@
  */
 class Tx_JdavSv_Domain_Repository_EventYearRepository extends Tx_Extbase_Persistence_Repository {
 
+	/**
+	 * @return array|Tx_Extbase_Persistence_QueryResultInterface
+	 */
+	public function findAllOrderedByName() {
+		$query = $this->createQuery();
+		$query->setOrderings(array('name' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING));
+		$result = $query->execute();
+		return $result;
+	}
+
 }

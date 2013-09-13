@@ -1,0 +1,46 @@
+{namespace extlist=Tx_PtExtlist_ViewHelpers}
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default"/>
+
+
+<f:section name="main">
+
+	<h1>Veranstaltungsjahre</h1>
+	<ptextbase:flashMessages renderMode="div"
+							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
+	<br/>
+	<legend>Übersicht</legend>
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th></th>
+		</tr>
+		<f:for each="{eventYears}" as="eventYear">
+			<tr>
+				<td>
+					<strong>{eventYear.name}</strong>
+				</td>
+				<td>
+					<p class="pull-right">
+						<f:link.action class="btn btn-primary" controller="EventYear" action="edit"
+									   arguments="{eventYear: eventYear}"><i class="icon-pencil icon-white"></i> Bearbeiten
+						</f:link.action>
+						<f:link.action class="btn btn-danger" controller="EventYear" action="delete"
+									   arguments="{eventYear: eventYear}"><i class="icon-trash icon-white"></i> Löschen
+						</f:link.action>
+					</p>
+				</td>
+			</tr>
+		</f:for>
+	</table>
+
+	<div class="form-actions">
+		<f:link.action class="btn btn-primary" action="new" class="btn btn-primary"><i class="icon-plus icon-white"></i>
+			Neue Kategorie anlegen
+		</f:link.action>
+	</div>
+
+</f:section>
+
+<f:section name="javascript"></f:section>

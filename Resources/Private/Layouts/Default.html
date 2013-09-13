@@ -87,6 +87,17 @@
 						</li>
 					</f:if>
 
+
+                    <f:if condition="{currentUser.isAdmin}">
+                        <li class="nav-header">Veranstaltungs-jahre</li>
+                        <li>
+                            <f:link.action controller="EventYear" action="list">Übersicht</f:link.action>
+                        </li>
+                        <li>
+                            <f:link.action controller="EventYear" action="new">Veranst.-Jahr anlegen</f:link.action>
+                        </li>
+                    </f:if>
+
 					<f:if condition="{currentUser.isAdmin}">
 						<li class="nav-header">Veranstaltungsorte</li>
 						<li>

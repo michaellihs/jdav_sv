@@ -1,0 +1,27 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+<f:layout name="Default" />
+<f:section name="main">
+	<h1>Veranstaltungsjahre</h1>
+	<ptextbase:flashMessages renderMode="div" messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}" />
+	<f:form class="form-horizontal" method="post" action="update" name="eventYear" object="{eventYear}" >
+		<f:render partial="formErrors" />
+		<br />
+
+		<legend>Veranstaltungsjahr bearbeiten</legend>
+		<fieldset>
+
+            <div class="control-group">
+                <label class="control-label" for="name">Name</label>
+                <div class="controls"><f:form.textfield class="span1" property="name" /></div>
+            </div>
+
+			<div class="form-actions">
+				<f:form.submit class="btn-primary btn" value="Veranstaltungsjahr Speichern" />
+				<f:link.action controller="EventYear" action="list" class="btn btn-danger"><i class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht</f:link.action>
+			</div>
+		</fieldset>
+	</f:form>
+</f:section>
+
+<f:section name="javascript"></f:section>

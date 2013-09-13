@@ -9,6 +9,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	array(
 		'Login' => 'showLoginForm',
 		'Event' => 'list, attendeeRegistrationsList, show',
+		'EventYear' => 'list,create,new,edit,update,delete',
         'EventAdmin' => 'show, list, update, new, create, delete, edit, teamerRegistrationsList, attendeeRegistrationsList, myEventsList, sort, setRegistrationsPaid',
 		'Registration' => 'register,unregister,list, show, confirmRegistration',
         'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist, sendConfirmation, sort',
@@ -23,6 +24,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	array(
 		'Login' => 'showLoginForm',
 		'Event' => 'list, attendeeRegistrationsList, show',
+		'EventYear' => 'list,create,new,edit,update,delete',
 		'EventAdmin' => 'show, list, update, new, create, delete, edit, teamerRegistrationsList, attendeeRegistrationsList, myEventsList, sort, setRegistrationsPaid',
 		'Registration' => 'register,unregister,list, show, confirmRegistration',
 		'RegistrationAdmin' => 'list,new, create, edit, update, delete, moveUp, moveDown, moveToRegistrations, moveToWaitinglist, sendConfirmation, sort',
