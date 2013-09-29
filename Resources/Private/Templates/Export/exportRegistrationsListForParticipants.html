@@ -24,6 +24,7 @@
                         <b>Anschrift erster Teamer:</b> <br/><br/>
                         {event.firstTeamer.firstName} {event.firstTeamer.lastName} <br/>
                         {event.firstTeamer.address} <br/>
+                        {event.secondTeamer.zip} {event.secondTeamer.city} <br/>
                         {event.firstTeamer.telephone} <br/>
                         {event.firstTeamer.mobilePhone}
                         <f:if condition="{event.firstTeamer.email}"><br/><a href="mailto:{event.firstTeamer.email}">{event.firstTeamer.email}</a></f:if>
@@ -34,6 +35,7 @@
                             <b>Anschrift zweiter Teamer:</b> <br/><br/>
                             {event.secondTeamer.firstName} {event.secondTeamer.lastName} <br/>
                             {event.secondTeamer.address} <br/>
+                            {event.secondTeamer.zip} {event.secondTeamer.city} <br/>
                             {event.secondTeamer.telephone} <br/>
                             {event.secondTeamer.mobilePhone}
                             <f:if condition="{event.firstTeamer.email}"><br/><a href="mailto:{event.secondTeamer.email}">{event.secondTeamer.email}</a></f:if>

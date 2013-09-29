@@ -8,7 +8,8 @@
 				<th class="tx-ptextlist-list-header-cell">Name</th>
 				<th class="tx-ptextlist-list-header-cell">Vorname</th>
 				<th class="tx-ptextlist-list-header-cell">Sektion</th>
-				<th class="tx-ptextlist-list-header-cell">Adresse</th>
+				<th class="tx-ptextlist-list-header-cell">Straße</th>
+                <th class="tx-ptextlist-list-header-cell">PLZ Ort</th>
 				<th class="tx-ptextlist-list-header-cell">Telefon</th>
 				<th class="tx-ptextlist-list-header-cell">Handy</th>
 				<th class="tx-ptextlist-list-header-cell">email</th>
@@ -24,6 +25,7 @@
 					<td>{registration.attendee.firstName}</td>
 					<td>{registration.attendee.sektion.name}</td>
 					<td>{registration.attendee.address}</td>
+                    <td>{registration.attendee.zip} {registration.attendee.city}</td>
 					<td>{registration.attendee.telephone}</td>
 					<td>{registration.attendee.mobilePhone}</td>
 					<td>{registration.attendee.email}</td>

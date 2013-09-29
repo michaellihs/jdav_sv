@@ -69,12 +69,23 @@
 </div>
 
 <div class="control-group">
-	<label class="control-label" for="address">Adresse</label>
+	<label class="control-label" for="address">Straße und Hausnummer</label>
 
 	<div class="controls">
-		<f:form.textarea class="span4" cols="40" rows="4" property="address"/>
+		<f:form.textarea class="span4" cols="40" rows="2" property="address"/>
 	</div>
 </div>
+
+
+<div class="control-group">
+	<label class="control-label" for="zip">PLZ - Ort</label>
+
+	<div class="controls">
+		<f:form.textfield class="span1" size="6" property="zip"/> -
+        <f:form.textfield class="span6"  property="city"/>
+	</div>
+</div>
+
 
 <div class="control-group">
 	<label class="control-label" for="title">E-Mail</label>

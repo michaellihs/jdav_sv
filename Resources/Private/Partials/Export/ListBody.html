@@ -21,6 +21,7 @@ Tx_PtExtlist_Domain_Model_List_Cell		cell		A cell which holds the value and addi
 	<tr class="tx-ptextlist-row {f:if(condition: '{rowIndex} % 2', then: 'even', else: 'odd')}">
 		<td>{registration.attendee.lastName}, {registration.attendee.firstName}</td>
 		<td>{registration.attendee.address}</td>
+        <td>{registration.attendee.zip} {registration.attendee.city}</td>
 		<td>{registration.attendee.telephone}</td>
 		<td>{registration.attendee.mobilePhone}</td>
 		<td>{registration.attendee.email}</td>

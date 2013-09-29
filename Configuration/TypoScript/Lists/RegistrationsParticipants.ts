@@ -76,6 +76,12 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
             isSortable = 1
         }
 
+        city {
+			table = fe_users
+			field = city
+			isSortable = 1
+        }
+
         email {
             table = fe_users
             field = email
