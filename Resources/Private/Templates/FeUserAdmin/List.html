@@ -11,7 +11,7 @@
 	<ptextbase:flashMessages renderMode="div"
 							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
 	<legend>Übersicht</legend>
-	<f:form class="well form-inline" controller="FeUser" action="list">
+	<f:form class="well form-inline" controller="FeUserAdmin" action="list">
 		<strong>Filter</strong>
 		<table>
 			<tr>
@@ -102,15 +102,15 @@
 				</td>
 				<td>
 					<p class="pull-right">
-						<f:link.action class="btn btn-primary" controller="FeUser" action="edit"
+						<f:link.action class="btn btn-primary" controller="FeUserAdmin" action="edit"
 									   arguments="{feUser: row.feUser.value.uid}"><i class="icon-pencil icon-white"></i>
 							Bearbeiten
 						</f:link.action>
-						<f:link.action class="btn btn-danger" controller="FeUser" action="showChangePassword"
+						<f:link.action class="btn btn-danger" controller="FeUserAdmin" action="showChangePassword"
 									   arguments="{feUser: row.feUser.value.uid}">
 							Passwort setzen
 						</f:link.action>
-						<f:link.action class="btn btn-danger" controller="FeUser" action="delete"
+						<f:link.action class="btn btn-danger" controller="FeUserAdmin" action="delete"
 									   arguments="{feUser: row.feUser.value.uid}"><i class="icon-trash icon-white"></i>
 							Löschen
 						</f:link.action>

@@ -1,22 +1,24 @@
-{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+{namespace ptx=Tx_PtExtbase_ViewHelpers}
 
 <f:layout name="Default"/>
-
 <f:section name="main">
-	<h1>Benutzer</h1>
-	<br>
-	<ptextbase:flashMessages renderMode="div"
+
+    <h1>Benutzer</h1>
+	<ptx:flashMessages renderMode="div"
 							 messageCssClasses="{0: 'alert alert-success', 1: 'alert alert-warning', 2: 'alert alert-error'}"/>
-	<f:form method="post" action="create" class="form-horizontal" name="feUser" object="{feUser}">
+	<f:form class="form-horizontal" method="post" action="update" name="feUser" object="{feUser}">
+
 		<f:render partial="formErrors"/>
+		<br/>
+
 		<fieldset>
-			<legend>Neuen Benutzer anlegen</legend>
-			<f:render partial="FeUser/formFields" arguments="{sektionen: sektionen, feGroups:feGroups}"/>
+			<legend>Benutzer bearbeiten</legend>
+			<f:render partial="FeUser/formFields" arguments="{feUser:feUser, sektionen:sektionen, feGroups:feGroups}"/>
 		</fieldset>
 
 		<div class="form-actions">
 			<f:form.submit class="btn-primary btn" value="Benutzer speichern"/>
-			<f:link.action controller="FeUser" action="list" class="btn btn-danger"><i
+			<f:link.action controller="FeUserAdmin" action="list" class="btn btn-danger"><i
 					class="icon-remove icon-white"></i> Abbrechen und zurück zur Übersicht
 			</f:link.action>
 		</div>

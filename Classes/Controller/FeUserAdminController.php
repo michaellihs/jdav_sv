@@ -28,7 +28,7 @@
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_AbstractAdminController {
+class Tx_JdavSv_Controller_FeUserAdminController extends Tx_JdavSv_Controller_AbstractAdminController {
 
 	/**
 	 * Holds fe_groups repository
