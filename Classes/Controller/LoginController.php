@@ -71,4 +71,3 @@ class Tx_JdavSv_Controller_LoginController extends Tx_JdavSv_Controller_Abstract
 	}
 
 }
-?>
