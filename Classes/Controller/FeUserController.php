@@ -97,4 +97,39 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 		$this->view->assign('sektionen', $this->sektionRepository->findAll());
 	}
 
+
+
+	/**
+	 *
+	 *
+	 * @param string $oldPassword
+	 * @param string $newPassword1
+	 * @param string $newPassword2
+	 */
+	public function changePasswordAction($oldPassword, $newPassword1, $newPassword2) {
+		$saltedPwObject = tx_saltedpasswords_salts_factory::getSaltingInstance($this->feUser->getPassword());
+		if ($saltedPwObject->checkPassword($oldPassword, $this->feUser->getPassword())) {
+			if ($newPassword1 == $newPassword2) {
+				$this->feUser->setPassword($newPassword1);
+				$this->feUserRepository->update($this->feUser);
+				$this->flashMessageContainer->add('Passwort wurde geändert!');
+				$this->forward('edit');
+			} else {
+				$this->flashMessageContainer->add('Die beiden neuen Passwörter stimmen nicht überein!');
+			}
+		} else {
+			$this->flashMessageContainer->add('Das eingegebene alte Passwort ist ungültig!');
+		}
+		$this->forward('password');
+	}
+
+
+
+	/**
+	 * Nothing to do here, only show template
+	 */
+	public function passwordAction() {
+
+	}
+
 }

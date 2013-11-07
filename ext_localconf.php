@@ -20,7 +20,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'SektionAdmin' => 'list, new, create, edit, update, delete, sort',
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration,exportRegistrationDebitInformation',
 		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants',
-		'FeUser' => 'edit,update'
+		'FeUser' => 'edit,update, password, passwordChange'
 	),
 	array(
 		'Login' => 'showLoginForm',
@@ -36,6 +36,6 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'SektionAdmin' => 'list, new, create, edit, update, delete, sort',
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration,exportRegistrationDebitInformation',
 		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants',
-		'FeUser' => 'edit, update'
+		'FeUser' => 'edit, update, password, passwordChange'
 	)
 );

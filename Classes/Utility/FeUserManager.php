@@ -91,4 +91,3 @@ class Tx_JdavSv_Utility_FeUserManager implements t3lib_Singleton {
 	}
 
 }
-?>
