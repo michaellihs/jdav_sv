@@ -458,5 +458,9 @@ CREATE TABLE fe_users (
     tx_jdavsv_mobile_phone varchar(30) DEFAULT '' NOT NULL,
     tx_jdavsv_comment text NOT NULL,
 
+    tx_jdavmv_mtgldnr_sektion tinytext,
+	  tx_jdavmv_mtgldnr_ortsgruppe tinytext,
+	  tx_jdavmv_mtgldnr_mtgldnr tinytext,
+
     KEY sektion (sektion)
 );

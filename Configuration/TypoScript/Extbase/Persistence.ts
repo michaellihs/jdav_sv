@@ -34,6 +34,9 @@ config.tx_extbase {
                         tx_jdavsv_date_of_birth.mapOnProperty = dateOfBirth
                         tx_jdavsv_sektion.mapOnProperty = sektion
                         tx_jdavsv_dav_nr.mapOnProperty = davNr
+                        tx_jdavmv_mtgldnr_sektion.mapOnProperty = sektionNr
+                        tx_jdavmv_mtgldnr_ortsgruppe.mapOnProperty = ortsgruppe
+                        tx_jdavmv_mtgldnr_mtgldnr.mapOnProperty = mitgliedsnr
                         tx_jdavsv_julei_nr.mapOnProperty = juleiNr
                         tx_jdavsv_sex.mapOnProperty = sex
                         tx_jdavsv_comment.mapOnProperty = comment

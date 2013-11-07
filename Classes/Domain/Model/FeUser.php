@@ -120,6 +120,27 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 
 
 	/**
+	 * @var string
+	 */
+	protected $sektionNr;
+
+
+
+	/**
+	 * @var string
+	 */
+	protected $ortsgruppe;
+
+
+
+	/**
+	 * @var string
+	 */
+	protected $mitgliedsnr;
+
+
+
+	/**
 	 * Holds julei nr of user
 	 *
 	 * @var string
@@ -542,6 +563,60 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 */
 	public function hasNoSektionSet() {
 		return !$this->hasSektionSet();
+	}
+
+
+
+	/**
+	 * @param string $mitgliedsnr
+	 */
+	public function setMitgliedsnr($mitgliedsnr) {
+		$this->mitgliedsnr = $mitgliedsnr;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getMitgliedsnr() {
+		return $this->mitgliedsnr;
+	}
+
+
+
+	/**
+	 * @param string $ortsgruppe
+	 */
+	public function setOrtsgruppe($ortsgruppe) {
+		$this->ortsgruppe = $ortsgruppe;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getOrtsgruppe() {
+		return $this->ortsgruppe;
+	}
+
+
+
+	/**
+	 * @param string $sektionNr
+	 */
+	public function setSektionNr($sektionNr) {
+		$this->sektionNr = $sektionNr;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getSektionNr() {
+		return $this->sektionNr;
 	}
 
 }

@@ -19,7 +19,8 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Accommodation' => 'list, new, create, edit, update, delete, sort',
 		'SektionAdmin' => 'list, new, create, edit, update, delete, sort',
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration,exportRegistrationDebitInformation',
-		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants'
+		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants',
+		'FeUser' => 'edit,update'
 	),
 	array(
 		'Login' => 'showLoginForm',
@@ -34,6 +35,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Accommodation' => 'list, new, create, edit, update, delete, sort',
 		'SektionAdmin' => 'list, new, create, edit, update, delete, sort',
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration,exportRegistrationDebitInformation',
-		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants'
+		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants',
+		'FeUser' => 'edit, update'
 	)
 );
