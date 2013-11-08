@@ -206,7 +206,10 @@ class Tx_JdavSv_Controller_FeUserAdminController extends Tx_JdavSv_Controller_Ab
 	 * @param string $password
 	 */
 	public function changePasswordAction(Tx_JdavSv_Domain_Model_FeUser $feUser, $password) {
-		die('change password');
+		$feUser->setPassword($password);
+		$this->feUserRepository->update($feUser);
+		$this->flashMessageContainer->add('Passwort wurde geändert!');
+		$this->forward('showChangePassword');
 	}
 
 
