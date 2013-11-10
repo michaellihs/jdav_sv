@@ -132,4 +132,22 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 
 	}
 
+
+
+	/**
+	 * Nothing to do here, only show template
+	 */
+	public function forgotPasswordAction() {
+
+	}
+
+
+
+	/**
+	 * @param string $email
+	 */
+	public function forgotPasswordSendMailAction($email) {
+		$this->feUserManager->sendPasswortForgottenMail($email);
+	}
+
 }

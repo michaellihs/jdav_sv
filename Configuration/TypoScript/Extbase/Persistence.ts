@@ -40,6 +40,7 @@ config.tx_extbase {
                         tx_jdavsv_julei_nr.mapOnProperty = juleiNr
                         tx_jdavsv_sex.mapOnProperty = sex
                         tx_jdavsv_comment.mapOnProperty = comment
+                        tx_jdavsv_forgotpasswordhash.mapOnProperty = forgotPasswordHash
                         module_sys_dmail_newsletter.mapOnProperty = newsletterRecipient
                     }
                 }

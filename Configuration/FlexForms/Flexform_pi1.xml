@@ -31,6 +31,10 @@
                                         <numIndex index="0">Benutzereinstellungen Frontend</numIndex>
                                         <numIndex index="1">FeUser->edit;FeUser->update;FeUser->password;FeUser->changePassword</numIndex>
                                     </numIndex>
+                                    <numIndex index="4" type="array">
+                                        <numIndex index="0">Passwort vergessen</numIndex>
+                                        <numIndex index="1">ForgotPassword->forgotPassword;ForgotPassword->forgotPasswordSendMail;ForgotPassword->setNewPassword;ForgotPassword->showChangePasswordForm</numIndex>
+                                    </numIndex>
                                 </items>
                             </config>
                         </TCEforms>

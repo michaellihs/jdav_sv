@@ -28,7 +28,7 @@
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-class Tx_JdavSv_Utility_FeUserManager implements t3lib_Singleton {
+class Tx_JdavSv_Utility_FeUserManager extends Tx_JdavSv_Domain_AbstractManager implements t3lib_Singleton {
 
 	/**
 	 * If set to true, we did not yet try to get logged in user
@@ -88,6 +88,30 @@ class Tx_JdavSv_Utility_FeUserManager implements t3lib_Singleton {
 			}
 		}
 		return $this->currentlyLoggedInFeUser;
+	}
+
+
+
+	/**
+	 * @param string $email E-Mail address to which a password forgotten E-Mail should be send
+	 */
+	public function sendPasswortForgottenMail($email) {
+		$feUser = $this->feUserRepository->findOneByEmail($email); /* @var Tx_JdavSv_Domain_Model_FeUser $feUser */
+		if ($feUser) {
+			$passwordForgottenHash = md5($feUser->getPassword());
+			$feUser->setForgotPasswordHash($passwordForgottenHash);
+			$this->feUserRepository->update($feUser);
+			$this->sendMail(
+				array($feUser->getEmail() => $feUser->getEmail()),
+				$this->getAdminEmailArray(),
+				'Passwort zurücksetzen',
+				'forgotPassword',
+				array(
+					'feUser' => $feUser,
+					'passwordForgottenHash' => $passwordForgottenHash
+				)
+			);
+		}
 	}
 
 }

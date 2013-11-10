@@ -30,6 +30,7 @@ plugin.tx_jdavsv.settings.email {
 		confirmUnregisterAdmin = confirmUnregisterAdmin.html
 		confirmation = confirm.html
 		participantsMessage = participantsMessage.html
+		forgotPassword = forgotPassword.html
 	}
 
 }

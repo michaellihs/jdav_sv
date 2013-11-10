@@ -175,6 +175,15 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 
 
 	/**
+	 * Holds a hash that can be used to verify that a user is allowed to reset his password.
+	 *
+	 * @var string
+	 */
+	protected $forgotPasswordHash;
+
+
+
+	/**
 	 * @param string $comment
 	 */
 	public function setComment($comment) {
@@ -617,6 +626,24 @@ class Tx_JdavSv_Domain_Model_FeUser extends Tx_Extbase_Domain_Model_FrontendUser
 	 */
 	public function getSektionNr() {
 		return $this->sektionNr;
+	}
+
+
+
+	/**
+	 * @param string $forgotPasswordHash
+	 */
+	public function setForgotPasswordHash($forgotPasswordHash) {
+		$this->forgotPasswordHash = $forgotPasswordHash;
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getForgotPasswordHash() {
+		return $this->forgotPasswordHash;
 	}
 
 }

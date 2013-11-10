@@ -29,7 +29,7 @@
  *
  * @author Michael Knoll <mimi@kaktusteam.de>
  */
-class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
+class Tx_JdavSv_Domain_RegistrationManager extends Tx_JdavSv_Domain_AbstractManager implements t3lib_Singleton {
 	
 	/**
 	 * Holds a singleton instance of this class
@@ -64,23 +64,6 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 * @var Tx_Extbase_Persistence_Manager
 	 */
 	protected $persistenceManager;
-
-
-
-	/**
-	 * Holds instance of configuration manager
-	 * @var Tx_Extbase_Configuration_ConfigurationManager
-	 */
-	protected $configurationManager;
-
-
-
-	/**
-	 * Holds TS settings for this extension
-	 *
-	 * @var array
-	 */
-	protected $settings;
 	
 	
 	
@@ -103,37 +86,6 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	public function injectRegistrationRepository(Tx_JdavSv_Domain_Repository_RegistrationRepository $registrationRepository) {
 		$this->registrationRepository = $registrationRepository;
 	}
-
-
-
-	/**
-	 * Injects persistence manager
-	 *
-	 * @param Tx_Extbase_Persistence_Manager $persistenceManager
-	 */
-	public function injectPersistenceManager(Tx_Extbase_Persistence_Manager $persistenceManager) {
-		$this->persistenceManager = $persistenceManager;
-	}
-
-
-
-	/**
-	 * Injects configuration manager
-	 *
-	 * @param Tx_Extbase_Configuration_ConfigurationManager $configurationManager
-	 */
-	public function injectConfigurationManager(Tx_Extbase_Configuration_ConfigurationManager $configurationManager) {
-		$this->configurationManager = $configurationManager;
-	}
-
-
-
-	/**
-	 * Initializes object
-	 */
-	public function initializeObject() {
-		$this->settings = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS);
-	}
 	
 	
 	
@@ -142,6 +94,7 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 	 *
 	 * @param Tx_Extbase_Domain_Model_FrontendUser $feUser
 	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @return bool
 	 */
 	public function isUserRegisteredForEvent(Tx_Extbase_Domain_Model_FrontendUser $feUser, Tx_JdavSv_Domain_Model_Event $event) {
 		if (count($this->registrationRepository->getRegistrationsByEventAndFeUser($event, $feUser))) {
@@ -222,16 +175,17 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 
 		return $newRegistration;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Removes a registration from an event.
-	 * 
+	 *
 	 * TODO there should be a field 'cancelled' on Registration object, which we should use, if a user cancels his registration.
 	 *
 	 * @param Tx_Extbase_Domain_Model_FrontendUser $feUser
 	 * @param Tx_JdavSv_Domain_Model_Event $event
+	 * @throws Exception
 	 */
 	public function unregisterUserForEvent(Tx_Extbase_Domain_Model_FrontendUser $feUser, Tx_JdavSv_Domain_Model_Event $event) {
 		$query = $this->registrationRepository->createQuery();
@@ -368,53 +322,5 @@ class Tx_JdavSv_Domain_RegistrationManager implements t3lib_Singleton {
 			array('registration' => $registration)
 		);
 	}
-
-
-
-
-	/**
-	 * Sends email with given parameters
-	 *
-	 * @param array $to array('email' => 'name')
-	 * @param array $from array('email => 'name')
-	 * @param string $subject
-	 * @param string $template Template as defined in settings!
-	 * @param array $templateAssignments
-	 */
-	protected function sendMail($to, $from=NULL, $subject, $template, array $templateAssignments = array()) {
-		$mailer = Tx_JdavSv_Utility_FluidMailer::getInstance();
-		$mailer->setTemplateByTsDefinedTemplate($template)
-			->setTo($to)
-			->setSubject($subject);
-
-		if ($from) {
-			$mailer->setFrom($from);
-		}
-
-		foreach ($templateAssignments as $key => $value) {
-			$mailer->assignToView($key, $value);
-		}
-
-		// assign settings to view (TS)
-		$mailer->assignToView('settings', $this->settings);
-
-		try {
-			$mailer->send();
-		} catch (Exception $e) {
-			// We prevent exception if mail cannot be send
-		}
-	}
-
-
-
-	/**
-	 * Returns email adress of admin as set in settings
-	 *
-	 * @return array
-	 */
-	protected function getAdminEmailArray() {
-		return array($this->settings['email']['adminTo']['email'] => $this->settings['email']['adminTo']['name']);
-	}
 	
 }
-?>

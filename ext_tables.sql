@@ -457,6 +457,7 @@ CREATE TABLE fe_users (
     tx_jdavsv_is_proofreader tinyint(4) unsigned DEFAULT '0' NOT NULL,
     tx_jdavsv_mobile_phone varchar(30) DEFAULT '' NOT NULL,
     tx_jdavsv_comment text NOT NULL,
+    tx_jdavsv_forgotpasswordhash text NOT NULL,
 
     tx_jdavmv_mtgldnr_sektion tinytext,
 	  tx_jdavmv_mtgldnr_ortsgruppe tinytext,
