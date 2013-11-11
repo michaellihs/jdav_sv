@@ -32,6 +32,10 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
 
 
 
+    default.sortingColumn = nameColumn
+
+
+
     fields {
 
         event_uid {
@@ -98,20 +102,32 @@ plugin.tx_jdavsv.settings.listConfig.registrationsParticipants {
             label = Nachname, Vorname
             fieldIdentifier = last_name, first_name
             columnIdentifier = nameColumn
+            sortingFields {
+				10 {
+					field = last_name
+					direction = asc
+					forceDirection = 0
+				}
+
+				20 {
+					field = first_name
+					direction = asc
+					forceDirection = 0
+				}
+            }
+
         }
 
         20 {
-            label = Adresse
+            label = Straße
             fieldIdentifier = address
             columnIdentifier = addressColumn
-            sortingFields {
-                10 {
-                    field = zip
-                    direction = asc
-                    forceDirection = 0
-                    label = Adresse (nach PLZ sortieren)
-                }
-            }
+        }
+
+        25 {
+			label = PLZ Ort
+			fieldIdentifier = zip, city
+			columnIdentifier = zipCity
         }
 
         30 {
