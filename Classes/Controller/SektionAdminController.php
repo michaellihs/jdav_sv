@@ -79,7 +79,7 @@ class Tx_JdavSv_Controller_SektionAdminController extends Tx_JdavSv_Controller_A
 	 */
 	public function newAction(Tx_JdavSv_Domain_Model_Sektion $newSektion = NULL) {
 		$this->view->assign('newSektion', $newSektion);
-		$this->view->assitn('personen', $this->getPersonen());
+		$this->view->assign('personen', $this->getPersonen());
 	}
 
 
