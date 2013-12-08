@@ -84,9 +84,13 @@ class Tx_JdavSv_Controller_ForgotPasswordController extends Tx_PtExtbase_Control
 
 	/**
 	 * @param string $passwordForgottenHash Hash that is generated to find the user whose password should be changed.
+	 * @param bool $passwordTooShort
 	 */
-	public function showChangePasswordFormAction($passwordForgottenHash) {
+	public function showChangePasswordFormAction($passwordForgottenHash, $passwordTooShort = FALSE) {
 		$this->view->assign('passwordForgottenHash', $passwordForgottenHash);
+		if ($passwordTooShort) {
+			$this->view->assign('passwordTooShort', 1);
+		}
 	}
 
 
@@ -102,6 +106,9 @@ class Tx_JdavSv_Controller_ForgotPasswordController extends Tx_PtExtbase_Control
 		$feUser = $this->feUserRepository->findOneByForgotPasswordHash($passwordForgottenHash); /* @var Tx_JdavSv_Domain_Model_FeUser $feUser */
 		if ($feUser) {
 			if ($newPassword1 == $newPassword2) {
+				if (strlen($newPassword1) < 6) {
+					$this->forward('showChangePasswordForm', NULL, NULL, array('passwordForgottenHash' => $passwordForgottenHash, 'passwordTooShort' => TRUE));
+				}
 				$feUser->setPassword($newPassword1);
 				$feUser->setForgotPasswordHash('');
 				$this->feUserRepository->update($feUser);
