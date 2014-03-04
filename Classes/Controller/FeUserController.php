@@ -83,7 +83,7 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 				$this->flashMessageContainer->add('Die Änderungen an den Benutzerdaten wurden gespeichert!');
 			} else {
 				$formErrors['mobilePhoneIsMissing'] = 1;
-				$this->flashMessageContainer->add('Die Änderungen konnten nicht gespeichert werden!','', t3lib_FlashMessage::ERROR);
+				$this->flashMessageContainer->add('Die Änderungen konnten nicht gespeichert werden, du musst eine Handynummer angeben!','', t3lib_FlashMessage::ERROR);
 			}
 		} else {
 			$this->flashMessageContainer->add('Die Änderungen konnten nicht gespeichert werden!','' , t3lib_FlashMessage::ERROR);

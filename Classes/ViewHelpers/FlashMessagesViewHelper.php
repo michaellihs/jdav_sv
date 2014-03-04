@@ -1,27 +1,27 @@
 <?php
 /***************************************************************
-*  Copyright notice
-*
-*  (c) 2012 Michael Knoll <mimi@kaktusteam.de>
-*
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+ *  Copyright notice
+ *
+ *  (c) 2012 Michael Knoll <mimi@kaktusteam.de>
+ *
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 
 /**
  * View helper which renders the flash messages (if there are any) as an unsorted list.
@@ -29,11 +29,11 @@
  * In case you need custom Flash Message HTML output, please write your own ViewHelper for the moment.
  *
  * Possible severities:
- * 	const NOTICE  = -2;
- *	const INFO    = -1;
- *	const OK      = 0;
- *	const WARNING = 1;
- *	const ERROR   = 2;
+ *    const NOTICE  = -2;
+ *    const INFO    = -1;
+ *    const OK      = 0;
+ *    const WARNING = 1;
+ *    const ERROR   = 2;
  *
  * = Examples =
  *
@@ -74,10 +74,15 @@
 class Tx_JdavSv_ViewHelpers_FlashMessagesViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractTagBasedViewHelper {
 
 	const RENDER_MODE_UL = 'ul';
+
+
+
 	const RENDER_MODE_DIV = 'div';
 
 
+
 	protected $defaultMessagesCssClasses = array(2 => 'alert alert-error', 1 => 'alert alert-warning', -1 => 'alert alert-info', 0 => 'alert alert-info');
+
 
 
 	/**
@@ -119,6 +124,8 @@ class Tx_JdavSv_ViewHelpers_FlashMessagesViewHelper extends Tx_Fluid_Core_ViewHe
 		}
 	}
 
+
+
 	/**
 	 * Renders the flash messages as unordered list
 	 *
@@ -132,12 +139,13 @@ class Tx_JdavSv_ViewHelpers_FlashMessagesViewHelper extends Tx_Fluid_Core_ViewHe
 			$this->tag->addAttribute('class', $this->arguments['class']);
 		}
 		$tagContent = '';
-		foreach ($flashMessages as $singleFlashMessage) { /* @var $singleFlashMessage t3lib_FlashMessage */
+		foreach ($flashMessages as $singleFlashMessage) {
+			/* @var $singleFlashMessage t3lib_FlashMessage */
 			$tagContent = '<li';
 
 			// Set individual class for each error message
 			if (array_key_exists($singleFlashMessage->getSeverity(), $messageCssClasses)) {
-				$tagContent .= ' class="' .  $messageCssClasses[$singleFlashMessage->getSeverity()] . '"';
+				$tagContent .= ' class="' . $messageCssClasses[$singleFlashMessage->getSeverity()] . '"';
 			}
 			$tagContent .= '>';
 
@@ -153,6 +161,8 @@ class Tx_JdavSv_ViewHelpers_FlashMessagesViewHelper extends Tx_Fluid_Core_ViewHe
 		return $this->tag->render();
 	}
 
+
+
 	/*
 	 * Renders the flash messages as nested divs
 	 *
@@ -162,11 +172,6 @@ class Tx_JdavSv_ViewHelpers_FlashMessagesViewHelper extends Tx_Fluid_Core_ViewHe
 	 */
 	protected function renderDiv(array $flashMessages, array $messageCssClasses) {
 		$this->tag->setTagName('div');
-		if ($this->hasArgument('class')) {
-			$this->tag->addAttribute('class', $this->arguments['class']);
-		} else {
-			$this->tag->addAttribute('class', 'typo3-messages');
-		}
 		$tagContent = '';
 		foreach ($flashMessages as $singleFlashMessage) {
 			/* @var $singleFlashMessage t3lib_FlashMessage */
@@ -174,7 +179,7 @@ class Tx_JdavSv_ViewHelpers_FlashMessagesViewHelper extends Tx_Fluid_Core_ViewHe
 
 			// Set individual css class
 			if (array_key_exists($singleFlashMessage->getSeverity(), $messageCssClasses)) {
-				$tagContent .= ' class="' .  $messageCssClasses[$singleFlashMessage->getSeverity()] . '"';
+				$tagContent .= ' class="' . $messageCssClasses[$singleFlashMessage->getSeverity()] . '"';
 			}
 			$tagContent .= '>';
 
@@ -190,5 +195,5 @@ class Tx_JdavSv_ViewHelpers_FlashMessagesViewHelper extends Tx_Fluid_Core_ViewHe
 		$this->tag->setContent($tagContent);
 		return $this->tag->render();
 	}
+
 }
-?>
