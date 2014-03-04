@@ -76,24 +76,35 @@ class Tx_JdavSv_Controller_FeUserController extends Tx_JdavSv_Controller_Abstrac
 	 * @param Tx_JdavSv_Domain_Model_FeUser $feUser
 	 */
 	public function updateAction(Tx_JdavSv_Domain_Model_FeUser $feUser) {
+		$formErrors = array();
 		if ($this->feUser->getUid() == $feUser->getUid()) {
-			$this->feUserRepository->update($feUser);
-			$this->flashMessageContainer->add('Die Änderungen an den Benutzerdaten wurden gespeichert!');
+			if ($feUser->getMobilePhone() != '') {
+				$this->feUserRepository->update($feUser);
+				$this->flashMessageContainer->add('Die Änderungen an den Benutzerdaten wurden gespeichert!');
+			} else {
+				$formErrors['mobilePhoneIsMissing'] = 1;
+				$this->flashMessageContainer->add('Die Änderungen konnten nicht gespeichert werden!','', t3lib_FlashMessage::ERROR);
+			}
 		} else {
 			$this->flashMessageContainer->add('Die Änderungen konnten nicht gespeichert werden!','' , t3lib_FlashMessage::ERROR);
 		}
-		$this->redirect('edit');
+		$this->forward('edit', NULL, NULL, array('feUser' => $feUser, 'formErrors' => $formErrors));
 	}
 
 
 
 	/**
 	 * Actions shows edit form for FeUser
+	 * @param Tx_JdavSv_Domain_Model_FeUser $feUser
+	 * @param array $formErrors
 	 */
-	public function editAction() {
+	public function editAction(Tx_JdavSv_Domain_Model_FeUser $feUser = NULL, array $formErrors = NULL) {
 		$feGroups = $this->feGroupRepository->findAll();
+		if ($formErrors) {
+			$this->view->assignMultiple($formErrors);
+		}
 		$this->view->assign('feGroups', $feGroups);
-		$this->view->assign('feUser', $this->feUser);
+		$this->view->assign('feUser', ($feUser == NULL ? $this->feUser : $feUser));
 		$this->view->assign('sektionen', $this->sektionRepository->findAll());
 	}
 

@@ -1,7 +1,8 @@
 {namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+{namespace jdav=Tx_JdavSv_ViewHelpers}
 <h1>Deine Benutzerdaten</h1>
 
-<f:flashMessages/>
+<jdav:flashMessages/>
 
 <f:form class="form-horizontal" controller="FeUser" action="update" name="feUser" object="{feUser}">
 
@@ -91,7 +92,7 @@
 
         <div class="controls">
             <f:form.textfield class="span4" property="email"/>
-            <span class="help-inline">Deine E-Mail Adresse wird automatisch zu deinem neuen Benutzernamen!</span>
+            <span class="help-inline">Deine E-Mail Adresse wird automatisch zu deinem (neuen) Benutzernamen!</span>
         </div>
     </div>
 
@@ -103,11 +104,12 @@
         </div>
     </div>
 
-    <div class="control-group">
+    <div class="control-group{f:if(condition: '{mobilePhoneIsMissing} == 1', then: ' error')}">
         <label class="control-label" for="mobilePhone">Handy</label>
 
         <div class="controls">
             <f:form.textfield class="span4" property="mobilePhone"/>
+            <span class="help-inline">Eine Handynummer muss angegeben werden!</span>
         </div>
     </div>
 
