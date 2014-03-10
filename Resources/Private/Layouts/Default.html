@@ -108,6 +108,12 @@
 							</f:link.action>
 						</li>
 					</f:if>
+                    <f:if condition="{currentUser.isAdmin}">
+                        <li class="nav-header">Konfiguration</li>
+                        <li>
+                            <f:link.action controller="Configuration" action="editMailTemplates">E-Mail Vorlagen</f:link.action>
+                        </li>
+                    </f:if>
 				</ul>
 			</div>
 			<!--/.well -->

@@ -1,0 +1,101 @@
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+{namespace jdav=Tx_JdavSv_ViewHelpers}
+
+<f:layout name="Default"/>
+<f:section name="main">
+    <f:debug>{templates}</f:debug>
+    <h1>E-Mail Vorlagen</h1>
+    <jdav:flashMessages/>
+    <f:for each="{templates}" as="template" key="templateKey">
+        <f:form class="form-horizontal" method="post" action="update" name="configuration">
+            <f:render partial="formErrors"/>
+            <br/>
+
+            <f:debug>{template}</f:debug>
+
+            <fieldset>
+                <f:form.hidden name="templateKey" value="{templateKey}"/>
+                <legend>Template "{template.label}" bearbeiten</legend>
+                <div class="row">
+                    <div class="span9">
+                        <div class="control-group">
+                            <div class="controls">
+                                <f:form.textarea id="textarea-{key}" class="span9" name="templateContent" value="{template.templateContent}"
+                                                 cols="30" rows="20"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div class="control-group">
+                            <div class="controls">
+                                <select id="select-{key}" size="5">
+                                    <f:for each="{template.variables}" as="description" key="variable">
+                                        <option value="{variable}">{description}</option>
+                                    </f:for>
+                                </select>
+                                <input type="submit" data-select="select-{key}" data-textarea="textarea-{key}"
+                                       class="btn-primary btn placeholder-button" value="Platzhalter übernehmen"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <f:form.submit class="btn-primary btn" value="Template Speichern"/>
+            </div>
+        </f:form>
+    </f:for>
+
+</f:section>
+
+
+<f:section name="javascript">
+    <script>
+        $(function () {
+            $.fn.getCursorPosition = function () {
+                var el = $(this).get(0);
+                var pos = 0;
+                if ('selectionStart' in el) {
+                    pos = el.selectionStart;
+                } else if ('selection' in document) {
+                    el.focus();
+                    var Sel = document.selection.createRange();
+                    var SelLength = document.selection.createRange().text.length;
+                    Sel.moveStart('character', -el.value.length);
+                    pos = Sel.text.length - SelLength;
+                }
+                return pos;
+            };
+
+            $.fn.selectRange = function(start, end) {
+                if(!end) end = start;
+                return this.each(function() {
+                    if (this.setSelectionRange) {
+                        this.focus();
+                        this.setSelectionRange(start, end);
+                    } else if (this.createTextRange) {
+                        var range = this.createTextRange();
+                        range.collapse(true);
+                        range.moveEnd('character', end);
+                        range.moveStart('character', start);
+                        range.select();
+                    }
+                });
+            };
+
+
+            $('.placeholder-button').click(function (e) {
+                e.preventDefault();
+                var $self = $(this);
+                var textarea = $('#' + $self.data('textarea'));
+                var position = textarea.getCursorPosition();
+                var placeholder = $('#' + $self.data('select') + "  option:selected").val();
+                var content = textarea.val();
+                var newContent = content.substr(0, position) + placeholder + content.substr(position);
+                textarea.val(newContent);
+                textarea.selectRange(position, position + placeholder.length);
+            });
+        });
+    </script>
+</f:section>

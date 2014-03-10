@@ -21,7 +21,8 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration,exportRegistrationDebitInformation',
 		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants',
 		'FeUser' => 'edit,update, password, passwordChange',
-		'ForgotPassword' => 'forgotPassword, forgotPasswordSendMail, setNewPassword, showChangePasswordForm'
+		'ForgotPassword' => 'forgotPassword, forgotPasswordSendMail, setNewPassword, showChangePasswordForm',
+		'Configuration' => 'editMailTemplates, updateMailTemplates'
 	),
 	array(
 		'Login' => 'showLoginForm',
@@ -38,6 +39,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Export' => 'exportRegistrationsListForParticipants, exportRegistrationsListForTeamersAction,exportInvoiceForRegistration,exportRegistrationDebitInformation',
 		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants',
 		'FeUser' => 'edit, update, password, passwordChange',
-		'ForgotPassword' => 'forgotPassword, forgotPasswordSendMail, setNewPassword, showChangePasswordForm'
+		'ForgotPassword' => 'forgotPassword, forgotPasswordSendMail, setNewPassword, showChangePasswordForm',
+		'Configuration' => 'editMailTemplates, updateMailTemplates'
 	)
 );
