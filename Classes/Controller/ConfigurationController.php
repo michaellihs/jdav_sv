@@ -41,6 +41,49 @@ class Tx_JdavSv_Controller_ConfigurationController extends Tx_JdavSv_Controller_
 				'{registration.event.title}' => 'Titel der Schulung',
 				'<f:uri.action pageUid="{settings.frontendPluginPid}" absolute="1" noCacheHash="1" pluginName="pi1" extensionName="jdavsv" controller="Event" action="show" arguments="{event: registration.event.uid}" />' => 'Link zu den Schulungsdetails'
 			)
+		),
+		'confirmReservationAdmin' => array(
+			'label' => 'Reservierungsbenachrichtigung für GS',
+			'path' => 'Email/confirmReservationAdmin.html',
+			'variables' => array(
+				'{registration.event.fullName}' => 'Titel der Veranstaltung',
+				'{registration.attendee.fullName}' => 'Vor- und Nachname des Teilnehmers',
+				'<f:uri.action pageUid="{settings.administrationPluginPid}" absolute="1" noCacheHash="1" pluginName="pi1" extensionName="jdavsv" controller="RegistrationAdmin" action="edit" arguments="{registration: registration}" />' => 'Link zum Bearbeiten der Anmeldung'
+			)
+		),
+		'confirm.html' => array(
+			'label' => 'Bestätigung der verbindlichen Anmeldung',
+			'path' => 'Email/confirm.html',
+			'variables' => array(
+				'{registration.attendee.firstName}' => 'Vorname des Teilnehmers',
+				'{registration.event.title}' => 'Titel der Schulung',
+				'<f:uri.action pageUid="{settings.frontendPluginPid}" absolute="1" noCacheHash="1" pluginName="pi1" extensionName="jdavsv" controller="Event" action="show" arguments="{event: registration.event.uid}" />' => 'Link zu den Schulungsdetails'
+			)
+		),
+		'confirmUnregisterAdmin.html' => array(
+			'label' => 'Abmeldebestätigung GS',
+			'path' => 'Email/confirmUnregisterAdmin.html',
+			'variables' => array(
+				'{registration.event.fullName}' => 'Titel der Veranstaltung',
+				'{registration.attendee.fullName}' => 'Vor- und Nachname des Teilnehmers',
+			)
+		),
+		'confirmUnregisterAttendee.html' => array(
+			'label' => 'Abmeldebestätigung Teilnehmer',
+			'path' => 'Email/confirmUnregisterAttendee.html',
+			'variables' => array(
+				'{registration.attendee.firstName}' => 'Vorname des Teilnehmers',
+				'{registration.event.title}' => 'Titel der Schulung',
+			)
+		),
+		'forgotPassword.html' => array(
+			'label' => 'Passwort vergessen E-Mail',
+			'path' => 'Email/forgotPassword.html',
+			'variables' => array(
+				'{feUser.attendee.firstName}' => 'Vorname des Benutzers',
+				'{feUser.email}' => 'E-Mail Adresse des Benutzers',
+				'<f:uri.action pageUid="{settings.passwordForgottenPid}" absolute="1" noCacheHash="1" pluginName="pi1" extensionName="jdavsv" controller="ForgotPassword" action="showChangePasswordForm" arguments="{passwordForgottenHash: passwordForgottenHash}" />' => 'Link zum Passwort Neu-Setzen'
+			)
 		)
 	);
 
