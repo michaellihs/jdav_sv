@@ -3,3 +3,4 @@
 !.gitignore
 .project
 .settings
+Resources/Private/Templates/Email/*20*
