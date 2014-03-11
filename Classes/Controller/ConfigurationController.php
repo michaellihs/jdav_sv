@@ -121,7 +121,7 @@ class Tx_JdavSv_Controller_ConfigurationController extends Tx_JdavSv_Controller_
 	public function updateEmailTemplatesAction($templateKey, $templateContent) {
 		$templatePath = $this->templatesBasePath . $this->templatesArray[$templateKey]['path'];
 		if (file_exists($templatePath)) {
-			rename($templatePath, $templatePath . date('Ymd', time()));
+			rename($templatePath, $templatePath . '.' . time());
 			file_put_contents($templatePath, $templateContent);
 			$this->flashMessageContainer->add('Vorlage "' . $this->templatesArray[$templateKey]['label'] . '" wurde gespeichert!');
 		} else {

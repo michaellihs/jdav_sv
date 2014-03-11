@@ -22,7 +22,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants',
 		'FeUser' => 'edit,update, password, passwordChange',
 		'ForgotPassword' => 'forgotPassword, forgotPasswordSendMail, setNewPassword, showChangePasswordForm',
-		'Configuration' => 'editMailTemplates, updateMailTemplates'
+		'Configuration' => 'editMailTemplates, updateEmailTemplates'
 	),
 	array(
 		'Login' => 'showLoginForm',
@@ -40,6 +40,6 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Message' => 'showParticipantsMessageAdminForm, sendMessageToParticipants',
 		'FeUser' => 'edit, update, password, passwordChange',
 		'ForgotPassword' => 'forgotPassword, forgotPasswordSendMail, setNewPassword, showChangePasswordForm',
-		'Configuration' => 'editMailTemplates, updateMailTemplates'
+		'Configuration' => 'editMailTemplates, updateEmailTemplates'
 	)
 );
