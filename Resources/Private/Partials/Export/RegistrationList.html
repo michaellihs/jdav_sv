@@ -8,7 +8,8 @@
 				<th class="tx-ptextlist-list-header-cell">Name, Vorname</th>
 				<th class="tx-ptextlist-list-header-cell">Sektion</th>
 				<th class="tx-ptextlist-list-header-cell">Adresse</th>
-				<th class="tx-ptextlist-list-header-cell">Festnetz<br />Mobil</th>
+				<th class="tx-ptextlist-list-header-cell">Festnetz</th>
+				<th class="tx-ptextlist-list-header-cell">Mobil</th>
 				<th class="tx-ptextlist-list-header-cell">email</th>
 				<th class="tx-ptextlist-list-header-cell">Geburtsdatum</th>
 			</tr>
@@ -20,8 +21,9 @@
 					<td><f:if condition="{registration.vegetarian}">ja</f:if></td>
 					<td>{registration.attendee.lastName}, {registration.attendee.firstName}</td>
 					<td>{registration.attendee.sektion.name}</td>
-					<td>{registration.attendee.address}<br/>{registration.attendee.zip} {registration.attendee.city}</td>
-					<td>{registration.attendee.telephone}<br/>{registration.attendee.mobilePhone}</td>
+					<td>{registration.attendee.address}, {registration.attendee.zip} {registration.attendee.city}</td>
+					<td>{registration.attendee.telephone}</td>
+                    <td>{registration.attendee.mobilePhone}</td>
 					<td>{registration.attendee.email}</td>
 					<td>{registration.attendee.dateOfBirth->f:format.date(format: 'd.m.Y')}</td>
 				</tr>
