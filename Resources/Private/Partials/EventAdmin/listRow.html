@@ -1,0 +1,64 @@
+{namespace extlist=Tx_PtExtlist_ViewHelpers}
+{namespace ptextbase=Tx_PtExtbase_ViewHelpers}
+
+
+<tr>
+    <td>
+        <strong>{event.category.shortcut} {event.accreditationNumber}</strong><br>
+
+        <f:render partial="Event/RegistrationState" arguments="{event: event}"/>
+
+    </td>
+    <td>{event.dateStart -> f:format.date(format: 'd.m.Y')}<br>
+        {event.dateEnd -> f:format.date(format: 'd.m.Y')}
+    </td>
+    <td>
+        <strong>{event.title}</strong>
+        <f:render partial="Event/EventComment" arguments="{event: event}"/>
+        <br>
+        {event.subtitle}<br/>
+        <f:link.action controller="EventAdmin" action="show" arguments="{event: event.uid}">
+            Details
+        </f:link.action>
+        &nbsp;
+        <f:link.action controller="Export" action="exportRegistrationsListForTeamers"
+                       arguments="{event: event}">Teamer TN-Liste
+        </f:link.action>
+        &nbsp;
+        <f:link.action controller="Export" action="exportRegistrationsListForParticipants"
+                       arguments="{event: event}">Teilnehmer TN-Liste
+        </f:link.action>
+        &nbsp;
+        <f:link.action pageUid="{settings.registrationsListExportPluginPid}" pluginName="pi1" extensionName="ptextlist"
+                       action="download"
+                       arguments="{extlist:namespace.GPArray(object:'{registrationsByEventFilterForParticipantsExcelExportList}' arguments:'filterValue:{event.uid}')}">
+            Excel Teilnehmerliste
+        </f:link.action>
+        &nbsp;
+    </td>
+    <td>
+        {event.firstTeamer.fullName}<br>
+        {event.secondTeamer.fullName}
+    </td>
+    <td>
+        <p class="pull-right">
+            <f:link.action class="btn btn-primary" controller="EventAdmin" action="edit"
+                           arguments="{event: event.uid}"><i class="icon-pencil icon-white"></i>
+                Bearbeiten
+            </f:link.action>
+            <f:link.action class="btn btn-primary" controller="RegistrationAdmin" action="new"
+                           arguments="{event: event.uid}"><i class="icon-plus icon-white"></i>
+                Neue Anmeldung
+            </f:link.action>
+            <br/>
+            <f:link.action class="btn btn-primary" controller="Message" action="showParticipantsMessageAdminForm"
+                           arguments="{event: event.uid}">
+                Nachricht an TN
+            </f:link.action>
+            <f:link.action class="btn btn-danger" controller="EventAdmin" action="delete"
+                           arguments="{event: event.uid}"><i class="icon-trash icon-white"></i>
+                Löschen
+            </f:link.action>
+        </p>
+    </td>
+</tr>

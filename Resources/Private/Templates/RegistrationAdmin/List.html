@@ -90,54 +90,7 @@
 			<th></th>
 		</tr>
 		<f:for each="{listData}" as="row">
-			<f:if condition="{row.registration.value.isFinished}">
-				<f:then><tr style="background-color: #d6e9c6;"></f:then>
-				<f:else><tr style="background-color: #ddaaaa;"></f:else>
-			</f:if>
-				<td>{row.registration.value.date -> f:format.date(format: 'd.m.Y')}</td>
-				<td>
-					<strong>{row.registration.value.event.category.shortcut}-{row.registration.value.event.accreditationNumber}
-						{row.registration.value.event.title}</strong>
-					<f:if condition="{row.registration.value.comment}">
-						<i class="icon-tags" id="registration-comment-{row.registration.value.uid}" data-original-title="Interne Notiz" data-content="{row.registration.value.comment}"></i>
-					</f:if>
-					<br>
-					<f:link.action controller="EventAdmin" action="show"
-								   arguments="{event: row.registration.value.event}">Details
-					</f:link.action>
-				</td>
-				<td>
-					{row.registration.value.attendee.fullName} (<a
-						href="mailto:{row.registration.value.attendee.email}">{row.registration.value.attendee.email}</a>)<br/>
-					<!--<f:link.action controller="FeUserAdmin" action="show"
-								   arguments="{feUser: row.registration.value.attendee}">Details
-					</f:link.action> &nbsp; -->
-
-					<f:link.action controller="FeUserAdmin" action="edit"
-								   arguments="{feUser: row.registration.value.attendee}">Bearbeiten
-					</f:link.action>
-				</td>
-				<td>
-					<p class="pull-right">
-						<f:link.action controller="RegistrationAdmin" action="sendConfirmation"
-									   arguments="{registration: row.registration.value}" class="btn btn-primary">
-							Anm.-Best. versenden <f:if condition="{row.registration.value.registrationConfirmationSent}"><i class="icon-white icon-ok"></i></f:if>
-						</f:link.action>
-                        <f:link.action controller="Export" action="exportRegistrationDebitInformation"
-                                       arguments="{registration: row.registration.value}" class="btn btn-primary">
-                            Einz.-Info. versenden <f:if condition="{row.registration.value.debitInformationSent}"><i class="icon-white icon-ok"></i></f:if>
-                        </f:link.action>
-						<f:link.action controller="RegistrationAdmin" action="edit"
-									   arguments="{registration: row.registration.value}" class="btn btn-primary"><i
-								class="icon-pencil icon-white"></i> Bearbeiten
-						</f:link.action>
-						<f:link.action controller="RegistrationAdmin" action="delete"
-									   arguments="{registration: row.registration.value}" class="btn btn-danger"><i
-								class="icon-trash icon-white"></i> Löschen
-						</f:link.action>
-					</p>
-				</td>
-			</tr>
+			<f:render partial="RegistrationAdmin/listRow" arguments="{registration: row.registration.value}" />
 		</f:for>
 	</table>
 
