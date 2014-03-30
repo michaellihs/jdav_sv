@@ -18,15 +18,12 @@
         </f:else>
     </f:if>
 
-    <h3>Warteliste <span>(in der Reihenfolge der Anmeldungen)</span></h3>
     <f:if condition="{event.waitingListRegistrations}">
         <f:then>
+            <h3>Warteliste <span>(in der Reihenfolge der Anmeldungen)</span></h3>
             <f:render partial="Export/RegistrationList"
                       arguments="{registrations: event.waitingListRegistrations, title: 'Warteliste'}"/>
         </f:then>
-        <f:else>
-            <p>Es gibt keine Wartelistenplätze für diese Schulung!</p>
-        </f:else>
     </f:if>
 
     <f:if condition="{event.trainee}">
