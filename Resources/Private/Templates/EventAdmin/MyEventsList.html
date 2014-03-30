@@ -16,6 +16,7 @@
 			<th>AkkNr</th>
 			<th>Beginn<br>Ende</th>
 			<th>Beschreibung</th>
+            <th>Teamer/Hospitant</th>
 			<th></th>
 		</tr>
 		<f:for each="{events}" as="event">
@@ -44,6 +45,11 @@
 					</f:link.action>
 					&nbsp;
 				</td>
+                <td>
+                    {event.firstTeamer.fullName}<br/>
+                    {event.secondTeamer.fullName}<br/>
+                    {event.trainee.fullName}
+                </td>
 				<td>
 					<f:if condition="{event.isNotAccepted}">
 						<p class="pull-right">
