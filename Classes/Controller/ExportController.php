@@ -72,6 +72,7 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/exportRegistrationsListForParticipants.html';
 		$this->defaultPdfExportSettings['fileName'] = 'teilnehmerliste-' . $event->getCategory()->getShortcut() . $event->getAccreditationNumber();
 		$this->defaultPdfExportSettings['paperOrientation'] = 'landscape';
+		$this->defaultPdfExportSettings['cssFilePath'] = 'EXT:jdav_sv/Resources/Private/CSS/Export/Pdf.css';
 
 		$this->view->setConfiguration($this->defaultPdfExportSettings);
 
@@ -84,6 +85,7 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$this->view->assign('listData', $listData);
 		$this->view->assign('listCaptions', $listCaptions);
 		$this->view->assign('listHeader', $listContext->getList()->getListHeader());
+		$this->view->assign('jdavLogoFilePath', t3lib_div::getFileAbsFileName('EXT:jdav_sv/Resources/Public/Img/jdav_logo_klein.png'));
 
 		return $this->view->render();
 	}
@@ -100,10 +102,12 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$this->defaultPdfExportSettings['templatePath'] = 'typo3conf/ext/jdav_sv/Resources/Private/Templates/Export/exportRegistrationsListForTeamers.html';
 		$this->defaultPdfExportSettings['fileName'] = 'teilnehmerliste-' . $event->getCategory()->getShortcut() . $event->getAccreditationNumber();
 		$this->defaultPdfExportSettings['paperOrientation'] = 'landscape';
+		$this->defaultPdfExportSettings['cssFilePath'] = 'EXT:jdav_sv/Resources/Private/CSS/Export/Pdf.css';
 
 		$this->view->setConfiguration($this->defaultPdfExportSettings);
 
 		$this->view->assign('event', $event);
+		$this->view->assign('jdavLogoFilePath', t3lib_div::getFileAbsFileName('EXT:jdav_sv/Resources/Public/Img/jdav_logo_klein.png'));
 
 		return $this->view->render();
 	}
@@ -121,7 +125,9 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$this->defaultPdfExportSettings['fileName'] = 'rechnung-' . $registration->getEvent()->getCategory()->getShortcut() . $registration->getEvent()->getAccreditationNumber();
 		$this->defaultPdfExportSettings['paperOrientation'] = 'portrait';
 		$this->defaultPdfExportSettings['paperSize'] = 'A4';
+		$this->defaultPdfExportSettings['cssFilePath'] = 'EXT:jdav_sv/Resources/Private/CSS/Export/Pdf.css';
 
+		$this->view->assign('jdavLogoFilePath', t3lib_div::getFileAbsFileName('EXT:jdav_sv/Resources/Public/Img/jdav_logo_klein.png'));
 		$this->view->setConfiguration($this->defaultPdfExportSettings);
 		$this->view->assign('registration', $registration);
 
@@ -141,12 +147,13 @@ class Tx_JdavSv_Controller_ExportController extends Tx_JdavSv_Controller_Abstrac
 		$this->defaultPdfExportSettings['fileName'] = 'lastschriftinfo-' . $registration->getEvent()->getCategory()->getShortcut() . $registration->getEvent()->getAccreditationNumber();
 		$this->defaultPdfExportSettings['paperOrientation'] = 'portrait';
 		$this->defaultPdfExportSettings['paperSize'] = 'A4';
-		$this->defaultPdfExportSettings['paperSize'] = 'A4';
+		$this->defaultPdfExportSettings['cssFilePath'] = 'EXT:jdav_sv/Resources/Private/CSS/Export/Pdf.css';
 
 		$registration->setDebitInformationSent(TRUE);
 		$this->registrationRepository->update($registration);
 		$this->persistenceManager->persistAll();
 
+		$this->view->assign('jdavLogoFilePath', t3lib_div::getFileAbsFileName('EXT:jdav_sv/Resources/Public/Img/jdav_logo_klein.png'));
 		$this->view->setConfiguration($this->defaultPdfExportSettings);
 		$this->view->assign('registration', $registration);
 		$this->view->assign('currentDate', new DateTime());

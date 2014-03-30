@@ -1,17 +1,14 @@
 <f:if condition="{registrations}">
 	<f:then>
-		<table class="tx_jdavsv">
+		<table class="tx_jdavsv registration">
 			<thead>
 			<tr class="tx-ptextlist-list-header-row">
 				<th class="tx-ptextlist-list-header-cell">m/w</th>
 				<th class="tx-ptextlist-list-header-cell">Veg.</th>
-				<th class="tx-ptextlist-list-header-cell">Name</th>
-				<th class="tx-ptextlist-list-header-cell">Vorname</th>
+				<th class="tx-ptextlist-list-header-cell">Name, Vorname</th>
 				<th class="tx-ptextlist-list-header-cell">Sektion</th>
-				<th class="tx-ptextlist-list-header-cell">Straße</th>
-                <th class="tx-ptextlist-list-header-cell">PLZ Ort</th>
-				<th class="tx-ptextlist-list-header-cell">Telefon</th>
-				<th class="tx-ptextlist-list-header-cell">Handy</th>
+				<th class="tx-ptextlist-list-header-cell">Adresse</th>
+				<th class="tx-ptextlist-list-header-cell">Festnetz<br />Mobil</th>
 				<th class="tx-ptextlist-list-header-cell">email</th>
 				<th class="tx-ptextlist-list-header-cell">Geburtsdatum</th>
 			</tr>
@@ -21,13 +18,10 @@
 				<tr class="tx-ptextlist-row {f:if(condition: '{rowIndex} % 2', then: 'even', else: 'odd')}">
 					<td>{registration.attendee.sex}</td>
 					<td><f:if condition="{registration.vegetarian}">ja</f:if></td>
-					<td>{registration.attendee.lastName}</td>
-					<td>{registration.attendee.firstName}</td>
+					<td>{registration.attendee.lastName}, {registration.attendee.firstName}</td>
 					<td>{registration.attendee.sektion.name}</td>
-					<td>{registration.attendee.address}</td>
-                    <td>{registration.attendee.zip} {registration.attendee.city}</td>
-					<td>{registration.attendee.telephone}</td>
-					<td>{registration.attendee.mobilePhone}</td>
+					<td>{registration.attendee.address}<br/>{registration.attendee.zip} {registration.attendee.city}</td>
+					<td>{registration.attendee.telephone}<br/>{registration.attendee.mobilePhone}</td>
 					<td>{registration.attendee.email}</td>
 					<td>{registration.attendee.dateOfBirth->f:format.date(format: 'd.m.Y')}</td>
 				</tr>
