@@ -52,11 +52,15 @@
                 </td>
 				<td>
 					<f:if condition="{event.isNotAccepted}">
-						<p class="pull-right">
-							<f:link.action class="btn btn-primary" controller="EventAdmin" action="edit" arguments="{event: event}">Bearbeiten</f:link.action>
-							<f:link.action class="btn btn-danger" controller="EventAdmin" action="delete" arguments="{event: event, returnTo: 'myEventsList'}">Löschen</f:link.action>
-                            <f:link.action class="btn btn-primary" controller="Message" action="showParticipantsMessageAdminForm" arguments="{event: event.uid}">Nachricht an TN</f:link.action>
-						</p>
+                        <f:then>
+                            <p class="pull-right">
+                                <f:link.action class="btn btn-primary" controller="EventAdmin" action="edit" arguments="{event: event}">Bearbeiten</f:link.action>
+                                <f:link.action class="btn btn-danger" controller="EventAdmin" action="delete" arguments="{event: event, returnTo: 'myEventsList'}">Löschen</f:link.action>
+                            </p>
+                        </f:then>
+                        <f:else>
+                                <f:link.action class="btn btn-primary" controller="Message" action="showParticipantsMessageAdminForm" arguments="{event: event.uid}">Nachricht an TN</f:link.action>
+                        </f:else>
 					</f:if>
 				</td>
 			</tr>
