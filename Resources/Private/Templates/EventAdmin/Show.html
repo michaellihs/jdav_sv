@@ -38,4 +38,13 @@
 
 </f:section>
 
-<f:section name="javascript"></f:section>
+<f:section name="javascript">
+    <script type="text/javascript">
+		<f:for each="{event.nonWaitingListRegistrations}" as="registration">
+			<f:if condition="{registration.comment}">$('#registration-comment-{registration.uid}').popover();</f:if>
+		</f:for>
+        <f:for each="{event.waitingListRegistrations}" as="registration">
+            <f:if condition="{registration.comment}">$('#registration-comment-{registration.uid}').popover();</f:if>
+        </f:for>
+	</script>
+</f:section>

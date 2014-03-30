@@ -16,10 +16,6 @@
         <td>
             <strong>{registration.event.category.shortcut}-{registration.event.accreditationNumber}
                 {registration.event.title}</strong>
-            <f:if condition="{registration.comment}">
-                <i class="icon-tags" id="registration-comment-{registration.uid}" data-original-title="Interne Notiz"
-                   data-content="{registration.comment}"></i>
-            </f:if>
             <br>
             <f:link.action controller="EventAdmin" action="show"
                            arguments="{event: registration.event}">Details
@@ -28,7 +24,11 @@
     </f:else>
 </f:if>
 <td>
-    {registration.attendee.fullName} (<a href="mailto:{registration.attendee.email}">{registration.attendee.email}</a>)<br/>
+    {registration.attendee.fullName} (<a href="mailto:{registration.attendee.email}">{registration.attendee.email}</a>)
+    <f:if condition="{registration.comment}">
+        <i class="icon-tags" id="registration-comment-{registration.uid}" data-original-title="Interne Notiz zur Anmeldung"
+           data-content="{registration.comment}"></i>
+    </f:if><br/>
     <!--<f:link.action controller="FeUserAdmin" action="show"
                    arguments="{feUser: registration.attendee}">Details
     </f:link.action> &nbsp; -->
