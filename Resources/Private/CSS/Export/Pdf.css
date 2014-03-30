@@ -1,0 +1,103 @@
+body {
+    font-family: "verdana", "sans-serif";
+    margin: 0;
+    font-size: 1em;
+    padding: 0;
+}
+
+table {
+    font-size: 0.8em;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+.registration table {
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+}
+
+.tx-ptextlist-list-header-row {
+    background-color: #EEEEEE;
+}
+
+.tx-ptextlist-list-header-cell {
+
+}
+
+.tx-ptextlist-row td {
+    padding: 3px;
+}
+
+.tx-ptextlist-list {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.odd td {
+    background-color: #CCD7E0;
+}
+
+a:link, a:visited, a:active {
+    color: #5F83BA;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #5f83ba;
+    text-decoration: underline;
+}
+
+img {
+    border: none;
+}
+
+select {
+    font-weight: bold;
+}
+
+h1 {
+    margin: 0.1em 0;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+h3 span {
+    font-size: x-small
+}
+
+#header {
+    height: 70px;
+    line-height: 30px;
+}
+
+#footer {
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    position: fixed;
+    font-size: 0.75em;
+    padding-top: 12px;
+    height: 35px;
+    vertical-align: middle;
+    clear: both;
+    border-top: 1px solid black;
+}
+
+#logo {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: none;
+}
+
+#footer p {
+    font-size: x-small
+}
