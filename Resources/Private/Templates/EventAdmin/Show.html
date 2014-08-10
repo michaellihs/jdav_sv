@@ -17,13 +17,13 @@
 <br/>
     
 <legend>Anmeldungen</legend>
-<f:render partial="Registration/list" arguments="{event:event, registrations:event.nonWaitingListRegistrations}" />
+<f:render partial="Registration/list" arguments="{event:event, registrations:event.nonWaitingListRegistrations, inShowEvent: 1}" />
 <f:link.action class="btn btn-primary" controller="EventAdmin" arguments="{event: event}" action="setRegistrationsPaid">Alle Anmeldungen auf bezahlt setzen</f:link.action>
 <br/>
 <br/>
 
 <legend>Warteliste</legend>
-<f:render partial="Registration/list" arguments="{waitingList: 1, event:event, registrations:event.waitingListRegistrations, currentUser: currentUser}" />
+<f:render partial="Registration/list" arguments="{waitingList: 1, event:event, registrations:event.waitingListRegistrations, currentUser: currentUser, inShowEvent: 1}" />
 
 <br/>
 <div class="form-actions">

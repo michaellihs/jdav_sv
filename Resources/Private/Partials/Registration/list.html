@@ -1,21 +1,26 @@
 <f:if condition="{registrations}">
-<f:then>
-<table class="table">
-	<tr>
-		<th>
-            Anmeldedatum
-		</th>
-        <th>
-			Teilnehmer (Sektion)
-		</th>
-		<th></th>
-	</tr>
-    <f:for each="{registrations}" as="registration">
-		<f:render partial="RegistrationAdmin/listRow" arguments="{registration: registration, dontShowEvent: 1}" />
-    </f:for>
-</table>
-</f:then>
-<f:else>
-    Es liegen keine Anmeldungen vor.<br><br>
-</f:else>
+	<f:then>
+		<table class="table">
+			<tr>
+				<th>
+					Anmeldedatum
+				</th>
+				<th>
+					Teilnehmer
+				</th>
+				<th>
+					Sektion
+				</th>
+				<th></th>
+				<th></th>
+			</tr>
+			<f:for each="{registrations}" as="registration">
+				<f:render partial="RegistrationAdmin/listRow"
+						  arguments="{registration: registration, dontShowEvent: 1, inShowEvent: inShowEvent, waitingList: waitingList}"/>
+			</f:for>
+		</table>
+	</f:then>
+	<f:else>
+		Es liegen keine Anmeldungen vor.<br><br>
+	</f:else>
 </f:if>
