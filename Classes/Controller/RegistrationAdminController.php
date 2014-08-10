@@ -186,7 +186,7 @@ class Tx_JdavSv_Controller_RegistrationAdminController extends Tx_JdavSv_Control
 		$this->registrationRepository->update($registration);
 
 		$this->flashMessageContainer->add('Die Anmeldung wurde gespeichert.');
-		$this->redirect('edit', NULL, NULL, array('registration' => $registration));
+		$this->redirect('list', NULL, NULL, array('registration' => $registration));
 	}
 	
 
