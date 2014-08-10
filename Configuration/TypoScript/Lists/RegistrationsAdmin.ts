@@ -10,97 +10,99 @@
 
 plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
 
-    backendConfig < plugin.tx_ptextlist.prototype.backend.extbase
-    backendConfig {
-        repositoryClassName = Tx_JdavSv_Domain_Repository_RegistrationRepository
-        #sorting = title
-    }
-    
-    
-    
-    fields {
-    
-        registration {
-            table = __self__
-            field = __object__
-        }
+	backendConfig < plugin.tx_ptextlist.prototype.backend.extbase
+	backendConfig {
+		repositoryClassName = Tx_JdavSv_Domain_Repository_RegistrationRepository
+		#sorting = title
+	}
 
-        date {
-            table = __self__
-            field = date
-        }
+	fields {
 
-        attendee {
-            table = __self__
-            field = attendee
-        }
+		registration {
+			table = __self__
+			field = __object__
+		}
 
-        reservedUntil {
-            table = __self__
-            field = reservedUntil
-        }
+		date {
+			table = __self__
+			field = date
+		}
 
-        waitingList {
-            table = __self__
-            field = waitingList
-        }
+		attendee {
+			table = __self__
+			field = attendee
+		}
 
-        registrationOrder {
-            table = __self__
-            field = registrationOrder
-        }
+		reservedUntil {
+			table = __self__
+			field = reservedUntil
+		}
 
-        vegetarian {
-            table = __self__
-            field = vegetarian
-        }
+		waitingList {
+			table = __self__
+			field = waitingList
+		}
 
-        event {
-            table = __self__
-            field = event
-        }
+		registrationOrder {
+			table = __self__
+			field = registrationOrder
+		}
 
-        isAccepted {
-            table = __self__
-            field = isAccepted
-        }
+		vegetarian {
+			table = __self__
+			field = vegetarian
+		}
 
-        eventUid {
-        	table = __self__
-        	field = event.uid
-        }
+		event {
+			table = __self__
+			field = event
+		}
 
-        eventTitle {
-        	table = event
-        	field = title
-        }
+		isAccepted {
+			table = __self__
+			field = isAccepted
+		}
 
-    }
-    
-    
-    
-    columns {
+		eventUid {
+			table = __self__
+			field = event.uid
+		}
 
-        10 {
-            fieldIdentifier = date
-            columnIdentifier = date
-            label = Anmeldedatum
-        }
+		eventTitle {
+			table = event
+			field = title
+		}
 
-        20 {
-            fieldIdentifier = event
-            columnIdentifier = event
-            label = Veranstaltung
-        }
+	}
 
-        30 {
-        	fieldIdentifier = attendee
-        	columnIdentifier = attendee
-        	label = Teilnehmer
-        }
-    
-    }
+	columns {
 
+		10 {
+			fieldIdentifier = date
+			columnIdentifier = date
+			label = Anmeldedatum
+		}
+
+		20 {
+			fieldIdentifier = event
+			columnIdentifier = event
+			label = Veranstaltung
+		}
+
+		30 {
+			fieldIdentifier = attendee
+			columnIdentifier = attendee
+			label = Teilnehmer
+		}
+
+		40 {
+			# Field identifier ist egal, weil wir Wert im Partial aus Value ziehen!
+			fieldIdentifier = event
+			columnIdentifier = sektion
+			label = Sektion
+		}
+
+	}
 
 	filters {
 
@@ -149,13 +151,11 @@ plugin.tx_jdavsv.settings.listConfig.registrationsAdmin {
 
 	}
 
+	pager {
 
+		itemsPerPage = 20
 
-    pager {
-
-    	itemsPerPage = 20
-
-    }
+	}
 
 }
 
