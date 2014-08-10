@@ -35,7 +35,7 @@ class Tx_JdavSv_Controller_ConfigurationController extends Tx_JdavSv_Controller_
 	protected $templatesArray = array(
 		'confirmReservationAttendee' => array(
 			'label' => 'Reservierungsbestätigung Teilnehmer',
-			'path' => 'Email/confirm.html',
+			'path' => 'Email/confirmReservationAttendee.html',
 			'variables' => array(
 				'{registration.attendee.firstName}' => 'Vorname des Teilnehmers',
 				'{registration.event.title}' => 'Titel der Schulung',
